@@ -1,156 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CROWND Estates</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blue Planet Carousel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/Ahome-Front_end/assets/css/landing-page.css">
 </head>
 
-<body class="bg-white text-gray-800 font-sans">
+<body class="bg-black text-white font-sans">
 
-    <!-- Navbar -->
-    <header class="bg-black text-white">
-        <div class=" flex items-center p-6 justify-evenly">
-            <div class="w-8 h-8 bg-white rounded-full"></div>
-            <a href="#" class="text-2xl font-bold justify-start">Ahome</a>
-            <nav>
-                <ul class="flex space-x-4 text-2xl font-bold">
-                    <div class="inline-flex space-x-6 items-center justify-center">
-                        <div class="relative group">
-                            <button class="hover:underline focus:outline-none">Projects</button>
-                            <ul
-                                class="absolute hidden group-hover:block bg-white text-black mt-2 shadow-lg rounded w-48 text-left z-50">
-                                <li><a href="#villa-luminea" class="block px-4 py-2 hover:bg-gray-100">Villa Luminea</a>
-                                </li>
-                                <li><a href="#grace" class="block px-4 py-2 hover:bg-gray-100">GRACE</a></li>
-                                <li><a href="#chipperfield" class="block px-4 py-2 hover:bg-gray-100">Crownd by
-                                        Chipperfield</a></li>
-                                <li><a href="#casa-crownd" class="block px-4 py-2 hover:bg-gray-100">Casa Crownd</a>
-                                </li>
-                                <li><a href="#severin" class="block px-4 py-2 hover:bg-gray-100">Das Severin</a></li>
-                                <li><a href="#chez" class="block px-4 py-2 hover:bg-gray-100">Chez</a></li>
-                                <li><a href="#glanzinggasse" class="block px-4 py-2 hover:bg-gray-100">Finest Looks</a>
-                                </li>
-                                <li><a href="#forty-two" class="block px-4 py-2 hover:bg-gray-100">4ty-Two</a></li>
-                                <li>
-                                    <hr class="my-1 border-gray-200">
-                                </li>
-                                <li>
-                                    <a href="#all-projects"
-                                        class="block px-4 py-2 font-semibold text-center bg-gray-100 hover:bg-gray-200 text-indigo-600 rounded-b">
-                                        View All Projects
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <li><a href="#propertysearch" class="hover:text-gray-300">Invest</a></li>
-                        <li><a href="#Purchase" class="hover:text-gray-300">Membership</a></li>
-                        <li><a href="#investment" class="hover:text-gray-300">Contact</a></li>
-                        <li><a href="#Ahome" class="hover:text-gray-300">Contact</a></li>
-                        <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="flex space-x-4">
-                <button onclick="showPopup()" class="hover:text-gray-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.364l-7.682-7.682a4.5 4.5 0 010-6.364z" />
-                    </svg>
-                </button>
-                <button onclick="showPopup()" class="hover:text-gray-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5.121 17.804A13.937 13.937 0 0112 15c2.486 0 4.847.635 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="bg-cover bg-center h-96 text-white flex items-center justify-center"
-        style="background-image: url('https://crownd.at/assets/hero.jpg');">
-        <div class="text-center bg-black bg-opacity-50 p-6 rounded">
-            <h2 class="text-4xl font-bold mb-4">Luxury Real Estate in Vienna</h2>
-            <p class="text-lg">Where timeless design meets exclusive investment</p>
-        </div>
-    </section>
-
-    <!-- Current Projects -->
-    <section id="projects" class="py-16 bg-gray-100">
-        <div class="max-w-7xl mx-auto px-4">
-            <h3 class="text-3xl font-bold mb-10 text-center">Current Projects</h3>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-4 shadow rounded">
-                    <h4 class="text-xl font-semibold mb-2">Villa Luminea</h4>
-                    <p>Stainless steel pool, panoramic view over Vienna at Kaasgraben.</p>
-                </div>
-                <div class="bg-white p-4 shadow rounded">
-                    <h4 class="text-xl font-semibold mb-2">GRACE</h4>
-                    <p>33 luxury apartments in the heart of the 3rd district, Hetzgasse 8.</p>
-                </div>
-                <div class="bg-white p-4 shadow rounded">
-                    <h4 class="text-xl font-semibold mb-2">Crownd by Chipperfield</h4>
-                    <p>Three villas designed by David Chipperfield in Vienna's 13th district.</p>
-                </div>
-                <!-- Add more project cards as needed -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Investment Opportunities -->
-    <section id="invest" class="py-16 bg-white">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h3 class="text-3xl font-bold mb-6">Investment Opportunities</h3>
-            <p class="text-lg">Become part of an exclusive investment boutique. Crownd invites you to co-invest in
-                high-end real estate in Vienna’s prime locations.</p>
-        </div>
-    </section>
-
-    <!-- Membership -->
-    <section id="membership" class="py-16 bg-gray-100">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h3 class="text-3xl font-bold mb-6">Become a Member</h3>
-            <p class="text-lg mb-4">Join the Crownd Real Estate Society and gain access to private updates and select
-                offers.</p>
-            <button onclick="joinNow()" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">Join
-                Now</button>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact" class="bg-black text-white py-6 mt-8">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p>&copy; 2025 CROWND Estates. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <script>
-        function joinNow() {
-            alert("Membership request sent! We will contact you shortly.");
-        }
-    </script>
-    <div id="popup" class="hidden fixed top-20 right-5 bg-white shadow-lg border rounded p-4 w-72 z-50">
-        <p class="mb-2 font-semibold">Become a CROWND member for access to all information. More on this</p>
-        <div class="space-y-2">
-            <button class="bg-black text-white px-4 py-2 w-full rounded hover:bg-gray-800">Log in</button>
-            <button class="bg-gray-200 text-black px-4 py-2 w-full rounded hover:bg-gray-300">To register</button>
-        </div>
+  <!-- Header -->
+  <header class="flex justify-between items-center p-6 absolute top-0 left-0 w-full z-10">
+    <h1 class="text-xl uppercase font-bold">Ahome</h1>
+    <div class="relative group">
+        <button class="hover:underline focus:outline-none">Projects</button>
+        <ul class="absolute hidden group-hover:block bg-white text-black mt-2 shadow-lg rounded w-48 text-left z-50">
+          <li><a href="#villa-luminea" class="block px-4 py-2 hover:bg-gray-100">Villa Luminea</a></li>
+          <li><a href="#grace" class="block px-4 py-2 hover:bg-gray-100">GRACE</a></li>
+          <li><a href="#chipperfield" class="block px-4 py-2 hover:bg-gray-100">Crownd by Chipperfield</a></li>
+          <li><a href="#casa-crownd" class="block px-4 py-2 hover:bg-gray-100">Casa Crownd</a></li>
+          <li><a href="#severin" class="block px-4 py-2 hover:bg-gray-100">Das Severin</a></li>
+          <li><a href="#chez" class="block px-4 py-2 hover:bg-gray-100">Chez</a></li>
+          <li><a href="#glanzinggasse" class="block px-4 py-2 hover:bg-gray-100">Finest Looks</a></li>
+          <li><a href="#forty-two" class="block px-4 py-2 hover:bg-gray-100">4ty-Two</a></li>
+          <li><hr class="my-1 border-gray-200"></li>
+          <li>
+            <a href="#all-projects" class="block px-4 py-2 font-semibold text-center bg-gray-100 hover:bg-gray-200 text-indigo-600 rounded-b">
+              View All Projects
+            </a>
+          </li>
+        </ul>
     </div>
+    <nav class="hidden md:flex space-x-6 text-sm uppercase opacity-80">
+      <a href="#" class="hover:underline">Invest</a>
+      <a href="#" class="hover:underline">Membership</a>
+      <a href="#" class="hover:underline">Contact</a>
+    </nav>
+    <div class="flex items-center space-x-4 text-sm uppercase opacity-80">
+        <a href="#" class="hover:underline">Subscribe</a>
+    
+        <!-- Love Icon -->
+        <button onclick="togglePopup()" class="hover:text-gray-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.364l-7.682-7.682a4.5 4.5 0 010-6.364z" />
+          </svg>
+        </button>
+    
+        <!-- Profile Icon -->
+        <button onclick="togglePopup()" class="hover:text-gray-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M5.121 17.804A13.937 13.937 0 0112 15c2.486 0 4.847.635 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </button>
+    
+        <!-- Menu icon (optional) -->
+        <button class="w-6 h-0.5 bg-white relative">
+          <span class="absolute w-full h-0.5 bg-white top-[-5px]"></span>
+          <span class="absolute w-full h-0.5 bg-white bottom-[-5px]"></span>
+        </button>
+      </div>
+  </header>
 
-    <script>
-        function showPopup() {
-            const popup = document.getElementById('popup');
-            popup.classList.toggle('hidden');
-        }
-    </script>
+  <!-- Carousel -->
+  <section class="relative w-full h-screen overflow-hidden">
+    <div id="carousel" class="w-full h-full relative">
 
+      <!-- Slide 1 -->
+      <div class="absolute inset-0 slide" style="background-image: url('/Ahome-Front_end/assets/images/r-architecture-2gDwlIim3Uw-unsplash.jpg'); background-size: cover; background-position: center;">
+        <div class="h-full w-full bg-gradient-to-t from-black via-black/30 to-transparent flex flex-col justify-end px-10 pb-20">
+          <h2 class="text-4xl font-bold uppercase">Underwater <br><span class="text-2xl font-light">Monsters</span></h2>
+          <p class="mt-4 max-w-lg text-gray-200">Saltwater Crocodile – nature's armored predator from the deep seas.</p>
+        </div>
+      </div>
 
+      <!-- Slide 2 -->
+      <div class="absolute inset-0 slide hidden-slide" style="background-image: url('/Ahome-Front_end/assets/images/naasu-asakura-6n0jjVPxUgY-unsplash.jpg'); background-size: cover; background-position: center;">
+        <div class="h-full w-full bg-gradient-to-t from-black via-black/30 to-transparent flex flex-col justify-end px-10 pb-20">
+          <h2 class="text-4xl font-bold uppercase">The <br><span class="text-2xl font-light">Gates of Hell</span></h2>
+          <p class="mt-4 max-w-lg text-gray-200">Special inside volcanoes – exploring extreme nature's fury.</p>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="absolute inset-0 slide hidden-slide" style="background-image: url('/Ahome-Front_end/assets/images/mika-baumeister-PL7K02i4s9g-unsplash.jpg'); background-size: cover; background-position: center;">
+        <div class="h-full w-full bg-gradient-to-t from-black via-black/30 to-transparent flex flex-col justify-end px-10 pb-20">
+          <h2 class="text-4xl font-bold uppercase">Exploring <br><span class="text-2xl font-light">Deep Caves</span></h2>
+          <p class="mt-4 max-w-lg text-gray-200">Real Time Capsules – where the past and present collide underground.</p>
+        </div>
+      </div>
+
+      <div class="absolute inset-0 slide" style="background-image: url('/Ahome-Front_end/assets/images/michal-gadek-Noq6-wTyiv8-unsplash.jpg'); background-size: cover; background-position: center;">
+        <div class="h-full w-full bg-gradient-to-t from-black via-black/30 to-transparent flex flex-col justify-end px-10 pb-20">
+          <h2 class="text-4xl font-bold uppercase">Underwater <br><span class="text-2xl font-light">Monsters</span></h2>
+          <p class="mt-4 max-w-lg text-gray-200">Saltwater Crocodile – nature's armored predator from the deep seas.</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="absolute inset-0 slide hidden-slide" style="background-image: url('/Ahome-Front_end/assets/images/marcel-strauss-vTrMLXrgtqg-unsplash.jpg'); background-size: cover; background-position: center;">
+        <div class="h-full w-full bg-gradient-to-t from-black via-black/30 to-transparent flex flex-col justify-end px-10 pb-20">
+          <h2 class="text-4xl font-bold uppercase">The <br><span class="text-2xl font-light">Gates of Hell</span></h2>
+          <p class="mt-4 max-w-lg text-gray-200">Special inside volcanoes – exploring extreme nature's fury.</p>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="absolute inset-0 slide hidden-slide" style="background-image: url('/Ahome-Front_end/assets/images/doctor-tinieblas-y-hnPtZo0kk-unsplash.jpg'); background-size: cover; background-position: center;">
+        <div class="h-full w-full bg-gradient-to-t from-black via-black/30 to-transparent flex flex-col justify-end px-10 pb-20">
+          <h2 class="text-4xl font-bold uppercase">Exploring <br><span class="text-2xl font-light">Deep Caves</span></h2>
+          <p class="mt-4 max-w-lg text-gray-200">Real Time Capsules – where the past and present collide underground.</p>
+        </div>
+      </div>
+
+      <div class="absolute inset-0 slide" style="background-image: url('/Ahome-Front_end/assets/images/connie-garrad-VGtMvqHDpFw-unsplash.jpg'); background-size: cover; background-position: center;">
+        <div class="h-full w-full bg-gradient-to-t from-black via-black/30 to-transparent flex flex-col justify-end px-10 pb-20">
+          <h2 class="text-4xl font-bold uppercase">Underwater <br><span class="text-2xl font-light">Monsters</span></h2>
+          <p class="mt-4 max-w-lg text-gray-200">Saltwater Crocodile – nature's armored predator from the deep seas.</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="absolute inset-0 slide hidden-slide" style="background-image: url('/Ahome-Front_end/assets/images/marcel-strauss-vTrMLXrgtqg-unsplash.jpg'); background-size: cover; background-position: center;">
+        <div class="h-full w-full bg-gradient-to-t from-black via-black/30 to-transparent flex flex-col justify-end px-10 pb-20">
+          <h2 class="text-4xl font-bold uppercase">The <br><span class="text-2xl font-light">Gates of Hell</span></h2>
+          <p class="mt-4 max-w-lg text-gray-200">Special inside volcanoes – exploring extreme nature's fury.</p>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="absolute inset-0 slide hidden-slide" style="background-image: url('/Ahome-Front_end/assets/images/allphoto-bangkok-nI4aC1kaTRc-unsplash.jpg'); background-size: cover; background-position: center;">
+        <div class="h-full w-full bg-gradient-to-t from-black via-black/30 to-transparent flex flex-col justify-end px-10 pb-20">
+          <h2 class="text-4xl font-bold uppercase">Exploring <br><span class="text-2xl font-light">Deep Caves</span></h2>
+          <p class="mt-4 max-w-lg text-gray-200">Real Time Capsules – where the past and present collide underground.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="popup" class="hidden fixed top-24 right-5 bg-white shadow-lg border rounded p-4 w-72 z-50 text-black">
+    <p class="mb-2 font-semibold">Become a CROWND member for access to all information. More on this</p>
+    <div class="space-y-2">
+      <button class="bg-black text-white px-4 py-2 w-full rounded hover:bg-gray-800">Log in</button>
+      <button class="bg-gray-200 text-black px-4 py-2 w-full rounded hover:bg-gray-300">To register</button>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="bg-cover bg-center h-96 text- flex items-center justify-center" style="background-image: url('https://crownd.at/assets/hero.jpg');">
+    <div class="text-center bg-black bg-opacity-50 p-6 rounded">
+      <h2 class="text-4xl font-bold mb-4">Luxury Real Estate in Vienna</h2>
+      <p class="text-lg">Where timeless design meets exclusive investment</p>
+    </div>
+  </section>
+
+  <!-- Current Projects -->
+  <section id="projects" class="py-16 text-black bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4">
+      <h3 class="text-3xl font-bold mb-10 text-center">Current Projects</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-4 shadow rounded">
+          <h4 class="text-xl font-semibold mb-2">Villa Luminea</h4>
+          <p>Stainless steel pool, panoramic view over Vienna at Kaasgraben.</p>
+        </div>
+        <div class="bg-white p-4 shadow rounded">
+          <h4 class="text-xl font-semibold mb-2">GRACE</h4>
+          <p>33 luxury apartments in the heart of the 3rd district, Hetzgasse 8.</p>
+        </div>
+        <div class="bg-white p-4 shadow rounded">
+          <h4 class="text-xl font-semibold mb-2">Crownd by Chipperfield</h4>
+          <p>Three villas designed by David Chipperfield in Vienna's 13th district.</p>
+        </div>
+        <!-- Add more project cards as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Investment Opportunities -->
+  <section id="invest" class=" text-black py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-bold mb-6">Investment Opportunities</h3>
+      <p class="text-lg">Become part of an exclusive investment boutique. Crownd invites you to co-invest in high-end real estate in Vienna’s prime locations.</p>
+    </div>
+  </section>
+
+  <!-- Membership -->
+  <section id="membership" class="py-16 text-black bg-gray-100">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-bold mb-6">Become a Member</h3>
+      <p class="text-lg mb-4">Join the Crownd Real Estate Society and gain access to private updates and select offers.</p>
+      <button onclick="joinNow()" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">Join Now</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-black text-white py-6 mt-8">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p>&copy; 2025 CROWND Estates. All rights reserved.</p>
+    </div>
+  </footer>
+  
+
+<script src="/Ahome-Front_end/assets/js/landing-page.js"></script>
 </body>
-
 </html>
