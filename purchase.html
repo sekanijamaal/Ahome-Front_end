@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purchase - Crownd</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .text-transition {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+      transition: all 0.8s ease-out;
+    }
+
+    .text-transition.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- HEADER -->
+  <header id="header"
+    class="flex justify-between items-center p-6 fixed top-0 left-0 w-full z-20 text-white transition-colors duration-300">
+    <h1 class="text-xl uppercase font-bold">Ahome</h1>
+    <nav class="hidden md:flex space-x-6 text-sm uppercase opacity-80">
+      <a href="#" class="hover:underline">Property Search</a>
+      <a href="#" class="hover:underline">Purchase</a>
+      <a href="#" class="hover:underline">Investment</a>
+      <a href="#" class="hover:underline">It's Crown</a>
+      <a href="#" class="hover:underline">Contact</a>
+    </nav>
+  </header>
+
+  <!-- SCROLL TRANSITION SECTION -->
+  <section class="relative h-[200vh] bg-cover bg-center"
+    style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');">
+    <div class="sticky top-0 h-screen flex flex-col justify-center items-center text-center px-6">
+      <h1 id="firstText" class="text-5xl font-bold text-white mb-8 text-transition">It's CROWND.</h1>
+      <div id="secondText" class="flex flex-col items-center gap-4 text-transition">
+        <h2 class="text-4xl font-bold text-white">We create PACKAGE LIABILITY.</h2>
+        <h3 class="text-xl italic text-white">Show project.</h3>
+        <button
+          class="mt-4 bg-yellow-400 text-black px-6 py-2 rounded-full shadow hover:scale-105 transition-transform">Sell
+          Property</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2 -->
+  <section class="flex flex-col md:flex-row items-center justify-center gap-10 px-10 py-20 max-w-6xl mx-auto text-center">
+    <img src="https://images.unsplash.com/photo-1590490360184-39e79c7e1368"
+      class="w-full md:w-1/2 rounded-lg shadow-md">
+    <div class="md:w-1/2">
+      <h2 class="text-3xl font-semibold mb-4">In the best hands.</h2>
+      <p class="text-gray-700 leading-relaxed">We are always looking for exceptional real estate. If you are interested
+        in the sale of your property and place the highest demands on discretion and professionalism in the handling,
+        we look forward to hearing from you. With our know-how and many years of experience, we are the right contact
+        for your real estate sale.</p>
+    </div>
+  </section>
+
+  <!-- Cascaded Images Section -->
+  <section class="px-10 py-20 max-w-6xl mx-auto">
+    <h2 class="text-3xl font-semibold mb-10 text-center">Discover Our Properties</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994"
+        class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+      <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+        class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300 mt-10">
+      <img src="https://images.unsplash.com/photo-1599423300746-b62533397364"
+        class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300 -mt-6">
+      <img src="https://images.unsplash.com/photo-1598935888641-d6d6d6e3b60a"
+        class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+      <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914"
+        class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300 -mt-8">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+        class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300 mt-12">
+      <img src="https://images.unsplash.com/photo-1600585154198-4e7b3c8be4d4"
+        class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300 -mt-4">
+      <img src="https://images.unsplash.com/photo-1600585154274-bd1c1e5adf7e"
+        class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="px-10 py-20 max-w-2xl mx-auto fade-in">
+    <h2 class="text-3xl font-semibold mb-6 text-center">We look forward to hearing from you</h2>
+    <form id="contactForm" class="flex flex-col gap-6">
+      <div class="flex flex-col">
+        <label class="mb-2 text-sm font-medium">Salutation</label>
+        <select class="border border-gray-300 rounded px-4 py-2" required>
+          <option value="">Select</option>
+          <option>Mr.</option>
+          <option>Mrs.</option>
+          <option>Miss</option>
+          <option>Dr.</option>
+        </select>
+      </div>
+      <div class="flex flex-col">
+        <label class="mb-2 text-sm font-medium">Title</label>
+        <input type="text" class="border border-gray-300 rounded px-4 py-2" placeholder="Title" required>
+      </div>
+      <div class="flex flex-col">
+        <label class="mb-2 text-sm font-medium">First Name</label>
+        <input type="text" class="border border-gray-300 rounded px-4 py-2" placeholder="First Name" required>
+      </div>
+      <div class="flex flex-col">
+        <label class="mb-2 text-sm font-medium">Surname</label>
+        <input type="text" class="border border-gray-300 rounded px-4 py-2" placeholder="Surname" required>
+      </div>
+      <div class="flex flex-col">
+        <label class="mb-2 text-sm font-medium">Telephone Number</label>
+        <input type="tel" class="border border-gray-300 rounded px-4 py-2" placeholder="Phone Number" required>
+      </div>
+      <div class="flex flex-col">
+        <label class="mb-2 text-sm font-medium">Email</label>
+        <input type="email" class="border border-gray-300 rounded px-4 py-2" placeholder="Email" required>
+      </div>
+      <div class="flex flex-col">
+        <label class="mb-2 text-sm font-medium">Message</label>
+        <textarea rows="4" class="border border-gray-300 rounded px-4 py-2" placeholder="Your message" required></textarea>
+      </div>
+      <div class="flex justify-center">
+        <button type="submit" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">Submit</button>
+      </div>
+    </form>
+  </section>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > window.innerHeight) {
+        header.classList.add('bg-white', 'shadow-md', 'text-black');
+        header.classList.remove('text-white');
+      } else {
+        header.classList.remove('bg-white', 'shadow-md', 'text-black');
+        header.classList.add('text-white');
+      }
+    });
+
+    // Text Scroll Transition
+    const firstText = document.getElementById('firstText');
+    const secondText = document.getElementById('secondText');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const vh = window.innerHeight;
+
+      if (scrollY < vh * 0.5) {
+        firstText.classList.add('show');
+        secondText.classList.remove('show');
+      } else {
+        firstText.classList.remove('show');
+        secondText.classList.add('show');
+      }
+    });
+
+    // Fade-in form animation
+    const formSection = document.querySelector('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    observer.observe(formSection);
+
+    // Form submission alert
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for contacting us! We will get back to you soon.');
+      contactForm.reset();
+    });
+  </script>
+
+</body>
+
+</html>

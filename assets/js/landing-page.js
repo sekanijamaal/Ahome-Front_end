@@ -24,3 +24,21 @@ function togglePopup() {
       popup.classList.add('hidden');
     }
   });
+
+ 
+  fetch('/Ahome-Front_end/assets/html/footer.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    });
+
+    window.addEventListener('scroll', function () {
+      const header = document.getElementById('main-header');
+      if (window.scrollY > window.innerHeight) {
+        header.classList.add('bg-white', 'shadow-md', 'text-black');
+        header.classList.remove('text-white');
+      } else {
+        header.classList.remove('bg-white', 'shadow-md', 'text-black');
+        header.classList.add('text-white');
+      }
+    });
