@@ -11,59 +11,64 @@
 <body class="bg-black text-white font-sans">
 
   <!-- Header -->
-  <header class="flex justify-between items-center p-6 absolute top-0 left-0 w-full z-10">
+  <header id="main-header"
+    class="flex justify-between items-center p-6 fixed top-0 left-0 w-full z-10 transition-colors duration-300 text-white">
     <h1 class="text-xl uppercase font-bold">Ahome</h1>
+
     <div class="relative group">
-        <button class="hover:underline focus:outline-none">Projects</button>
-        <ul class="absolute hidden group-hover:block bg-white text-black mt-2 shadow-lg rounded w-48 text-left z-50">
-          <li><a href="#villa-luminea" class="block px-4 py-2 hover:bg-gray-100">Villa Luminea</a></li>
-          <li><a href="#grace" class="block px-4 py-2 hover:bg-gray-100">GRACE</a></li>
-          <li><a href="#chipperfield" class="block px-4 py-2 hover:bg-gray-100">Crownd by Chipperfield</a></li>
-          <li><a href="#casa-crownd" class="block px-4 py-2 hover:bg-gray-100">Casa Crownd</a></li>
-          <li><a href="#severin" class="block px-4 py-2 hover:bg-gray-100">Das Severin</a></li>
-          <li><a href="#chez" class="block px-4 py-2 hover:bg-gray-100">Chez</a></li>
-          <li><a href="#glanzinggasse" class="block px-4 py-2 hover:bg-gray-100">Finest Looks</a></li>
-          <li><a href="#forty-two" class="block px-4 py-2 hover:bg-gray-100">4ty-Two</a></li>
-          <li><hr class="my-1 border-gray-200"></li>
-          <li>
-            <a href="#all-projects" class="block px-4 py-2 font-semibold text-center bg-gray-100 hover:bg-gray-200 text-indigo-600 rounded-b">
-              View All Projects
-            </a>
-          </li>
-        </ul>
+      <button class="hover:underline focus:outline-none">Projects</button>
+      <ul
+        class="absolute hidden group-hover:block bg-white text-black mt-2 shadow-lg rounded w-48 text-left z-50">
+        <li><a href="#villa-luminea" class="block px-4 py-2 hover:bg-gray-100">Villa Luminea</a></li>
+        <li><a href="#grace" class="block px-4 py-2 hover:bg-gray-100">GRACE</a></li>
+        <li><a href="#chipperfield" class="block px-4 py-2 hover:bg-gray-100">Crownd by Chipperfield</a></li>
+        <li><a href="#casa-crownd" class="block px-4 py-2 hover:bg-gray-100">Casa Crownd</a></li>
+        <li><a href="#severin" class="block px-4 py-2 hover:bg-gray-100">Das Severin</a></li>
+        <li><a href="#chez" class="block px-4 py-2 hover:bg-gray-100">Chez</a></li>
+        <li><a href="#glanzinggasse" class="block px-4 py-2 hover:bg-gray-100">Finest Looks</a></li>
+        <li><a href="#forty-two" class="block px-4 py-2 hover:bg-gray-100">4ty-Two</a></li>
+        <li>
+          <hr class="my-1 border-gray-200">
+        </li>
+        <li>
+          <a href="#all-projects"
+            class="block px-4 py-2 font-semibold text-center bg-gray-100 hover:bg-gray-200 text-indigo-600 rounded-b">
+            View All Projects
+          </a>
+        </li>
+      </ul>
     </div>
+
     <nav class="hidden md:flex space-x-6 text-sm uppercase opacity-80">
       <a href="#" class="hover:underline">Invest</a>
       <a href="#" class="hover:underline">Membership</a>
       <a href="#" class="hover:underline">Contact</a>
     </nav>
+
     <div class="flex items-center space-x-4 text-sm uppercase opacity-80">
-        <a href="#" class="hover:underline">Subscribe</a>
-    
-        <!-- Love Icon -->
-        <button onclick="togglePopup()" class="hover:text-gray-300">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-               viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.364l-7.682-7.682a4.5 4.5 0 010-6.364z" />
-          </svg>
-        </button>
-    
-        <!-- Profile Icon -->
-        <button onclick="togglePopup()" class="hover:text-gray-300">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-               viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M5.121 17.804A13.937 13.937 0 0112 15c2.486 0 4.847.635 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-        </button>
-    
-        <!-- Menu icon (optional) -->
-        <button class="w-6 h-0.5 bg-white relative">
-          <span class="absolute w-full h-0.5 bg-white top-[-5px]"></span>
-          <span class="absolute w-full h-0.5 bg-white bottom-[-5px]"></span>
-        </button>
-      </div>
+      <a href="#" class="hover:underline">Subscribe</a>
+
+      <button class="hover:text-gray-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.364l-7.682-7.682a4.5 4.5 0 010-6.364z" />
+        </svg>
+      </button>
+
+      <button class="hover:text-gray-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M5.121 17.804A13.937 13.937 0 0112 15c2.486 0 4.847.635 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      </button>
+
+      <button class="w-6 h-0.5 bg-white relative">
+        <span class="absolute w-full h-0.5 bg-white top-[-5px]"></span>
+        <span class="absolute w-full h-0.5 bg-white bottom-[-5px]"></span>
+      </button>
+    </div>
   </header>
 
   <!-- Carousel -->
@@ -198,11 +203,10 @@
   </section>
 
   <!-- Footer -->
-  <footer id="contact" class="bg-black text-white py-6 mt-8">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <p>&copy; 2025 CROWND Estates. All rights reserved.</p>
-    </div>
-  </footer>
+  <div id="footer-placeholder"></div>
+
+
+
   
 
 <script src="/Ahome-Front_end/assets/js/landing-page.js"></script>
