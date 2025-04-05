@@ -97,3 +97,11 @@ const cards = document.querySelectorAll('.project-card');
       }
 
       animateCard();
+
+      new Swiper(".mySwiper", {
+        effect: "cards",
+        grabCursor: true,
+        loop: true,
+        speed: 600,
+        mousewheel: true,
+      });
