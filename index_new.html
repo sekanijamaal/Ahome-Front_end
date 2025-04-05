@@ -1,0 +1,103 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Final AHOME Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+  
+      .ahome-font {
+        font-family: 'Playfair Display', serif;
+        letter-spacing: 1px;
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300">
+    <div class="px-6 py-4 flex justify-between items-center">
+  
+           <!-- Left: Logo + Projects -->
+        <div class="flex items-center gap-20 relative">
+            <span id="brand" class="text-2xl ahome-font font-semibold text-white transition-colors duration-300">AHOME</span>
+            
+            <button id="project-toggle" onclick="toggleDropdown()" class="projects-link flex items-center gap-x-2 text-white px-4 py-2 border border-white rounded-full transition hover:bg-white">
+            <span class="transition">Projects</span>
+            <svg id="arrow-icon" class="down-arrow w-4 h-4 transition text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+            </button>
+        
+            <!-- Dropdown -->
+            <div id="projects-dropdown" class="hidden absolute top-full right-0 mt-2 w-56 bg-white shadow-md rounded-lg z-50">
+            <ul class="py-2 text-sm text-gray-700">
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Ongoing Projects</a></li>
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Completed Projects</a></li>
+                <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Upcoming Projects</a></li>
+            </ul>
+            </div>
+        </div>
+  
+      <!-- Center Nav Links -->
+      <ul id="nav-links" class="flex-1 flex justify-center space-x-8 text-white transition-colors duration-300">
+        <li><a href="#" class="nav-link px-4 py-2 rounded-full transition backdrop-blur-md hover:bg-white/20 font-semibold">PROPERTY SEARCH</a></li>
+        <li><a href="#" class="nav-link px-4 py-2 rounded-full transition backdrop-blur-md hover:bg-white/20 font-semibold">PURCHASE</a></li>
+        <li><a href="#" class="nav-link px-4 py-2 rounded-full transition backdrop-blur-md hover:bg-white/20 font-semibold">INVESTMENT</a></li>
+        <li><a href="#" class="nav-link px-4 py-2 rounded-full transition backdrop-blur-md hover:bg-white/20 font-semibold">IT'S AHOME</a></li>
+        <li><a href="#" class="nav-link px-4 py-2 rounded-full transition backdrop-blur-md hover:bg-white/20 font-sbold">CONTACT</a></li>
+      </ul>
+  
+      <!-- Right Icons -->
+      <div class="flex items-center space-x-4 transition-colors duration-300 text-white" id="icon-set">
+        <!-- Heart -->
+        <div class="relative">
+          <button onclick="togglePopup('heart-popup')" id="heart-btn" class="p-2 rounded-full transition hover:bg-white/20">
+            <svg id="heart-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+          </button>
+          <div id="heart-popup" class="hidden absolute right-0 top-12 w-80 bg-white text-black p-4 rounded-xl shadow-xl z-50">
+            <p class="text-sm mb-4">Become an AHOME member for access to all information. <a href="#" class="text-blue-500 underline">Learn more</a>.</p>
+            <div class="flex gap-3">
+              <button onclick="closePopup('heart-popup')" class="bg-[#8B4513] text-white px-4 py-1 rounded-full">Login</button>
+              <button onclick="closePopup('heart-popup')" class="border border-gray-300 px-4 py-1 rounded-full">Register</button>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Contact -->
+        <div class="relative">
+          <button onclick="togglePopup('contact-popup')" class="p-2 rounded-full transition hover:bg-white/20">
+            <svg id="person-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M5.121 17.804A13.937 13.937 0 0112 15c2.485 0 4.797.91 6.879 2.422M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </button>
+          <div id="contact-popup" class="hidden absolute right-0 top-12 w-80 bg-white p-4 rounded-xl shadow-xl z-50">
+            <p class="text-sm mb-4">Become an AHOME member for access to all information. <a href="#" class="text-blue-500 underline">Learn more</a>.</p>
+            <div class="flex gap-3">
+              <button onclick="closePopup('contact-popup')" class="bg-[#8B4513] text-white px-4 py-1 rounded-full">Login</button>
+              <button onclick="closePopup('contact-popup')" class="border border-gray-300 px-4 py-1 rounded-full">Register</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  
+  
+  
+  <div class="h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1');">
+    <h1 class="text-white text-4xl font-bold">Welcome to AHOME</h1>
+  </div>
+  
+  <div class="h-screen bg-gray-100 flex items-center justify-center">
+    <h2 class="text-black text-3xl">Scroll to test navbar</h2>
+  </div>
+  
+  <script src="/Ahome-Front_end/assets/js/index.new.js"></script>
+  </body>
+  
