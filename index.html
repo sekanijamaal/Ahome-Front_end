@@ -16,7 +16,17 @@
     <h1 class="text-xl uppercase font-bold">Ahome</h1>
 
     <div class="relative group">
-      <button class="hover:underline focus:outline-none">Projects</button>
+      <!-- <button class="flex justify-between items-center gap-x-2 text-white px-4 py-2 border border-white rounded-full transition hover:bg-white text-black border-black">Projects</button>
+      <svg id="arrow-icon" class="down-arrow w-4 h-4 transition text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg> -->
+    <button class="flex items-center gap-x-2 text-white px-6 py-3 border border-white rounded-full transition hover:bg-white hover:text-black hover:border-gray">
+      Projects
+      <svg id="arrow-icon" class="down-arrow w-5 h-5  transition backdrop-blur-md hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+    
       <ul
         class="absolute hidden group-hover:block bg-white text-black mt-2 shadow-lg rounded w-48 text-left z-50">
         <li><a href="#villa-luminea" class="block px-4 py-2 hover:bg-gray-100">Villa Luminea</a></li>
@@ -40,13 +50,15 @@
     </div>
 
     <nav class="hidden md:flex space-x-6 text-sm uppercase opacity-80">
-      <a href="#" class="hover:underline">Invest</a>
-      <a href="#" class="hover:underline">Membership</a>
-      <a href="#" class="hover:underline">Contact</a>
+      <a href="#" class="nav-link px-4 py-2 rounded-full transition backdrop-blur-md hover:bg-white/20 font-semibold">property search</a>
+      <a href="#" class="nav-link px-4 py-2 rounded-full transition backdrop-blur-md hover:bg-white/20 font-semibold">purchase</a>
+      <a href="#" class="nav-link px-4 py-2 rounded-full transition backdrop-blur-md hover:bg-white/20 font-semibold">investment</a>
+      <a href="#" class="nav-link px-4 py-2 rounded-full transition backdrop-blur-md hover:bg-white/20 font-semibold">it's ahome</a>
+      <a href="#" class="nav-link px-4 py-2 rounded-full transition backdrop-blur-md hover:bg-white/20 font-semibold">contact</a>
     </nav>
 
     <div class="flex items-center space-x-4 text-sm uppercase opacity-80">
-      <a href="#" class="hover:underline">Subscribe</a>
+      
 
       <button class="hover:text-gray-300">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"

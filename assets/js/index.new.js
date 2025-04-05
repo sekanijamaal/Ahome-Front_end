@@ -1,5 +1,3 @@
-
-
 // navbar.js
 
 const navbar = document.getElementById("navbar");
@@ -68,47 +66,34 @@ function togglePopup(id) {
 function closePopup(id) {
   document.getElementById(id).classList.add('hidden');
 }
-const slides = document.querySelectorAll('.slide');
-let current = 0;
 
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.toggle('hidden-slide', i !== index);
+// === HERO SECTION ===
+
+// Switch to fallback image after video ends
+const heroVideo = document.getElementById("hero-video");
+const fallbackImage = document.getElementById("fallback-image");
+
+if (heroVideo) {
+  heroVideo.addEventListener("ended", () => {
+    heroVideo.classList.add("hidden");
+    fallbackImage.classList.remove("hidden");
   });
 }
 
+// Carousel Auto-Slide
+let currentSlide = 0;
+const items = document.querySelectorAll('.carousel-item');
+const totalSlides = items.length;
+
 setInterval(() => {
-  current = (current + 1) % slides.length;
-  showSlide(current);
-}, 5000); // 5 seconds
+  items.forEach((item, index) => {
+    item.classList.remove('border-2', 'border-white', 'opacity-100');
+    item.classList.add('opacity-50');
 
-function togglePopup() {
-    const popup = document.getElementById('popup');
-    popup.classList.toggle('hidden');
-  }
-
-  document.addEventListener('click', function (e) {
-    const popup = document.getElementById('popup');
-    const isInside = popup.contains(e.target) || e.target.closest('button[onclick="togglePopup()"]');
-    if (!isInside && !popup.classList.contains('hidden')) {
-      popup.classList.add('hidden');
+    if (index === currentSlide) {
+      item.classList.add('border-2', 'border-white', 'opacity-100');
     }
   });
 
- 
-  fetch('/Ahome-Front_end/assets/html/footer.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('footer-placeholder').innerHTML = data;
-    });
-
-    window.addEventListener('scroll', function () {
-      const header = document.getElementById('main-header');
-      if (window.scrollY > window.innerHeight) {
-        header.classList.add('bg-white', 'shadow-md', 'text-black');
-        header.classList.remove('text-white');
-      } else {
-        header.classList.remove('bg-white', 'shadow-md', 'text-black');
-        header.classList.add('text-white');
-      }
-    });
+  currentSlide = (currentSlide + 1) % totalSlides;
+}, 4000);
