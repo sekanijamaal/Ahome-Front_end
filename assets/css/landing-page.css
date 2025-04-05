@@ -6,3 +6,8 @@
     transform: scale(0.95);
     pointer-events: none;
   }
+
+  .project-card {
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+  }

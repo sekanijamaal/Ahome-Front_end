@@ -6,29 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us - Crownd</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease-out;
-    }
-
-    .fade-in.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .text-fade {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease-out;
-    }
-
-    .text-fade.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+  <link rel="stylesheet" href="/Ahome-Front_end/assets/css/about.css">
 </head>
 
 <body class="bg-gray-100">
@@ -87,59 +65,9 @@
     </div>
   </section>
 
-  <script>
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-      const header = document.getElementById('header');
-      if (window.scrollY > window.innerHeight) {
-        header.classList.add('bg-white', 'shadow-md', 'text-black');
-        header.classList.remove('text-white');
-      } else {
-        header.classList.remove('bg-white', 'shadow-md', 'text-black');
-        header.classList.add('text-white');
-      }
-    });
+  <div id="footer-placeholder"></div>
 
-    // Fade-in sections
-    const faders = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, {
-      threshold: 0.2
-    });
-
-    faders.forEach(el => {
-      observer.observe(el);
-    });
-
-    // Text scroll transition
-    const firstText = document.getElementById('firstText');
-    const secondText = document.getElementById('secondText');
-
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const vh = window.innerHeight;
-
-      if (scrollY < vh * 0.5) {
-        firstText.classList.add('show');
-        secondText.classList.remove('show');
-      } else {
-        firstText.classList.remove('show');
-        secondText.classList.add('show');
-      }
-    });
-
-    // Initial show of first text
-    window.addEventListener('DOMContentLoaded', () => {
-      firstText.classList.add('show');
-    });
-  </script>
-
+  <script src="/Ahome-Front_end/assets/js/about.js"></script>
 </body>
 
 </html>
-2
