@@ -97,3 +97,18 @@ setInterval(() => {
 
   currentSlide = (currentSlide + 1) % totalSlides;
 }, 4000);
+
+function togglePopup(event) {
+  event.stopPropagation();
+  const popup = document.getElementById('popup');
+  popup.classList.toggle('hidden');
+}
+
+document.addEventListener('click', function (e) {
+  const popup = document.getElementById('popup');
+  const button = document.querySelector('button[onclick="togglePopup(event)"]');
+
+  if (!popup.contains(e.target) && e.target !== button) {
+    popup.classList.add('hidden');
+  }
+});

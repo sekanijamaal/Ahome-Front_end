@@ -49,43 +49,32 @@
       <!-- Right Icons -->
       <div class="flex items-center space-x-4 transition-colors duration-300 text-white" id="icon-set">
         <!-- Heart -->
-        <div class="relative">
-          <button onclick="togglePopup('heart-popup')" id="heart-btn" class="p-2 rounded-full transition hover:bg-white/20">
-            <svg id="heart-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-              viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-            </svg>
-          </button>
-          <div id="heart-popup" class="hidden absolute right-0 top-12 w-80 bg-white text-black p-4 rounded-xl shadow-xl z-50">
-            <p class="text-sm mb-4">Become an AHOME member for access to all information. <a href="#" class="text-blue-500 underline">Learn more</a>.</p>
-            <div class="flex gap-3">
-              <button onclick="closePopup('heart-popup')" class="bg-[#8B4513] text-white px-4 py-1 rounded-full">Login</button>
-              <button onclick="closePopup('heart-popup')" class="border border-gray-300 px-4 py-1 rounded-full">Register</button>
-            </div>
-          </div>
-        </div>
+        <button onclick="togglePopup(event)" class="hover:text-gray-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.364l-7.682-7.682a4.5 4.5 0 010-6.364z" />
+          </svg>
+        </button>
+        
   
-        <!-- Contact -->
-        <div class="relative">
-          <button onclick="togglePopup('contact-popup')" class="p-2 rounded-full transition hover:bg-white/20">
-            <svg id="person-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-              viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M5.121 17.804A13.937 13.937 0 0112 15c2.485 0 4.797.91 6.879 2.422M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-          </button>
-          <div id="contact-popup" class="hidden absolute right-0 top-12 w-80 bg-white p-4 rounded-xl shadow-xl z-50">
-            <p class="text-sm mb-4">Become an AHOME member for access to all information. <a href="#" class="text-blue-500 underline">Learn more</a>.</p>
-            <div class="flex gap-3">
-              <button onclick="closePopup('contact-popup')" class="bg-[#8B4513] text-white px-4 py-1 rounded-full">Login</button>
-              <button onclick="closePopup('contact-popup')" class="border border-gray-300 px-4 py-1 rounded-full">Register</button>
-            </div>
-          </div>
-        </div>
+        <button onclick="togglePopup(event)" class="hover:text-gray-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M5.121 17.804A13.937 13.937 0 0112 15c2.486 0 4.847.635 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </button>
       </div>
     </div>
   </nav>
+
+  <div id="popup" class="hidden fixed top-24 right-5 bg-white shadow-lg border rounded p-4 w-72 z-50 text-black transition-opacity duration-300">
+    <p class="mb-2 font-semibold">Become a CROWND member for access to all information. More on this</p>
+    <div class="space-y-2">
+      <button class="bg-black text-white px-4 py-2 w-full rounded hover:bg-gray-800">Log in</button>
+      <button class="bg-gray-200 text-black px-4 py-2 w-full rounded hover:bg-gray-300">To register</button>
+    </div>
+  </div>
+
 
   
   
@@ -94,9 +83,75 @@
     <h1 class="text-white text-4xl font-bold">Welcome to AHOME</h1>
   </div>
   
-  <div class="h-screen bg-gray-100 flex items-center justify-center">
-    <h2 class="text-black text-3xl">Scroll to test navbar</h2>
-  </div>
+  <!-- Hero Section -->
+  <section class="bg-cover bg-center h-96 flex items-center justify-center"
+    style="background-image: url('https://crownd.at/assets/hero.jpg');">
+    <div class="text-center bg-black bg-opacity-50 p-6 rounded">
+      <h2 class="text-4xl font-bold mb-4">Luxury Real Estate in Vienna</h2>
+      <p class="text-lg">Where timeless design meets exclusive investment</p>
+    </div>
+  </section>
+
+  <!-- Current Projects -->
+  <section id="projects" class="py-16 text-black bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4">
+      <h3 class="text-3xl font-bold mb-10 text-center">Current Projects</h3>
+      <div class="grid md:grid-cols-3 gap-8" id="project-grid">
+        <div class="project-card bg-white p-4 shadow rounded">
+          <h4 class="text-xl font-semibold mb-2">Villa Luminea</h4>
+          <p>Stainless steel pool, panoramic view over Vienna at Kaasgraben.</p>
+        </div>
+        <div class="project-card bg-white p-4 shadow rounded">
+          <h4 class="text-xl font-semibold mb-2">GRACE</h4>
+          <p>33 luxury apartments in the heart of the 3rd district, Hetzgasse 8.</p>
+        </div>
+        <div class="project-card bg-white p-4 shadow rounded">
+          <h4 class="text-xl font-semibold mb-2">Crownd by Chipperfield</h4>
+          <p>Three villas designed by David Chipperfield in Vienna's 13th district.</p>
+        </div>
+        <div class="project-card bg-white p-4 shadow rounded">
+          <h4 class="text-xl font-semibold mb-2">Casa Crownd</h4>
+          <p>Minimalist masterpiece surrounded by greenery and fresh air.</p>
+        </div>
+        <div class="project-card bg-white p-4 shadow rounded">
+          <h4 class="text-xl font-semibold mb-2">Das Severin</h4>
+          <p>Timeless interior finishes and unmatched Vienna skyline views.</p>
+        </div>
+        <div class="project-card bg-white p-4 shadow rounded">
+          <h4 class="text-xl font-semibold mb-2">Chez</h4>
+          <p>Parisian-inspired architecture with rooftop gardens and spa.</p>
+        </div>
+        <div class="project-card bg-white p-4 shadow rounded">
+          <h4 class="text-xl font-semibold mb-2">Glanzinggasse</h4>
+          <p>Finest Looks – contemporary builds on the edge of urban Vienna.</p>
+        </div>
+        <div class="project-card bg-white p-4 shadow rounded">
+          <h4 class="text-xl font-semibold mb-2">4ty-Two</h4>
+          <p>Luxury loft apartments with smart automation and concierge service.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Investment Opportunities -->
+  <section id="invest" class="text-black py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-bold mb-6">Investment Opportunities</h3>
+      <p class="text-lg">Become part of an exclusive investment boutique. Crownd invites you to co-invest in high-end real estate in Vienna’s prime locations.</p>
+    </div>
+  </section>
+
+  <!-- Membership -->
+  <section id="membership" class="py-16 text-black bg-gray-100">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-bold mb-6">Become a Member</h3>
+      <p class="text-lg mb-4">Join the Crownd Real Estate Society and gain access to private updates and select offers.</p>
+      <button onclick="togglePopup(event)" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">Join Now</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
   
   <script src="/Ahome-Front_end/assets/js/index.new.js"></script>
   </body>
