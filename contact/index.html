@@ -7,6 +7,23 @@
   <title>About Us - Crownd</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/Ahome-Front_end/assets/css/about.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/css/intlTelInput.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+
+    .ahome-font {
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 1px;
+    }
+  </style>
+   <style>
+    /* Smooth fade-out effect */
+    #search-bar {
+      transition: opacity 0.3s ease;
+    }
+  </style>
 </head>
 
 <body class="bg-gray-100">
@@ -14,60 +31,220 @@
   <!-- HEADER -->
   <header id="header"
     class="flex justify-between items-center p-6 fixed top-0 left-0 w-full z-20 text-white transition-colors duration-300">
-    <h1 class="text-xl uppercase font-bold">Ahome</h1>
+    <h1 class="text-xl uppercase ahome-font">Ahome</h1>
     <nav class="hidden md:flex space-x-6 text-sm uppercase opacity-80">
       <a href="#" class="hover:underline">Home</a>
       <a href="#" class="hover:underline">About</a>
       <a href="#" class="hover:underline">Services</a>
-      <a href="#" class="hover:underline">Contact</a>
+      <a href="" class="hover:underline">Contact</a>
     </nav>
   </header>
 
   <!-- HERO SECTION -->
-  <section class="relative h-[200vh] bg-cover bg-center"
-    style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');">
+  <section class="relative h-[130vh] bg-cover bg-center"
+    style="background-image: url('/Ahome-Front_end/assets/images/pexels-littlehampton-bricks-2717960-4626268.jpg');">
     <div class="sticky top-0 h-screen flex flex-col justify-center items-center text-center px-6">
-      <h1 id="firstText" class="text-5xl font-bold text-white mb-8 text-fade">Who We Are</h1>
+      <h1 id="firstText" class="text-8xl ahome-font text-white mb-8 text-fade">It's AHOME.</h1>
       <div id="secondText" class="flex flex-col items-center gap-4 text-fade">
-        <h2 class="text-4xl font-bold text-white">Redefining Real Estate Excellence</h2>
-        <p class="text-lg italic text-white">Building trust, delivering value.</p>
+        <div class="text-5xl text-white font-serif">You can find us </div>
+        <p class="text-6xl italic text-white font-serif">in the heart of Lome.</p>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT CONTENT -->
-  <section class="flex flex-col md:flex-row items-center justify-center gap-10 px-10 py-20 max-w-6xl mx-auto text-center">
-    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
-      class="w-full md:w-1/2 rounded-lg shadow-md">
-    <div class="md:w-1/2 fade-in">
-      <h2 class="text-3xl font-semibold mb-4">Our Story</h2>
-      <p class="text-gray-700 leading-relaxed">Crownd Estates has always believed in redefining real estate excellence.
-        Founded in 2010, our mission has been to connect people with extraordinary properties, while ensuring top-notch service, transparency, and long-term value for our clients.</p>
+
+     <!-- Fixed Search Bar Widget -->
+    <div id="search-bar" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-white px-4 py-3 rounded-full shadow-lg flex items-center space-x-2 w-[90%] max-w-md">
+      <!-- Search Icon -->
+      <svg class="w-5 h-5 text-gray-500 font-bold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+      d="M21 21l-4.35-4.35M9.5 17a7.5 7.5 0 100-15 7.5 7.5 0 000 15z" />
+      </svg>
+  
+      <!-- Search Input -->
+      <input type="text" placeholder="Find a house..." class="w-full outline-none border-none text-sm font-bold placeholder-gray-500 bg-transparent" />
     </div>
+
+  
+  <!-- Main Content -->
+  <section class="flex flex-col lg:flex-row items-center justify-between mt-20 px-10 py-16 gap-20">
+      <!-- Map Image (Replace with your own image or SVG) -->
+      <div class="w-full lg:w-1/2">
+        <img src="../assets/images/Screenshot (76).png" alt="Map to Agence Desco" class="w-full h-[600px]" />
+        <!-- Example: Replace with <iframe> if you're using Google Maps -->
+      </div>
+
+      
+        <!-- Contact Info -->
+      <div class="w-full lg:w-1/2 space-y-12">
+        <!-- Heading -->
+        <div class="text-7xl font-serif tracking-tight mb-4">Contact</div>
+
+        <!-- OFFICE -->
+        <div>
+          <div class="text-2xl font-semibold font-sans">OFFICE</div>
+          <p class="text-lg text-gray-600">+228 90 03 33 53<br>agencedeschefsdoeuvre@gmail.com</p>
+        </div>
+
+        <!-- SALES -->
+        <div>
+          <div class="text-2xl font-semibold font-sans">SALES</div>
+          <p class="text-lg text-gray-600">+228 70 404 030111<br>sales@descoagence.com</p>
+        </div>
+
+        <!-- VISIT US -->
+        <div>
+          <div class="text-2xl font-semibold font-sans">VISIT US</div>
+          <p class="text-lg text-gray-600">343, Rue des Gemeaux, Tokoin Tame, Lome TogoMon–Thu: 9:00 AM to 6:00 PM<br>Fri: 9:00 AM to 3:00 PM</p>
+        </div>
+      </div>
+
+  </section>
+        <!-- Form Section -->
+  <section class="px-6 md:px-20 py-16 bg-white">
+    <!-- Heading -->
+    <div class="text-center mb-12">
+      <h2 class="text-6xl font-serif leading-tight">
+        We are happy to hear<br>
+        <span class="block">from them</span>
+      </h2>
+    </div>
+
+    <!-- Form -->
+    <form class="max-w-2xl mx-auto space-y-5">
+
+      <!-- Salutation -->
+      <select class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400 text-gray-600">
+        <option>Salutation</option>
+        <option>Mr.</option>
+        <option>Mrs.</option>
+        <option>Ms.</option>
+        <option>Dr.</option>
+      </select>
+
+      <!-- Title (Optional) -->
+      <input type="text" placeholder="Title (Optional)"
+        class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+
+      <!-- First Name -->
+      <input type="text" placeholder="First name"
+        class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+
+      <!-- Last Name -->
+      <input type="text" placeholder="Last name"
+        class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+
+      <!-- Phone with Country Flag Dropdown -->
+      <input id="phone" type="tel"
+        class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+
+      <!-- Email -->
+      <input type="email" placeholder="E-mail"
+        class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+
+      <!-- News Textarea -->
+      <textarea rows="4" placeholder="News"
+        class="w-full border border-gray-300 rounded-3xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400 resize-none"></textarea>
+
+      <!-- Checkboxes -->
+      <div class="space-y-3">
+        <label class="flex items-start space-x-4 text-sm text-gray-600">
+          <input type="checkbox" class="mt-1 rounded border-gray-400" />
+          <span>I would like to receive updates on projects and information about Togo’s most exclusive apartments. (Optional)</span>
+        </label>
+
+        <label class="flex items-start space-x-3 text-sm text-gray-600">
+          <input type="checkbox" class="mt-1 rounded border-gray-400" />
+          <span>I agree to the <a href="#" class="text-blue-600 underline">privacy policy</a>.</span>
+        </label>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="pt-6 pb-32">
+        <button type="submit"
+          class="w-full bg-black text-white text-lg font-medium rounded-full py-3 hover:bg-gray-800 transition duration-300">
+          Submit
+        </button>
+      </div>
+    </form>
   </section>
 
-  <!-- OUR VALUES -->
-  <section class="px-10 py-20 max-w-6xl mx-auto fade-in text-center">
-    <h2 class="text-3xl font-semibold mb-10">Our Core Values</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white rounded-lg p-6 shadow-md">
-        <h3 class="text-xl font-semibold mb-2">Integrity</h3>
-        <p class="text-gray-600">We act with honesty and fairness in every transaction and interaction.</p>
+
+  <footer class="bg-gray-100 text-gray-700 px-6 md:px-20 pt-16 pb-8">
+
+    <!-- Upper Section -->
+    <div class="flex flex-col lg:flex-row justify-between gap-12">
+      
+      <!-- Stay up to date -->
+      <div class="space-y-6 max-w-md">
+        <h3 class="text-2xl font-serif">Stay up to date.</h3>
+  
+        <!-- Email Input with Arrow -->
+        <form class="flex items-center bg-white rounded-full overflow-hidden border border-gray-300 w-full max-w-sm">
+          <input type="email" placeholder="Enter email address"
+            class="px-5 py-3 w-full focus:outline-none bg-transparent" />
+          <button type="submit" class="px-4 text-gray-500 hover:text-black">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </form>
+  
+        <!-- Social Icons -->
+        <div class="flex space-x-4 pt-2">
+          <a href="#" aria-label="Instagram">
+            <img src="../assets/images/instagram-brands-solid.svg" class="w-6 h-6" alt="Instagram" />
+          </a>
+          <a href="#" aria-label="Facebook">
+            <img src="../assets/images/facebook-brands.svg" class="w-6 h-6" alt="Facebook" />
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <img src="../assets/images/linkedin-brands.svg" class="w-6 h-6" alt="LinkedIn" />
+          </a>
+        </div>
       </div>
-      <div class="bg-white rounded-lg p-6 shadow-md">
-        <h3 class="text-xl font-semibold mb-2">Innovation</h3>
-        <p class="text-gray-600">We embrace creativity and technology to provide unmatched real estate solutions.</p>
+  
+      <!-- Center Links -->
+      <div class="space-y-3">
+        <p class="hover:text-black">BLOG</p>
+        <p class="hover:text-black">BEST OF DESCO</p>
+        <p class="hover:text-black">SUCHAGENT</p>
+        <p class="hover:text-black">CAREER</p>
       </div>
-      <div class="bg-white rounded-lg p-6 shadow-md">
-        <h3 class="text-xl font-semibold mb-2">Excellence</h3>
-        <p class="text-gray-600">We consistently strive for the highest standards in everything we do.</p>
+  
+      <!-- Contact Info -->
+      <div class="space-y-6 text-sm">
+        <div>
+          <h4 class="font-semibold text-black">OFFICE</h4>
+          <p class="text-gray-600">+228 90 03 33 53<br>office@descoagence.com</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-black">SALES</h4>
+          <p class="text-gray-600">+228 70 40 4030111<br>sales@descoagence.com</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-black">VISIT US</h4>
+          <p class="text-gray-600">343, Rue des Gemeaux, Tokoin Tame, Lome</p>
+        </div>
       </div>
     </div>
-  </section>
+  
+    <!-- Bottom Section -->
+    <div class="border-t border-gray-300 mt-14 pt-6 text-center text-sm text-gray-500">
+      <p class="mb-2 font-serif text-black">It’s my life. It’s my style. It’s DESCO.</p>
+      <div class="flex justify-center space-x-4">
+        <a href="#" class="hover:text-black">Privacy Policy</a>
+        <a href="#" class="hover:text-black">Imprint</a>
+        <span>© DESCO AGENCE</span>
+        <a href="#" class="hover:text-black">Privacy settings</a>
+      </div>
+    </div>
+  </footer>
+  
 
-  <div id="footer-placeholder"></div>
-
-  <script src="/Ahome-Front_end/assets/js/about.js"></script>
+  <script src="/Ahome-Front_end/assets/js/contact.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/js/intlTelInput.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/js/utils.js"></script>
 </body>
 
 </html>
