@@ -98,7 +98,8 @@ const cards = document.querySelectorAll('.project-card');
 
       animateCard();
 
-      new Swiper(".mySwiper", {
+      // Include after Swiper JS is loaded
+      var swiper = new Swiper(".mySwiper", {
         effect: "cards",
         grabCursor: true,
         loop: true,

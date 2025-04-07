@@ -6,6 +6,17 @@
   <title>Ahome Prototype website</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/Ahome-Front_end/assets/css/landing-page.css">
+  <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
 </head>
 <body class="bg-black text-white font-sans">
 
@@ -162,122 +173,140 @@
   </section>
 
   <!-- All Projects Carousel Section -->
-<section id="all-projects" class="bg-black py-16 text-white overflow-hidden flex-wrap
-  <div class="max-w-7xl mx-auto px-6">
-    <h3 class="text-3xl font-bold mb-10 text-center">All Projects</h3>
-
-    <!-- Outer wrapper for scroll + pause on hover -->
-    <div class="relative w-full overflow-x-hidden group">
-      <div class="flex space-x-6 animate-scroll-slow group-hover:paused">
-        
-        <!-- Card 1 -->
-        <div class="relative w-80 h-60 rounded-lg bg-cover bg-center overflow-hidden shadow-lg group/card"
-             style="background-image: url('https://via.placeholder.com/300x200');">
-          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4 z-10">
-            <h4 class="text-xl font-semibold">Project 1</h4>
+  <section id="all-projects" class="bg-black py-16 text-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <h3 class="text-3xl font-bold mb-10 text-center">All Projects</h3>
+  
+      <!-- Outer wrapper for scroll + pause on hover -->
+      <div class="relative w-full overflow-x-hidden group">
+        <div class="flex space-x-6 animate-infinite-scroll group-hover:[animation-play-state:paused]">
+          
+          <!-- Card 1 -->
+          <div class="relative flex-shrink-0 w-80 h-60 rounded-lg bg-cover bg-center overflow-hidden shadow-lg group/card"
+               style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4 z-10">
+              <h4 class="text-xl font-semibold">Luxury Villa</h4>
+            </div>
+            <!-- Individual hover popup -->
+            <div class="absolute inset-0 bg-black bg-opacity-80 text-white p-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-20 flex flex-col justify-center">
+              <h4 class="text-xl font-bold mb-2">Luxury Villa</h4>
+              <p class="text-sm mb-4">Modern 5-bedroom villa with pool in central Vienna</p>
+              <a href="#" class="text-sm font-medium text-amber-400 hover:text-amber-300 transition-colors">View Project →</a>
+            </div>
           </div>
-          <!-- Individual hover popup -->
-          <div class="absolute inset-0 bg-black bg-opacity-80 text-white p-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-20 flex flex-col justify-center">
-            <h4 class="text-xl font-bold mb-2">Project 1</h4>
-            <p class="text-sm">Luxury Villa located in central Vienna. Click to learn more.</p>
+  
+          <!-- Card 2 -->
+          <div class="relative flex-shrink-0 w-80 h-60 rounded-lg bg-cover bg-center overflow-hidden shadow-lg group/card"
+               style="background-image: url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4 z-10">
+              <h4 class="text-xl font-semibold">Urban Loft</h4>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-80 text-white p-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-20 flex flex-col justify-center">
+              <h4 class="text-xl font-bold mb-2">Urban Loft</h4>
+              <p class="text-sm mb-4">Industrial-style loft in the 3rd district</p>
+              <a href="#" class="text-sm font-medium text-amber-400 hover:text-amber-300 transition-colors">View Project →</a>
+            </div>
           </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="relative w-80 h-60 rounded-lg bg-cover bg-center overflow-hidden shadow-lg group/card"
-             style="background-image: url('https://via.placeholder.com/300x200');">
-          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4 z-10">
-            <h4 class="text-xl font-semibold">Project 2</h4>
+  
+          <!-- Card 3 -->
+          <div class="relative flex-shrink-0 w-80 h-60 rounded-lg bg-cover bg-center overflow-hidden shadow-lg group/card"
+               style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4 z-10">
+              <h4 class="text-xl font-semibold">Minimalist House</h4>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-80 text-white p-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-20 flex flex-col justify-center">
+              <h4 class="text-xl font-bold mb-2">Minimalist House</h4>
+              <p class="text-sm mb-4">Clean lines and open spaces in this architectural gem</p>
+              <a href="#" class="text-sm font-medium text-amber-400 hover:text-amber-300 transition-colors">View Project →</a>
+            </div>
           </div>
-          <div class="absolute inset-0 bg-black bg-opacity-80 text-white p-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-20 flex flex-col justify-center">
-            <h4 class="text-xl font-bold mb-2">Project 2</h4>
-            <p class="text-sm">Elegant apartments in the 3rd district. See more details.</p>
+  
+          <!-- Card 4 -->
+          <div class="relative flex-shrink-0 w-80 h-60 rounded-lg bg-cover bg-center overflow-hidden shadow-lg group/card"
+               style="background-image: url('https://images.unsplash.com/photo-1600566752229-250ed79470b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4 z-10">
+              <h4 class="text-xl font-semibold">Mountain Retreat</h4>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-80 text-white p-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-20 flex flex-col justify-center">
+              <h4 class="text-xl font-bold mb-2">Mountain Retreat</h4>
+              <p class="text-sm mb-4">Secluded alpine home with panoramic views</p>
+              <a href="#" class="text-sm font-medium text-amber-400 hover:text-amber-300 transition-colors">View Project →</a>
+            </div>
           </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="relative w-80 h-60 rounded-lg bg-cover bg-center overflow-hidden shadow-lg group/card"
-             style="background-image: url('https://via.placeholder.com/300x200');">
-          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4 z-10">
-            <h4 class="text-xl font-semibold">Project 3</h4>
+  
+          <!-- Card 5 -->
+          <div class="relative flex-shrink-0 w-80 h-60 rounded-lg bg-cover bg-center overflow-hidden shadow-lg group/card"
+               style="background-image: url('https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4 z-10">
+              <h4 class="text-xl font-semibold">Lakeside Cottage</h4>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-80 text-white p-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-20 flex flex-col justify-center">
+              <h4 class="text-xl font-bold mb-2">Lakeside Cottage</h4>
+              <p class="text-sm mb-4">Charming waterfront property with private dock</p>
+              <a href="#" class="text-sm font-medium text-amber-400 hover:text-amber-300 transition-colors">View Project →</a>
+            </div>
           </div>
-          <div class="absolute inset-0 bg-black bg-opacity-80 text-white p-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-20 flex flex-col justify-center">
-            <h4 class="text-xl font-bold mb-2">Project 3</h4>
-            <p class="text-sm">Modern house with minimalist design features.</p>
+  
+          <!-- Duplicate cards for infinite scroll effect -->
+          <!-- Card 1 -->
+          <div class="relative flex-shrink-0 w-80 h-60 rounded-lg bg-cover bg-center overflow-hidden shadow-lg group/card"
+               style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4 z-10">
+              <h4 class="text-xl font-semibold">Luxury Villa</h4>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-80 text-white p-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-20 flex flex-col justify-center">
+              <h4 class="text-xl font-bold mb-2">Luxury Villa</h4>
+              <p class="text-sm mb-4">Modern 5-bedroom villa with pool in central Vienna</p>
+              <a href="#" class="text-sm font-medium text-amber-400 hover:text-amber-300 transition-colors">View Project →</a>
+            </div>
           </div>
-        </div>
-
-        <div class="relative w-80 h-60 rounded-lg bg-cover bg-center overflow-hidden shadow-lg group/card"
-             style="background-image: url('https://via.placeholder.com/300x200');">
-          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4 z-10">
-            <h4 class="text-xl font-semibold">Project 4</h4>
-          </div>
-          <div class="absolute inset-0 bg-black bg-opacity-80 text-white p-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-20 flex flex-col justify-center">
-            <h4 class="text-xl font-bold mb-2">Project 4</h4>
-            <p class="text-sm">Modern house with minimalist design features.</p>
-          </div>
-        </div>
-
-        <div class="relative w-80 h-60 rounded-lg bg-cover bg-center overflow-hidden shadow-lg group/card"
-             style="background-image: url('https://via.placeholder.com/300x200');">
-          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4 z-10">
-            <h4 class="text-xl font-semibold">Project 5</h4>
-          </div>
-          <div class="absolute inset-0 bg-black bg-opacity-80 text-white p-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-20 flex flex-col justify-center">
-            <h4 class="text-xl font-bold mb-2">Project 5</h4>
-            <p class="text-sm">Modern house with minimalist design features.</p>
-          </div>
-        </div>
-
-        <div class="relative w-80 h-60 rounded-lg bg-cover bg-center overflow-hidden shadow-lg group/card"
-             style="background-image: url('https://via.placeholder.com/300x200');">
-          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4 z-10">
-            <h4 class="text-xl font-semibold">Project 6</h4>
-          </div>
-          <div class="absolute inset-0 bg-black bg-opacity-80 text-white p-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-20 flex flex-col justify-center">
-            <h4 class="text-xl font-bold mb-2">Project 6</h4>
-            <p class="text-sm">Modern house with minimalist design features.</p>
-          </div>
-        </div>
-
-        <div class="relative w-80 h-60 rounded-lg bg-cover bg-center overflow-hidden shadow-lg group/card"
-             style="background-image: url('https://via.placeholder.com/300x200');">
-          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4 z-10">
-            <h4 class="text-xl font-semibold">Project 7</h4>
-          </div>
-          <div class="absolute inset-0 bg-black bg-opacity-80 text-white p-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-20 flex flex-col justify-center">
-            <h4 class="text-xl font-bold mb-2">Project 7</h4>
-            <p class="text-sm">Modern house with minimalist design features.</p>
-          </div>
-        </div>
-
-        <div class="relative w-80 h-60 rounded-lg bg-cover bg-center overflow-hidden shadow-lg group/card"
-             style="background-image: url('https://via.placeholder.com/300x200');">
-          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4 z-10">
-            <h4 class="text-xl font-semibold">Project 8</h4>
-          </div>
-          <div class="absolute inset-0 bg-black bg-opacity-80 text-white p-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-20 flex flex-col justify-center">
-            <h4 class="text-xl font-bold mb-2">Project 8</h4>
-            <p class="text-sm">Modern house with minimalist design features.</p>
-          </div>
-        </div>
-
-        <div class="relative w-80 h-60 rounded-lg bg-cover bg-center overflow-hidden shadow-lg group/card"
-             style="background-image: url('https://via.placeholder.com/300x200');">
-          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4 z-10">
-            <h4 class="text-xl font-semibold">Project 9</h4>
-          </div>
-          <div class="absolute inset-0 bg-black bg-opacity-80 text-white p-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-20 flex flex-col justify-center">
-            <h4 class="text-xl font-bold mb-2">Project 9</h4>
-            <p class="text-sm">Modern house with minimalist design features.</p>
+  
+          <!-- Card 2 -->
+          <div class="relative flex-shrink-0 w-80 h-60 rounded-lg bg-cover bg-center overflow-hidden shadow-lg group/card"
+               style="background-image: url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4 z-10">
+              <h4 class="text-xl font-semibold">Urban Loft</h4>
+            </div>
+            <div class="absolute inset-0 bg-black bg-opacity-80 text-white p-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-20 flex flex-col justify-center">
+              <h4 class="text-xl font-bold mb-2">Urban Loft</h4>
+              <p class="text-sm mb-4">Industrial-style loft in the 3rd district</p>
+              <a href="#" class="text-sm font-medium text-amber-400 hover:text-amber-300 transition-colors">View Project →</a>
+            </div>
           </div>
         </div>
-
-        <!-- More cards as needed -->
+      </div>
+  
+      <!-- Navigation buttons -->
+      <div class="flex justify-center mt-8 space-x-4">
+        <button class="px-4 py-2 bg-gray-800 rounded-full hover:bg-gray-700 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        <button class="px-4 py-2 bg-gray-800 rounded-full hover:bg-gray-700 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+          </svg>
+        </button>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+  
+  <style>
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 1.5rem)); }
+    }
+    .animate-infinite-scroll {
+      animation: scroll 20s linear infinite;
+      width: max-content;
+    }
+    @media (hover: hover) {
+      .group:hover .animate-infinite-scroll {
+        animation-play-state: paused;
+      }
+    }
+  </style>
 
 
   <!-- Investment Opportunities -->
@@ -288,63 +317,70 @@
     </div>
   </section>
 
-  <section id="project-showcase" class="relative min-h-screen bg-[#262626] text-white overflow-hidden py-12 px-4 font-[Comfortaa]">
-    <!-- Animated Circles Background -->
-  <ul class="circles absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
-    <li></li><li></li><li></li><li></li><li></li>
-    <li></li><li></li><li></li><li></li><li></li>
-  </ul>
+ <!-- Project Showcase Section -->
+<section>
+      <div class="content">
+        <div class="info">
+          <p>
+            Join us for a fantastic
+            <span class="movie-night">movie night</span> styled showcase of our
+            most exciting projects! From elegant villas to luxury apartments,
+            we've got something that speaks to design, class, and innovation.
+          </p>
+          <button class="btn">Join</button>
+        </div>
 
-  <!-- Content Container -->
-  <div class="relative z-10 max-w-6xl mx-auto flex flex-wrap md:flex-nowrap gap-10 justify-center items-center bg-white/10 backdrop-blur-2xl p-8 rounded-2xl shadow-md">
-    
-    <!-- Text Column -->
-    <div class="info flex-1 max-w-md">
-      <p class="mb-6 leading-relaxed font-medium text-white text-justify">
-        Join us for a fantastic <span class="movie-night font-semibold bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-500 to-blue-500">movie night</span> styled showcase of our most exciting projects! From elegant villas to luxury apartments, we've got something that speaks to design, class, and innovation.
-      </p>
-      <button class="btn">Join</button>
-    </div>
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="https://source.unsplash.com/300x450/?villa" alt="" />
+              <div class="overlay">
+                <span>Villa</span>
+                <h2>Villa Luminea</h2>
+              </div>
+            </div>
 
-    <!-- Swiper Carousel -->
-    <div class="swiper mySwiper w-[250px] h-[450px] flex-shrink-0">
-      <div class="swiper-wrapper">
-        <!-- Slide 1 -->
-        <div class="swiper-slide relative rounded-xl overflow-hidden shadow-lg">
-          <img src="https://source.unsplash.com/300x450/?villa" alt="Villa Luminea" class="object-cover w-full h-full" />
-          <div class="overlay absolute inset-0 bg-gradient-to-t from-[#0f2027] to-transparent flex flex-col justify-end p-4">
-            <span class="absolute top-2 right-2 text-xs bg-white/10 px-3 py-1 rounded-full backdrop-blur-md font-bold">Villa</span>
-            <h2 class="text-lg font-semibold">Villa Luminea</h2>
-          </div>
-        </div>
-        <!-- Slide 2 -->
-        <div class="swiper-slide relative rounded-xl overflow-hidden shadow-lg">
-          <img src="https://source.unsplash.com/300x450/?architecture" alt="GRACE" class="object-cover w-full h-full" />
-          <div class="overlay absolute inset-0 bg-gradient-to-t from-[#0f2027] to-transparent flex flex-col justify-end p-4">
-            <span class="absolute top-2 right-2 text-xs bg-white/10 px-3 py-1 rounded-full backdrop-blur-md font-bold">Apartment</span>
-            <h2 class="text-lg font-semibold">GRACE</h2>
-          </div>
-        </div>
-        <!-- Slide 3 -->
-        <div class="swiper-slide relative rounded-xl overflow-hidden shadow-lg">
-          <img src="https://source.unsplash.com/300x450/?modern,house" alt="Chipperfield" class="object-cover w-full h-full" />
-          <div class="overlay absolute inset-0 bg-gradient-to-t from-[#0f2027] to-transparent flex flex-col justify-end p-4">
-            <span class="absolute top-2 right-2 text-xs bg-white/10 px-3 py-1 rounded-full backdrop-blur-md font-bold">Design</span>
-            <h2 class="text-lg font-semibold">Chipperfield</h2>
-          </div>
-        </div>
-        <!-- Slide 4 -->
-        <div class="swiper-slide relative rounded-xl overflow-hidden shadow-lg">
-          <img src="https://source.unsplash.com/300x450/?home" alt="Casa Crownd" class="object-cover w-full h-full" />
-          <div class="overlay absolute inset-0 bg-gradient-to-t from-[#0f2027] to-transparent flex flex-col justify-end p-4">
-            <span class="absolute top-2 right-2 text-xs bg-white/10 px-3 py-1 rounded-full backdrop-blur-md font-bold">Nature</span>
-            <h2 class="text-lg font-semibold">Casa Crownd</h2>
+            <div class="swiper-slide">
+              <img src="https://source.unsplash.com/300x450/?architecture" alt="" />
+              <div class="overlay">
+                <span>Apartment</span>
+                <h2>GRACE</h2>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <img src="https://source.unsplash.com/300x450/?modern,house" alt="" />
+              <div class="overlay">
+                <span>Design</span>
+                <h2>Chipperfield</h2>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <img src="https://source.unsplash.com/300x450/?home" alt="" />
+              <div class="overlay">
+                <span>Nature</span>
+                <h2>Casa Crownd</h2>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  </section>>
+
+      <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </section>
 
   
 
