@@ -6,6 +6,27 @@
   <title>Register – DESCO AGENCE</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/css/intlTelInput.min.css" />
+  <script>
+    fetch("/Ahome-Front_end/assets/html/header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
+  
+        // Re-evaluate scripts inside the injected HTML
+        const temp = document.createElement("div");
+        temp.innerHTML = html;
+        const scripts = temp.querySelectorAll("script");
+        scripts.forEach((oldScript) => {
+          const newScript = document.createElement("script");
+          if (oldScript.src) {
+            newScript.src = oldScript.src;
+          } else {
+            newScript.textContent = oldScript.textContent;
+          }
+          document.body.appendChild(newScript);
+        });
+      });
+  </script>
 
   <style>
     body {
@@ -29,18 +50,7 @@
 </head>
 <body class="text-gray-800">
         <!-- Navbar -->
-  <header id="navbar" class="w-full fixed top-0 left-0 z-50 transition-all duration-300">
-    <div class="max-w-7xl  flex justify-between items-center px-6 py-4">
-      <div class="text-xl ahome-font">AHOME</div>
-      <nav class="space-x-6 hidden md:flex text-sm font-medium">
-        <a href="#" class="hover:text-black">PROJECTS</a>
-        <a href="#" class="hover:text-black">PROPERTY SEARCH</a>
-        <a href="#" class="hover:text-black">PURCHASE</a>
-        <a href="#" class="hover:text-black">INVESTMENT</a>
-        <a href="#" class="hover:text-black">CONTACT</a>
-      </nav>
-    </div>
-  </header>
+        <div id="header-placeholder"></div>
   <!-- Main Content -->
   <section class="min-h-screen pt-32 pb-20 px-6 md:px-20">
     <div class="max-w-xl mx-auto text-center space-y-6">

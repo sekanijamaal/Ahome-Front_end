@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Investment Boutique</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-black">
+
+<!-- Header -->
+<header class="fixed top-0 left-0 w-full z-50 bg-white shadow-sm px-4 sm:px-6 py-4">
+  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 text-sm font-medium">
+
+    <!-- Left: Logo and Dropdown -->
+    <div class="flex items-center gap-4">
+      <!-- Logo -->
+      <div class="w-6 h-6 rounded-full border border-black flex items-center justify-center">👑</div>
+
+      <!-- Projekte Dropdown -->
+      <div class="relative group">
+        <button class="flex items-center gap-1 hover:underline">
+          Projekte
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </svg>
+        </button>
+        <ul class="absolute hidden group-hover:block mt-2 bg-white border rounded shadow-lg text-black w-48 z-50">
+          <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Villa Luminea</a></li>
+          <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">GRACE</a></li>
+          <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Chipperfield</a></li>
+          <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Casa Crownd</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Center Nav Links -->
+    <nav class="hidden md:flex gap-6">
+      <a href="#" class="hover:underline">IMMOBILIENSUCHE</a>
+      <a href="#" class="hover:underline">ANKAUF</a>
+      <a href="#" class="hover:underline">INVESTMENT</a>
+      <a href="#" class="hover:underline">IT’S CROWNED</a>
+      <a href="#" class="hover:underline">KONTAKT</a>
+    </nav>
+
+    <!-- Right Icons -->
+    <div class="flex items-center gap-4">
+      <button title="Favorites">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.364l-7.682-7.682a4.5 4.5 0 010-6.364z" />
+        </svg>
+      </button>
+      <button title="Profile">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M5.121 17.804A13.937 13.937 0 0112 15c2.486 0 4.847.635 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<main class="pt-24">
+  <section class="grid grid-cols-1 md:grid-cols-2 min-h-screen">
+
+    <!-- Left: Full Image -->
+    <div class="h-96 md:h-full">
+      <img src="/Ahome-Front_end/assets/images/allphoto-bangkok-nI4aC1kaTRc-unsplash.jpg" 
+           class="w-full h-full object-cover" alt="Interior" />
+    </div>
+
+    <!-- Right: Text + Bleeding Image -->
+    <div class="relative bg-white p-8 flex flex-col justify-center">
+      
+      <!-- Bleeding Image -->
+      <div class="absolute top-[-100px] right-4 w-48 h-72 shadow-lg rounded-lg overflow-hidden hidden md:block">
+        <img src="/Ahome-Front_end/assets/images/doctor-tinieblas-y-hnPtZo0kk-unsplash.jpg" 
+             class="w-full h-full object-cover" alt="Stairwell"/>
+      </div>
+
+      <!-- Text -->
+      <div class="max-w-lg">
+        <h1 class="text-4xl font-serif mb-4 leading-tight">
+          Welcome <em>to the</em><br/>Investment Boutique
+        </h1>
+        <p class="text-gray-800 text-lg">
+          Discover curated real estate opportunities tailored to your investment goals.
+        </p>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+</body>
+</html>

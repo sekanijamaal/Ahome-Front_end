@@ -25,3 +25,51 @@
 .group:hover .group-hover\:paused {
   animation-play-state: paused;
 }
+
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 1.5rem)); }
+    }
+    .animate-infinite-scroll {
+      animation: scroll 20s linear infinite;
+      width: max-content;
+    }
+    @media (hover: hover) {
+      .group:hover .animate-infinite-scroll {
+        animation-play-state: paused;
+      }
+    }
+
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+  .font-signature {
+    font-family: 'Great Vibes', cursive;
+  }
+
+  .bubble {
+    position: absolute;
+    display: block;
+    background: linear-gradient(225deg, #ff3cac 0%, #784ba0 50%, #2b86c5 100%);
+    animation: bubble-float 25s linear infinite;
+    bottom: -150px;
+    z-index: 1;
+}
+
+@keyframes bubble-float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+}

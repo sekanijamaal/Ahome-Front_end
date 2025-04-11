@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AHOME Header Component</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+    .ahome-font {
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body class="bg-white">
+
+  <!-- HEADER -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 bg-transparent text-white transition-all duration-300">
+    <div class="px-6 py-4 flex justify-between items-center">
+
+      <!-- Logo + Dropdown -->
+      <div class="flex items-center gap-20 relative">
+        <span id="brand" class="text-2xl ahome-font font-semibold transition-colors duration-300">AHOME</span>
+
+        <button id="project-toggle" onclick="toggleDropdown()" class="projects-link flex items-center gap-x-2 text-white px-4 py-2 border border-white rounded-full transition hover:bg-white hover:text-black">
+          <span>Projects</span>
+          <svg id="arrow-icon" class="down-arrow w-4 h-4 transition text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+
+        <!-- Dropdown List -->
+        <div id="projects-dropdown" class="hidden absolute top-full right-0 mt-2 w-56 bg-white shadow-md rounded-lg z-50">
+          <ul class="py-2 text-sm text-gray-700">
+            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Ongoing Projects</a></li>
+            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Completed Projects</a></li>
+            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Upcoming Projects</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Nav Links -->
+      <ul id="nav-links" class="flex-1 flex justify-center space-x-8 transition-colors duration-300">
+        <li><a href="#" class="nav-link px-4 py-2 rounded-full transition font-semibold">PROPERTY SEARCH</a></li>
+        <li><a href="#" class="nav-link px-4 py-2 rounded-full transition font-semibold">PURCHASE</a></li>
+        <li><a href="#" class="nav-link px-4 py-2 rounded-full transition font-semibold">INVESTMENT</a></li>
+        <li><a href="#" class="nav-link px-4 py-2 rounded-full transition font-semibold">IT'S AHOME</a></li>
+        <li><a href="#" class="nav-link px-4 py-2 rounded-full transition font-semibold">CONTACT</a></li>
+      </ul>
+
+      <!-- Icons -->
+      <div id="icon-set" class="flex items-center space-x-4 transition-colors duration-300">
+        <button onclick="togglePopup(event)" class="hover:text-gray-300">
+          <svg id="heart-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.364l-7.682-7.682a4.5 4.5 0 010-6.364z" />
+          </svg>
+        </button>
+        <button onclick="togglePopup(event)" class="hover:text-gray-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M5.121 17.804A13.937 13.937 0 0112 15c2.486 0 4.847.635 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- POPUP -->
+  <div id="popup" class="hidden fixed top-24 right-5 bg-white shadow-lg border rounded p-4 w-72 z-50 text-black transition-opacity duration-300">
+    <p class="mb-2 font-semibold">Become a CROWND member for access to all information.</p>
+    <div class="space-y-2">
+      <button class="bg-black text-white px-4 py-2 w-full rounded hover:bg-gray-800">Log in</button>
+      <button class="bg-gray-200 text-black px-4 py-2 w-full rounded hover:bg-gray-300">Register</button>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const navbar = document.getElementById("navbar");
+    const brand = document.getElementById("brand");
+    const navLinks = document.querySelectorAll('.nav-link');
+    const projectLink = document.querySelector('.projects-link');
+    const arrow = document.querySelector('.down-arrow');
+    const icons = document.getElementById("icon-set");
+    const heartIcon = document.getElementById("heart-icon");
+
+    window.addEventListener("scroll", () => {
+      const scrolled = window.scrollY > 0;
+
+      navbar.classList.toggle("bg-white", scrolled);
+      navbar.classList.toggle("text-black", scrolled);
+      navbar.classList.toggle("text-white", !scrolled);
+      navbar.classList.toggle("shadow-md", scrolled);
+
+      brand.classList.toggle("text-black", scrolled);
+      brand.classList.toggle("text-white", !scrolled);
+
+      icons.classList.toggle("text-black", scrolled);
+      icons.classList.toggle("text-white", !scrolled);
+
+      navLinks.forEach(link => {
+        link.classList.toggle("text-black", scrolled);
+        link.classList.toggle("text-white", !scrolled);
+        link.classList.toggle("hover:bg-gray-200/60", scrolled);
+        link.classList.toggle("hover:bg-white/20", !scrolled);
+      });
+
+      projectLink.classList.toggle("text-black", scrolled);
+      projectLink.classList.toggle("text-white", !scrolled);
+      projectLink.classList.toggle("border-gray-300", scrolled);
+      projectLink.classList.toggle("border-white", !scrolled);
+      projectLink.classList.toggle("bg-gray-100", scrolled);
+      projectLink.classList.toggle("hover:bg-gray-200", scrolled);
+
+      arrow.classList.toggle("text-gray-400", scrolled);
+      arrow.classList.toggle("text-white", !scrolled);
+
+      if (heartIcon) {
+        heartIcon.setAttribute("fill", scrolled ? "black" : "none");
+      }
+    });
+
+    function toggleDropdown() {
+      const dropdown = document.getElementById("projects-dropdown");
+      dropdown.classList.toggle("hidden");
+    }
+
+    function togglePopup(event) {
+      event.stopPropagation();
+      const popup = document.getElementById("popup");
+      popup.classList.toggle("hidden");
+    }
+
+    document.addEventListener('click', function (e) {
+      const popup = document.getElementById("popup");
+      const button = document.querySelector('button[onclick="togglePopup(event)"]');
+      if (!popup.contains(e.target) && e.target !== button) {
+        popup.classList.add("hidden");
+      }
+    });
+  </script>
+</body>
+</html>

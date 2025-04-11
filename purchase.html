@@ -29,22 +29,33 @@
       transform: translateY(0);
     }
   </style>
+   <script>
+    fetch("/Ahome-Front_end/assets/html/header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
+  
+        // Re-evaluate scripts inside the injected HTML
+        const temp = document.createElement("div");
+        temp.innerHTML = html;
+        const scripts = temp.querySelectorAll("script");
+        scripts.forEach((oldScript) => {
+          const newScript = document.createElement("script");
+          if (oldScript.src) {
+            newScript.src = oldScript.src;
+          } else {
+            newScript.textContent = oldScript.textContent;
+          }
+          document.body.appendChild(newScript);
+        });
+      });
+  </script>
 </head>
 
 <body class="bg-gray-100">
 
   <!-- HEADER -->
-  <header id="header"
-    class="flex justify-between items-center p-6 fixed top-0 left-0 w-full z-20 text-white transition-colors duration-300">
-    <h1 class="text-xl uppercase font-bold">Ahome</h1>
-    <nav class="hidden md:flex space-x-6 text-sm uppercase opacity-80">
-      <a href="#" class="hover:underline">Property Search</a>
-      <a href="#" class="hover:underline">Purchase</a>
-      <a href="#" class="hover:underline">Investment</a>
-      <a href="#" class="hover:underline">It's Crown</a>
-      <a href="#" class="hover:underline">Contact</a>
-    </nav>
-  </header>
+  <div id="header-placeholder"></div>
 
   <!-- SCROLL TRANSITION SECTION -->
   <section class="relative h-[200vh] bg-cover bg-center"
