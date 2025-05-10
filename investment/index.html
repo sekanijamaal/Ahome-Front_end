@@ -43,7 +43,7 @@
       sections.forEach(section => observer.observe(section));
     });
 
-    fetch("/Ahome-Front_end/assets/html/header.html")
+    fetch("/assets/html/header.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("header-placeholder").innerHTML = html;
@@ -63,7 +63,7 @@
         });
       });
 
-      fetch('/Ahome-Front_end/assets/html/footer.html')
+      fetch('/assets/html/footer.html')
 .then(res => res.text())
 .then(data => {
   document.getElementById('footer-placeholder').innerHTML = data;
@@ -123,7 +123,7 @@
     <div class="flex flex-col md:flex-row items-center gap-10">
       <!-- Left Image -->
       <div class="w-full md:w-1/2 md:pl-0">
-        <img src="/Ahome-Front_end/assets/images/house3.jpg.jpg" alt="Investment architecture" class="w-full h-auto rounded-md" />
+        <img src="/assets/images/house3.jpg.jpg" alt="Investment architecture" class="w-full h-auto rounded-md" />
       </div>
       <!-- Right Text Content -->
       <div class="w-full md:w-1/2 px-4 md:px-12 space-y-6">
