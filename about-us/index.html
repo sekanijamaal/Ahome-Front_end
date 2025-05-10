@@ -7,21 +7,13 @@
   <title>About Us - Crownd</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/Ahome-Front_end/assets/css/about.css">
+ 
 </head>
 
 <body class="bg-gray-100">
 
   <!-- HEADER -->
-  <header id="header"
-    class="flex justify-between items-center p-6 fixed top-0 left-0 w-full z-20 text-white transition-colors duration-300">
-    <h1 class="text-xl uppercase font-bold">Ahome</h1>
-    <nav class="hidden md:flex space-x-6 text-sm uppercase opacity-80">
-      <a href="#" class="hover:underline">Home</a>
-      <a href="#" class="hover:underline">About</a>
-      <a href="#" class="hover:underline">Services</a>
-      <a href="#" class="hover:underline">Contact</a>
-    </nav>
-  </header>
+  <div id="header-placeholder"></div>
 
   <!-- HERO SECTION -->
   <section class="relative h-[200vh] bg-cover bg-center"
@@ -68,6 +60,27 @@
   <div id="footer-placeholder"></div>
 
   <script src="/Ahome-Front_end/assets/js/about.js"></script>
+  <script>
+    fetch("/Ahome-Front_end/assets/html/header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
+  
+        // Re-evaluate scripts inside the injected HTML
+        const temp = document.createElement("div");
+        temp.innerHTML = html;
+        const scripts = temp.querySelectorAll("script");
+        scripts.forEach((oldScript) => {
+          const newScript = document.createElement("script");
+          if (oldScript.src) {
+            newScript.src = oldScript.src;
+          } else {
+            newScript.textContent = oldScript.textContent;
+          }
+          document.body.appendChild(newScript);
+        });
+      });
+  </script>
 </body>
 
 </html>

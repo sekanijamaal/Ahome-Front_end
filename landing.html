@@ -18,7 +18,7 @@
     />
 
     <script>
-      fetch("/assets/html/header.html")
+      fetch("./assets/html/header.html")
         .then(res => res.text())
         .then(html => {
           document.getElementById("header-placeholder").innerHTML = html;
@@ -351,7 +351,7 @@
   <div id="footer-placeholder"></div>
 
   <!-- External JS file (optional) -->
-  <script src="/assets/js/landing-page.js"></script>
+  <script src="./assets/js/landing-page.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   
