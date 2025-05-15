@@ -24,21 +24,38 @@
       transition: opacity 0.3s ease;
     }
   </style>
+
+  <script> fetch("../assets/html/header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
+  
+        // Re-evaluate scripts inside the injected HTML
+        const temp = document.createElement("div");
+        temp.innerHTML = html;
+        const scripts = temp.querySelectorAll("script");
+        scripts.forEach((oldScript) => {
+          const newScript = document.createElement("script");
+          if (oldScript.src) {
+            newScript.src = oldScript.src;
+          } else {
+            newScript.textContent = oldScript.textContent;
+          }
+          document.body.appendChild(newScript);
+        });
+      });
+      fetch('../assets/html/footer.html')
+.then(res => res.text())
+.then(data => {
+  document.getElementById('footer-placeholder').innerHTML = data;
+});
+    </script>
+      
 </head>
 
 <body class="bg-gray-100">
+  <div id="header-placeholder"></div>
 
-  <!-- HEADER -->
-  <header id="header"
-    class="flex justify-between items-center p-6 fixed top-0 left-0 w-full z-20 text-white transition-colors duration-300">
-    <h1 class="text-xl uppercase ahome-font">Ahome</h1>
-    <nav class="hidden md:flex space-x-6 text-sm uppercase opacity-80">
-      <a href="#" class="hover:underline">Home</a>
-      <a href="#" class="hover:underline">About</a>
-      <a href="#" class="hover:underline">Services</a>
-      <a href="" class="hover:underline">Contact</a>
-    </nav>
-  </header>
 
   <!-- HERO SECTION -->
   <section class="relative h-[130vh] bg-cover bg-center"
@@ -170,76 +187,7 @@
   </section>
 
 
-  <footer class="bg-gray-100 text-gray-700 px-6 md:px-20 pt-16 pb-8">
-
-    <!-- Upper Section -->
-    <div class="flex flex-col lg:flex-row justify-between gap-12">
-      
-      <!-- Stay up to date -->
-      <div class="space-y-6 max-w-md">
-        <h3 class="text-2xl font-serif">Stay up to date.</h3>
-  
-        <!-- Email Input with Arrow -->
-        <form class="flex items-center bg-white rounded-full overflow-hidden border border-gray-300 w-full max-w-sm">
-          <input type="email" placeholder="Enter email address"
-            class="px-5 py-3 w-full focus:outline-none bg-transparent" />
-          <button type="submit" class="px-4 text-gray-500 hover:text-black">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </form>
-  
-        <!-- Social Icons -->
-        <div class="flex space-x-4 pt-2">
-          <a href="#" aria-label="Instagram">
-            <img src="../assets/images/instagram-brands-solid.svg" class="w-6 h-6" alt="Instagram" />
-          </a>
-          <a href="#" aria-label="Facebook">
-            <img src="../assets/images/facebook-brands.svg" class="w-6 h-6" alt="Facebook" />
-          </a>
-          <a href="#" aria-label="LinkedIn">
-            <img src="../assets/images/linkedin-brands.svg" class="w-6 h-6" alt="LinkedIn" />
-          </a>
-        </div>
-      </div>
-  
-      <!-- Center Links -->
-      <div class="space-y-3">
-        <p class="hover:text-black">BLOG</p>
-        <p class="hover:text-black">BEST OF DESCO</p>
-        <p class="hover:text-black">SUCHAGENT</p>
-        <p class="hover:text-black">CAREER</p>
-      </div>
-  
-      <!-- Contact Info -->
-      <div class="space-y-6 text-sm">
-        <div>
-          <h4 class="font-semibold text-black">OFFICE</h4>
-          <p class="text-gray-600">+228 90 03 33 53<br>office@descoagence.com</p>
-        </div>
-        <div>
-          <h4 class="font-semibold text-black">SALES</h4>
-          <p class="text-gray-600">+228 70 40 4030111<br>sales@descoagence.com</p>
-        </div>
-        <div>
-          <h4 class="font-semibold text-black">VISIT US</h4>
-          <p class="text-gray-600">343, Rue des Gemeaux, Tokoin Tame, Lome</p>
-        </div>
-      </div>
-    </div>
-  
-    <!-- Bottom Section -->
-    <div class="border-t border-gray-300 mt-14 pt-6 text-center text-sm text-gray-500">
-      <p class="mb-2 font-serif text-black">It’s my life. It’s my style. It’s DESCO.</p>
-      <div class="flex justify-center space-x-4">
-        <a href="#" class="hover:text-black">Privacy Policy</a>
-        <a href="#" class="hover:text-black">Imprint</a>
-        <span>© DESCO AGENCE</span>
-        <a href="#" class="hover:text-black">Privacy settings</a>
-      </div>
-    </div>
-  </footer>
+<div id="footer-placeholder"></div>
   
 
   <script src="/Ahome-Front_end/assets/js/contact.js"></script>
