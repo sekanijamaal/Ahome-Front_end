@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahome Project Detail</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body { scroll-behavior: smooth; }
+    .fade-text { transition: opacity 0.8s ease, transform 0.8s ease; display: inline-block; opacity: 1; transform: translateY(0); }
+
+    @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Hover effect that lifts the image and adds shadow */
+  .hover\:scale-105:hover {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Make sure the grid items overlap slightly */
+  .grid > * {
+    position: relative;
+    z-index: 1;
+  }
+  </style>
+  <script>
+      fetch("../assets/html/header.html")
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("header-placeholder").innerHTML = html;
+    
+          // Re-evaluate scripts inside the injected HTML
+          const temp = document.createElement("div");
+          temp.innerHTML = html;
+          const scripts = temp.querySelectorAll("script");
+          scripts.forEach((oldScript) => {
+            const newScript = document.createElement("script");
+            if (oldScript.src) {
+              newScript.src = oldScript.src;
+            } else {
+              newScript.textContent = oldScript.textContent;
+            }
+            document.body.appendChild(newScript);
+          });
+        });
+
+        fetch('../assets/html/footer.html')
+.then(res => res.text())
+.then(data => {
+  document.getElementById('footer-placeholder').innerHTML = data;
+});
+    </script>
+</head>
+<body class="bg-white text-gray-800">
+  <div id="header-placeholder"></div>
+
+  <!-- Hero Section -->
+  <section class="relative h-screen overflow-hidden">
+    <img src="/Ahome-Front_end/assets/images/house6.jpg.jpg" alt="Project Hero" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center">
+      <h1 id="dynamic-text" class="text-4xl md:text-5xl lg:text-6xl text-white font-bold fade-text">Welcome to Ahome</h1>
+    </div>
+  </section>
+
+  <!-- Magazine-style Gallery Section -->
+  <section class="mt-24 px-6 md:px-20 overflow-hidden">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+    <!-- Each image has unique positioning and animation delays -->
+    <img 
+      src="/Ahome-Front_end/assets/images/marcel-strauss-vTrMLXrgtqg-unsplash.jpg" 
+      alt="Gallery 1" 
+      class="w-full h-auto object-cover transform transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-105 hover:shadow-xl hover:z-10"
+      style="grid-column: 1; grid-row: 1; margin-top: -5%; opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.2s forwards;"
+    >
+    <img 
+      src="/Ahome-Front_end/assets/images/michal-gadek-Noq6-wTyiv8-unsplash.jpg" 
+      alt="Gallery 2" 
+      class="w-full h-auto object-cover transform transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-105 hover:shadow-xl hover:z-10"
+      style="grid-column: 2; grid-row: 1; margin-top: 10%; opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.4s forwards;"
+    >
+    <img 
+      src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" 
+      alt="Gallery 3" 
+      class="w-full h-auto object-cover transform transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-105 hover:shadow-xl hover:z-10"
+      style="grid-column: 3; grid-row: 1; margin-top: -8%; opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.6s forwards;"
+    >
+    <img 
+      src="/Ahome-Front_end/assets/images/house13.jpg.jpg" 
+      alt="Gallery 4" 
+      class="w-full h-auto object-cover transform transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-105 hover:shadow-xl hover:z-10"
+      style="grid-column: 1; grid-row: 2; margin-top: 15%; opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.8s forwards;"
+    >
+    <img 
+      src="/Ahome-Front_end/assets/images/house3.jpg.jpg" 
+      alt="Gallery 5" 
+      class="w-full h-auto object-cover transform transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-105 hover:shadow-xl hover:z-10"
+      style="grid-column: 2; grid-row: 2; margin-top: -12%; opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.34,1.56,0.64,1) 1.0s forwards;"
+    >
+    <img 
+      src="/Ahome-Front_end/assets/images/house4.jpg.jpg" 
+      alt="Gallery 6" 
+      class="w-full h-auto object-cover transform transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-105 hover:shadow-xl hover:z-10"
+      style="grid-column: 3; grid-row: 2; margin-top: 5%; opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.34,1.56,0.64,1) 1.2s forwards;"
+    >
+  </div>
+</section>
+
+  <!-- Glamorous Section: Fullscreen Alternating Images -->
+  <section class="mt-32">
+    <div class="grid grid-cols-1 lg:grid-cols-2">
+      <div class="h-[75vh]">
+        <img src="https://source.unsplash.com/1200x900/?penthouse,luxury" class="w-full h-full object-cover" alt="Luxury 1">
+      </div>
+      <div class="flex items-center justify-center p-12 bg-[#f9f9f9] text-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Elegance in Every Corner</h2>
+          <p class="text-lg text-gray-600 max-w-xl mx-auto">Designed with sophistication and functionality, every room at Ahome delivers refined comfort and style to elevate your lifestyle.</p>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 mt-12">
+      <div class="flex items-center justify-center p-12 bg-[#f0efed] text-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">City Views. Tranquil Feel.</h2>
+          <p class="text-lg text-gray-600 max-w-xl mx-auto">From your rooftop terrace, take in sweeping views of the skyline while enjoying the serene surroundings of nature’s finest touch.</p>
+        </div>
+      </div>
+      <div class="h-[75vh]">
+        <img src="https://source.unsplash.com/1200x900/?terrace,skyline" class="w-full h-full object-cover" alt="Luxury 2">
+      </div>
+    </div>
+  </section>
+
+  <!-- Stylish Grid Section -->
+  <section class="mt-32 px-6 md:px-20">
+    <h2 class="text-4xl font-bold mb-8 text-center">A Showcase of Class</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <img src="https://source.unsplash.com/500x700/?dining-room,classic" class="w-full h-full object-cover rounded-xl">
+      <img src="https://source.unsplash.com/500x700/?luxury-bedroom" class="w-full h-full object-cover rounded-xl">
+      <img src="https://source.unsplash.com/500x700/?bathroom,marble" class="w-full h-full object-cover rounded-xl">
+      <img src="https://source.unsplash.com/500x700/?hallway,interior" class="w-full h-full object-cover rounded-xl">
+    </div>
+  </section>
+
+  <!-- Additional Alternating Visuals Section -->
+  <section class="mt-32">
+    <div class="grid grid-cols-1 lg:grid-cols-2">
+      <div class="h-[75vh]">
+        <img src="https://source.unsplash.com/1200x900/?lobby,hotel" class="w-full h-full object-cover" alt="Lobby">
+      </div>
+      <div class="flex items-center justify-center p-12 bg-white text-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Sophisticated Entryways</h2>
+          <p class="text-lg text-gray-600 max-w-xl mx-auto">Step into a world of elegance the moment you enter Ahome. Our lobbies and reception areas are designed to welcome you with warmth and grandeur.</p>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 mt-12">
+      <div class="flex items-center justify-center p-12 bg-gray-100 text-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Relaxed Outdoor Lounging</h2>
+          <p class="text-lg text-gray-600 max-w-xl mx-auto">Enjoy peaceful moments on our beautifully landscaped terraces, complete with luxury furnishings and lush surroundings.</p>
+        </div>
+      </div>
+      <div class="h-[75vh]">
+        <img src="https://source.unsplash.com/1200x900/?outdoor-lounge,garden" class="w-full h-full object-cover" alt="Outdoor Lounge">
+      </div>
+    </div>
+  </section>
+  <!-- Additional Lifestyle Features Section -->
+<section class="mt-32">
+  <div class="grid grid-cols-1 lg:grid-cols-2">
+    <div class="h-[75vh]">
+      <img src="https://source.unsplash.com/1200x900/?spa,relaxation" class="w-full h-full object-cover" alt="Spa">
+    </div>
+    <div class="flex items-center justify-center p-12 bg-gray-50 text-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Private Wellness & Spa</h2>
+        <p class="text-lg text-gray-600 max-w-xl mx-auto">Unwind in our tranquil spa spaces designed for your well-being, equipped with modern comforts and serene ambiance.</p>
+      </div>
+    </div>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-2 mt-12">
+    <div class="flex items-center justify-center p-12 bg-white text-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Designer Kitchens</h2>
+        <p class="text-lg text-gray-600 max-w-xl mx-auto">State-of-the-art appliances and timeless design come together to create kitchens worthy of a chef's dream.</p>
+      </div>
+    </div>
+    <div class="h-[75vh]">
+      <img src="https://source.unsplash.com/1200x900/?kitchen,interior" class="w-full h-full object-cover" alt="Kitchen">
+    </div>
+  </div>
+</section>
+
+<!-- Additional Resident Benefits Section -->
+<section class="mt-32">
+  <div class="grid grid-cols-1 lg:grid-cols-2">
+    <div class="h-[75vh]">
+      <img src="https://source.unsplash.com/1200x900/?library,apartment" class="w-full h-full object-cover" alt="Library">
+    </div>
+    <div class="flex items-center justify-center p-12 bg-[#f4f4f4] text-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Quiet Reading Corners</h2>
+        <p class="text-lg text-gray-600 max-w-xl mx-auto">Discover cozy nooks for relaxation or study, thoughtfully built into Ahome’s design for peace and inspiration.</p>
+      </div>
+    </div>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-2 mt-12">
+    <div class="flex items-center justify-center p-12 bg-[#f7f7f7] text-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Family-Friendly Spaces</h2>
+        <p class="text-lg text-gray-600 max-w-xl mx-auto">Safe play zones, green lawns, and comfortable gathering spaces await residents of all ages, ensuring community and comfort for every generation.</p>
+      </div>
+    </div>
+    <div class="h-[75vh]">
+      <img src="https://source.unsplash.com/1200x900/?family,playground" class="w-full h-full object-cover" alt="Family Spaces">
+    </div>
+  </div>
+</section>
+<!-- Ahome Gallery Section -->
+<section class="py-16 px-4 sm:px-8 lg:px-16 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">A Glimpse Inside Ahome</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover the exquisite interiors that make Ahome truly special</p>
+    </div>
+
+    <!-- Image Gallery Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Gallery Item 1 -->
+      <div class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl">
+        <img src="https://source.unsplash.com/600x800/?modern-home,luxury" 
+             alt="Luxury living space" 
+             class="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-end p-6">
+          <h3 class="text-white text-xl font-semibold">Elegant Living Room</h3>
+        </div>
+      </div>
+
+      <!-- Gallery Item 2 -->
+      <div class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl">
+        <img src="https://source.unsplash.com/600x400/?interior,design,spacious" 
+             alt="Spacious interior" 
+             class="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-end p-6">
+          <h3 class="text-white text-xl font-semibold">Open Concept Design</h3>
+        </div>
+      </div>
+
+      <!-- Gallery Item 3 -->
+      <div class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl">
+        <img src="https://source.unsplash.com/600x800/?kitchen,gourmet" 
+             alt="Gourmet kitchen" 
+             class="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-end p-6">
+          <h3 class="text-white text-xl font-semibold">Chef's Kitchen</h3>
+        </div>
+      </div>
+
+      <!-- Gallery Item 4 -->
+      <div class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl">
+        <img src="https://source.unsplash.com/600x400/?bedroom,luxury" 
+             alt="Luxury bedroom" 
+             class="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-end p-6">
+          <h3 class="text-white text-xl font-semibold">Master Suite</h3>
+        </div>
+      </div>
+
+      <!-- Gallery Item 5 -->
+      <div class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl">
+        <img src="https://source.unsplash.com/600x800/?bathroom,spa" 
+             alt="Spa bathroom" 
+             class="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-end p-6">
+          <h3 class="text-white text-xl font-semibold">Spa Bathroom</h3>
+        </div>
+      </div>
+
+      <!-- Gallery Item 6 -->
+      <div class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl">
+        <img src="https://source.unsplash.com/600x400/?balcony,view,cityscape" 
+             alt="City view balcony" 
+             class="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-end p-6">
+          <h3 class="text-white text-xl font-semibold">Panoramic Views</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional CTA -->
+    <div class="text-center mt-12">
+      <a href="#"
+         class="inline-block bg-gray-900 hover:bg-gray-800 text-white font-medium py-3 px-8 rounded-full transition duration-300">
+        View All Gallery Photos
+      </a>
+    </div>
+  </div>
+</section>
+<div id="footer-placeholder"></div>
+
+
+  <!-- JavaScript -->
+  <script>
+    const textElement = document.getElementById("dynamic-text");
+    const textArray = ["Welcome to Ahome", "Experience the Finest Living", "Discover Your Dream Home"];
+    let currentIndex = 0;
+
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      const changePoint1 = 100;
+      const changePoint2 = 300;
+      let newIndex;
+
+      if (scrollY > changePoint2) {
+        newIndex = 2;
+      } else if (scrollY > changePoint1) {
+        newIndex = 1;
+      } else {
+        newIndex = 0;
+      }
+
+      if (newIndex !== currentIndex) {
+        currentIndex = newIndex;
+        animateTextChange(textArray[newIndex]);
+      }
+    });
+
+    function animateTextChange(newText) {
+      textElement.classList.remove("fade-text");
+      textElement.style.opacity = 0;
+      textElement.style.transform = "translateY(20px)";
+      setTimeout(() => {
+        textElement.textContent = newText;
+        textElement.style.opacity = 1;
+        textElement.style.transform = "translateY(0)";
+        textElement.classList.add("fade-text");
+      }, 300);
+    }
+  </script>
+
+</body>
+</html>
