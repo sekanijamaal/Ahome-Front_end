@@ -30,7 +30,7 @@
     }
   </style>
    <script>
-    fetch("./assets/html/header.html")
+    fetch("../assets/html/header.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("header-placeholder").innerHTML = html;
@@ -49,6 +49,12 @@
           document.body.appendChild(newScript);
         });
       });
+
+      fetch("../assets/html/footer.html")
+.then(res => res.text())
+.then(data => {
+  document.getElementById('footer-placeholder').innerHTML = data;
+});
   </script>
 </head>
 
