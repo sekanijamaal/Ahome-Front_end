@@ -33,7 +33,7 @@
   }
   </style>
   <script>
-      fetch("../assets/html/header.html")
+      fetch("/assets/html/header.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("header-placeholder").innerHTML = html;
@@ -53,7 +53,7 @@
         });
       });
 
-      fetch("../assets/html/footer.html")
+      fetch("/assets/html/footer.html")
 .then(res => res.text())
 .then(data => {
   document.getElementById('footer-placeholder').innerHTML = data;
@@ -65,7 +65,7 @@
 
   <!-- Hero Section -->
   <section class="relative h-screen overflow-hidden">
-    <img src="/Ahome-Front_end/assets/images/house6.jpg.jpg" alt="Project Hero" class="absolute inset-0 w-full h-full object-cover">
+    <img src="/assets/images/house6.jpg.jpg" alt="Project Hero" class="absolute inset-0 w-full h-full object-cover">
     <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center">
       <h1 id="dynamic-text" class="text-4xl md:text-5xl lg:text-6xl text-white font-bold fade-text">Welcome to Ahome</h1>
     </div>
@@ -76,37 +76,37 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
     <!-- Each image has unique positioning and animation delays -->
     <img 
-      src="/Ahome-Front_end/assets/images/marcel-strauss-vTrMLXrgtqg-unsplash.jpg" 
+      src="/assets/images/marcel-strauss-vTrMLXrgtqg-unsplash.jpg" 
       alt="Gallery 1" 
       class="w-full h-auto object-cover transform transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-105 hover:shadow-xl hover:z-10"
       style="grid-column: 1; grid-row: 1; margin-top: -5%; opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.2s forwards;"
     >
     <img 
-      src="/Ahome-Front_end/assets/images/michal-gadek-Noq6-wTyiv8-unsplash.jpg" 
+      src="/assets/images/michal-gadek-Noq6-wTyiv8-unsplash.jpg" 
       alt="Gallery 2" 
       class="w-full h-auto object-cover transform transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-105 hover:shadow-xl hover:z-10"
       style="grid-column: 2; grid-row: 1; margin-top: 10%; opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.4s forwards;"
     >
     <img 
-      src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" 
+      src="/assets/images/pexels-binyaminmellish-1396132.jpg" 
       alt="Gallery 3" 
       class="w-full h-auto object-cover transform transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-105 hover:shadow-xl hover:z-10"
       style="grid-column: 3; grid-row: 1; margin-top: -8%; opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.6s forwards;"
     >
     <img 
-      src="/Ahome-Front_end/assets/images/house13.jpg.jpg" 
+      src="/assets/images/house13.jpg.jpg" 
       alt="Gallery 4" 
       class="w-full h-auto object-cover transform transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-105 hover:shadow-xl hover:z-10"
       style="grid-column: 1; grid-row: 2; margin-top: 15%; opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.34,1.56,0.64,1) 0.8s forwards;"
     >
     <img 
-      src="/Ahome-Front_end/assets/images/house3.jpg.jpg" 
+      src="/assets/images/house3.jpg.jpg" 
       alt="Gallery 5" 
       class="w-full h-auto object-cover transform transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-105 hover:shadow-xl hover:z-10"
       style="grid-column: 2; grid-row: 2; margin-top: -12%; opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.34,1.56,0.64,1) 1.0s forwards;"
     >
     <img 
-      src="/Ahome-Front_end/assets/images/house4.jpg.jpg" 
+      src="/assets/images/house4.jpg.jpg" 
       alt="Gallery 6" 
       class="w-full h-auto object-cover transform transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-105 hover:shadow-xl hover:z-10"
       style="grid-column: 3; grid-row: 2; margin-top: 5%; opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.34,1.56,0.64,1) 1.2s forwards;"
@@ -118,7 +118,7 @@
   <section class="mt-32">
     <div class="grid grid-cols-1 lg:grid-cols-2">
       <div class="h-[75vh]">
-        <img src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover" alt="Luxury 1">
+        <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover" alt="Luxury 1">
       </div>
       <div class="flex items-center justify-center p-12 bg-[#f9f9f9] text-center">
         <div>
@@ -135,7 +135,7 @@
         </div>
       </div>
       <div class="h-[75vh]">
-        <img src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover" alt="Luxury 2">
+        <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover" alt="Luxury 2">
       </div>
     </div>
   </section>
@@ -144,10 +144,10 @@
   <section class="mt-32 px-6 md:px-20">
     <h2 class="text-4xl font-bold mb-8 text-center">A Showcase of Class</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <img src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover rounded-xl">
-      <img src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover rounded-xl">
-      <img src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover rounded-xl">
-      <img src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover rounded-xl">
+      <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover rounded-xl">
+      <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover rounded-xl">
+      <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover rounded-xl">
+      <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover rounded-xl">
     </div>
   </section>
 
@@ -155,7 +155,7 @@
   <section class="mt-32">
     <div class="grid grid-cols-1 lg:grid-cols-2">
       <div class="h-[75vh]">
-        <img src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover" alt="Lobby">
+        <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover" alt="Lobby">
       </div>
       <div class="flex items-center justify-center p-12 bg-white text-center">
         <div>
@@ -172,7 +172,7 @@
         </div>
       </div>
       <div class="h-[75vh]">
-        <img src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover" alt="Outdoor Lounge">
+        <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover" alt="Outdoor Lounge">
       </div>
     </div>
   </section>
@@ -180,7 +180,7 @@
 <section class="mt-32">
   <div class="grid grid-cols-1 lg:grid-cols-2">
     <div class="h-[75vh]">
-      <img src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover" alt="Spa">
+      <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover" alt="Spa">
     </div>
     <div class="flex items-center justify-center p-12 bg-gray-50 text-center">
       <div>
@@ -197,7 +197,7 @@
       </div>
     </div>
     <div class="h-[75vh]">
-      <img src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover" alt="Kitchen">
+      <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover" alt="Kitchen">
     </div>
   </div>
 </section>
@@ -206,7 +206,7 @@
 <section class="mt-32">
   <div class="grid grid-cols-1 lg:grid-cols-2">
     <div class="h-[75vh]">
-      <img src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover" alt="Library">
+      <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover" alt="Library">
     </div>
     <div class="flex items-center justify-center p-12 bg-[#f4f4f4] text-center">
       <div>
@@ -223,7 +223,7 @@
       </div>
     </div>
     <div class="h-[75vh]">
-      <img src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover" alt="Family Spaces">
+      <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" class="w-full h-full object-cover" alt="Family Spaces">
     </div>
   </div>
 </section>
@@ -240,7 +240,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <!-- Gallery Item 1 -->
       <div class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl">
-        <img src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" 
+        <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" 
              alt="Luxury living space" 
              class="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105">
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-end p-6">
@@ -250,7 +250,7 @@
 
       <!-- Gallery Item 2 -->
       <div class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl">
-        <img src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" 
+        <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" 
              alt="Spacious interior" 
              class="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105">
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-end p-6">
@@ -260,7 +260,7 @@
 
       <!-- Gallery Item 3 -->
       <div class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl">
-        <img src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" 
+        <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" 
              alt="Gourmet kitchen" 
              class="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105">
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-end p-6">
@@ -270,7 +270,7 @@
 
       <!-- Gallery Item 4 -->
       <div class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl">
-        <img src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" 
+        <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" 
              alt="Luxury bedroom" 
              class="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105">
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-end p-6">
@@ -280,7 +280,7 @@
 
       <!-- Gallery Item 5 -->
       <div class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl">
-        <img src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" 
+        <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" 
              alt="Spa bathroom" 
              class="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105">
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-end p-6">
@@ -290,7 +290,7 @@
 
       <!-- Gallery Item 6 -->
       <div class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl">
-        <img src="/Ahome-Front_end/assets/images/pexels-binyaminmellish-1396132.jpg" 
+        <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" 
              alt="City view balcony" 
              class="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105">
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent flex items-end p-6">
