@@ -29,12 +29,12 @@
       transform: translateY(0);
     }
   </style>
-   <script>
+  <script>
     fetch("../assets/html/header.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("header-placeholder").innerHTML = html;
-  
+
         // Re-evaluate scripts inside the injected HTML
         const temp = document.createElement("div");
         temp.innerHTML = html;
@@ -50,11 +50,11 @@
         });
       });
 
-      fetch("../assets/html/footer.html")
-.then(res => res.text())
-.then(data => {
-  document.getElementById('footer-placeholder').innerHTML = data;
-});
+    fetch("../assets/html/footer.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
   </script>
 </head>
 
@@ -115,7 +115,7 @@
   </section>
 
   <!-- Contact Form Section -->
-  <section class="px-10 py-20 max-w-2xl mx-auto fade-in">
+  <section class="px-10 py-20 max-w-2xl mx-auto fade-in" id="contactFormSection">
     <h2 class="text-3xl font-semibold mb-6 text-center">We look forward to hearing from you</h2>
     <form id="contactForm" class="flex flex-col gap-6">
       <div class="flex flex-col">
@@ -160,8 +160,59 @@
 
   <div id="footer-placeholder"></div>
 
- 
-<script src="./assets/js/purchase.js"></script>
+  <script src="./assets/js/purchase.js"></script>
+
+  <!-- IntersectionObserver to handle fade-in effect on scroll for contact form -->
+  <script>
+    // IntersectionObserver to handle the fade-in effect when the section scrolls into view
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        } else {
+          entry.target.classList.remove("show");
+        }
+      });
+    }, {
+      threshold: 0.5 // Trigger when 50% of the section is visible
+    });
+
+    const formSection = document.querySelector("#contactFormSection");
+    observer.observe(formSection);
+
+    // Scroll transition for text elements
+    const scrollElements = document.querySelectorAll('.text-transition');
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        } else {
+          entry.target.classList.remove('show');
+        }
+      });
+    });
+
+    scrollElements.forEach(element => {
+      scrollObserver.observe(element);
+    });
+
+    // Dynamically change text on scroll
+    window.addEventListener('scroll', function () {
+      const scrollPosition = window.scrollY;
+      const firstText = document.getElementById('firstText');
+      const secondText = document.getElementById('secondText');
+
+      // Adjust the transition based on scroll position
+      if (scrollPosition > 200) {
+        firstText.style.opacity = 0;
+        secondText.style.opacity = 1;
+      } else {
+        firstText.style.opacity = 1;
+        secondText.style.opacity = 0;
+      }
+    });
+  </script>
+
 </body>
 
 </html>
