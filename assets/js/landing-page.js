@@ -14,11 +14,6 @@ setInterval(() => {
 }, 5000);
 
 // Load footer
-fetch("/Ahome-Front_end/assets/html/footer.html")
-  .then((res) => res.text())
-  .then((data) => {
-    document.getElementById("footer-placeholder").innerHTML = data;
-  });
 
 // Header background change on scroll
 window.addEventListener("scroll", function () {

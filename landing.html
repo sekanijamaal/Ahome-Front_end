@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ahome Prototype website</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="./assets/css/landing-page.css">
+  <link rel="stylesheet" href="/assets/css/landing-page.css">
   <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -18,7 +18,7 @@
     />
 
     <script>
-      fetch("./assets/html/header.html")
+      fetch("/assets/html/header.html")
         .then(res => res.text())
         .then(html => {
           document.getElementById("header-placeholder").innerHTML = html;
@@ -38,12 +38,16 @@
           });
         });
 
-        fetch('/Ahome-Front_end/pages/assets/html/footer.html')
-.then(res => res.text())
-.then(data => {
-  document.getElementById('footer-placeholder').innerHTML = data;
-});
-    </script>
+       fetch("./assets/html/footer.html")
+    .then(res => {
+      if (!res.ok) throw new Error("Footer fetch failed");
+      return res.text();
+    })
+    .then(html => {
+      document.getElementById("footer-placeholder").innerHTML = html;
+    })
+    .catch(err => console.error("Footer error:", err));
+     </script>
     
     
 
@@ -125,42 +129,42 @@
         <div class="project-card bg-white p-4 shadow rounded">
           <h4 class="text-xl font-semibold mb-2">Villa Luminea</h4>
           <p>Stainless steel pool, panoramic view over Vienna at Kaasgraben.</p>
-          <img src="./assets/images/pexels-binyaminmellish-1396132.jpg" alt="">
+          <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" alt="">
         </div>
         <div class="project-card bg-white p-4 shadow rounded">
           <h4 class="text-xl font-semibold mb-2">GRACE</h4>
           <p>33 luxury apartments in the heart of the 3rd district, Hetzgasse 8.</p>
-          <img src="./assets/images/pexels-binyaminmellish-1396132.jpg" alt="">
+          <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" alt="">
         </div>
         <div class="project-card bg-white p-4 shadow rounded">
           <h4 class="text-xl font-semibold mb-2">Crownd by Chipperfield</h4>
           <p>Three villas designed by David Chipperfield in Vienna's 13th district.</p>
-          <img src="./assets/images/pexels-binyaminmellish-1396132.jpg" alt="">
+          <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" alt="">
         </div>
         <div class="project-card bg-white p-4 shadow rounded">
           <h4 class="text-xl font-semibold mb-2">Casa Crownd</h4>
           <p>Minimalist masterpiece surrounded by greenery and fresh air.</p>
-          <img src="./assets/images/pexels-binyaminmellish-1396132.jpg" alt="">
+          <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" alt="">
         </div>
         <div class="project-card bg-white p-4 shadow rounded">
           <h4 class="text-xl font-semibold mb-2">Das Severin</h4>
           <p>Timeless interior finishes and unmatched Vienna skyline views.</p>
-          <img src="./assets/images/pexels-binyaminmellish-1396132.jpg" alt="">
+          <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" alt="">
         </div>
         <div class="project-card bg-white p-4 shadow rounded">
           <h4 class="text-xl font-semibold mb-2">Chez</h4>
           <p>Parisian-inspired architecture with rooftop gardens and spa.</p>
-          <img src="./assets/images/pexels-binyaminmellish-1396132.jpg" alt="">
+          <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" alt="">
         </div>
         <div class="project-card bg-white p-4 shadow rounded">
           <h4 class="text-xl font-semibold mb-2">Glanzinggasse</h4>
           <p>Finest Looks – contemporary builds on the edge of urban Vienna.</p>
-          <img src="./assets/images/pexels-binyaminmellish-1396132.jpg" alt="">
+          <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" alt="">
         </div>
         <div class="project-card bg-white p-4 shadow rounded">
           <h4 class="text-xl font-semibold mb-2">4ty-Two</h4>
           <p>Luxury loft apartments with smart automation and concierge service.</p>
-          <img src="./assets/images/pexels-binyaminmellish-1396132.jpg" alt="">
+          <img src="/assets/images/pexels-binyaminmellish-1396132.jpg" alt="">
         </div>
       </div>
     </div>
@@ -281,8 +285,8 @@
 
       <!-- Entry 1: Image Left, Text Right -->
       <div class="grid md:grid-cols-2 gap-8 items-center mb-16">
-        <img src="./assets/images/house12.jpg.jpg" alt="Post 1" class="rounded-xl w-full h-auto object-cover" />
-        <img src="./assets/images/house12.jpg.jpg" alt="Post 1" class="rounded-xl w-full h-auto object-cover" />
+        <img src="/assets/images/house12.jpg.jpg" alt="Post 1" class="rounded-xl w-full h-auto object-cover" />
+        <img src="/assets/images/house12.jpg.jpg" alt="Post 1" class="rounded-xl w-full h-auto object-cover" />
         <div>
           <p class="text-sm text-yellow-700 font-semibold mb-2">Baufortschritt</p>
           <h3 class="text-2xl font-bold mb-2">Der Fortschritt eines Hauses</h3>
@@ -299,14 +303,14 @@
           <p class="text-gray-600 mb-2 text-sm">15. März 2024</p>
           <p class="text-gray-700">Der Estrich ist fertiggestellt. Zudem haben wir den historischen Weinkeller freigelegt – ein echtes Highlight für künftige Bewohner.</p>
         </div>
-        <img src="./assets/images/house12.jpg.jpg" alt="Post 2" class="rounded-xl w-full h-auto object-cover" />
-        <img src="./assets/images/house12.jpg.jpg" alt="Post 2" class="rounded-xl w-full h-auto object-cover" />
+        <img src="/assets/images/house12.jpg.jpg" alt="Post 2" class="rounded-xl w-full h-auto object-cover" />
+        <img src="/assets/images/house12.jpg.jpg" alt="Post 2" class="rounded-xl w-full h-auto object-cover" />
       </div>
 
       <!-- Entry 3: Image Left, Text Right -->
       <div class="grid md:grid-cols-2 gap-8 items-center">
-        <img src="./assets/images/house2.jpg.jpg" alt="Post 3" class="rounded-xl w-full h-auto object-cover" />
-        <img src="./assets/images/house2.jpg.jpg" alt="Post 3" class="rounded-xl w-full h-auto object-cover" />
+        <img src="/assets/images/house2.jpg.jpg" alt="Post 3" class="rounded-xl w-full h-auto object-cover" />
+        <img src="/assets/images/house2.jpg.jpg" alt="Post 3" class="rounded-xl w-full h-auto object-cover" />
         <div>
           <p class="text-sm text-yellow-700 font-semibold mb-2">Innenausbau</p>
           <h3 class="text-2xl font-bold mb-2">Fenster und Innenräume im Fokus</h3>
@@ -383,7 +387,7 @@
   <div id="footer-placeholder"></div>
 
   <!-- External JS file (optional) -->
-  <script src="./assets/js/landing-page.js"></script>
+  <script src="/assets/js/landing-page.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   

@@ -1,8 +1,3 @@
-fetch('/Ahome-Front_end/assets/html/footer.html')
-.then(res => res.text())
-.then(data => {
-  document.getElementById('footer-placeholder').innerHTML = data;
-});
 
 window.addEventListener('scroll', function () {
   const header = document.getElementById('main-header');

@@ -30,7 +30,7 @@ function renderProperties(list) {
   grid.innerHTML = "";
   list.forEach(p => {
     const icon = L.icon({
-      iconUrl: '/Ahome-Front_end/assets/icons/marker-icon.png',
+      iconUrl: '/assets/icons/marker-icon.png',
       iconSize: [25, 41],
       iconAnchor: [12, 41],
       popupAnchor: [0, -40]
@@ -48,7 +48,7 @@ function renderProperties(list) {
            class="absolute top-2 left-2 bg-amber-300 text-xs px-2 py-1 rounded hover:bg-amber-400 transition">
            Virtuelle Tour
         </a>
-        <img src="/Ahome-Front_end/assets/images/house${p.id}.jpg.jpg"
+        <img src="/assets/images/house${p.id}.jpg.jpg"
              alt="${p.name}" class="rounded-lg w-full h-40 object-cover mb-2 transition-transform duration-300 hover:scale-110"
              onerror="this.src='/Ahome-Front_end/assets/images/default.jpg';" />
         <button class="absolute top-2 right-2 text-gray-500 hover:text-red-600 text-xl favorite-btn" data-id="${p.id}">♡</button>

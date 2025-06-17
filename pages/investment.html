@@ -43,7 +43,7 @@
       sections.forEach(section => observer.observe(section));
     });
 
-    fetch("../assets/html/header.html")
+    fetch("/assets/html/header.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("header-placeholder").innerHTML = html;
@@ -63,7 +63,7 @@
         });
       });
 
-      fetch("../assets/html/footer.html")
+      fetch("/assets/html/footer.html")
 .then(res => res.text())
 .then(data => {
   document.getElementById('footer-placeholder').innerHTML = data;
@@ -79,7 +79,7 @@
       <!-- Background video -->
       <div class="h-[60vh] md:h-[80vh] overflow-hidden animate-fade-in px-4 -mt-60">
         <video 
-          src="/Ahome-Front_end/assets/images/5057325-hd_1080_1920_25fps.mp4" 
+          src="/assets/images/5057325-hd_1080_1920_25fps.mp4" 
           class="w-full h-full object-cover transition-transform duration-700 ease-in-out hover:scale-105 rounded-xl" 
           autoplay 
           muted 
@@ -123,7 +123,7 @@
     <div class="flex flex-col md:flex-row items-center gap-10">
       <!-- Left Image -->
       <div class="w-full md:w-1/2 md:pl-0">
-        <img src="../assets/images/house3.jpg.jpg" alt="Investment architecture" class="w-full h-auto rounded-md" />
+        <img src="/assets/images/house11.jpg.jpg" alt="Investment architecture" class="w-full h-auto rounded-md" />
       </div>
       <!-- Right Text Content -->
       <div class="w-full md:w-1/2 px-4 md:px-12 space-y-6">
@@ -168,7 +168,7 @@
     </div>
   </section>
 
-  <section class="relative w-full h-[80vh] bg-cover bg-center flex items-center justify-center text-center text-white fade-in-up" style="background-image: url('/Ahome-Front_end/assets/images/house7.jpg.jpg');">
+  <section class="relative w-full h-[80vh] bg-cover bg-center flex items-center justify-center text-center text-white fade-in-up" style="background-image: url('/assets/images/house7.jpg.jpg');">
     <div class="bg-black/30 w-full h-full absolute top-0 left-0 z-0"></div>
     <div class="relative z-10 px-4">
       <h2 class="text-5xl md:text-6xl font-light leading-tight">

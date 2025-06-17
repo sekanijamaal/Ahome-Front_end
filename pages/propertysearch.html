@@ -27,12 +27,23 @@
       100% { transform: scale(1); opacity: 1; }
     }
   </style>
+  <script>
+   fetch("/assets/html/footer.html")
+    .then(res => {
+      if (!res.ok) throw new Error("Footer fetch failed");
+      return res.text();
+    })
+    .then(html => {
+      document.getElementById("footer-placeholder").innerHTML = html;
+    })
+    .catch(err => console.error("Footer error:", err));
+     </script>
 </head>
 <body class="bg-white">
   <nav id="navbar" class="sticky top-0 w-full z-50 bg-white text-black shadow transition-all duration-300">
     <div class="px-6 py-4 flex justify-between items-center">
       <div class="flex items-center gap-20 relative">
-        <a href="/Ahome-Front_end/landing.html" id="brand"
+        <a href="/landing.html" id="brand"
           class="text-2xl ahome-font font-semibold transition-colors duration-300 hover:text-blue-600">
           AHOME
         </a>
@@ -47,18 +58,18 @@
         <div id="projects-dropdown"
           class="hidden absolute top-full right-0 mt-2 w-56 bg-white shadow-md rounded-lg z-50">
           <ul class="py-2 text-sm text-gray-700">
-            <li><a href="/Ahome-Front_end/pages/crownd-by-chipperfield.html" class="block px-4 py-2 hover:bg-gray-100">chipperfield</a></li>
-            <li><a href="/Ahome-Front_end/pages/grace-apartments.html" class="block px-4 py-2 hover:bg-gray-100">grace-apartments</a></li>
-            <li><a href="/Ahome-Front_end/pages/villa-luminea.html" class="block px-4 py-2 hover:bg-gray-100">villa-luminea</a></li>
+            <li><a href="/pages/crownd-by-chipperfield.html" class="block px-4 py-2 hover:bg-gray-100">chipperfield</a></li>
+            <li><a href="/pages/grace-apartments.html" class="block px-4 py-2 hover:bg-gray-100">grace-apartments</a></li>
+            <li><a href="/pages/villa-luminea.html" class="block px-4 py-2 hover:bg-gray-100">villa-luminea</a></li>
           </ul>
         </div>
       </div>
       <ul id="nav-links" class="flex-1 flex justify-center space-x-8">
-        <li><a href="/Ahome-Front_end/pages/propertysearch.html" class="nav-link px-4 py-2 font-semibold">PROPERTY SEARCH</a></li>
-        <li><a href="/Ahome-Front_end/pages/purchase.html" class="nav-link px-4 py-2 font-semibold">PURCHASE</a></li>
-        <li><a href="/Ahome-Front_end/pages/investment.html" class="nav-link px-4 py-2 font-semibold">INVESTMENT</a></li>
-        <li><a href="/Ahome-Front_end/pages/about.html" class="nav-link px-4 py-2 font-semibold">IT'S AHOME</a></li>
-        <li><a href="/Ahome-Front_end/pages/contact.html" class="nav-link px-4 py-2 font-semibold">CONTACT</a></li>
+        <li><a href="/pages/propertysearch.html" class="nav-link px-4 py-2 font-semibold">PROPERTY SEARCH</a></li>
+        <li><a href="/pages/purchase.html" class="nav-link px-4 py-2 font-semibold">PURCHASE</a></li>
+        <li><a href="/pages/investment.html" class="nav-link px-4 py-2 font-semibold">INVESTMENT</a></li>
+        <li><a href="/pages/about.html" class="nav-link px-4 py-2 font-semibold">IT'S AHOME</a></li>
+        <li><a href="/pages/contact.html" class="nav-link px-4 py-2 font-semibold">CONTACT</a></li>
       </ul>
       <div class="flex items-center space-x-4">
         <button onclick="togglePopup(event)" class="hover:text-gray-600">
@@ -86,7 +97,9 @@
       <div id="map"></div>
     </div>
   </div>
+  <div id="footer-placeholder"></div>
+  
 
-  <script src="../assets/js/property_search.js"></script>
+  <script src="/assets/js/property_search.js"></script>
 </body>
 </html>
