@@ -1,116 +1,228 @@
-// Updated property_search.js with search, filter, Google Fonts, and View Details button
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notre Portfolio - Français</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.1/turn.min.js"></script>
+  
+  <style>
+    /* Basic body styling, assuming similar to your main page */
+    body {
+      font-family: 'Comfortaa', cursive; /* Adjust if your actual font is different */
+      background-color: #0a0a0a; /* Dark background */
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    main {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem; /* Reduced padding slightly for better fit */
+      text-align: center;
+    }
 
-const properties = [
-  { id: 1, name: "Chipperfield Apartments 1", lat: 48.2082, lng: 16.3738, area: "District 1" },
-  { id: 2, name: "Chipperfield Apartments 2", lat: 48.2233, lng: 16.3923, area: "District 2" },
-  { id: 3, name: "Chipperfield Apartments 3", lat: 48.1927, lng: 16.4034, area: "District 3" },
-  { id: 4, name: "Chipperfield Apartments 4", lat: 48.1986, lng: 16.3665, area: "District 1" },
-  { id: 5, name: "Chipperfield Apartments 5", lat: 48.1889, lng: 16.3515, area: "District 2" },
-  { id: 6, name: "Chipperfield Apartments 6", lat: 48.1932, lng: 16.3421, area: "District 4" },
-  { id: 7, name: "Chipperfield Apartments 7", lat: 48.2036, lng: 16.3485, area: "District 3" },
-  { id: 8, name: "Chipperfield Apartments 8", lat: 48.2107, lng: 16.3473, area: "District 4" },
-  { id: 9, name: "Chipperfield Apartments 9", lat: 48.2215, lng: 16.3602, area: "District 1" },
-  { id: 10, name: "Chipperfield Apartments 10", lat: 48.1663, lng: 16.3771, area: "District 3" },
-  { id: 11, name: "Chipperfield Apartments 11", lat: 48.1685, lng: 16.4321, area: "District 2" },
-  { id: 12, name: "Chipperfield Apartments 12", lat: 48.1734, lng: 16.3177, area: "District 4" },
-  { id: 13, name: "Chipperfield Apartments 13", lat: 48.1746, lng: 16.2881, area: "District 2" },
-  { id: 14, name: "Chipperfield Apartments 14", lat: 48.2035, lng: 16.2743, area: "District 1" },
-  { id: 15, name: "Chipperfield Apartments 15", lat: 48.1993, lng: 16.3211, area: "District 3" }
-];
+    /* Styles for the flipbook container */
+    #flipbook {
+      background: #333; /* Background for the area behind the pages */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6); /* Deeper shadow for 3D effect */
+      border-radius: 8px; /* Slightly rounded corners for the book */
+      overflow: hidden; /* Ensures shadows and content are contained */
+      /* turn.js will set its own width/height on the canvas,
+         but these define the container's max size if needed */
+      max-width: 90vw; /* Responsive max-width */
+      max-height: 80vh; /* Responsive max-height */
+    }
 
-const map = L.map('map').setView([48.2082, 16.3738], 12);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+    /* Styles for individual pages inside the flipbook */
+    #flipbook .page {
+      background: white; /* Color of the page itself */
+      color: #333; /* Text color on the page */
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box; /* Include padding in element's total width/height */
+      overflow: hidden; /* Prevent content from spilling out */
+      position: relative; /* For page number positioning */
+    }
 
-const markerMap = {};
-const grid = document.getElementById('property-grid');
+    #flipbook .page img {
+      max-width: 100%;
+      max-height: 80%; /* Allow space for text below */
+      object-fit: contain; /* Scales image to fit without cropping, preserving aspect ratio */
+      margin-bottom: 15px; /* Space between image and text */
+      border-radius: 4px; /* Slightly rounded image corners */
+    }
 
-function renderProperties(list) {
-  grid.innerHTML = "";
-  list.forEach(p => {
-    const icon = L.icon({
-      iconUrl: '/assets/icons/marker-icon.png',
-      iconSize: [25, 41],
-      iconAnchor: [12, 41],
-      popupAnchor: [0, -40]
-    });
+    #flipbook .page .page-number {
+      position: absolute;
+      bottom: 10px;
+      right: 15px; /* Adjust if needed */
+      font-size: 14px;
+      color: #999;
+      font-weight: bold;
+    }
+    
+    /* Loading indicator styles */
+    #loadingIndicator {
+        text-align: center;
+        margin-top: 50px;
+    }
 
-    const marker = L.marker([p.lat, p.lng], { icon });
-    marker.bindPopup(`<b>${p.name}</b>`);
-    markerMap[p.id] = marker;
-
-    const card = document.createElement('div');
-    card.className = "bg-white p-3 rounded shadow cursor-pointer transition transform hover:shadow-lg hover:scale-[1.02]";
-    card.innerHTML = `
-      <div class="relative">
-        <a href="/Ahome-Front_end/virtual-tour${p.id}.html"
-           class="absolute top-2 left-2 bg-amber-300 text-xs px-2 py-1 rounded hover:bg-amber-400 transition">
-           Virtuelle Tour
+    /* Animation for initial fade-in elements */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    .animate-fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+  <header class="bg-gray-800 py-4 px-6 shadow-lg z-10">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Mon Portfolio</h1>
+      <nav>
+        <a href="/" class="px-6 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-colors shadow-md mr-4">
+            Retour à l'Accueil
         </a>
-        <img src="/assets/images/house${p.id}.jpg.jpg"
-             alt="${p.name}" class="rounded-lg w-full h-40 object-cover mb-2 transition-transform duration-300 hover:scale-110"
-             onerror="this.src='/Ahome-Front_end/assets/images/default.jpg';" />
-        <button class="absolute top-2 right-2 text-gray-500 hover:text-red-600 text-xl favorite-btn" data-id="${p.id}">♡</button>
+        <button id="prevBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded mr-2">
+          Précédent
+        </button>
+        <button id="nextBtn" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+          Suivant
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow flex items-center justify-center p-4">
+    <div id="loadingIndicator" class="text-xl text-gray-400 animate-fade-in">
+        Chargement du Portfolio...
+        <svg class="animate-spin h-8 w-8 text-blue-400 mx-auto mt-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+    </div>
+    
+    <div id="flipbook" class="w-full max-w-4xl h-[600px] shadow-2xl" style="display: none;">
       </div>
-      <h3 class="font-bold">${p.name}</h3>
-      <p class="text-sm text-gray-600">${p.area}</p>
-      <p class="text-green-700 font-semibold mt-1">€ 2,290,000</p>
-      <a href="/Ahome-Front_end/house-details${p.id}.html" class="mt-2 inline-block text-sm text-blue-600 hover:underline">View Details</a>
-    `;
+  </main>
 
-    card.querySelector('.favorite-btn').addEventListener('click', (e) => {
-      e.stopPropagation();
-      const btn = e.currentTarget;
-      btn.textContent = btn.textContent === '♡' ? '❤️' : '♡';
-      btn.classList.toggle('text-red-600');
+  <footer class="bg-gray-800 py-4 text-center text-gray-400 mt-auto">
+    <p>&copy; 2025 Mon Portfolio. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // --- IMPORTANT: Adjust these paths to your actual French portfolio images! ---
+      const portfolioImages = [
+        '/assets/images/portfolio/fr/page-1.jpg', 
+        '/assets/images/portfolio/fr/page-2.jpg',
+        '/assets/images/portfolio/fr/page-3.jpg',
+        '/assets/images/portfolio/fr/page-4.jpg',
+        '/assets/images/portfolio/fr/page-5.jpg'
+        // Add more image paths here as needed for your portfolio
+      ];
+
+      const flipbook = $('#flipbook'); // jQuery selector for the flipbook container
+      const loadingIndicator = $('#loadingIndicator'); // jQuery selector for the loading indicator
+
+      // --- 1. Initially hide the flipbook and show loading indicator ---
+      flipbook.hide();
+      loadingIndicator.show();
+
+      // --- 2. Pre-load all images to ensure they are ready before turn.js starts ---
+      const imagePromises = portfolioImages.map(src => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = () => resolve(img); // Resolve when image loads
+          img.onerror = () => {
+            console.error(`Erreur : Échec du chargement de l'image : ${src}`);
+            reject(new Error(`Erreur de chargement d'image pour ${src}`)); // Reject on error
+          };
+        });
+      });
+
+      // --- Wait for all images to load, then initialize turn.js ---
+      Promise.all(imagePromises)
+        .then(() => {
+          console.log("Toutes les images du portfolio sont pré-chargées.");
+
+          // --- 3. Build the HTML for the pages and append to the flipbook container ---
+          portfolioImages.forEach((imgSrc, index) => {
+            const pageNumber = index + 1;
+            // Append the HTML directly to the flipbook container.
+            // turn.js will then process these child elements as pages.
+            flipbook.append(`
+              <div class="page">
+                <img src="${imgSrc}" alt="Élément de portfolio ${pageNumber}">
+                <div class="text-center mt-4">
+                  <h3 class="text-xl font-bold">Projet ${pageNumber}</h3>
+                  <p class="text-gray-600">Description détaillée du projet ${pageNumber} ici. Ceci est un exemple de texte.</p>
+                </div>
+                <div class="page-number">${pageNumber}</div>
+              </div>
+            `);
+          });
+
+          // --- 4. Initialize turn.js AFTER all pages are added to the DOM ---
+          flipbook.turn({
+            width: 800, // Adjust this to fit your design and image dimensions (e.g., 600 for single page, 1200 for double)
+            height: 600, // Adjust this to fit your design and image dimensions
+            autoCenter: true, // Centers the flipbook
+            duration: 1000, // Animation speed in milliseconds
+            gradients: true, // Enable shadows/gradients for a realistic look
+            display: 'double', // 'single' for one page, 'double' for a book spread
+            acceleration: true // Enable hardware acceleration for smoother flips
+          });
+
+          // --- 5. Hide loading indicator and show the fully initialized flipbook ---
+          loadingIndicator.hide();
+          flipbook.show();
+          console.log("Turn.js portfolio initialisé et affiché !");
+
+          // --- 6. Attach Navigation Button Event Listeners ---
+          document.getElementById('prevBtn').addEventListener('click', function() {
+            flipbook.turn('previous'); // Go to the previous page
+          });
+
+          document.getElementById('nextBtn').addEventListener('click', function() {
+            flipbook.turn('next'); // Go to the next page
+          });
+
+          // --- 7. Keyboard Navigation ---
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+              flipbook.turn('previous');
+            } else if (e.key === 'ArrowRight') {
+              flipbook.turn('next'); 
+            }
+          });
+
+        })
+        .catch(error => {
+          // This block runs if any image fails to load or if there's an error in the Promise chain
+          console.error("Erreur critique : Impossible de charger le portfolio.", error);
+          loadingIndicator.text("Erreur lors du chargement du portfolio. Veuillez vérifier les chemins des images et la console.");
+          loadingIndicator.addClass('text-red-500'); // Style the error message
+          // Optionally, show a broken image icon or a default message in the flipbook area
+        });
     });
-    card.addEventListener('mouseenter', () => {
-      if (!map.hasLayer(marker)) marker.addTo(map);
-      marker.openPopup();
-    });
-    card.addEventListener('mouseleave', () => {
-      marker.closePopup();
-      if (map.hasLayer(marker)) map.removeLayer(marker);
-    });
-    card.addEventListener('click', () => {
-      if (!map.hasLayer(marker)) marker.addTo(map);
-      map.setView([p.lat, p.lng], 15);
-      marker.openPopup();
-    });
-
-    grid.appendChild(card);
-  });
-}
-
-function filterProperties() {
-  const term = document.getElementById('search-input').value.toLowerCase();
-  const area = document.getElementById('area-select').value;
-  const filtered = properties.filter(p =>
-    p.name.toLowerCase().includes(term) && (area === '' || p.area === area)
-  );
-  renderProperties(filtered);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const gridContainer = document.getElementById('property-grid').parentElement;
-  const searchBar = document.createElement('div');
-  searchBar.className = "mb-4 flex flex-wrap gap-2 items-center justify-between";
-  searchBar.innerHTML = `
-    <input type="text" id="search-input" placeholder="Search properties..."
-      class="flex-1 border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring focus:border-blue-400" />
-    <select id="area-select" class="border border-gray-300 rounded px-3 py-2 text-sm">
-      <option value="">All Areas</option>
-      <option value="District 1">District 1</option>
-      <option value="District 2">District 2</option>
-      <option value="District 3">District 3</option>
-      <option value="District 4">District 4</option>
-    </select>
-    <button id="search-btn" class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">Search</button>
-  `;
-  gridContainer.prepend(searchBar);
-
-  document.getElementById('search-btn').addEventListener('click', filterProperties);
-
-  renderProperties(properties);
-});
+  </script>
+</body>
+</html>xuh

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Ahome Portfolio - Dark Theme</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles & Body */
+    body {
+      font-family: 'Comfortaa', cursive;
+      background-color: #0a0a0a;
+      /* Dark background */
+      color: #ffffff;
+      display: grid;
+      place-content: center;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Flipbook Container */
+    .flipbook {
+      width: 1000px;
+      height: 600px;
+      box-shadow: 0 0 50px rgba(125, 82, 247, 0.4);
+      /* More pronounced purple glow */
+      border-radius: 8px; /* Slightly rounded corners for the entire book */
+      overflow: hidden; /* Ensures content stays within rounded corners */
+    }
+
+    /* Hard Covers */
+    .flipbook .hard {
+      background: linear-gradient(145deg, #1f1f1f, #121212) !important;
+      /* Subtle gradient for depth */
+      color: #7d52f7;
+      /* Purple accent color */
+      font-weight: bold;
+      border: 2px solid #7d52f7;
+      /* Purple border */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.5em;
+      transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+    }
+
+    .flipbook .hard:hover {
+        transform: scale(1.01); /* Slightly enlarge on hover */
+        box-shadow: 0 0 25px rgba(125, 82, 247, 0.7); /* Stronger glow on hover */
+    }
+
+    .flipbook .hard h1 {
+      font-size: 3.5em;
+      /* Larger title for more impact */
+      margin-bottom: 20px;
+      /* More space below title */
+      text-shadow: 0 0 20px rgba(125, 82, 247, 0.7);
+      /* Enhanced glow effect */
+    }
+
+    .flipbook .hard small {
+      font-style: italic;
+      font-weight: lighter;
+      opacity: 0.95;
+      /* Make almost fully visible */
+      font-size: 18px;
+      /* Larger small text */
+      margin-top: 15px;
+      /* More space above small text */
+      color: #9c7bff;
+      /* Lighter purple */
+    }
+
+    /* Inner Pages */
+    .flipbook .page {
+      background: #ffffff;
+      /* White pages */
+      color: #333;
+      /* Dark text on white pages */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      /* Increased gap between elements */
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      /* Lighter border */
+      padding: 30px;
+      /* More padding */
+      text-align: center;
+      transition: all 0.2s ease-in-out; /* Smooth transition for content on page */
+    }
+
+    .flipbook .page:hover {
+        background-color: #f8f8f8; /* Very subtle light-up on hover */
+    }
+
+    .page img {
+      width: 90%;
+      /* Even wider images */
+      object-fit: contain;
+      max-height: 60%;
+      /* Adjusted max height */
+      border-radius: 12px;
+      /* More rounded corners for images */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      /* More pronounced shadow for images */
+      transition: transform 0.2s ease-in-out; /* Smooth scale on hover */
+    }
+
+    .page img:hover {
+        transform: scale(1.02); /* Slightly enlarge image on hover */
+    }
+
+    .flipbook .page .title {
+      font-family: 'Comfortaa', cursive;
+      font-size: 2.5em;
+      /* Larger title */
+      font-weight: bold;
+      margin-top: 20px;
+      color: #1a1a1a;
+      /* Even darker text for contrast */
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      /* Increased letter spacing */
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+    }
+
+    .flipbook .page .description {
+      font-family: 'Comfortaa', cursive;
+      font-size: 1.2em;
+      /* Larger description */
+      color: #444;
+      /* Slightly lighter than title */
+      margin-bottom: 15px;
+      padding: 0 25px;
+      /* More padding */
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flipbook">
+    <div class="hard">
+      <h1>Mon Portefeuille</h1>
+      <small>~ Ahome</small>
+    </div>
+
+    <div class="hard">
+      <small>Découvrez Nos Projets Incroyables ❤️</small>
+      <small>L'architecture au service de vos rêves</small>
+    </div>
+
+    <div class="page">
+      <img src="/assets/images/Version-page-01.jpg" alt="Projet Résidentiel" />
+      <div class="title">Projet Résidentiel</div>
+      <div class="description">Une villa contemporaine avec vue panoramique.</div>
+    </div>
+
+    <div class="page">
+      <img src="/assets/images/Version-page-01.jpg" alt="Design Intérieur" />
+      <div class="title">Design Intérieur</div>
+      <div class="description">Aménagement d'un loft industriel en centre-ville.</div>
+    </div>
+
+    <div class="page">
+      <img src="/assets/images/Version-page-01.jpg" alt="Rénovation" />
+      <div class="title">Rénovation</div>
+      <div class="description">Transformation d'un bâtiment historique.</div>
+    </div>
+
+    <div class="page">
+      <img src="/assets/images/Version-page-01.jpg" alt="Espace Commercial" />
+      <div class="title">Espace Commercial</div>
+      <div class="description">Concept store avec éléments naturels.</div>
+    </div>
+
+    <div class="page">
+      <img src="/assets/images/Version-page-01.jpg" alt="Architecture Paysagère" />
+      <div class="title">Architecture Paysagère</div>
+      <div class="description">Jardin contemporain avec piscine à débordement.</div>
+    </div>
+
+    <div class="page">
+      <img src="/assets/images/Version-page-02.jpg" alt="Projet Urbain" />
+      <div class="title">Projet Urbain</div>
+      <div class="description">Complexe résidentiel écologique.</div>
+    </div>
+
+    <div class="hard"></div>
+
+    <div class="hard">
+      <h1>Merci de votre Visite !</h1>
+      <small>~ Ahome</small>
+    </div>
+  </div>
+
+  <script src="jquery.js"></script>
+  <script src="turn.js"></script>
+  <script>
+    $(".flipbook").turn({
+      width: 1000,
+      height: 600,
+      autoCenter: true
+    });
+  </script>
+</body>
+
+</html>

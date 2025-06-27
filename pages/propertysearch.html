@@ -27,79 +27,27 @@
       100% { transform: scale(1); opacity: 1; }
     }
   </style>
-  <script>
-   fetch("/assets/html/footer.html")
-    .then(res => {
-      if (!res.ok) throw new Error("Footer fetch failed");
-      return res.text();
-    })
-    .then(html => {
-      document.getElementById("footer-placeholder").innerHTML = html;
-    })
-    .catch(err => console.error("Footer error:", err));
-     </script>
+ 
 </head>
 <body class="bg-white">
-  <nav id="navbar" class="sticky top-0 w-full z-50 bg-white text-black shadow transition-all duration-300">
-    <div class="px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-20 relative">
-        <a href="/index.html" id="brand"
-          class="text-2xl ahome-font font-semibold transition-colors duration-300 hover:text-blue-600">
-          AHOME
-        </a>
-        <button id="project-toggle" onclick="toggleDropdown()"
-          class="projects-link flex items-center gap-x-2 text-black px-4 py-2 border border-black rounded-full transition hover:bg-black hover:text-white">
-          <span>Projects</span>
-          <svg id="arrow-icon" class="down-arrow w-4 h-4 transition" fill="none" stroke="currentColor"
-            viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-        <div id="projects-dropdown"
-          class="hidden absolute top-full right-0 mt-2 w-56 bg-white shadow-md rounded-lg z-50">
-          <ul class="py-2 text-sm text-gray-700">
-            <li><a href="/pages/crownd-by-chipperfield.html" class="block px-4 py-2 hover:bg-gray-100">chipperfield</a></li>
-            <li><a href="/pages/grace-apartments.html" class="block px-4 py-2 hover:bg-gray-100">grace-apartments</a></li>
-            <li><a href="/pages/villa-luminea.html" class="block px-4 py-2 hover:bg-gray-100">villa-luminea</a></li>
-          </ul>
-        </div>
-      </div>
-      <ul id="nav-links" class="flex-1 flex justify-center space-x-8">
-        <li><a href="/pages/propertysearch.html" class="nav-link px-4 py-2 font-semibold">PROPERTY SEARCH</a></li>
-        <li><a href="/pages/purchase.html" class="nav-link px-4 py-2 font-semibold">PURCHASE</a></li>
-        <li><a href="/pages/investment.html" class="nav-link px-4 py-2 font-semibold">INVESTMENT</a></li>
-        <li><a href="/pages/about.html" class="nav-link px-4 py-2 font-semibold">IT'S AHOME</a></li>
-        <li><a href="/pages/contact.html" class="nav-link px-4 py-2 font-semibold">CONTACT</a></li>
-      </ul>
-      <div class="flex items-center space-x-4">
-        <button onclick="togglePopup(event)" class="hover:text-gray-600">
-          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.364l-7.682-7.682a4.5 4.5 0 010-6.364z" />
-          </svg>
-        </button>
-        <button onclick="togglePopup(event)" class="hover:text-gray-600">
-          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M5.121 17.804A13.937 13.937 0 0112 15c2.486 0 4.847.635 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-        </button>
-      </div>
-    </div>
-  </nav>
+  <div id="header-placeholder"></div>
 
   <div class="mt-20 flex h-[calc(100vh-80px)]">
-    <div class="w-1/2 overflow-y-scroll p-4 bg-gray-50">
-      <h2 class="text-2xl font-semibold mb-4">Properties in Vienna</h2>
-      <div id="property-grid" class="grid grid-cols-2 gap-4"></div>
-    </div>
-    <div class="w-1/2 relative">
-      <div id="map"></div>
-    </div>
+  <div class="w-1/2 overflow-y-scroll p-4 bg-gray-50">
+    <h2 class="text-2xl font-semibold mb-4">
+      <span class="lang-text" data-lang="en" style="display: none;">Properties in Vienna</span>
+      <span class="lang-text" data-lang="fr">Propriétés à Vienne</span>
+    </h2>
+    <div id="property-grid" class="grid grid-cols-2 gap-4"></div>
   </div>
+  <div class="w-1/2 relative">
+    <div id="map"></div>
+  </div>
+</div>
   <div id="footer-placeholder"></div>
   
 
   <script src="/assets/js/property_search.js"></script>
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>

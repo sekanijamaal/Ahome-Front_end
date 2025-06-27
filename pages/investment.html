@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahome Homepage</title>
+  <title>
+    <span class="lang-text" data-lang="en">Investment - Ahome Homepage</span>
+    <span class="lang-text" data-lang="fr" style="display: none;">Investissement - Page d'accueil Ahome</span>
+  </title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/Ahome-Front_end/assets/css/investment.css">
+  <link rel="stylesheet" href="/assets/css/investment.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8d7xj1z5l5e5c5e5c5e5c5e5c5e5c5e5c5e" crossorigin="anonymous" />
   <style>
     @keyframes fadeInUp {
@@ -42,76 +45,44 @@
       });
       sections.forEach(section => observer.observe(section));
     });
-
-    fetch("/assets/html/header.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header-placeholder").innerHTML = html;
-  
-        // Re-evaluate scripts inside the injected HTML
-        const temp = document.createElement("div");
-        temp.innerHTML = html;
-        const scripts = temp.querySelectorAll("script");
-        scripts.forEach((oldScript) => {
-          const newScript = document.createElement("script");
-          if (oldScript.src) {
-            newScript.src = oldScript.src;
-          } else {
-            newScript.textContent = oldScript.textContent;
-          }
-          document.body.appendChild(newScript);
-        });
-      });
-
-      fetch("/assets/html/footer.html")
-.then(res => res.text())
-.then(data => {
-  document.getElementById('footer-placeholder').innerHTML = data;
-});
   </script>
 </head>
 <body class="bg-white text-gray-800">
   <div id="header-placeholder" class="text-black"></div>
 
   <div class="flex flex-col md:flex-row min-h-screen items-end fade-in-up">
-    <!-- Left Section -->
     <div class="md:w-1/2 w-full flex flex-col justify-end">
-      <!-- Background video -->
       <div class="h-[60vh] md:h-[80vh] overflow-hidden animate-fade-in px-4 -mt-60">
-        <video 
-          src="/assets/images/5057325-hd_1080_1920_25fps.mp4" 
-          class="w-full h-full object-cover transition-transform duration-700 ease-in-out hover:scale-105 rounded-xl" 
-          autoplay 
-          muted 
-          loop 
+        <video
+          src="/assets/images/5057325-hd_1080_1920_25fps.mp4"
+          class="w-full h-full object-cover transition-transform duration-700 ease-in-out hover:scale-105 rounded-xl"
+          autoplay
+          muted
+          loop
           playsinline>
-          Your browser does not support the video tag.
+          <span class="lang-text" data-lang="en">Your browser does not support the video tag.</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Votre navigateur ne prend pas en charge la balise vidéo.</span>
         </video>
       </div>
     </div>
-    
 
-    <!-- Right Section -->
+
     <div class="md:w-1/2 w-full relative px-6 md:px-12 py-8 space-y-6 fade-in-up">
-      <!-- Full-width Image in top-right corner -->
       <div class="absolute top-0 right-0 w-full h-[300px] md:h-[400px] overflow-hidden">
         <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=987&q=80" alt="Arrow railing" class="w-full h-full object-cover transition duration-700 ease-in-out hover:brightness-90 rounded-bl-xl" />
       </div>
 
-      <!-- Welcome text -->
       <div class="pt-[420px] space-y-4 transition-opacity duration-700 ease-in-out opacity-0 animate-fade-in-delay">
         <h1 class="text-3xl md:text-4xl font-light leading-snug">
-          Welcome <em class="italic font-normal">to the</em><br />
-          Investment<br />
-          boutique
+          <span class="lang-text" data-lang="en">Welcome <em class="italic font-normal">to the</em><br />Investment<br />boutique</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Bienvenue <em class="italic font-normal">à la</em><br />boutique<br />d'investissement</span>
         </h1>
 
-        <!-- Contact Button -->
         <button class="bg-[#c8ac79] text-white px-6 py-2 rounded-full transition duration-500 ease-in-out hover:bg-[#b59667]">
-          contact
+          <span class="lang-text" data-lang="en">contact</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">contact</span>
         </button>
 
-        <!-- New image under welcome text -->
         <div class="mt-6">
           <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=987&q=80" alt="Modern apartment interior" class="w-full h-auto rounded-xl shadow-md transition duration-700 ease-in-out hover:scale-105" />
         </div>
@@ -121,25 +92,26 @@
 
   <section class="w-full pt-24 px-4 md:px-0 fade-in-up">
     <div class="flex flex-col md:flex-row items-center gap-10">
-      <!-- Left Image -->
       <div class="w-full md:w-1/2 md:pl-0">
         <img src="/assets/images/house11.jpg.jpg" alt="Investment architecture" class="w-full h-auto rounded-md" />
       </div>
-      <!-- Right Text Content -->
       <div class="w-full md:w-1/2 px-4 md:px-12 space-y-6">
         <h2 class="text-4xl md:text-5xl font-light leading-tight">
-          What you see is a solid<br />
-          investment.
+          <span class="lang-text" data-lang="en">What you see is a solid<br />investment.</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Ce que vous voyez est un investissement<br />solide.</span>
         </h2>
         <p class="italic text-xl text-gray-600">
-          What you feel are <br />
-          experience, style and <br />
-          taste.
+          <span class="lang-text" data-lang="en">What you feel are <br />experience, style and <br />taste.</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Ce que vous ressentez, ce sont <br />l'expérience, le style et <br />le goût.</span>
         </p>
         <div>
-          <h4 class="font-semibold text-lg mb-2">Investments for an exclusive group.</h4>
+          <h4 class="font-semibold text-lg mb-2">
+            <span class="lang-text" data-lang="en">Investments for an exclusive group.</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">Des investissements pour un groupe exclusif.</span>
+          </h4>
           <p class="text-gray-600">
-            With us you have the opportunity to invest in highly profitable real estate projects and to join an exclusive group. The investment boutique. An extensive track record and the expertise within the CROWND Estates Group guarantee you an excellent risk-return ratio.
+            <span class="lang-text" data-lang="en">With us you have the opportunity to invest in highly profitable real estate projects and to join an exclusive group. The investment boutique. An extensive track record and the expertise within the CROWND Estates Group guarantee you an excellent risk-return ratio.</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">Avec nous, vous avez la possibilité d'investir dans des projets immobiliers très rentables et de rejoindre un groupe exclusif. La boutique d'investissement. Un vaste historique et l'expertise au sein du groupe CROWND Estates vous garantissent un excellent rapport risque-rendement.</span>
           </p>
         </div>
       </div>
@@ -148,22 +120,45 @@
 
   <section class="w-full max-w-7xl mx-auto px-4 md:px-0 py-20 fade-in-up">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-12">
-      <!-- Feature Item -->
       <div class="border-b pb-4">
-        <h3 class="text-2xl font-light">Focus on lucrative niche</h3>
-        <p class="text-gray-600 mt-2">with exceptional real estate</p>
+        <h3 class="text-2xl font-light">
+          <span class="lang-text" data-lang="en">Focus on lucrative niche</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Accent sur un créneau lucratif</span>
+        </h3>
+        <p class="text-gray-600 mt-2">
+          <span class="lang-text" data-lang="en">with exceptional real estate</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">avec des biens immobiliers exceptionnels</span>
+        </p>
       </div>
       <div class="border-b pb-4">
-        <h3 class="text-2xl font-light">Direct investment opportunity</h3>
-        <p class="text-gray-600 mt-2">in highly profitable real estate projects</p>
+        <h3 class="text-2xl font-light">
+          <span class="lang-text" data-lang="en">Direct investment opportunity</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Opportunité d'investissement direct</span>
+        </h3>
+        <p class="text-gray-600 mt-2">
+          <span class="lang-text" data-lang="en">in highly profitable real estate projects</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">dans des projets immobiliers très rentables</span>
+        </p>
       </div>
       <div class="border-b pb-4">
-        <h3 class="text-2xl font-light">Excellent risk-return ratio</h3>
-        <p class="text-gray-600 mt-2">through expertise in the real estate group</p>
+        <h3 class="text-2xl font-light">
+          <span class="lang-text" data-lang="en">Excellent risk-return ratio</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Excellent rapport risque-rendement</span>
+        </h3>
+        <p class="text-gray-600 mt-2">
+          <span class="lang-text" data-lang="en">through expertise in the real estate group</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">grâce à l'expertise du groupe immobilier</span>
+        </p>
       </div>
       <div class="border-b pb-4">
-        <h3 class="text-2xl font-light">Extensive track record</h3>
-        <p class="text-gray-600 mt-2">on successful projects</p>
+        <h3 class="text-2xl font-light">
+          <span class="lang-text" data-lang="en">Extensive track record</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Vaste historique</span>
+        </h3>
+        <p class="text-gray-600 mt-2">
+          <span class="lang-text" data-lang="en">on successful projects</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">sur des projets réussis</span>
+        </p>
       </div>
     </div>
   </section>
@@ -172,55 +167,183 @@
     <div class="bg-black/30 w-full h-full absolute top-0 left-0 z-0"></div>
     <div class="relative z-10 px-4">
       <h2 class="text-5xl md:text-6xl font-light leading-tight">
-        Claim in action.<br />
-        <span class="italic">Results.</span>
+        <span class="lang-text" data-lang="en">Claim in action.<br /><span class="italic">Results.</span></span>
+        <span class="lang-text" data-lang="fr" style="display: none;">La réclamation en action.<br /><span class="italic">Résultats.</span></span>
       </h2>
     </div>
   </section>
 
+  <section class="bg-white py-24 px-6 md:px-20">
+    <h2 class="text-4xl text-center font-bold mb-12">
+      <span class="lang-text" data-lang="en">What Our Clients Say</span>
+      <span class="lang-text" data-lang="fr" style="display: none;">Ce Que Disent Nos Clients</span>
+    </h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-gray-50 p-6 rounded-lg shadow">
+        <p class="italic text-gray-700 mb-4">
+          <span class="lang-text" data-lang="en">"Excellent service and support! Helped us find our dream home in no time."</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">"Excellent service et soutien ! Nous a aidés à trouver la maison de nos rêves en un rien de temps."</span>
+        </p>
+        <p class="font-semibold text-sm text-gray-800">
+          <span class="lang-text" data-lang="en">— Alice B., Lomé</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">— Alice B., Lomé</span>
+        </p>
+      </div>
+      <div class="bg-gray-50 p-6 rounded-lg shadow">
+        <p class="italic text-gray-700 mb-4">
+          <span class="lang-text" data-lang="en">"A trustworthy team with unmatched professionalism and insight."</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">"Une équipe digne de confiance avec un professionnalisme et une perspicacité inégalés."</span>
+        </p>
+        <p class="font-semibold text-sm text-gray-800">
+          <span class="lang-text" data-lang="en">— Marc D., Paris</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">— Marc D., Paris</span>
+        </p>
+      </div>
+      <div class="bg-gray-50 p-6 rounded-lg shadow">
+        <p class="italic text-gray-700 mb-4">
+          <span class="lang-text" data-lang="en">"Crownd made our investment journey seamless and profitable."</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">"Crownd a rendu notre parcours d'investissement fluide et rentable."</span>
+        </p>
+        <p class="font-semibold text-sm text-gray-800">
+          <span class="lang-text" data-lang="en">— Kojo M., Accra</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">— Kojo M., Accra</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-100 py-24 px-6 md:px-20">
+    <h2 class="text-4xl text-center font-bold mb-12">
+      <span class="lang-text" data-lang="en">Explore Our Spaces</span>
+      <span class="lang-text" data-lang="fr" style="display: none;">Découvrez Nos Espaces</span>
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <img src="https://source.unsplash.com/500x400/?villa" class="rounded-lg shadow hover:scale-105 transition" alt="Villa">
+      <img src="https://source.unsplash.com/500x400/?interior" class="rounded-lg shadow hover:scale-105 transition" alt="Interior">
+      <img src="https://source.unsplash.com/500x400/?realestate" class="rounded-lg shadow hover:scale-105 transition" alt="Estate">
+    </div>
+  </section>
+
+  <section class="py-20 bg-blue-900 text-white text-center">
+    <h2 class="text-4xl font-bold mb-4">
+      <span class="lang-text" data-lang="en">Ready to Invest in Your Future?</span>
+      <span class="lang-text" data-lang="fr" style="display: none;">Prêt à Investir dans Votre Avenir ?</span>
+    </h2>
+    <p class="mb-8">
+      <span class="lang-text" data-lang="en">Join the Crownd experience and let's build something great together.</span>
+      <span class="lang-text" data-lang="fr" style="display: none;">Rejoignez l'expérience Crownd et bâtissons ensemble quelque chose de grand.</span>
+    </p>
+    <a href="#contactForm" class="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
+      <span class="lang-text" data-lang="en">Contact Us</span>
+      <span class="lang-text" data-lang="fr" style="display: none;">Contactez-Nous</span>
+    </a>
+  </section>
+
+
   <section class="px-10 py-28 max-w-2xl mx-auto fade-in-up">
-    <h2 class="text-3xl font-semibold mb-6 text-center">We look forward to hearing from you</h2>
+    <h2 class="text-3xl font-semibold mb-6 text-center">
+      <span class="lang-text" data-lang="en">We look forward to hearing from you</span>
+      <span class="lang-text" data-lang="fr" style="display: none;">Nous sommes impatients de vous entendre</span>
+    </h2>
     <form id="contactForm" class="flex flex-col gap-6">
       <div class="flex flex-col">
-        <label class="mb-2 text-sm font-medium">Salutation</label>
+        <label class="mb-2 text-sm font-medium">
+          <span class="lang-text" data-lang="en">Salutation</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Salutation</span>
+        </label>
         <select class="border border-gray-300 rounded px-4 py-2" required>
-          <option value="">Select</option>
-          <option>Mr.</option>
-          <option>Mrs.</option>
-          <option>Miss</option>
-          <option>Dr.</option>
+          <option value="">
+            <span class="lang-text" data-lang="en">Select</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">Sélectionner</span>
+          </option>
+          <option value="Mr.">
+            <span class="lang-text" data-lang="en">Mr.</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">M.</span>
+          </option>
+          <option value="Mrs.">
+            <span class="lang-text" data-lang="en">Mrs.</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">Mme</span>
+          </option>
+          <option value="Miss">
+            <span class="lang-text" data-lang="en">Miss</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">Mlle</span>
+          </option>
+          <option value="Dr.">
+            <span class="lang-text" data-lang="en">Dr.</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">Dr.</span>
+          </option>
         </select>
       </div>
       <div class="flex flex-col">
-        <label class="mb-2 text-sm font-medium">Title</label>
-        <input type="text" class="border border-gray-300 rounded px-4 py-2" placeholder="Title" required>
+        <label class="mb-2 text-sm font-medium">
+          <span class="lang-text" data-lang="en">Title</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Titre</span>
+        </label>
+        <input type="text" class="border border-gray-300 rounded px-4 py-2"
+               data-lang-placeholder-en="Title"
+               data-lang-placeholder-fr="Titre"
+               placeholder="" required>
       </div>
       <div class="flex flex-col">
-        <label class="mb-2 text-sm font-medium">First Name</label>
-        <input type="text" class="border border-gray-300 rounded px-4 py-2" placeholder="First Name" required>
+        <label class="mb-2 text-sm font-medium">
+          <span class="lang-text" data-lang="en">First Name</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Prénom</span>
+        </label>
+        <input type="text" class="border border-gray-300 rounded px-4 py-2"
+               data-lang-placeholder-en="First Name"
+               data-lang-placeholder-fr="Prénom"
+               placeholder="" required>
       </div>
       <div class="flex flex-col">
-        <label class="mb-2 text-sm font-medium">Surname</label>
-        <input type="text" class="border border-gray-300 rounded px-4 py-2" placeholder="Surname" required>
+        <label class="mb-2 text-sm font-medium">
+          <span class="lang-text" data-lang="en">Surname</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Nom de Famille</span>
+        </label>
+        <input type="text" class="border border-gray-300 rounded px-4 py-2"
+               data-lang-placeholder-en="Surname"
+               data-lang-placeholder-fr="Nom de Famille"
+               placeholder="" required>
       </div>
       <div class="flex flex-col">
-        <label class="mb-2 text-sm font-medium">Telephone Number</label>
-        <input type="tel" class="border border-gray-300 rounded px-4 py-2" placeholder="Phone Number" required>
+        <label class="mb-2 text-sm font-medium">
+          <span class="lang-text" data-lang="en">Telephone Number</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Numéro de Téléphone</span>
+        </label>
+        <input type="tel" class="border border-gray-300 rounded px-4 py-2"
+               data-lang-placeholder-en="Phone Number"
+               data-lang-placeholder-fr="Numéro de Téléphone"
+               placeholder="" required>
       </div>
       <div class="flex flex-col">
-        <label class="mb-2 text-sm font-medium">Email</label>
-        <input type="email" class="border border-gray-300 rounded px-4 py-2" placeholder="Email" required>
+        <label class="mb-2 text-sm font-medium">
+          <span class="lang-text" data-lang="en">Email</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">E-mail</span>
+        </label>
+        <input type="email" class="border border-gray-300 rounded px-4 py-2"
+               data-lang-placeholder-en="Email"
+               data-lang-placeholder-fr="E-mail"
+               placeholder="" required>
       </div>
       <div class="flex flex-col">
-        <label class="mb-2 text-sm font-medium">Message</label>
-        <textarea rows="4" class="border border-gray-300 rounded px-4 py-2" placeholder="Your message" required></textarea>
+        <label class="mb-2 text-sm font-medium">
+          <span class="lang-text" data-lang="en">Message</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Message</span>
+        </label>
+        <textarea rows="4" class="border border-gray-300 rounded px-4 py-2"
+                  data-lang-placeholder-en="Your message"
+                  data-lang-placeholder-fr="Votre message"
+                  placeholder="" required></textarea>
       </div>
       <div class="flex justify-center">
-        <button type="submit" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">Submit</button>
+        <button type="submit" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">
+          <span class="lang-text" data-lang="en">Submit</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Envoyer</span>
+        </button>
       </div>
     </form>
   </section>
 
   <div id="footer-placeholder"></div>
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>

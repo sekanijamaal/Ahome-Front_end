@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8" />
@@ -22,10 +22,8 @@
 </head>
 
 <body class="bg-white">
-  <!-- HEADER -->
-  <nav id="navbar" class="fixed top-0 w-full z-50 bg-transparent text-white transition-all duration-300">
+  <nav id="navbar" class="fixed top-0 w-full z-50 bg-transparent text-black transition-all duration-300">
     <div class="px-6 py-4 flex justify-between items-center">
-      <!-- Logo + Dropdown -->
       <div class="flex items-center gap-20 relative">
         <a href="/index.html" id="brand"
           class="text-2xl ahome-font font-semibold transition-colors duration-300 hover:text-blue-600">
@@ -34,59 +32,84 @@
 
         <button id="project-toggle" onclick="toggleDropdown()"
           class="projects-link flex items-center gap-x-2 text-white px-4 py-2 border border-white rounded-full transition hover:bg-white hover:text-black">
-          <span>Projects</span>
+          <span class="lang-text" data-lang="en">Projects</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Projets</span>
           <svg id="arrow-icon" class="down-arrow w-4 h-4 transition text-white" fill="none" stroke="currentColor"
             viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
 
-        <!-- Dropdown List -->
         <div id="projects-dropdown"
           class="hidden absolute top-full right-0 mt-2 w-56 bg-white shadow-md rounded-lg z-50">
           <ul class="py-2 text-sm text-gray-700">
             <li>
-              <a href="/pages/crownd-by-chipperfield.html"
-                class="block px-4 py-2 hover:bg-gray-100">chipperfield</a>
+              <a href="/pages/crownd-by-chipperfield.html" class="block px-4 py-2 hover:bg-gray-100">
+                <span class="lang-text" data-lang="en">chipperfield</span>
+                <span class="lang-text" data-lang="fr" style="display: none;">chipperfield</span>
+              </a>
             </li>
             <li>
-              <a href="/pages/grace-apartments.html"
-                class="block px-4 py-2 hover:bg-gray-100">grace-apartments</a>
+              <a href="/pages/grace-apartments.html" class="block px-4 py-2 hover:bg-gray-100">
+                <span class="lang-text" data-lang="en">grace-apartments</span>
+                <span class="lang-text" data-lang="fr" style="display: none;">grace-apartments</span>
+              </a>
             </li>
             <li>
-              <a href="/pages/villa-luminea.html"
-                class="block px-4 py-2 hover:bg-gray-100">villa-luminea</a>
+              <a href="/pages/villa-luminea.html" class="block px-4 py-2 hover:bg-gray-100">
+                <span class="lang-text" data-lang="en">villa-luminea</span>
+                <span class="lang-text" data-lang="fr" style="display: none;">villa-luminea</span>
+              </a>
             </li>
           </ul>
         </div>
       </div>
 
-      <!-- Nav Links -->
       <ul id="nav-links" class="flex-1 flex justify-center space-x-8 transition-colors duration-300">
         <li>
-          <a href="/pages/propertysearch.html"
-            class="nav-link px-4 py-2 rounded-full transition font-semibold">PROPERTY SEARCH</a>
+          <a href="/pages/propertysearch.html" class="nav-link px-4 py-2 rounded-full transition font-semibold">
+            <span class="lang-text" data-lang="en">PROPERTY SEARCH</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">RECHERCHE DE PROPRIÉTÉ</span>
+          </a>
         </li>
         <li>
-          <a href="/pages/purchase.html"
-            class="nav-link px-4 py-2 rounded-full transition font-semibold">PURCHASE</a>
+          <a href="/pages/purchase.html" class="nav-link px-4 py-2 rounded-full transition font-semibold">
+            <span class="lang-text" data-lang="en">PURCHASE</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">ACHETER</span>
+          </a>
         </li>
         <li>
-          <a href="/pages/investment.html"
-            class="nav-link px-4 py-2 rounded-full transition font-semibold">INVESTMENT</a>
+          <a href="/pages/investment.html" class="nav-link px-4 py-2 rounded-full transition font-semibold">
+            <span class="lang-text" data-lang="en">INVESTMENT</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">INVESTISSEMENT</span>
+          </a>
         </li>
         <li>
-          <a href="/pages/about.html"
-            class="nav-link px-4 py-2 rounded-full transition font-semibold">IT'S AHOME</a>
+          <a href="/pages/about.html" class="nav-link px-4 py-2 rounded-full transition font-semibold">
+            <span class="lang-text" data-lang="en">IT'S AHOME</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">C'EST AHOME</span>
+          </a>
         </li>
         <li>
-          <a href="/pages/contact.html"
-            class="nav-link px-4 py-2 rounded-full transition font-semibold">CONTACT</a>
+          <a href="/pages/contact.html" class="nav-link px-4 py-2 rounded-full transition font-semibold">
+            <span class="lang-text" data-lang="en">CONTACT</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">CONTACT</span>
+          </a>
         </li>
       </ul>
 
-      <!-- Icons -->
       <div id="icon-set" class="flex items-center space-x-4 transition-colors duration-300">
+        <div class="flex items-center">
+          <span class="text-white text-sm font-semibold mr-2 lang-label" data-lang="en">EN</span>
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" id="languageToggle" class="sr-only peer">
+            <div
+              class="w-10 h-6 bg-gray-200 rounded-full peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+            </div>
+          </label>
+          <span class="text-white text-sm font-semibold ml-2 lang-label" data-lang="fr">FR</span>
+        </div>
+
         <button onclick="togglePopup(event)" class="hover:text-gray-300">
           <svg id="heart-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
@@ -104,27 +127,29 @@
     </div>
   </nav>
 
-  <!-- POPUP -->
   <div id="popup"
     class="hidden fixed top-24 right-5 bg-white shadow-lg border rounded p-4 w-72 z-50 text-black transition-opacity duration-300">
     <p class="mb-2 font-semibold">
-      Become a CROWND member for access to all information.
+      <span class="lang-text" data-lang="en">Become a CROWND member for access to all information.</span>
+      <span class="lang-text" data-lang="fr" style="display: none;">Devenez membre CROWND pour accéder à toutes les
+        informations.</span>
     </p>
     <div class="space-y-2">
       <a href="/pages/login.html" class="block">
         <button class="bg-black text-white px-4 py-2 w-full rounded hover:bg-gray-800">
-          Log in
+          <span class="lang-text" data-lang="en">Log in</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Se connecter</span>
         </button>
       </a>
       <a href="/pages/register.html" class="block">
         <button class="bg-gray-200 text-black px-4 py-2 w-full rounded hover:bg-gray-300">
-          Register
+          <span class="lang-text" data-lang="en">Register</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">S'inscrire</span>
         </button>
       </a>
     </div>
   </div>
 
-  <!-- Script -->
   <script>
     const navbar = document.getElementById("navbar");
     const brand = document.getElementById("brand");
@@ -134,9 +159,52 @@
     const icons = document.getElementById("icon-set");
     const heartIcon = document.getElementById("heart-icon");
 
-    window.addEventListener("scroll", () => {
-      const scrolled = window.scrollY > 0;
+    // Language Toggle Elements
+    const languageToggle = document.getElementById('languageToggle');
+    const htmlTag = document.querySelector('html');
+    const langTexts = document.querySelectorAll('.lang-text'); // All elements with language-specific text
+    const langLabels = document.querySelectorAll('.lang-label'); // EN/FR labels next to toggle
 
+    // Function to set the language
+    const setLanguage = (lang) => {
+      htmlTag.setAttribute('lang', lang);
+
+      langTexts.forEach(element => {
+        if (element.getAttribute('data-lang') === lang) {
+          element.style.display = ''; // Reset display to default (inline, block etc.)
+        } else {
+          element.style.display = 'none';
+        }
+      });
+
+      // Update lang-label visibility and color based on active language
+      langLabels.forEach(label => {
+        if (label.getAttribute('data-lang') === lang) {
+          label.classList.add('font-bold', 'text-blue-500'); // Highlight active language
+          label.classList.remove('text-gray-600', 'text-white'); // Remove inactive/scroll colors
+        } else {
+          label.classList.remove('font-bold', 'text-blue-500'); // Remove active highlight
+          // Ensure correct color based on scroll state
+          if (window.scrollY > 0) {
+            label.classList.add('text-gray-600');
+            label.classList.remove('text-white');
+          } else {
+            label.classList.add('text-white');
+            label.classList.remove('text-gray-600');
+          }
+        }
+      });
+
+
+      // Store the preference in localStorage
+      localStorage.setItem('preferredLanguage', lang);
+
+      // Re-apply scroll-based colors after language change to ensure consistency
+      updateNavbarColors(window.scrollY > 0);
+    };
+
+    // Function to update navbar colors based on scroll state
+    const updateNavbarColors = (scrolled) => {
       navbar.classList.toggle("bg-white", scrolled);
       navbar.classList.toggle("text-black", scrolled);
       navbar.classList.toggle("text-white", !scrolled);
@@ -147,6 +215,23 @@
 
       icons.classList.toggle("text-black", scrolled);
       icons.classList.toggle("text-white", !scrolled);
+
+      // Special handling for language labels for scroll effect
+      langLabels.forEach(label => {
+        if (label.getAttribute('data-lang') === htmlTag.getAttribute('lang')) {
+          label.classList.remove('text-black', 'text-white'); // Remove general color class
+          label.classList.add('text-blue-500'); // Keep active language highlighted
+        } else {
+          if (scrolled) {
+            label.classList.add('text-gray-600');
+            label.classList.remove('text-white');
+          } else {
+            label.classList.add('text-white');
+            label.classList.remove('text-gray-600');
+          }
+        }
+      });
+
 
       navLinks.forEach((link) => {
         link.classList.toggle("text-black", scrolled);
@@ -161,6 +246,14 @@
       projectLink.classList.toggle("border-white", !scrolled);
       projectLink.classList.toggle("bg-gray-100", scrolled);
       projectLink.classList.toggle("hover:bg-gray-200", scrolled);
+      // Ensure projects-link text color updates with language
+      if (scrolled) {
+        projectLink.classList.add('text-black');
+        projectLink.classList.remove('text-white');
+      } else {
+        projectLink.classList.add('text-white');
+        projectLink.classList.remove('text-black');
+      }
 
       arrow.classList.toggle("text-gray-400", scrolled);
       arrow.classList.toggle("text-white", !scrolled);
@@ -168,8 +261,36 @@
       if (heartIcon) {
         heartIcon.setAttribute("fill", scrolled ? "black" : "none");
       }
+    };
+
+    // Initial check for preferred language on load
+    const storedLang = localStorage.getItem('preferredLanguage');
+    if (storedLang) {
+      if (storedLang === 'en') {
+        languageToggle.checked = true; // Set toggle to English position
+      }
+      setLanguage(storedLang);
+    } else {
+      // Default to French if no preference is stored
+      setLanguage('fr');
+      languageToggle.checked = false; // Ensure toggle is in French position
+    }
+
+    // Event listener for the language toggle switch
+    languageToggle.addEventListener('change', () => {
+      if (languageToggle.checked) {
+        setLanguage('en');
+      } else {
+        setLanguage('fr');
+      }
     });
 
+    // Existing scroll event listener, updated to use the new function
+    window.addEventListener("scroll", () => {
+      updateNavbarColors(window.scrollY > 0);
+    });
+
+    // Existing dropdown functions
     function toggleDropdown() {
       const dropdown = document.getElementById("projects-dropdown");
       dropdown.classList.toggle("hidden");
@@ -185,9 +306,18 @@
       const popup = document.getElementById("popup");
       const button = document.querySelector(
         'button[onclick="togglePopup(event)"]'
-      );
-      if (!popup.contains(e.target) && e.target !== button) {
+      ); // Selects any button with this onclick attribute
+      if (!popup.contains(e.target) && e.target !== button && !button.contains(e.target)) {
         popup.classList.add("hidden");
+      }
+    });
+
+    // Close dropdown on outside click
+    document.addEventListener('click', function (e) {
+      const dropdown = document.getElementById('projects-dropdown');
+      const toggleButton = document.getElementById('project-toggle');
+      if (!dropdown.contains(e.target) && !toggleButton.contains(e.target)) {
+        dropdown.classList.add('hidden');
       }
     });
   </script>

@@ -1,198 +1,187 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Crownd</title>
+  <title>À Propos de Nous - Crownd</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/Ahome-Front_end/assets/css/about.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/css/intlTelInput.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
-
     .ahome-font {
       font-family: 'Playfair Display', serif;
       letter-spacing: 1px;
     }
-  </style>
-   <style>
-    /* Smooth fade-out effect */
     #search-bar {
       transition: opacity 0.3s ease;
     }
   </style>
-
-  <script> fetch("/assets/html/header.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header-placeholder").innerHTML = html;
-  
-        // Re-evaluate scripts inside the injected HTML
-        const temp = document.createElement("div");
-        temp.innerHTML = html;
-        const scripts = temp.querySelectorAll("script");
-        scripts.forEach((oldScript) => {
-          const newScript = document.createElement("script");
-          if (oldScript.src) {
-            newScript.src = oldScript.src;
-          } else {
-            newScript.textContent = oldScript.textContent;
-          }
-          document.body.appendChild(newScript);
-        });
-      });
-      fetch('/assets/html/footer.html')
-.then(res => res.text())
-.then(data => {
-  document.getElementById('footer-placeholder').innerHTML = data;
-});
-    </script>
-      
 </head>
 
 <body class="bg-gray-100">
+  <!-- 🌐 Language Toggle -->
+  
+  <!-- Header Placeholder -->
   <div id="header-placeholder"></div>
 
-
-  <!-- HERO SECTION -->
-  <section class="relative h-[130vh] bg-cover bg-center"
-    style="background-image: url('/assets/images/pexels-littlehampton-bricks-2717960-4626268.jpg');">
-    <div class="sticky top-0 h-screen flex flex-col justify-center items-center text-center px-6">
-      <h1 id="firstText" class="text-8xl ahome-font text-white mb-8 text-fade">It's AHOME.</h1>
-      <div id="secondText" class="flex flex-col items-center gap-4 text-fade">
-        <div class="text-5xl text-white font-serif">You can find us </div>
-        <p class="text-6xl italic text-white font-serif">in the heart of Lome.</p>
+  <!-- Dynamic Content -->
+  <main id="content-placeholder">
+    <section class="relative h-[130vh] bg-cover bg-center" style="background-image: url('/assets/images/pexels-littlehampton-bricks-2717960-4626268.jpg');">
+      <div class="sticky top-0 h-screen flex flex-col justify-center items-center text-center px-6">
+        <h1 class="text-8xl ahome-font text-white mb-8 text-fade">It's AHOME.</h1>
+        <div class="flex flex-col items-center gap-4 text-fade">
+          <div class="text-5xl text-white font-serif">
+            <span class="lang-text" data-lang="en">You can find us</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">Vous pouvez nous trouver</span>
+          </div>
+          <p class="text-6xl italic text-white font-serif">
+            <span class="lang-text" data-lang="en">in the heart of Lome.</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">au cœur de Lomé.</span>
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-     <!-- Fixed Search Bar Widget -->
     <div id="search-bar" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-white px-4 py-3 rounded-full shadow-lg flex items-center space-x-2 w-[90%] max-w-md">
-      <!-- Search Icon -->
       <svg class="w-5 h-5 text-gray-500 font-bold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-      d="M21 21l-4.35-4.35M9.5 17a7.5 7.5 0 100-15 7.5 7.5 0 000 15z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M9.5 17a7.5 7.5 0 100-15 7.5 7.5 0 000 15z" />
       </svg>
-  
-      <!-- Search Input -->
-      <input type="text" placeholder="Find a house..." class="w-full outline-none border-none text-sm font-bold placeholder-gray-500 bg-transparent" />
+      <input type="text" data-lang-placeholder-en="Find a house..." data-lang-placeholder-fr="Trouver une maison..." class="w-full outline-none border-none text-sm font-bold placeholder-gray-500 bg-transparent" />
     </div>
-
-  
-  <!-- Main Content -->
   <section class="flex flex-col lg:flex-row items-center justify-between mt-20 px-10 py-16 gap-20">
-      <!-- Map Image (Replace with your own image or SVG) -->
-      <div class="w-full lg:w-1/2">
-        <img src="/assets/images/Screenshot (76).png" alt="Map to Agence Desco" class="w-full h-[600px]" />
-        <!-- Example: Replace with <iframe> if you're using Google Maps -->
-      </div>
-
-      
-        <!-- Contact Info -->
-      <div class="w-full lg:w-1/2 space-y-12">
-        <!-- Heading -->
-        <div class="text-7xl font-serif tracking-tight mb-4">Contact</div>
-
-        <!-- OFFICE -->
-        <div>
-          <div class="text-2xl font-semibold font-sans">OFFICE</div>
-          <p class="text-lg text-gray-600">+228 90 03 33 53<br>agencedeschefsdoeuvre@gmail.com</p>
-        </div>
-
-        <!-- SALES -->
-        <div>
-          <div class="text-2xl font-semibold font-sans">SALES</div>
-          <p class="text-lg text-gray-600">+228 70 404 030111<br>sales@descoagence.com</p>
-        </div>
-
-        <!-- VISIT US -->
-        <div>
-          <div class="text-2xl font-semibold font-sans">VISIT US</div>
-          <p class="text-lg text-gray-600">343, Rue des Gemeaux, Tokoin Tame, Lome TogoMon–Thu: 9:00 AM to 6:00 PM<br>Fri: 9:00 AM to 3:00 PM</p>
-        </div>
-      </div>
-
-  </section>
-        <!-- Form Section -->
-  <section class="px-6 md:px-20 py-16 bg-white">
-    <!-- Heading -->
-    <div class="text-center mb-12">
-      <h2 class="text-6xl font-serif leading-tight">
-        We are happy to hear<br>
-        <span class="block">from them</span>
-      </h2>
+  <div class="w-full lg:w-1/2">
+    <img src="/assets/images/Screenshot (76).png" alt="Map to Agence Desco" class="w-full h-[600px]" />
+  </div>
+  <div class="w-full lg:w-1/2 space-y-12">
+    <div class="text-7xl font-serif tracking-tight mb-4">
+      <span class="lang-text" data-lang="en">Contact</span>
+      <span class="lang-text" data-lang="fr" style="display: none;">Contact</span>
     </div>
-
-    <!-- Form -->
-    <form class="max-w-2xl mx-auto space-y-5">
-
-      <!-- Salutation -->
-      <select class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400 text-gray-600">
-        <option>Salutation</option>
-        <option>Mr.</option>
-        <option>Mrs.</option>
-        <option>Ms.</option>
-        <option>Dr.</option>
-      </select>
-
-      <!-- Title (Optional) -->
-      <input type="text" placeholder="Title (Optional)"
-        class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400" />
-
-      <!-- First Name -->
-      <input type="text" placeholder="First name"
-        class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400" />
-
-      <!-- Last Name -->
-      <input type="text" placeholder="Last name"
-        class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400" />
-
-      <!-- Phone with Country Flag Dropdown -->
-      <input id="phone" type="tel"
-        class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400" />
-
-      <!-- Email -->
-      <input type="email" placeholder="E-mail"
-        class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400" />
-
-      <!-- News Textarea -->
-      <textarea rows="4" placeholder="News"
-        class="w-full border border-gray-300 rounded-3xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400 resize-none"></textarea>
-
-      <!-- Checkboxes -->
-      <div class="space-y-3">
-        <label class="flex items-start space-x-4 text-sm text-gray-600">
-          <input type="checkbox" class="mt-1 rounded border-gray-400" />
-          <span>I would like to receive updates on projects and information about Togo’s most exclusive apartments. (Optional)</span>
-        </label>
-
-        <label class="flex items-start space-x-3 text-sm text-gray-600">
-          <input type="checkbox" class="mt-1 rounded border-gray-400" />
-          <span>I agree to the <a href="#" class="text-blue-600 underline">privacy policy</a>.</span>
-        </label>
+    <div>
+      <div class="text-2xl font-semibold font-sans">
+        <span class="lang-text" data-lang="en">OFFICE</span>
+        <span class="lang-text" data-lang="fr" style="display: none;">BUREAU</span>
       </div>
-
-      <!-- Submit Button -->
-      <div class="pt-6 pb-32">
-        <button type="submit"
-          class="w-full bg-black text-white text-lg font-medium rounded-full py-3 hover:bg-gray-800 transition duration-300">
-          Submit
-        </button>
+      <p class="text-lg text-gray-600">+228 90 03 33 53<br>agencedeschefsdoeuvre@gmail.com</p>
+    </div>
+    <div>
+      <div class="text-2xl font-semibold font-sans">
+        <span class="lang-text" data-lang="en">SALES</span>
+        <span class="lang-text" data-lang="fr" style="display: none;">VENTES</span>
       </div>
-    </form>
-  </section>
+      <p class="text-lg text-gray-600">+228 70 404 030111<br>sales@descoagence.com</p>
+    </div>
+    <div>
+      <div class="text-2xl font-semibold font-sans">
+        <span class="lang-text" data-lang="en">VISIT US</span>
+        <span class="lang-text" data-lang="fr" style="display: none;">VISITEZ-NOUS</span>
+      </div>
+      <p class="text-lg text-gray-600">
+        <span class="lang-text" data-lang="en">343, Rue des Gemeaux, Tokoin Tame, Lome Togo</span>
+        <span class="lang-text" data-lang="fr" style="display: none;">343, Rue des Gemeaux, Tokoin Tame, Lomé Togo</span><br>
+        <span class="lang-text" data-lang="en">Mon–Thu: 9:00 AM to 6:00 PM</span>
+        <span class="lang-text" data-lang="fr" style="display: none;">Lun–Jeu : 9h00 à 18h00</span><br>
+        <span class="lang-text" data-lang="en">Fri: 9:00 AM to 3:00 PM</span>
+        <span class="lang-text" data-lang="fr" style="display: none;">Ven : 9h00 à 15h00</span>
+      </p>
+    </div>
+  </div>
+</section>
 
+<section class="px-6 md:px-20 py-16 bg-white">
+  <div class="text-center mb-12">
+    <h2 class="text-6xl font-serif leading-tight">
+      <span class="lang-text" data-lang="en">We are happy to hear</span>
+      <span class="lang-text" data-lang="fr" style="display: none;">Nous sommes heureux d'avoir de vos nouvelles</span><br>
+      <span class="block">
+        <span class="lang-text" data-lang="en">from them</span>
+        <span class="lang-text" data-lang="fr" style="display: none;">d'eux</span>
+      </span>
+    </h2>
+  </div>
+  <form class="max-w-2xl mx-auto space-y-5">
+    <select class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400 text-gray-600">
+      <option><span class="lang-text" data-lang="en">Salutation</span><span class="lang-text" data-lang="fr" style="display: none;">Salutation</span></option>
+      <option><span class="lang-text" data-lang="en">Mr.</span><span class="lang-text" data-lang="fr" style="display: none;">M.</span></option>
+      <option><span class="lang-text" data-lang="en">Mrs.</span><span class="lang-text" data-lang="fr" style="display: none;">Mme</span></option>
+      <option><span class="lang-text" data-lang="en">Ms.</span><span class="lang-text" data-lang="fr" style="display: none;">Mlle</span></option>
+      <option><span class="lang-text" data-lang="en">Dr.</span><span class="lang-text" data-lang="fr" style="display: none;">Dr.</span></option>
+    </select>
+    <input type="text" data-lang-placeholder-en="Title (Optional)" data-lang-placeholder-fr="Titre (Facultatif)" class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+    <input type="text" data-lang-placeholder-en="First name" data-lang-placeholder-fr="Prénom" class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+    <input type="text" data-lang-placeholder-en="Last name" data-lang-placeholder-fr="Nom de famille" class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+    <input id="phone" type="tel" data-lang-placeholder-en="Phone" data-lang-placeholder-fr="Téléphone" class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+    <input type="email" data-lang-placeholder-en="E-mail" data-lang-placeholder-fr="E-mail" class="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+    <textarea rows="4" data-lang-placeholder-en="Message" data-lang-placeholder-fr="Message" class="w-full border border-gray-300 rounded-3xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400 resize-none"></textarea>
+    <div class="space-y-3">
+      <label class="flex items-start space-x-4 text-sm text-gray-600">
+        <input type="checkbox" class="mt-1 rounded border-gray-400" />
+        <span>
+          <span class="lang-text" data-lang="en">I would like to receive updates on projects and information about Togo’s most exclusive apartments. (Optional)</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Je souhaite recevoir des mises à jour sur les projets et des informations sur les appartements les plus exclusifs du Togo. (Facultatif)</span>
+        </span>
+      </label>
+      <label class="flex items-start space-x-3 text-sm text-gray-600">
+        <input type="checkbox" class="mt-1 rounded border-gray-400" />
+        <span>
+          <span class="lang-text" data-lang="en">I agree to the </span>
+          <span class="lang-text" data-lang="fr" style="display: none;">J'accepte la </span>
+          <a href="#" class="text-blue-600 underline">
+            <span class="lang-text" data-lang="en">privacy policy</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">politique de confidentialité</span>
+          </a>
+          <span class="lang-text" data-lang="en">.</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">.</span>
+        </span>
+      </label>
+    </div>
+    <div class="pt-6 pb-32">
+      <button type="submit" class="w-full bg-black text-white text-lg font-medium rounded-full py-3 hover:bg-gray-800 transition duration-300">
+        <span class="lang-text" data-lang="en">Submit</span>
+        <span class="lang-text" data-lang="fr" style="display: none;">Envoyer</span>
+      </button>
+    </div>
+  </form>
+</section>
 
-<div id="footer-placeholder"></div>
-  
+$1
 
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- JS Assets -->
+  <script src="/assets/js/main.js"></script>
   <script src="/assets/js/contact.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/js/intlTelInput.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/js/utils.js"></script>
+
+  <!-- 🔁 Language Switcher Script -->
+  <script>
+    function switchLanguage(lang) {
+      document.documentElement.lang = lang;
+
+      // Toggle visibility of language-specific text
+      document.querySelectorAll('.lang-text').forEach(el => {
+        el.style.display = el.dataset.lang === lang ? '' : 'none';
+      });
+
+      // Update placeholders
+      document.querySelectorAll('[data-lang-placeholder-en], [data-lang-placeholder-fr]').forEach(el => {
+        const placeholder = el.getAttribute(`data-lang-placeholder-${lang}`);
+        if (placeholder) el.placeholder = placeholder;
+      });
+
+      // Update document title manually
+      document.title = lang === 'fr' ? 'À Propos de Nous - Crownd' : 'About Us - Crownd';
+    }
+
+    document.addEventListener("DOMContentLoaded", () => switchLanguage('fr'));
+  </script>
 </body>
 
 </html>

@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Purchase - Crownd</title>
+  <title>
+    <span class="lang-text" data-lang="en">Purchase - Crownd</span>
+    <span class="lang-text" data-lang="fr" style="display: none;">Achat - Crownd</span>
+  </title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8d7xj1z5l5e5c5e5c5e5c5e5c5e5c5e5c5e" crossorigin="anonymous" />
   <style>
     .text-transition {
       opacity: 0;
@@ -29,190 +33,262 @@
       transform: translateY(0);
     }
   </style>
-  <script>
-    fetch("../assets/html/header.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header-placeholder").innerHTML = html;
-
-        // Re-evaluate scripts inside the injected HTML
-        const temp = document.createElement("div");
-        temp.innerHTML = html;
-        const scripts = temp.querySelectorAll("script");
-        scripts.forEach((oldScript) => {
-          const newScript = document.createElement("script");
-          if (oldScript.src) {
-            newScript.src = oldScript.src;
-          } else {
-            newScript.textContent = oldScript.textContent;
-          }
-          document.body.appendChild(newScript);
-        });
-      });
-
-    fetch("../assets/html/footer.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('footer-placeholder').innerHTML = data;
-      });
-  </script>
 </head>
 
-<body class="bg-gray-100">
-
-  <!-- HEADER -->
+<body class="bg-gray-100" onload="setLanguage(localStorage.getItem('selectedLanguage') || 'fr')">
   <div id="header-placeholder"></div>
 
-  <!-- SCROLL TRANSITION SECTION -->
-  <section class="relative h-[200vh] bg-cover bg-center"
-    style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');">
+  <section class="relative h-[200vh] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');">
     <div class="sticky top-0 h-screen flex flex-col justify-center items-center text-center px-6">
-      <h1 id="firstText" class="text-5xl font-bold text-white mb-8 text-transition">It's CROWND.</h1>
+      <h1 id="firstText" class="text-5xl font-bold text-white mb-8 text-transition">
+        <span class="lang-text" data-lang="en">It's Ahome.</span>
+        <span class="lang-text" data-lang="fr" style="display: none;">C'est Ahome.</span>
+      </h1>
       <div id="secondText" class="flex flex-col items-center gap-4 text-transition">
-        <h2 class="text-4xl font-bold text-white">We create PACKAGE LIABILITY.</h2>
-        <h3 class="text-xl italic text-white">Show project.</h3>
-        <button
-          class="mt-4 bg-yellow-400 text-black px-6 py-2 rounded-full shadow hover:scale-105 transition-transform">Sell
-          Property</button>
+        <h2 class="text-4xl font-bold text-white">
+          <span class="lang-text" data-lang="en">We create PACKAGE LIABILITY.</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Nous créons une RESPONSABILITÉ DE FORFAIT.</span>
+        </h2>
+        <h3 class="text-xl italic text-white">
+          <span class="lang-text" data-lang="en">Show project.</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Afficher le projet.</span>
+        </h3>
+        <button class="mt-4 bg-yellow-400 text-black px-6 py-2 rounded-full shadow hover:scale-105 transition-transform">
+          <span class="lang-text" data-lang="en">Sell Property</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Vendre Propriété</span>
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- Section 2 -->
   <section class="flex flex-col md:flex-row items-center justify-center gap-10 px-10 py-20 max-w-6xl mx-auto text-center">
-    <img src="/assets/images/marcel-strauss-vTrMLXrgtqg-unsplash.jpg"
-      class="w-full md:w-1/2 rounded-lg shadow-md">
+    <img src="/assets/images/marcel-strauss-vTrMLXrgtqg-unsplash.jpg" class="w-full md:w-1/2 rounded-lg shadow-md" alt="Property image for sale">
     <div class="md:w-1/2">
-      <h2 class="text-3xl font-semibold mb-4">In the best hands.</h2>
-      <p class="text-gray-700 leading-relaxed">We are always looking for exceptional real estate. If you are interested
-        in the sale of your property and place the highest demands on discretion and professionalism in the handling,
-        we look forward to hearing from you. With our know-how and many years of experience, we are the right contact
-        for your real estate sale.</p>
+      <h2 class="text-3xl font-semibold mb-4">
+        <span class="lang-text" data-lang="en">In the best hands.</span>
+        <span class="lang-text" data-lang="fr" style="display: none;">Entre les meilleures mains.</span>
+      </h2>
+      <p class="text-gray-700 leading-relaxed">
+        <span class="lang-text" data-lang="en">We are always looking for exceptional real estate. If you are interested in the sale of your property and place the highest demands on discretion and professionalism in the handling, we look forward to hearing from you. With our know-how and many years of experience, we are the right contact for your real estate sale.</span>
+        <span class="lang-text" data-lang="fr" style="display: none;">Nous recherchons toujours des biens immobiliers exceptionnels. Si vous êtes intéressé par la vente de votre propriété et que vous exigez la plus grande discrétion et le plus grand professionnalisme dans la gestion, nous sommes impatients de vous entendre. Grâce à notre savoir-faire et à nos nombreuses années d'expérience, nous sommes le bon contact pour la vente de votre bien immobilier.</span>
+      </p>
     </div>
   </section>
 
-  <!-- Cascaded Images Section -->
   <section class="px-10 py-20 max-w-6xl mx-auto">
-    <h2 class="text-3xl font-semibold mb-10 text-center">Discover Our Properties</h2>
+    <h2 class="text-3xl font-semibold mb-10 text-center">
+      <span class="lang-text" data-lang="en">Discover Our Properties</span>
+      <span class="lang-text" data-lang="fr" style="display:none">Découvrez Nos Biens</span>
+    </h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994"
-        class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
-      <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be"
-        class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300 mt-10">
-      <img src="/assets/images/mika-baumeister-PL7K02i4s9g-unsplash.jpg"
-        class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300 -mt-6">
-      <img src="/assets/images/house4.jpg.jpg"
-        class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
-      <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914"
-        class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300 -mt-8">
-      <img src="/assets/images/house11.jpg.jpg"
-        class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300 mt-12">
-      <img src="/assets/images/house15.jpg.jpg"
-        class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300 -mt-4">
-      <img src="/assets/images/house2.jpg.jpg"
-        class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+      <figure>
+        <img src="/assets/images/Range infront.jpg" alt="Luxury entrance with parked car" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+        <figcaption class="text-sm text-center mt-2">
+          <span class="lang-text" data-lang="en">Modern entrance with luxury appeal</span>
+          <span class="lang-text" data-lang="fr" style="display:none">Entrée moderne avec un charme luxueux</span>
+        </figcaption>
+      </figure>
+      <figure class="mt-10">
+        <img src="/assets/images/compund area.jpg" alt="Spacious compound area" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+        <figcaption class="text-sm text-center mt-2">
+          <span class="lang-text" data-lang="en">Spacious compound for family gatherings</span>
+          <span class="lang-text" data-lang="fr" style="display:none">Grand espace extérieur pour des réunions familiales</span>
+        </figcaption>
+      </figure>
+      <figure class="-mt-6">
+        <img src="/assets/images/Nice building.png" alt="Modern residential building" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+        <figcaption class="text-sm text-center mt-2">
+          <span class="lang-text" data-lang="en">Elegant architecture with contemporary design</span>
+          <span class="lang-text" data-lang="fr" style="display:none">Architecture élégante au design contemporain</span>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="/assets/images/house4.jpg.jpg" alt="Beautiful facade" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+        <figcaption class="text-sm text-center mt-2">
+          <span class="lang-text" data-lang="en">Stunning facade with clean lines</span>
+          <span class="lang-text" data-lang="fr" style="display:none">Façade impressionnante aux lignes épurées</span>
+        </figcaption>
+      </figure>
+      <figure class="-mt-8">
+        <img src="/assets/images/Ime.jpg" alt="Garden view" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+        <figcaption class="text-sm text-center mt-2">
+          <span class="lang-text" data-lang="en">Garden view with natural lighting</span>
+          <span class="lang-text" data-lang="fr" style="display:none">Vue sur le jardin avec lumière naturelle</span>
+        </figcaption>
+      </figure>
+      <figure class="mt-12">
+        <img src="/assets/images/house11.jpg.jpg" alt="Modern luxury interior" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+        <figcaption class="text-sm text-center mt-2">
+          <span class="lang-text" data-lang="en">Interior that exudes comfort and class</span>
+          <span class="lang-text" data-lang="fr" style="display:none">Intérieur qui respire le confort et le raffinement</span>
+        </figcaption>
+      </figure>
+      <figure class="-mt-4">
+        <img src="/assets/images/house15.jpg.jpg" alt="Bright open space" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+        <figcaption class="text-sm text-center mt-2">
+          <span class="lang-text" data-lang="en">Open layout perfect for modern living</span>
+          <span class="lang-text" data-lang="fr" style="display:none">Espace ouvert parfait pour une vie moderne</span>
+        </figcaption>
+      </figure>
+      <figure>
+        <img src="/assets/images/house2.jpg.jpg" alt="Urban residence" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
+        <figcaption class="text-sm text-center mt-2">
+          <span class="lang-text" data-lang="en">Ideal urban residence in prime location</span>
+          <span class="lang-text" data-lang="fr" style="display:none">Résidence urbaine idéale dans un emplacement privilégié</span>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- Contact Form Section -->
+
+  <section class="bg-white px-10 py-20">
+    <h2 class="text-3xl font-semibold mb-10 text-center">
+      <span class="lang-text" data-lang="en">Why List Your Property With Us?</span>
+      <span class="lang-text" data-lang="fr" style="display: none;">Pourquoi Inscrire Votre Propriété Chez Nous ?</span>
+    </h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <i class="fas fa-bullhorn text-4xl text-blue-500 mb-4"></i>
+        <h4 class="font-bold text-lg mb-2">
+          <span class="lang-text" data-lang="en">Extensive Marketing</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Marketing Étendu</span>
+        </h4>
+        <p class="text-gray-600">
+          <span class="lang-text" data-lang="en">We promote your listing across global platforms and targeted audiences.</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Nous faisons la promotion de votre annonce sur des plateformes mondiales et auprès de publics ciblés.</span>
+        </p>
+      </div>
+      <div class="text-center">
+        <i class="fas fa-users text-4xl text-blue-500 mb-4"></i>
+        <h4 class="font-bold text-lg mb-2">
+          <span class="lang-text" data-lang="en">Dedicated Agents</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Agents Dévoués</span>
+        </h4>
+        <p class="text-gray-600">
+          <span class="lang-text" data-lang="en">A team of professionals ensures your property is represented with excellence.</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Une équipe de professionnels veille à ce que votre propriété soit représentée avec excellence.</span>
+        </p>
+      </div>
+      <div class="text-center">
+        <i class="fas fa-handshake text-4xl text-blue-500 mb-4"></i>
+        <h4 class="font-bold text-lg mb-2">
+          <span class="lang-text" data-lang="en">Transparent Process</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Processus Transparent</span>
+        </h4>
+        <p class="text-gray-600">
+          <span class="lang-text" data-lang="en">Clear communication and transparency throughout the sales journey.</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Communication claire et transparence tout au long du parcours de vente.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
   <section class="px-10 py-20 max-w-2xl mx-auto fade-in" id="contactFormSection">
-    <h2 class="text-3xl font-semibold mb-6 text-center">We look forward to hearing from you</h2>
+    <h2 class="text-3xl font-semibold mb-6 text-center">
+      <span class="lang-text" data-lang="en">We look forward to hearing from you</span>
+      <span class="lang-text" data-lang="fr" style="display: none;">Nous sommes impatients de vous entendre</span>
+    </h2>
     <form id="contactForm" class="flex flex-col gap-6">
       <div class="flex flex-col">
-        <label class="mb-2 text-sm font-medium">Salutation</label>
+        <label class="mb-2 text-sm font-medium">
+          <span class="lang-text" data-lang="en">Salutation</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Salutation</span>
+        </label>
         <select class="border border-gray-300 rounded px-4 py-2" required>
-          <option value="">Select</option>
-          <option>Mr.</option>
-          <option>Mrs.</option>
-          <option>Miss</option>
-          <option>Dr.</option>
+          <option value="">
+            <span class="lang-text" data-lang="en">Select</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">Sélectionner</span>
+          </option>
+          <option value="Mr.">
+            <span class="lang-text" data-lang="en">Mr.</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">M.</span>
+          </option>
+          <option value="Mrs.">
+            <span class="lang-text" data-lang="en">Mrs.</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">Mme</span>
+          </option>
+          <option value="Miss">
+            <span class="lang-text" data-lang="en">Miss</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">Mlle</span>
+          </option>
+          <option value="Dr.">
+            <span class="lang-text" data-lang="en">Dr.</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">Dr.</span>
+          </option>
         </select>
       </div>
       <div class="flex flex-col">
-        <label class="mb-2 text-sm font-medium">Title</label>
-        <input type="text" class="border border-gray-300 rounded px-4 py-2" placeholder="Title" required>
+        <label class="mb-2 text-sm font-medium">
+          <span class="lang-text" data-lang="en">Title</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Titre</span>
+        </label>
+        <input type="text" class="border border-gray-300 rounded px-4 py-2"
+               data-lang-placeholder-en="Title"
+               data-lang-placeholder-fr="Titre"
+               placeholder="" required>
       </div>
       <div class="flex flex-col">
-        <label class="mb-2 text-sm font-medium">First Name</label>
-        <input type="text" class="border border-gray-300 rounded px-4 py-2" placeholder="First Name" required>
+        <label class="mb-2 text-sm font-medium">
+          <span class="lang-text" data-lang="en">First Name</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Prénom</span>
+        </label>
+        <input type="text" class="border border-gray-300 rounded px-4 py-2"
+               data-lang-placeholder-en="First Name"
+               data-lang-placeholder-fr="Prénom"
+               placeholder="" required>
       </div>
       <div class="flex flex-col">
-        <label class="mb-2 text-sm font-medium">Surname</label>
-        <input type="text" class="border border-gray-300 rounded px-4 py-2" placeholder="Surname" required>
+        <label class="mb-2 text-sm font-medium">
+          <span class="lang-text" data-lang="en">Surname</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Nom de Famille</span>
+        </label>
+        <input type="text" class="border border-gray-300 rounded px-4 py-2"
+               data-lang-placeholder-en="Surname"
+               data-lang-placeholder-fr="Nom de Famille"
+               placeholder="" required>
       </div>
       <div class="flex flex-col">
-        <label class="mb-2 text-sm font-medium">Telephone Number</label>
-        <input type="tel" class="border border-gray-300 rounded px-4 py-2" placeholder="Phone Number" required>
+        <label class="mb-2 text-sm font-medium">
+          <span class="lang-text" data-lang="en">Telephone Number</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Numéro de Téléphone</span>
+        </label>
+        <input type="tel" class="border border-gray-300 rounded px-4 py-2"
+               data-lang-placeholder-en="Phone Number"
+               data-lang-placeholder-fr="Numéro de Téléphone"
+               placeholder="" required>
       </div>
       <div class="flex flex-col">
-        <label class="mb-2 text-sm font-medium">Email</label>
-        <input type="email" class="border border-gray-300 rounded px-4 py-2" placeholder="Email" required>
+        <label class="mb-2 text-sm font-medium">
+          <span class="lang-text" data-lang="en">Email</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">E-mail</span>
+        </label>
+        <input type="email" class="border border-gray-300 rounded px-4 py-2"
+               data-lang-placeholder-en="Email"
+               data-lang-placeholder-fr="E-mail"
+               placeholder="" required>
       </div>
       <div class="flex flex-col">
-        <label class="mb-2 text-sm font-medium">Message</label>
-        <textarea rows="4" class="border border-gray-300 rounded px-4 py-2" placeholder="Your message" required></textarea>
+        <label class="mb-2 text-sm font-medium">
+          <span class="lang-text" data-lang="en">Message</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Message</span>
+        </label>
+        <textarea rows="4" class="border border-gray-300 rounded px-4 py-2"
+                  data-lang-placeholder-en="Your message"
+                  data-lang-placeholder-fr="Votre message"
+                  placeholder="" required></textarea>
       </div>
       <div class="flex justify-center">
-        <button type="submit" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">Submit</button>
+        <button type="submit" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">
+          <span class="lang-text" data-lang="en">Submit</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Envoyer</span>
+        </button>
       </div>
     </form>
   </section>
 
   <div id="footer-placeholder"></div>
 
-  <script src="./assets/js/purchase.js"></script>
-
-  <!-- IntersectionObserver to handle fade-in effect on scroll for contact form -->
-  <script>
-    // IntersectionObserver to handle the fade-in effect when the section scrolls into view
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        } else {
-          entry.target.classList.remove("show");
-        }
-      });
-    }, {
-      threshold: 0.5 // Trigger when 50% of the section is visible
-    });
-
-    const formSection = document.querySelector("#contactFormSection");
-    observer.observe(formSection);
-
-    // Scroll transition for text elements
-    const scrollElements = document.querySelectorAll('.text-transition');
-    const scrollObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        } else {
-          entry.target.classList.remove('show');
-        }
-      });
-    });
-
-    scrollElements.forEach(element => {
-      scrollObserver.observe(element);
-    });
-
-    // Dynamically change text on scroll
-    window.addEventListener('scroll', function () {
-      const scrollPosition = window.scrollY;
-      const firstText = document.getElementById('firstText');
-      const secondText = document.getElementById('secondText');
-
-      // Adjust the transition based on scroll position
-      if (scrollPosition > 200) {
-        firstText.style.opacity = 0;
-        secondText.style.opacity = 1;
-      } else {
-        firstText.style.opacity = 1;
-        secondText.style.opacity = 0;
-      }
-    });
-  </script>
-
+  <script src="/assets/js/purchase.js"></script>
+  <script src="/assets/js/main.js"></script>
 </body>
-
 </html>

@@ -11,6 +11,7 @@
       0% {
         transform: translateX(0);
       }
+
       100% {
         transform: translateX(-50%);
       }
@@ -31,79 +32,144 @@
 
   <footer class="pt-12 px-8 bg-gray-100">
 
-    <!-- Subscription & Links -->
     <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 border-b border-gray-300 pb-10">
       <div>
-        <h3 class="text-xl font-medium mb-4">Stay up to date.</h3>
+        <h3 class="text-xl font-medium mb-4">
+          <span class="lang-text" data-lang="en">Stay up to date.</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Restez informé.</span>
+        </h3>
         <form class="flex items-center gap-2">
-          <input type="email" placeholder="Enter email address"
-            class="px-4 py-2 border border-gray-300 rounded-full w-full max-w-xs">
+          <input type="email"
+            class="px-4 py-2 border border-gray-300 rounded-full w-full max-w-xs"
+            data-lang-placeholder-en="Enter email address"
+            data-lang-placeholder-fr="Entrez votre adresse email">
           <button type="submit"
             class="bg-gray-900 text-white px-4 py-2 rounded-full hover:bg-gray-800">&#10148;</button>
         </form>
         <div class="flex gap-4 mt-6">
-  <a href="#" class="hover:opacity-80" aria-label="Instagram">
-    <img src="https://cdn.simpleicons.org/instagram" alt="Instagram" class="w-5 h-5" />
-  </a>
-  <a href="#" class="hover:opacity-80" aria-label="Facebook">
-    <img src="https://cdn.simpleicons.org/facebook" alt="Facebook" class="w-5 h-5" />
-  </a>
-  <a href="#" class="hover:opacity-80" aria-label="LinkedIn">
-    <img src="https://cdn.simpleicons.org/linkedin" alt="LinkedIn" class="w-5 h-5" />
-  </a>
-</div>
+          <a href="#" class="hover:opacity-80" aria-label="Instagram">
+            <img src="https://cdn.simpleicons.org/instagram" alt="Instagram" class="w-5 h-5" />
+          </a>
+          <a href="#" class="hover:opacity-80" aria-label="Facebook">
+            <img src="https://cdn.simpleicons.org/facebook" alt="Facebook" class="w-5 h-5" />
+          </a>
+          <a href="#" class="hover:opacity-80" aria-label="LinkedIn">
+            <img src="https://cdn.simpleicons.org/linkedin" alt="LinkedIn" class="w-5 h-5" />
+          </a>
+        </div>
 
       </div>
 
       <div class="text-sm text-gray-700">
         <ul class="space-y-2">
-          <li><a href="#" class="hover:text-gray-900">Blog</a></li>
-          <li><a href="#" class="hover:text-gray-900">Best of Crown</a></li>
-          <li><a href="#" class="hover:text-gray-900">Search Agent</a></li>
-          <li><a href="#" class="hover:text-gray-900">Career</a></li>
+          <li>
+            <a href="#" class="hover:text-gray-900">
+              <span class="lang-text" data-lang="en">Blog</span>
+              <span class="lang-text" data-lang="fr" style="display: none;">Blog</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-gray-900">
+              <span class="lang-text" data-lang="en">Best of Crown</span>
+              <span class="lang-text" data-lang="fr" style="display: none;">Le meilleur de Crown</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-gray-900">
+              <span class="lang-text" data-lang="en">Search Agent</span>
+              <span class="lang-text" data-lang="fr" style="display: none;">Rechercher un Agent</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-gray-900">
+              <span class="lang-text" data-lang="en">Career</span>
+              <span class="lang-text" data-lang="fr" style="display: none;">Carrières</span>
+            </a>
+          </li>
         </ul>
       </div>
 
       <div class="text-sm text-gray-700">
-        <p class="mb-3 font-semibold">Office</p>
+        <p class="mb-3 font-semibold">
+          <span class="lang-text" data-lang="en">Office</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Bureau</span>
+        </p>
         <p>+43 1 361 60 60</p>
         <p>office@ahome.at</p>
-        <p class="mt-4 font-semibold">Sales</p>
+        <p class="mt-4 font-semibold">
+          <span class="lang-text" data-lang="en">Sales</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Ventes</span>
+        </p>
         <p>+43 1 361 61 61</p>
         <p>sales@ahome.at</p>
-        <p class="mt-4 font-semibold">Visit Us</p>
-        <p>Dorotheergasse 12, 1010 Lome</p>
+        <p class="mt-4 font-semibold">
+          <span class="lang-text" data-lang="en">Visit Us</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Visitez-nous</span>
+        </p>
+        <p>
+          <span class="lang-text" data-lang="en">Dorotheergasse 12, 1010 Lome</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Dorotheergasse 12, 1010 Lome</span>
+        </p>
       </div>
     </div>
 
-    <!-- Sliding Images -->
     <div class="overflow-hidden mt-10 relative">
       <div class="slider">
-        <img src="/assets/images/allphoto-bangkok-nI4aC1kaTRc-unsplash.jpg" class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
-        <img src="/assets/images/allphoto-bangkok-nI4aC1kaTRc-unsplash.jpg" class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
-        <img src="/assets/images/allphoto-bangkok-nI4aC1kaTRc-unsplash.jpg" class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
-        <img src="/assets/images/allphoto-bangkok-nI4aC1kaTRc-unsplash.jpg" class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
-        <img src="/assets/images/allphoto-bangkok-nI4aC1kaTRc-unsplash.jpg" class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
-        <img src="/assets/images/allphoto-bangkok-nI4aC1kaTRc-unsplash.jpg" class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
-        <img src="/assets/images/allphoto-bangkok-nI4aC1kaTRc-unsplash.jpg" class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
-        <img src="/assets/images/allphoto-bangkok-nI4aC1kaTRc-unsplash.jpg" class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
-        <img src="/assets/images/allphoto-bangkok-nI4aC1kaTRc-unsplash.jpg" class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
-        <img src="/assets/images/allphoto-bangkok-nI4aC1kaTRc-unsplash.jpg" class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
-        <img src="/assets/images/allphoto-bangkok-nI4aC1kaTRc-unsplash.jpg" class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
-        <img src="/assets/images/allphoto-bangkok-nI4aC1kaTRc-unsplash.jpg" class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
-        <img src="/assets/images/allphoto-bangkok-nI4aC1kaTRc-unsplash.jpg" class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
-        <img src="/assets/images/allphoto-bangkok-nI4aC1kaTRc-unsplash.jpg" class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
-        <img src="/assets/images/allphoto-bangkok-nI4aC1kaTRc-unsplash.jpg" class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
-        </div>
+        <img src="/assets/images/naasu-asakura-6n0jjVPxUgY-unsplash.jpg"
+          class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
+        <img src="/assets/images/Picture4.jpg"
+          class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
+        <img src="/assets/images/Gate.jpg"
+          class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
+        <img src="/assets/images/Picture2.jpg"
+          class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
+        <img src="/assets/images/Picture1.jpg"
+          class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
+        <img src="/assets/images/Picture5.jpg"
+          class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
+        <img src="/assets/images/Car infront Resident.jpg"
+          class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
+        <img src="/assets/images/Centre Build.png"
+          class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
+        <img src="/assets/images/compund area.jpg"
+          class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
+        <img src="/assets/images/conference room.jpg"
+          class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
+        <img src="/assets/images/hall commercial.jpg"
+          class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
+        <img src="/assets/images/doctor-tinieblas-y-hnPtZo0kk-unsplash.jpg"
+          class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
+        <img src="/assets/images/Area Building.jpg"
+          class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
+        <img src="/assets/images/Ble.jpg"
+          class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
+        <img src="/assets/images/michal-gadek-Noq6-wTyiv8-unsplash.jpg"
+          class="w-[10cm] h-[10cm] object-cover transform transition-transform duration-300 hover:scale-105">
+      </div>
+    </div>
 
-    <!-- Bottom -->
     <div class="text-center text-sm text-gray-500 py-6">
-      <p>It's my life. It's my style. It's AHOME.</p>
+      <p>
+        <span class="lang-text" data-lang="en">It's my life. It's my style. It's AHOME.</span>
+        <span class="lang-text" data-lang="fr" style="display: none;">C'est ma vie. C'est mon style. C'est AHOME.</span>
+      </p>
       <div class="flex justify-center gap-4 mt-2">
-        <a href="#" class="hover:text-gray-800">Privacy Policy</a>
-        <a href="#" class="hover:text-gray-800">Imprint</a>
-        <span>&copy; AHOME</span>
-        <a href="#" class="hover:text-gray-800">Privacy Settings</a>
+        <a href="#" class="hover:text-gray-800">
+          <span class="lang-text" data-lang="en">Privacy Policy</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Politique de Confidentialité</span>
+        </a>
+        <a href="#" class="hover:text-gray-800">
+          <span class="lang-text" data-lang="en">Imprint</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Mentions Légales</span>
+        </a>
+        <span>
+          <span class="lang-text" data-lang="en">&copy; AHOME</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">&copy; AHOME</span>
+        </span>
+        <a href="#" class="hover:text-gray-800">
+          <span class="lang-text" data-lang="en">Privacy Settings</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Paramètres de Confidentialité</span>
+        </a>
       </div>
     </div>
 

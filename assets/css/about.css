@@ -1,21 +1,90 @@
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease-out;
-  }
 
-  .fade-in.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
 
-  .text-fade {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease-out;
-  }
-
-  .text-fade.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  /* Base styles, mostly from your original code */
+      .perspective-1000 {
+        perspective: 1000px;
+      }
+      .carousel-track {
+        transform-style: preserve-3d;
+      }
+      .card {
+        transform-style: preserve-3d;
+        /* Remove conflicting Tailwind classes here as JS handles transformations directly */
+        /* transition-property: transform, opacity, z-index; */ /* Controlled by the JS setTimeout for animation */
+      }
+      .nav-arrow {
+        background: rgba(8, 42, 123, 0.6);
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        border: none;
+        outline: none;
+        transition: all 0.3s ease;
+        cursor: pointer; /* Added cursor pointer for clarity */
+      }
+      .nav-arrow:hover {
+        background: rgba(0, 0, 0, 0.8);
+        transform: translateY(-50%) scale(1.1);
+      }
+      .nav-arrow.left {
+        padding-right: 3px;
+      }
+      .nav-arrow.right {
+        padding-left: 3px;
+      }
+      .member-name::before,
+      .member-name::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        width: 100px;
+        height: 2px;
+        background: rgb(8, 42, 123);
+        transition: all 0.5s ease-out; /* Add transition for lines */
+      }
+      .member-name::before {
+        left: -120px;
+      }
+      .member-name::after {
+        right: -120px;
+      }
+  
+      /* Media Queries */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 4.5rem !important;
+        }
+        .card {
+          width: 200px !important;
+          height: 280px !important;
+        }
+        /* Adjust arrow positioning for smaller screens */
+        .nav-arrow.left {
+          left: 10px;
+        }
+        .nav-arrow.right {
+          right: 10px;
+        }
+  
+        .member-name {
+          font-size: 2rem !important;
+        }
+        .member-role {
+          font-size: 1.2rem !important;
+        }
+        .member-name::before,
+        .member-name::after {
+          width: 50px !important;
+        }
+        .member-name::before {
+          left: -70px !important;
+        }
+        .member-name::after {
+          right: -70px !important;
+        }
+      }
