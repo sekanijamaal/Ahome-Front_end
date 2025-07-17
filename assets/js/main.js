@@ -256,6 +256,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       .then(res => res.text())
       .then(html => {
         document.getElementById("header-placeholder").innerHTML = html;
+         initHeader(); // Initialize header functionality after loading
   
         // Re-evaluate scripts inside the injected HTML
         const temp = document.createElement("div");
@@ -277,3 +278,24 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('footer-placeholder').innerHTML = data;
 });
 
+function initHeader() {
+  // Example: Mobile menu logic
+  const hamburgerButton = document.getElementById('hamburger-button');
+  const closeButton = document.getElementById('close-mobile-menu');
+  const overlay = document.getElementById('mobile-menu-overlay');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  function toggleMobileMenu() {
+    mobileMenu.classList.toggle('active');
+    overlay.classList.toggle('hidden');
+    document.body.classList.toggle('no-scroll');
+  }
+
+  if (hamburgerButton) hamburgerButton.addEventListener('click', toggleMobileMenu);
+  if (closeButton) closeButton.addEventListener('click', toggleMobileMenu);
+  if (overlay) overlay.addEventListener('click', toggleMobileMenu);
+
+  // ... (put all your other header logic here)
+}
+
+    

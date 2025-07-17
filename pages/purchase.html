@@ -9,8 +9,14 @@
     <span class="lang-text" data-lang="fr" style="display: none;">Achat - Crownd</span>
   </title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8d7xj1z5l5e5c5e5c5e5c5e5c5e5c5e5c5e" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8d7xj1z5l5e5c5e5c5e5c5e5c5e5c5e5c5e" crossorigin="anonymous" />
   <style>
+    /* Ensure Inter font is loaded and applied if not already in main.js */
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
     .text-transition {
       opacity: 0;
       transform: translateY(20px) scale(0.95);
@@ -38,22 +44,23 @@
 <body class="bg-gray-100" onload="setLanguage(localStorage.getItem('selectedLanguage') || 'fr')">
   <div id="header-placeholder"></div>
 
-  <section class="relative h-[200vh] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');">
+  <!-- Hero Section -->
+  <section class="relative h-[100vh] md:h-[150vh] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');">
     <div class="sticky top-0 h-screen flex flex-col justify-center items-center text-center px-6">
-      <h1 id="firstText" class="text-5xl font-bold text-white mb-8 text-transition">
+      <h1 id="firstText" class="text-4xl sm:text-5xl font-bold text-white mb-6 md:mb-8 text-transition">
         <span class="lang-text" data-lang="en">It's Ahome.</span>
         <span class="lang-text" data-lang="fr" style="display: none;">C'est Ahome.</span>
       </h1>
-      <div id="secondText" class="flex flex-col items-center gap-4 text-transition">
-        <h2 class="text-4xl font-bold text-white">
+      <div id="secondText" class="flex flex-col items-center gap-3 sm:gap-4 text-transition">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">
           <span class="lang-text" data-lang="en">We create PACKAGE LIABILITY.</span>
           <span class="lang-text" data-lang="fr" style="display: none;">Nous créons une RESPONSABILITÉ DE FORFAIT.</span>
         </h2>
-        <h3 class="text-xl italic text-white">
+        <h3 class="text-lg sm:text-xl italic text-white">
           <span class="lang-text" data-lang="en">Show project.</span>
           <span class="lang-text" data-lang="fr" style="display: none;">Afficher le projet.</span>
         </h3>
-        <button class="mt-4 bg-yellow-400 text-black px-6 py-2 rounded-full shadow hover:scale-105 transition-transform">
+        <button class="mt-4 bg-yellow-400 text-black px-5 py-2 rounded-full shadow hover:scale-105 transition-transform text-sm sm:text-base">
           <span class="lang-text" data-lang="en">Sell Property</span>
           <span class="lang-text" data-lang="fr" style="display: none;">Vendre Propriété</span>
         </button>
@@ -61,78 +68,80 @@
     </div>
   </section>
 
-  <section class="flex flex-col md:flex-row items-center justify-center gap-10 px-10 py-20 max-w-6xl mx-auto text-center">
+  <!-- "In the best hands" Section -->
+  <section class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-10 px-4 sm:px-6 md:px-10 py-16 md:py-20 max-w-6xl mx-auto text-center md:text-left">
     <img src="/assets/images/marcel-strauss-vTrMLXrgtqg-unsplash.jpg" class="w-full md:w-1/2 rounded-lg shadow-md" alt="Property image for sale">
-    <div class="md:w-1/2">
-      <h2 class="text-3xl font-semibold mb-4">
+    <div class="md:w-1/2 px-2 sm:px-4 md:px-0">
+      <h2 class="text-2xl sm:text-3xl font-semibold mb-3 md:mb-4">
         <span class="lang-text" data-lang="en">In the best hands.</span>
         <span class="lang-text" data-lang="fr" style="display: none;">Entre les meilleures mains.</span>
       </h2>
-      <p class="text-gray-700 leading-relaxed">
+      <p class="text-gray-700 leading-relaxed text-sm sm:text-base">
         <span class="lang-text" data-lang="en">We are always looking for exceptional real estate. If you are interested in the sale of your property and place the highest demands on discretion and professionalism in the handling, we look forward to hearing from you. With our know-how and many years of experience, we are the right contact for your real estate sale.</span>
         <span class="lang-text" data-lang="fr" style="display: none;">Nous recherchons toujours des biens immobiliers exceptionnels. Si vous êtes intéressé par la vente de votre propriété et que vous exigez la plus grande discrétion et le plus grand professionnalisme dans la gestion, nous sommes impatients de vous entendre. Grâce à notre savoir-faire et à nos nombreuses années d'expérience, nous sommes le bon contact pour la vente de votre bien immobilier.</span>
       </p>
     </div>
   </section>
 
-  <section class="px-10 py-20 max-w-6xl mx-auto">
-    <h2 class="text-3xl font-semibold mb-10 text-center">
+  <!-- "Discover Our Properties" Section -->
+  <section class="px-4 sm:px-6 md:px-10 py-16 md:py-20 max-w-6xl mx-auto">
+    <h2 class="text-2xl sm:text-3xl font-semibold mb-8 md:mb-10 text-center">
       <span class="lang-text" data-lang="en">Discover Our Properties</span>
       <span class="lang-text" data-lang="fr" style="display:none">Découvrez Nos Biens</span>
     </h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <figure>
-        <img src="/assets/images/Range infront.jpg" alt="Luxury entrance with parked car" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
-        <figcaption class="text-sm text-center mt-2">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <figure class="flex flex-col items-center">
+        <img src="/assets/images/Range infront.jpg" alt="Luxury entrance with parked car" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-full h-auto object-cover">
+        <figcaption class="text-xs sm:text-sm text-center mt-2">
           <span class="lang-text" data-lang="en">Modern entrance with luxury appeal</span>
           <span class="lang-text" data-lang="fr" style="display:none">Entrée moderne avec un charme luxueux</span>
         </figcaption>
       </figure>
-      <figure class="mt-10">
-        <img src="/assets/images/compund area.jpg" alt="Spacious compound area" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
-        <figcaption class="text-sm text-center mt-2">
+      <figure class="flex flex-col items-center">
+        <img src="/assets/images/compund area.jpg" alt="Spacious compound area" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-full h-auto object-cover">
+        <figcaption class="text-xs sm:text-sm text-center mt-2">
           <span class="lang-text" data-lang="en">Spacious compound for family gatherings</span>
           <span class="lang-text" data-lang="fr" style="display:none">Grand espace extérieur pour des réunions familiales</span>
         </figcaption>
       </figure>
-      <figure class="-mt-6">
-        <img src="/assets/images/Nice building.png" alt="Modern residential building" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
-        <figcaption class="text-sm text-center mt-2">
+      <figure class="flex flex-col items-center">
+        <img src="/assets/images/Nice building.png" alt="Modern residential building" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-full h-auto object-cover">
+        <figcaption class="text-xs sm:text-sm text-center mt-2">
           <span class="lang-text" data-lang="en">Elegant architecture with contemporary design</span>
           <span class="lang-text" data-lang="fr" style="display:none">Architecture élégante au design contemporain</span>
         </figcaption>
       </figure>
-      <figure>
-        <img src="/assets/images/house4.jpg.jpg" alt="Beautiful facade" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
-        <figcaption class="text-sm text-center mt-2">
+      <figure class="flex flex-col items-center">
+        <img src="/assets/images/house4.jpg.jpg" alt="Beautiful facade" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-full h-auto object-cover">
+        <figcaption class="text-xs sm:text-sm text-center mt-2">
           <span class="lang-text" data-lang="en">Stunning facade with clean lines</span>
           <span class="lang-text" data-lang="fr" style="display:none">Façade impressionnante aux lignes épurées</span>
         </figcaption>
       </figure>
-      <figure class="-mt-8">
-        <img src="/assets/images/Ime.jpg" alt="Garden view" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
-        <figcaption class="text-sm text-center mt-2">
+      <figure class="flex flex-col items-center">
+        <img src="/assets/images/Ime.jpg" alt="Garden view" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-full h-auto object-cover">
+        <figcaption class="text-xs sm:text-sm text-center mt-2">
           <span class="lang-text" data-lang="en">Garden view with natural lighting</span>
           <span class="lang-text" data-lang="fr" style="display:none">Vue sur le jardin avec lumière naturelle</span>
         </figcaption>
       </figure>
-      <figure class="mt-12">
-        <img src="/assets/images/house11.jpg.jpg" alt="Modern luxury interior" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
-        <figcaption class="text-sm text-center mt-2">
+      <figure class="flex flex-col items-center">
+        <img src="/assets/images/house11.jpg.jpg" alt="Modern luxury interior" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-full h-auto object-cover">
+        <figcaption class="text-xs sm:text-sm text-center mt-2">
           <span class="lang-text" data-lang="en">Interior that exudes comfort and class</span>
           <span class="lang-text" data-lang="fr" style="display:none">Intérieur qui respire le confort et le raffinement</span>
         </figcaption>
       </figure>
-      <figure class="-mt-4">
-        <img src="/assets/images/house15.jpg.jpg" alt="Bright open space" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
-        <figcaption class="text-sm text-center mt-2">
+      <figure class="flex flex-col items-center">
+        <img src="/assets/images/house15.jpg.jpg" alt="Bright open space" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-full h-auto object-cover">
+        <figcaption class="text-xs sm:text-sm text-center mt-2">
           <span class="lang-text" data-lang="en">Open layout perfect for modern living</span>
           <span class="lang-text" data-lang="fr" style="display:none">Espace ouvert parfait pour une vie moderne</span>
         </figcaption>
       </figure>
-      <figure>
-        <img src="/assets/images/house2.jpg.jpg" alt="Urban residence" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
-        <figcaption class="text-sm text-center mt-2">
+      <figure class="flex flex-col items-center">
+        <img src="/assets/images/house2.jpg.jpg" alt="Urban residence" class="rounded-lg shadow-lg transform hover:scale-105 transition duration-300 w-full h-auto object-cover">
+        <figcaption class="text-xs sm:text-sm text-center mt-2">
           <span class="lang-text" data-lang="en">Ideal urban residence in prime location</span>
           <span class="lang-text" data-lang="fr" style="display:none">Résidence urbaine idéale dans un emplacement privilégié</span>
         </figcaption>
@@ -141,41 +150,42 @@
   </section>
 
 
-  <section class="bg-white px-10 py-20">
-    <h2 class="text-3xl font-semibold mb-10 text-center">
+  <!-- "Why List Your Property With Us?" Section -->
+  <section class="bg-white px-4 sm:px-6 md:px-10 py-16 md:py-20">
+    <h2 class="text-2xl sm:text-3xl font-semibold mb-8 md:mb-10 text-center">
       <span class="lang-text" data-lang="en">Why List Your Property With Us?</span>
       <span class="lang-text" data-lang="fr" style="display: none;">Pourquoi Inscrire Votre Propriété Chez Nous ?</span>
     </h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="text-center">
-        <i class="fas fa-bullhorn text-4xl text-blue-500 mb-4"></i>
-        <h4 class="font-bold text-lg mb-2">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <div class="text-center p-4">
+        <i class="fas fa-bullhorn text-3xl sm:text-4xl text-blue-500 mb-3 sm:mb-4"></i>
+        <h4 class="font-bold text-base sm:text-lg mb-1 sm:mb-2">
           <span class="lang-text" data-lang="en">Extensive Marketing</span>
           <span class="lang-text" data-lang="fr" style="display: none;">Marketing Étendu</span>
         </h4>
-        <p class="text-gray-600">
+        <p class="text-gray-600 text-sm sm:text-base">
           <span class="lang-text" data-lang="en">We promote your listing across global platforms and targeted audiences.</span>
           <span class="lang-text" data-lang="fr" style="display: none;">Nous faisons la promotion de votre annonce sur des plateformes mondiales et auprès de publics ciblés.</span>
         </p>
       </div>
-      <div class="text-center">
-        <i class="fas fa-users text-4xl text-blue-500 mb-4"></i>
-        <h4 class="font-bold text-lg mb-2">
+      <div class="text-center p-4">
+        <i class="fas fa-users text-3xl sm:text-4xl text-blue-500 mb-3 sm:mb-4"></i>
+        <h4 class="font-bold text-base sm:text-lg mb-1 sm:mb-2">
           <span class="lang-text" data-lang="en">Dedicated Agents</span>
           <span class="lang-text" data-lang="fr" style="display: none;">Agents Dévoués</span>
         </h4>
-        <p class="text-gray-600">
+        <p class="text-gray-600 text-sm sm:text-base">
           <span class="lang-text" data-lang="en">A team of professionals ensures your property is represented with excellence.</span>
           <span class="lang-text" data-lang="fr" style="display: none;">Une équipe de professionnels veille à ce que votre propriété soit représentée avec excellence.</span>
         </p>
       </div>
-      <div class="text-center">
-        <i class="fas fa-handshake text-4xl text-blue-500 mb-4"></i>
-        <h4 class="font-bold text-lg mb-2">
+      <div class="text-center p-4">
+        <i class="fas fa-handshake text-3xl sm:text-4xl text-blue-500 mb-3 sm:mb-4"></i>
+        <h4 class="font-bold text-base sm:text-lg mb-1 sm:mb-2">
           <span class="lang-text" data-lang="en">Transparent Process</span>
           <span class="lang-text" data-lang="fr" style="display: none;">Processus Transparent</span>
         </h4>
-        <p class="text-gray-600">
+        <p class="text-gray-600 text-sm sm:text-base">
           <span class="lang-text" data-lang="en">Clear communication and transparency throughout the sales journey.</span>
           <span class="lang-text" data-lang="fr" style="display: none;">Communication claire et transparence tout au long du parcours de vente.</span>
         </p>
@@ -183,18 +193,19 @@
     </div>
   </section>
 
-  <section class="px-10 py-20 max-w-2xl mx-auto fade-in" id="contactFormSection">
-    <h2 class="text-3xl font-semibold mb-6 text-center">
+  <!-- Contact Form Section -->
+  <section class="px-4 py-16 sm:px-10 md:py-20 max-w-2xl mx-auto fade-in" id="contactFormSection">
+    <h2 class="text-2xl sm:text-3xl font-semibold mb-6 text-center">
       <span class="lang-text" data-lang="en">We look forward to hearing from you</span>
       <span class="lang-text" data-lang="fr" style="display: none;">Nous sommes impatients de vous entendre</span>
     </h2>
-    <form id="contactForm" class="flex flex-col gap-6">
+    <form id="contactForm" class="flex flex-col gap-4 sm:gap-6">
       <div class="flex flex-col">
         <label class="mb-2 text-sm font-medium">
           <span class="lang-text" data-lang="en">Salutation</span>
           <span class="lang-text" data-lang="fr" style="display: none;">Salutation</span>
         </label>
-        <select class="border border-gray-300 rounded px-4 py-2" required>
+        <select class="border border-gray-300 rounded px-4 py-2 text-sm sm:text-base" required>
           <option value="">
             <span class="lang-text" data-lang="en">Select</span>
             <span class="lang-text" data-lang="fr" style="display: none;">Sélectionner</span>
@@ -222,7 +233,7 @@
           <span class="lang-text" data-lang="en">Title</span>
           <span class="lang-text" data-lang="fr" style="display: none;">Titre</span>
         </label>
-        <input type="text" class="border border-gray-300 rounded px-4 py-2"
+        <input type="text" class="border border-gray-300 rounded px-4 py-2 text-sm sm:text-base"
                data-lang-placeholder-en="Title"
                data-lang-placeholder-fr="Titre"
                placeholder="" required>
@@ -232,7 +243,7 @@
           <span class="lang-text" data-lang="en">First Name</span>
           <span class="lang-text" data-lang="fr" style="display: none;">Prénom</span>
         </label>
-        <input type="text" class="border border-gray-300 rounded px-4 py-2"
+        <input type="text" class="border border-gray-300 rounded px-4 py-2 text-sm sm:text-base"
                data-lang-placeholder-en="First Name"
                data-lang-placeholder-fr="Prénom"
                placeholder="" required>
@@ -242,7 +253,7 @@
           <span class="lang-text" data-lang="en">Surname</span>
           <span class="lang-text" data-lang="fr" style="display: none;">Nom de Famille</span>
         </label>
-        <input type="text" class="border border-gray-300 rounded px-4 py-2"
+        <input type="text" class="border border-gray-300 rounded px-4 py-2 text-sm sm:text-base"
                data-lang-placeholder-en="Surname"
                data-lang-placeholder-fr="Nom de Famille"
                placeholder="" required>
@@ -252,7 +263,7 @@
           <span class="lang-text" data-lang="en">Telephone Number</span>
           <span class="lang-text" data-lang="fr" style="display: none;">Numéro de Téléphone</span>
         </label>
-        <input type="tel" class="border border-gray-300 rounded px-4 py-2"
+        <input type="tel" class="border border-gray-300 rounded px-4 py-2 text-sm sm:text-base"
                data-lang-placeholder-en="Phone Number"
                data-lang-placeholder-fr="Numéro de Téléphone"
                placeholder="" required>
@@ -262,7 +273,7 @@
           <span class="lang-text" data-lang="en">Email</span>
           <span class="lang-text" data-lang="fr" style="display: none;">E-mail</span>
         </label>
-        <input type="email" class="border border-gray-300 rounded px-4 py-2"
+        <input type="email" class="border border-gray-300 rounded px-4 py-2 text-sm sm:text-base"
                data-lang-placeholder-en="Email"
                data-lang-placeholder-fr="E-mail"
                placeholder="" required>
@@ -272,13 +283,13 @@
           <span class="lang-text" data-lang="en">Message</span>
           <span class="lang-text" data-lang="fr" style="display: none;">Message</span>
         </label>
-        <textarea rows="4" class="border border-gray-300 rounded px-4 py-2"
+        <textarea rows="4" class="border border-gray-300 rounded px-4 py-2 text-sm sm:text-base"
                   data-lang-placeholder-en="Your message"
                   data-lang-placeholder-fr="Votre message"
                   placeholder="" required></textarea>
       </div>
       <div class="flex justify-center">
-        <button type="submit" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">
+        <button type="submit" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800 text-sm sm:text-base">
           <span class="lang-text" data-lang="en">Submit</span>
           <span class="lang-text" data-lang="fr" style="display: none;">Envoyer</span>
         </button>
@@ -290,5 +301,41 @@
 
   <script src="/assets/js/purchase.js"></script>
   <script src="/assets/js/main.js"></script>
+  <script>
+    // Intersection Observer for fade-in animations (already present, just ensuring it's here)
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.fade-in, .text-transition'); // Select both animation classes
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('show');
+          obs.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.1
+      });
+      sections.forEach(section => observer.observe(section));
+    });
+
+    // Language setting on load (from body onload attribute)
+    function setLanguage(lang) {
+      document.documentElement.setAttribute('lang', lang);
+      document.querySelectorAll('.lang-text').forEach(el => {
+        if (el.getAttribute('data-lang') === lang) {
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+      // Update placeholders
+      document.querySelectorAll('[data-lang-placeholder-en]').forEach(input => {
+        const currentLang = document.documentElement.getAttribute('lang');
+        const placeholderText = input.getAttribute(`data-lang-placeholder-${currentLang}`);
+        if (placeholderText) {
+          input.setAttribute('placeholder', placeholderText);
+        }
+      });
+    }
+  </script>
 </body>
 </html>

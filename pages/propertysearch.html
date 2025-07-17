@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Leaflet CSS and JS are still included, but the map div will be hidden on mobile -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
@@ -27,25 +28,31 @@
       100% { transform: scale(1); opacity: 1; }
     }
   </style>
- 
+
 </head>
 <body class="bg-black">
   <div id="header-placeholder"></div>
 
-  <div class="mt-20 flex h-[calc(100vh-80px)]">
-  <div class="w-1/2 overflow-y-scroll p-4 bg-gray-50">
-    <h2 class="text-2xl font-semibold mb-4">
-      <span class="lang-text" data-lang="en" style="display: none;">Properties in Vienna</span>
-      <span class="lang-text" data-lang="fr">Propriétés à Vienne</span>
-    </h2>
-    <div id="property-grid" class="grid grid-cols-2 gap-4"></div>
+  <!-- Main content wrapper: flex-col on small screens, flex-row on medium and larger -->
+  <!-- The height is now applied to the property list to ensure it fills the available space -->
+  <div class="mt-20 flex flex-col md:flex-row h-[calc(100vh-80px)]">
+    <!-- Property List Column: Takes full width on mobile, half width on medium+ -->
+    <div class="w-full md:w-1/2 overflow-y-scroll p-4 bg-gray-50">
+      <h2 class="text-2xl font-semibold mb-4">
+        <span class="lang-text" data-lang="en" style="display: none;">Properties in Vienna</span>
+        <span class="lang-text" data-lang="fr">Propriétés à Vienne</span>
+      </h2>
+      <!-- Responsive grid for properties: 1 column on small, 2 on medium+ -->
+      <div id="property-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+    </div>
+
+    <!-- Map Column: Hidden on small screens, block on medium and larger -->
+    <div class="hidden md:block w-full md:w-1/2 relative">
+      <div id="map"></div>
+    </div>
   </div>
-  <div class="w-1/2 relative">
-    <div id="map"></div>
-  </div>
-</div>
   <div id="footer-placeholder"></div>
-  
+
 
   <script src="/assets/js/property_search.js"></script>
   <script src="/assets/js/main.js"></script>
