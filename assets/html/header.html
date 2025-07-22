@@ -28,37 +28,6 @@
           class="text-2xl ahome-font font-semibold transition-colors duration-300 hover:text-blue-600">
           AHOME
         </a>
-
-        <!-- Project Dropdown (hidden on small screens) -->
-        <div class="hidden md:block relative">
-          <button id="project-toggle" onclick="toggleDropdown()"
-            class="projects-link flex items-center gap-x-2 text-white px-4 py-2 border border-white rounded-full transition hover:bg-white hover:text-black">
-            <span class="lang-text" data-lang="en">Projects</span>
-            <span class="lang-text" data-lang="fr" style="display: none;">Projets</span>
-            <svg id="arrow-icon" class="down-arrow w-4 h-4 transition text-white" fill="none" stroke="currentColor"
-              viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-
-          <div id="projects-dropdown"
-            class="hidden absolute top-full right-0 mt-2 w-56 bg-white shadow-md rounded-lg z-50">
-            <ul class="py-2 text-sm text-gray-700">
-              <li><a href="/pages/crownd-by-chipperfield.html" class="block px-4 py-2 hover:bg-gray-100">
-                  <span class="lang-text" data-lang="en">chipperfield</span>
-                  <span class="lang-text" data-lang="fr" style="display: none;">chipperfield</span>
-                </a></li>
-              <li><a href="/pages/grace-apartments.html" class="block px-4 py-2 hover:bg-gray-100">
-                  <span class="lang-text" data-lang="en">grace-apartments</span>
-                  <span class="lang-text" data-lang="fr" style="display: none;">grace-apartments</span>
-                </a></li>
-              <li><a href="/pages/villa-luminea.html" class="block px-4 py-2 hover:bg-gray-100">
-                  <span class="lang-text" data-lang="en">villa-luminea</span>
-                  <span class="lang-text" data-lang="fr" style="display: none;">villa-luminea</span>
-                </a></li>
-            </ul>
-          </div>
-        </div>
       </div>
 
       <!-- Hamburger (Mobile) -->
@@ -98,12 +67,12 @@
       <!-- Right Icons (Always visible) -->
       <div id="icon-set" class="flex items-center space-x-4 transition-colors duration-300">
         <div class="flex items-center">
-          <span class="text-white text-sm font-semibold mr-2 lang-label" data-lang="en">EN</span>
+          <span class="text-white text-sm font-semibold mr-2 lang-label" data-lang="fr">FR</span>
           <label class="relative inline-flex items-center cursor-pointer">
             <input type="checkbox" id="languageToggle" class="sr-only peer">
             <div class="w-10 h-6 bg-gray-200 rounded-full peer-focus:ring-2 peer-checked:bg-blue-600 peer-checked:after:translate-x-full after:absolute after:top-[2px] after:start-[2px] after:bg-white after:h-5 after:w-5 after:rounded-full after:transition-all"></div>
           </label>
-          <span class="text-white text-sm font-semibold ml-2 lang-label" data-lang="fr">FR</span>
+          <span class="text-white text-sm font-semibold ml-2 lang-label" data-lang="en">EN</span>
         </div>
 
         <button onclick="togglePopup(event)" class="hover:text-gray-300">
@@ -124,7 +93,6 @@
         <li><a href="/pages/investment.html">INVESTMENT</a></li>
         <li><a href="/pages/about.html">IT'S AHOME</a></li>
         <li><a href="/pages/contact.html">CONTACT</a></li>
-        <li><button onclick="toggleDropdown()" class="text-left w-full text-blue-600">Projects ▼</button></li>
       </ul>
     </div>
   </nav>
