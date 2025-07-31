@@ -1,415 +1,610 @@
-// property_search.js
+ // Property Data (12 properties)
+        const properties = [
+            {
+                id: 1,
+                title: "Luxury Penthouse with Ocean View",
+                address: "123 Coastal Drive, Miami, FL",
+                price: "$2,500,000",
+                type: "sale",
+                bedrooms: 3,
+                bathrooms: 3.5,
+                area: "2,800 sq ft",
+                description: "This stunning penthouse offers breathtaking ocean views from every room. The open floor plan features floor-to-ceiling windows, a gourmet kitchen with high-end appliances, and a spacious master suite with a luxurious bathroom. The building amenities include a rooftop pool, fitness center, and 24/7 concierge service.",
+                features: ["Ocean View", "Rooftop Pool", "Smart Home", "Gourmet Kitchen", "Walk-in Closets", "Concierge", "Fitness Center", "Parking"],
+                images: [
+                    "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                ],
+                location: [25.7617, -80.1918],
+                agent: {
+                    name: "Sarah Johnson",
+                    phone: "(555) 123-4567",
+                    email: "sarah@luxuryestates.com",
+                    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                }
+            },
+            {
+                id: 2,
+                title: "Modern Downtown Loft",
+                address: "456 Urban Street, New York, NY",
+                price: "$1,200,000",
+                type: "sale",
+                bedrooms: 2,
+                bathrooms: 2,
+                area: "1,500 sq ft",
+                description: "This chic loft in the heart of downtown features exposed brick walls, high ceilings, and large industrial-style windows. The open concept living space is perfect for entertaining, and the modern kitchen comes equipped with stainless steel appliances. The building offers a shared rooftop terrace with stunning city views.",
+                features: ["Downtown", "Exposed Brick", "High Ceilings", "Rooftop Terrace", "Modern Kitchen", "Hardwood Floors", "Laundry", "Parking"],
+                images: [
+                    "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                ],
+                location: [40.7128, -74.0060],
+                agent: {
+                    name: "Michael Chen",
+                    phone: "(555) 987-6543",
+                    email: "michael@luxuryestates.com",
+                    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                }
+            },
+            {
+                id: 3,
+                title: "Charming Suburban Family Home",
+                address: "789 Green Avenue, Austin, TX",
+                price: "$750,000",
+                type: "sale",
+                bedrooms: 4,
+                bathrooms: 3,
+                area: "3,200 sq ft",
+                description: "This beautiful family home in a quiet suburban neighborhood features a spacious backyard with a pool, perfect for summer gatherings. The open floor plan includes a large kitchen with a center island, a formal dining room, and a cozy living room with a fireplace. The master suite has a walk-in closet and a luxurious en-suite bathroom.",
+                features: ["Swimming Pool", "Large Backyard", "Fireplace", "Gourmet Kitchen", "Walk-in Closet", "Hardwood Floors", "Garage", "Family Room"],
+                images: [
+                    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                ],
+                location: [30.2672, -97.7431],
+                agent: {
+                    name: "Emily Wilson",
+                    phone: "(555) 456-7890",
+                    email: "emily@luxuryestates.com",
+                    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                }
+            },
+            {
+                id: 4,
+                title: "Luxury Beachfront Villa",
+                address: "101 Ocean Boulevard, Malibu, CA",
+                price: "$5,800/month",
+                type: "rent",
+                bedrooms: 5,
+                bathrooms: 4.5,
+                area: "4,500 sq ft",
+                description: "This exquisite beachfront villa offers direct access to a private beach and stunning panoramic ocean views. The property features a gourmet kitchen, home theater, wine cellar, and a stunning infinity pool. The master suite includes a private balcony, spa-like bathroom, and a walk-in closet. Perfect for those seeking luxury coastal living.",
+                features: ["Beachfront", "Infinity Pool", "Home Theater", "Wine Cellar", "Gourmet Kitchen", "Private Beach", "Smart Home", "Parking"],
+                images: [
+                    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                ],
+                location: [34.0259, -118.7798],
+                agent: {
+                    name: "David Rodriguez",
+                    phone: "(555) 789-0123",
+                    email: "david@luxuryestates.com",
+                    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                }
+            },
+            {
+                id: 5,
+                title: "Historic Townhouse in Georgetown",
+                address: "202 Heritage Lane, Washington, DC",
+                price: "$1,950,000",
+                type: "sale",
+                bedrooms: 4,
+                bathrooms: 3.5,
+                area: "3,800 sq ft",
+                description: "This meticulously restored historic townhouse blends classic charm with modern amenities. Features include original hardwood floors, crown molding, a chef's kitchen with custom cabinetry, and a private rooftop terrace with city views. Located in the heart of Georgetown, just steps from fine dining and shopping.",
+                features: ["Historic", "Hardwood Floors", "Rooftop Terrace", "Chef's Kitchen", "Walk-in Closets", "Fireplace", "Parking", "Garden"],
+                images: [
+                    "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                ],
+                location: [38.9072, -77.0369],
+                agent: {
+                    name: "Jessica Lee",
+                    phone: "(555) 234-5678",
+                    email: "jessica@luxuryestates.com",
+                    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                }
+            },
+            {
+                id: 6,
+                title: "Mountain Retreat with Stunning Views",
+                address: "303 Alpine Way, Aspen, CO",
+                price: "$3,200/month",
+                type: "rent",
+                bedrooms: 3,
+                bathrooms: 2,
+                area: "2,200 sq ft",
+                description: "This cozy mountain retreat offers breathtaking views of the surrounding peaks. The home features a spacious great room with a stone fireplace, a fully equipped kitchen, and a large deck perfect for outdoor dining. Located just minutes from world-class skiing and hiking trails.",
+                features: ["Mountain View", "Fireplace", "Deck", "Fully Equipped Kitchen", "Hardwood Floors", "Garage", "Ski Storage", "Hot Tub"],
+                images: [
+                    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                ],
+                location: [39.1911, -106.8175],
+                agent: {
+                    name: "Robert Taylor",
+                    phone: "(555) 345-6789",
+                    email: "robert@luxuryestates.com",
+                    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                }
+            },
+            {
+                id: 7,
+                title: "Modern Waterfront Condo",
+                address: "404 Harbor View, Seattle, WA",
+                price: "$1,350,000",
+                type: "sale",
+                bedrooms: 2,
+                bathrooms: 2,
+                area: "1,800 sq ft",
+                description: "Stylish waterfront condo with panoramic views of Puget Sound. Features floor-to-ceiling windows, a gourmet kitchen with quartz countertops, and a spacious balcony perfect for enjoying the sunset. Building amenities include a fitness center, concierge, and private marina access.",
+                features: ["Waterfront", "Balcony", "Concierge", "Fitness Center", "Marina Access", "Hardwood Floors", "Underground Parking", "Smart Home"],
+                images: [
+                    "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                ],
+                location: [47.6062, -122.3321],
+                agent: {
+                    name: "Lisa Wong",
+                    phone: "(555) 456-1234",
+                    email: "lisa@luxuryestates.com",
+                    image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                }
+            },
+            {
+                id: 8,
+                title: "Luxury Ranch Estate",
+                address: "505 Canyon Road, Santa Fe, NM",
+                price: "$3,750,000",
+                type: "sale",
+                bedrooms: 5,
+                bathrooms: 4.5,
+                area: "6,500 sq ft",
+                description: "Spectacular ranch estate on 20 acres with stunning mountain views. The property features a main house with rustic elegance, a guest casita, infinity pool, and horse facilities. Southwestern architecture blends with modern amenities throughout.",
+                features: ["20 Acres", "Mountain Views", "Infinity Pool", "Guest House", "Horse Facilities", "Gourmet Kitchen", "Home Theater", "Wine Cellar"],
+                images: [
+                    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                ],
+                location: [35.6870, -105.9378],
+                agent: {
+                    name: "Carlos Mendez",
+                    phone: "(555) 789-4567",
+                    email: "carlos@luxuryestates.com",
+                    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                }
+            },
+            {
+                id: 9,
+                title: "Downtown Luxury Loft",
+                address: "606 Arts District, Los Angeles, CA",
+                price: "$4,500/month",
+                type: "rent",
+                bedrooms: 2,
+                bathrooms: 2,
+                area: "2,100 sq ft",
+                description: "Sophisticated loft in the heart of the Arts District. Features exposed brick, polished concrete floors, and industrial-chic design. The open floor plan includes a chef's kitchen, spacious living area, and large windows flooding the space with natural light.",
+                features: ["Arts District", "Exposed Brick", "High Ceilings", "Chef's Kitchen", "Concrete Floors", "Walk-in Closet", "Fitness Center", "Rooftop Deck"],
+                images: [
+                    "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                ],
+                location: [34.0395, -118.2342],
+                agent: {
+                    name: "Amanda Smith",
+                    phone: "(555) 321-6549",
+                    email: "amanda@luxuryestates.com",
+                    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                }
+            },
+            {
+                id: 10,
+                title: "Golf Course Villa",
+                address: "707 Fairway Drive, Scottsdale, AZ",
+                price: "$2,100,000",
+                type: "sale",
+                bedrooms: 4,
+                bathrooms: 3.5,
+                area: "3,400 sq ft",
+                description: "Stunning villa overlooking the 9th fairway of a championship golf course. The property features a resort-style backyard with pool, spa, and outdoor kitchen. Interior includes a great room with vaulted ceilings, gourmet kitchen, and luxurious master suite.",
+                features: ["Golf Course", "Resort Pool", "Outdoor Kitchen", "Vaulted Ceilings", "Gourmet Kitchen", "Home Office", "Smart Home", "3-Car Garage"],
+                images: [
+                    "https://images.unsplash.com/photo-1600585152220-90363fe7e7e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                ],
+                location: [33.4942, -111.9261],
+                agent: {
+                    name: "James Wilson",
+                    phone: "(555) 654-9873",
+                    email: "james@luxuryestates.com",
+                    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                }
+            },
+            {
+                id: 11,
+                title: "Luxury Beachfront Airbnb",
+                address: "808 Vacation Lane, Miami, FL",
+                price: "$350/night",
+                type: "airbnb",
+                bedrooms: 2,
+                bathrooms: 2,
+                area: "1,200 sq ft",
+                description: "Stunning beachfront Airbnb with direct access to the sand. Perfect for vacation rentals with high-end amenities, smart home features, and breathtaking ocean views from the private balcony.",
+                features: ["Beachfront", "Smart Home", "Fully Equipped Kitchen", "Balcony", "Air Conditioning", "Washer/Dryer", "Parking", "WiFi"],
+                images: [
+                    "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                ],
+                location: [25.7823, -80.1865],
+                agent: {
+                    name: "Vacation Rentals Inc",
+                    phone: "(555) 555-1234",
+                    email: "rentals@luxuryestates.com",
+                    image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                }
+            },
+            {
+                id: 12,
+                title: "Downtown Chic Airbnb Loft",
+                address: "909 Urban Way, New York, NY",
+                price: "$275/night",
+                type: "airbnb",
+                bedrooms: 1,
+                bathrooms: 1,
+                area: "800 sq ft",
+                description: "Trendy downtown loft perfect for short-term rentals. Features exposed brick, modern furnishings, and all the amenities needed for a comfortable stay in the heart of the city.",
+                features: ["Downtown", "Exposed Brick", "Smart TV", "Coffee Maker", "Air Conditioning", "Washer/Dryer", "Elevator", "WiFi"],
+                images: [
+                    "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                    "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                ],
+                location: [40.7196, -74.0018],
+                agent: {
+                    name: "City Stay Rentals",
+                    phone: "(555) 555-5678",
+                    email: "citystay@luxuryestates.com",
+                    image: "https://images.unsplash.com/photo-1562788869-4ed32648eb72?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                }
+            }
+        ];
 
-const properties = [
-    {
-        id: 1,
-        name: "Chipperfield Apartments 1",
-        lat: 48.2082,
-        lng: 16.3738,
-        area: "District 1",
-        description: "A stunning modern apartment located in the vibrant District 1. Features spacious rooms, an open-plan kitchen, and breathtaking city views. Perfect for urban living.",
-        images: [
-            "/assets/images/Picture1.jpg",
-            "/assets/images/Picture2.jpg",
-            "/assets/images/Resident at beni"
-        ]
-    },
-    {
-        id: 2,
-        name: "Chipperfield Apartments 2",
-        lat: 48.2233,
-        lng: 16.3923,
-        area: "District 2",
-        description: "Elegant living in District 2 with a classic touch. This apartment boasts high ceilings, original details, and a cozy fireplace, ideal for a comfortable lifestyle.",
-        images: [
-            "/assets/images/property_2/img_1.jpg",
-            "/assets/images/property_2/img_2.jpg",
-            "/assets/images/property_2/img_3.jpg"
-        ]
-    },
-    {
-        id: 3,
-        name: "Chipperfield Apartments 3",
-        lat: 48.1927,
-        lng: 16.4034,
-        area: "District 3",
-        description: "Brand new development offering sleek, minimalist design. Enjoy smart home features, a communal rooftop garden, and excellent connectivity to public transport.",
-        images: [
-            "/assets/images/property_3/img_1.jpg",
-            "/assets/images/property_3/img_2.jpg",
-            "/assets/images/property_3/img_3.jpg"
-        ]
-    },
-    {
-        id: 4,
-        name: "Chipperfield Apartments 4",
-        lat: 48.1986,
-        lng: 16.3665,
-        area: "District 1",
-        description: "Charming apartment in a quiet, tree-lined street. Features a cozy balcony and close proximity to local markets. Ideal for individuals seeking peace and convenience.",
-        images: [
-            "/assets/images/property_4/img_1.jpg",
-            "/assets/images/property_4/img_2.jpg",
-            "/assets/images/property_4/img_3.jpg"
-        ]
-    },
-    {
-        id: 5,
-        name: "Chipperfield Apartments 5",
-        lat: 48.1889,
-        lng: 16.3515,
-        area: "District 2",
-        description: "Spacious family apartment with multiple bedrooms and a large living area. Comes with access to a private playground and community center. Perfect for growing families.",
-        images: [
-            "/assets/images/property_5/img_1.jpg",
-            "/assets/images/property_5/img_2.jpg",
-            "/assets/images/property_5/img_3.jpg"
-        ]
-    },
-    {
-        id: 6,
-        name: "Chipperfield Apartments 6",
-        lat: 48.1932,
-        lng: 16.3421,
-        area: "District 4",
-        description: "High-floor apartment with panoramic city views. Features floor-to-ceiling windows, modern appliances, and smart home integration for ultimate comfort and efficiency.",
-        images: [
-            "/assets/images/property_6/img_1.jpg",
-            "/assets/images/property_6/img_2.jpg",
-            "/assets/images/property_6/img_3.jpg"
-        ]
-    },
-    {
-        id: 7,
-        name: "Chipperfield Apartments 7",
-        lat: 48.2036,
-        lng: 16.3485,
-        area: "District 3",
-        description: "Luminous studio apartment, ideal for students or young professionals. Centrally located with easy access to universities, cafes, and nightlife.",
-        images: [
-            "/assets/images/property_7/img_1.jpg",
-            "/assets/images/property_7/img_2.jpg",
-            "/assets/images/property_7/img_3.jpg"
-        ]
-    },
-    {
-        id: 8,
-        name: "Chipperfield Apartments 8",
-        lat: 48.2107,
-        lng: 16.3473,
-        area: "District 4",
-        description: "Recently renovated apartment with a focus on sustainable living. Features energy-efficient appliances, recycled materials, and a vibrant community garden.",
-        images: [
-            "/assets/images/property_8/img_1.jpg",
-            "/assets/images/property_8/img_2.jpg",
-            "/assets/images/property_8/img_3.jpg"
-        ]
-    },
-    {
-        id: 9,
-        name: "Chipperfield Apartments 9",
-        lat: 48.2215,
-        lng: 16.3602,
-        area: "District 1",
-        description: "Exclusive penthouse apartment offering unparalleled luxury. Boasts a private rooftop terrace, concierge service, and high-end finishes throughout.",
-        images: [
-            "/assets/images/property_9/img_1.jpg",
-            "/assets/images/property_9/img_2.jpg",
-            "/assets/images/property_9/img_3.jpg"
-        ]
-    },
-    {
-        id: 10,
-        name: "Chipperfield Apartments 10",
-        lat: 48.1663,
-        lng: 16.3771,
-        area: "District 3",
-        description: "Cozy and compact apartment with intelligent use of space. Fully furnished, ready for immediate move-in, and close to essential services.",
-        images: [
-            "/assets/images/property_10/img_1.jpg",
-            "/assets/images/property_10/img_2.jpg",
-            "/assets/images/property_10/img_3.jpg"
-        ]
-    },
-    {
-        id: 11,
-        name: "Chipperfield Apartments 11",
-        lat: 48.1685,
-        lng: 16.4321,
-        area: "District 2",
-        description: "Artist's loft with expansive windows and creative design elements. Features a dedicated studio space and vibrant neighborhood full of galleries and workshops.",
-        images: [
-            "/assets/images/property_11/img_1.jpg",
-            "/assets/images/property_11/img_2.jpg",
-            "/assets/images/property_11/img_3.jpg"
-        ]
-    },
-    {
-        id: 12,
-        name: "Chipperfield Apartments 12",
-        lat: 48.1734,
-        lng: 16.3177,
-        area: "District 4",
-        description: "Ground-floor apartment with direct garden access. Ideal for pet owners or those who enjoy outdoor living. Quiet location despite being well-connected.",
-        images: [
-            "/assets/images/property_12/img_1.jpg",
-            "/assets/images/property_12/img_2.jpg",
-            "/assets/images/property_12/img_3.jpg"
-        ]
-    },
-    {
-        id: 13,
-        name: "Chipperfield Apartments 13",
-        lat: 48.1746,
-        lng: 16.2881,
-        area: "District 2",
-        description: "Historic apartment blending old-world charm with modern comforts. Features original parquet flooring, decorative fireplaces, and a newly renovated kitchen.",
-        images: [
-            "/assets/images/property_13/img_1.jpg",
-            "/assets/images/property_13/img_2.jpg",
-            "/assets/images/property_13/img_3.jpg"
-        ]
-    },
-    {
-        id: 14,
-        name: "Chipperfield Apartments 14",
-        lat: 48.2035,
-        lng: 16.2743,
-        area: "District 1",
-        description: "Family-sized apartment in a top school district. Close to parks, playgrounds, and essential amenities for convenient family life.",
-        images: [
-            "/assets/images/property_14/img_1.jpg",
-            "/assets/images/property_14/img_2.jpg",
-            "/assets/images/property_14/img_3.jpg"
-        ]
-    },
-    {
-        id: 15,
-        name: "Chipperfield Apartments 15",
-        lat: 48.1993,
-        lng: 16.3211,
-        area: "District 3",
-        description: "Modern minimalist apartment designed for efficiency and style. Ideal for those who appreciate sleek lines, smart storage, and a clutter-free living space.",
-        images: [
-            "/assets/images/property_15/img_1.jpg",
-            "/assets/images/property_15/img_2.jpg",
-            "/assets/images/property_15/img_3.jpg"
-        ]
-    }
-];
+        // DOM Elements
+        const propertyGrid = document.getElementById('propertyGrid');
+        const propertyModal = document.getElementById('propertyModal');
+        const modalClose = document.getElementById('modalClose');
+        const searchInput = document.getElementById('mainSearch');
+        const filterType = document.getElementById('filterType');
+        const filterBedrooms = document.getElementById('filterBedrooms');
+        let detailMap;
 
-const map = L.map('map').setView([48.2082, 16.3738], 12);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+        // Initialize the application
+        function init() {
+            renderPropertyGrid(properties);
+            setupEventListeners();
+        }
 
-const markerMap = {};
-const grid = document.getElementById('property-grid');
+        // Render property grid
+        function renderPropertyGrid(propertiesToRender) {
+            propertyGrid.innerHTML = '';
+            
+            propertiesToRender.forEach(property => {
+                const propertyCard = document.createElement('div');
+                propertyCard.className = 'property-card bg-white rounded-lg shadow-md overflow-hidden transition-all hover:shadow-xl';
+                propertyCard.innerHTML = `
+                    <img src="${property.images[0]}" alt="${property.title}" class="property-image w-full">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-1">${property.title}</h3>
+                        <p class="text-gray-600 mb-2">${property.address}</p>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-blue-600 font-bold">${property.price}</span>
+                            <span class="text-sm ${property.type === 'sale' ? 'bg-green-100 text-green-800' : property.type === 'rent' ? 'bg-blue-100 text-blue-800' : 'bg-purple-100 text-purple-800'} px-2 py-1 rounded-full">
+                                ${property.type === 'sale' ? 'For Sale' : property.type === 'rent' ? 'For Rent' : 'Airbnb'}
+                            </span>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 mb-4">
+                            <span>${property.bedrooms} Beds</span>
+                            <span>${property.bathrooms} Baths</span>
+                            <span>${property.area}</span>
+                        </div>
+                        <button class="view-details w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-all" data-id="${property.id}">
+                            View Details
+                        </button>
+                    </div>
+                `;
+                propertyGrid.appendChild(propertyCard);
+            });
+        }
 
-// --- NEW GLOBAL MODAL REFERENCES ---
-let virtualTourModal;
-let closeModalBtn;
-let modalPropertyName;
-let imageSlider;
-let prevSlideBtn;
-let nextSlideBtn;
-let projectDescription;
-let currentPropertyImages = [];
-let currentSlideIndex = 0;
-// --- END NEW GLOBAL MODAL REFERENCES ---
-
-function renderProperties(list) {
-    grid.innerHTML = "";
-    list.forEach(p => {
-        const icon = L.icon({
-            iconUrl: '/assets/icons/marker-icon.png',
-            iconSize: [25, 41],
-            iconAnchor: [12, 41],
-            popupAnchor: [0, -40]
-        });
-
-        const marker = L.marker([p.lat, p.lng], { icon });
-        marker.bindPopup(`<b>${p.name}</b>`);
-        markerMap[p.id] = marker;
-
-        const card = document.createElement('div');
-        card.className = "bg-white p-3 rounded shadow cursor-pointer transition transform hover:shadow-lg hover:scale-[1.02]";
-        card.innerHTML = `
-            <div class="relative">
-                <a href="#" class="open-virtual-tour-modal absolute top-2 left-2 bg-amber-300 text-xs px-2 py-1 rounded hover:bg-amber-400 transition"
-                   data-property-id="${p.id}">
-                   Virtuelle Tour
-                </a>
-                <img src="/assets/images/house${p.id}.jpg.jpg"
-                     alt="${p.name}" class="rounded-lg w-full h-40 object-cover mb-2 transition-transform duration-300 hover:scale-110"
-                     onerror="this.src='/Ahome-Front_end/assets/images/default.jpg';" />
-                <button class="absolute top-2 right-2 text-gray-500 hover:text-red-600 text-xl favorite-btn" data-id="${p.id}">♡</button>
-            </div>
-            <h3 class="font-bold">${p.name}</h3>
-            <p class="text-sm text-gray-600">${p.area}</p>
-            <p class="text-green-700 font-semibold mt-1">€ 2,290,000</p>
-            <a href="/Ahome-Front_end/house-details${p.id}.html" class="mt-2 inline-block text-sm text-blue-600 hover:underline">View Details</a>
-        `;
-
-        card.querySelector('.favorite-btn').addEventListener('click', (e) => {
-            e.stopPropagation();
-            const btn = e.currentTarget;
-            btn.textContent = btn.textContent === '♡' ? '❤️' : '♡';
-            btn.classList.toggle('text-red-600');
-        });
-
-        // --- MODIFIED: Event listener for the new modal trigger ---
-        card.querySelector('.open-virtual-tour-modal').addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent default link behavior
-            const propertyId = parseInt(e.currentTarget.dataset.propertyId);
+        // Show property details in modal
+        function showPropertyDetails(propertyId) {
             const property = properties.find(p => p.id === propertyId);
-            if (property) {
-                openVirtualTourModal(property);
+            if (!property) return;
+            
+            // Remove active class from all similar properties
+            document.querySelectorAll('.similar-property').forEach(el => {
+                el.classList.remove('active-property');
+            });
+            
+            // Set basic property info
+            document.getElementById('detailTitle').textContent = property.title;
+            document.getElementById('detailAddress').textContent = property.address;
+            document.getElementById('detailPrice').textContent = property.price;
+            document.getElementById('detailType').textContent = property.type === 'sale' ? 'For Sale' : property.type === 'rent' ? 'For Rent' : 'Airbnb';
+            document.getElementById('detailType').className = `bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full ${property.type === 'sale' ? 'bg-green-100 text-green-800' : property.type === 'rent' ? 'bg-blue-100 text-blue-800' : 'bg-purple-100 text-purple-800'}`;
+            document.getElementById('detailBedrooms').textContent = property.bedrooms;
+            document.getElementById('detailBathrooms').textContent = property.bathrooms;
+            document.getElementById('detailArea').textContent = property.area;
+            document.getElementById('detailDescription').textContent = property.description;
+            
+            // Set agent info
+            document.getElementById('agentName').textContent = property.agent.name;
+            document.getElementById('agentPhone').textContent = property.agent.phone;
+            document.getElementById('agentEmail').textContent = property.agent.email;
+            document.getElementById('agentImage').src = property.agent.image;
+            document.getElementById('agentImage').alt = property.agent.name;
+            
+            // Render features
+            const featuresContainer = document.getElementById('detailFeatures');
+            featuresContainer.innerHTML = '';
+            property.features.forEach(feature => {
+                const featureElement = document.createElement('div');
+                featureElement.className = 'flex items-center';
+                featureElement.innerHTML = `
+                    <svg class="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>${feature}</span>
+                `;
+                featuresContainer.appendChild(featureElement);
+            });
+            
+            // Render image gallery
+            const galleryContainer = document.getElementById('propertyImageGallery');
+            galleryContainer.innerHTML = `
+                <img src="${property.images[0]}" alt="${property.title}" class="details-image w-full rounded-lg cursor-pointer">
+            `;
+            
+            const thumbnailsContainer = galleryContainer.nextElementSibling;
+            thumbnailsContainer.innerHTML = '';
+            property.images.forEach((image, index) => {
+                const thumbnail = document.createElement('img');
+                thumbnail.src = image;
+                thumbnail.alt = `${property.title} - Image ${index + 1}`;
+                thumbnail.className = 'h-20 object-cover rounded cursor-pointer hover:opacity-80 transition-all';
+                thumbnail.addEventListener('click', () => {
+                    galleryContainer.innerHTML = `<img src="${image}" alt="${property.title}" class="details-image w-full rounded-lg cursor-pointer">`;
+                });
+                thumbnailsContainer.appendChild(thumbnail);
+            });
+            
+            // Initialize detail map
+            initDetailMap(property.location);
+            
+            // Show similar properties
+            showSimilarProperties(property);
+            
+            // Show the modal if it's not already open
+            if (!propertyModal.classList.contains('active')) {
+                propertyModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // Add slight delay for animation
+                setTimeout(() => {
+                    propertyModal.classList.add('active');
+                }, 10);
             }
-        });
-        // --- END MODIFIED ---
-
-        card.addEventListener('mouseenter', () => {
-            if (!map.hasLayer(marker)) marker.addTo(map);
-            marker.openPopup();
-        });
-        card.addEventListener('mouseleave', () => {
-            marker.closePopup();
-            if (map.hasLayer(marker)) map.removeLayer(marker);
-        });
-        card.addEventListener('click', () => {
-            if (!map.hasLayer(marker)) marker.addTo(map);
-            map.setView([p.lat, p.lng], 15);
-            marker.openPopup();
-        });
-
-        grid.appendChild(card);
-    });
-}
-
-function filterProperties() {
-    const term = document.getElementById('search-input').value.toLowerCase();
-    const area = document.getElementById('area-select').value;
-    const filtered = properties.filter(p =>
-        p.name.toLowerCase().includes(term) && (area === '' || p.area === area)
-    );
-    renderProperties(filtered);
-}
-
-// --- NEW MODAL FUNCTIONS ---
-
-function openVirtualTourModal(property) {
-    // Populate modal content
-    modalPropertyName.textContent = property.name;
-    projectDescription.innerHTML = `<p class="mb-4">${property.description}</p>`; // Update description dynamically
-
-    // For simplicity, just add some static features, or extend property object for more dynamic content
-    projectDescription.innerHTML += `
-        <h4 class="font-bold mt-4 mb-2">Key Features:</h4>
-        <ul class="list-disc list-inside text-sm">
-            <li>District: ${property.area}</li>
-            <li>Spacious layout</li>
-            <li>Modern amenities</li>
-            <li>Close to transport</li>
-            </ul>
-    `;
-
-
-    // Setup image slider
-    currentPropertyImages = property.images || []; // Ensure it's an array, even if empty
-    currentSlideIndex = 0;
-    updateImageSlider();
-
-    virtualTourModal.classList.remove('hidden'); // Show the modal
-    document.body.classList.add('overflow-hidden'); // Prevent background scroll
-}
-
-function updateImageSlider() {
-    imageSlider.innerHTML = ''; // Clear previous images
-    if (currentPropertyImages.length === 0) {
-        imageSlider.innerHTML = '<div class="flex items-center justify-center h-full text-gray-500">No images available</div>';
-        prevSlideBtn.classList.add('hidden');
-        nextSlideBtn.classList.add('hidden');
-        return;
-    }
-
-    const img = document.createElement('img');
-    img.src = currentPropertyImages[currentSlideIndex];
-    img.alt = `Virtual Tour Image ${currentSlideIndex + 1}`;
-    img.className = "w-full h-full object-cover transition-opacity duration-300";
-    img.onerror = function() {
-        this.src = '/Ahome-Front_end/assets/images/default.jpg'; // Fallback
-    };
-    imageSlider.appendChild(img);
-
-    // Show/hide navigation buttons based on number of images
-    prevSlideBtn.classList.toggle('hidden', currentPropertyImages.length <= 1);
-    nextSlideBtn.classList.toggle('hidden', currentPropertyImages.length <= 1);
-}
-
-function showNextSlide() {
-    currentSlideIndex = (currentSlideIndex + 1) % currentPropertyImages.length;
-    updateImageSlider();
-}
-
-function showPrevSlide() {
-    currentSlideIndex = (currentSlideIndex - 1 + currentPropertyImages.length) % currentPropertyImages.length;
-    updateImageSlider();
-}
-
-function closeVirtualTourModal() {
-    virtualTourModal.classList.add('hidden'); // Hide the modal
-    document.body.classList.remove('overflow-hidden'); // Restore background scroll
-}
-
-// --- END NEW MODAL FUNCTIONS ---
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    // --- Assign Modal Elements on DOMContentLoaded ---
-    virtualTourModal = document.getElementById('virtualTourModal');
-    closeModalBtn = document.getElementById('closeModalBtn');
-    modalPropertyName = document.getElementById('modalPropertyName');
-    imageSlider = document.getElementById('imageSlider');
-    prevSlideBtn = document.getElementById('prevSlideBtn');
-    nextSlideBtn = document.getElementById('nextSlideBtn');
-    projectDescription = document.getElementById('projectDescription');
-
-    // Add event listeners for modal close and slider navigation
-    if (closeModalBtn) closeModalBtn.addEventListener('click', closeVirtualTourModal);
-    if (prevSlideBtn) prevSlideBtn.addEventListener('click', showPrevSlide);
-    if (nextSlideBtn) nextSlideBtn.addEventListener('click', showNextSlide);
-
-    // Close modal if clicking outside the inner content box
-    if (virtualTourModal) {
-        virtualTourModal.addEventListener('click', (e) => {
-            if (e.target === virtualTourModal) { // Only close if click is directly on the overlay
-                closeVirtualTourModal();
+            
+            // Reset scroll positions
+            const modalRightContent = document.querySelector('.modal-right-content');
+            if (modalRightContent) {
+                modalRightContent.scrollTop = 0;
             }
-        });
-    }
-    // --- END Assign Modal Elements ---
+            propertyModal.scrollTop = 0;
+            
+            // Handle scroll behavior for right content
+            if (modalRightContent) {
+                modalRightContent.addEventListener('scroll', function() {
+                    const scrollPosition = this.scrollTop;
+                    const scrollHeight = this.scrollHeight;
+                    const clientHeight = this.clientHeight;
+                    
+                    // When user reaches near bottom of right content, allow modal to scroll
+                    if (scrollPosition + clientHeight >= scrollHeight - 50) {
+                        this.style.overflowY = 'hidden';
+                        propertyModal.style.overflowY = 'auto';
+                    } else {
+                        this.style.overflowY = 'auto';
+                        propertyModal.style.overflowY = 'hidden';
+                    }
+                });
+            }
+            
+            // Reset scroll behavior when modal is closed
+            modalClose.addEventListener('click', function() {
+                const modalRightContent = document.querySelector('.modal-right-content');
+                if (modalRightContent) {
+                    modalRightContent.style.overflowY = 'auto';
+                }
+                propertyModal.style.overflowY = 'auto';
+            });
+        }
 
+        // Close modal
+        function closeModal() {
+            propertyModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            
+            // Clean up map to prevent memory leaks
+            if (detailMap) {
+                detailMap.remove();
+                detailMap = null;
+            }
+        }
 
-    const gridContainer = document.getElementById('property-grid').parentElement;
-    const searchBar = document.createElement('div');
-    searchBar.className = "mb-4 flex flex-wrap gap-2 items-center justify-between";
-    searchBar.innerHTML = `
-        <input type="text" id="search-input" placeholder="Search properties..."
-          class="flex-1 border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring focus:border-blue-400" />
-        <select id="area-select" class="border border-gray-300 rounded px-3 py-2 text-sm">
-          <option value="">All Areas</option>
-          <option value="District 1">District 1</option>
-          <option value="District 2">District 2</option>
-          <option value="District 3">District 3</option>
-          <option value="District 4">District 4</option>
-        </select>
-        <button id="search-btn" class="bg-blue-600 text-white text-sm px-4 py-2 rounded hover:bg-blue-700">Search</button>
-    `;
-    gridContainer.prepend(searchBar);
+        // Initialize detail map for a single property
+        function initDetailMap(location) {
+            const mapContainer = document.getElementById('detailMap');
+            mapContainer.innerHTML = ''; // Clear previous map
+            
+            detailMap = L.map(mapContainer).setView(location, 15);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(detailMap);
+            
+            L.marker(location).addTo(detailMap)
+                .bindPopup(`<strong>${document.getElementById('detailTitle').textContent}</strong>`)
+                .openPopup();
+        }
 
-    document.getElementById('search-btn').addEventListener('click', filterProperties);
+        // Show similar properties
+        function showSimilarProperties(currentProperty) {
+            const similarPropertiesContainer = document.getElementById('similarProperties');
+            similarPropertiesContainer.innerHTML = '';
+            
+            // Find similar properties (same area or similar number of bedrooms)
+            const similarProperties = properties.filter(property => {
+                return property.id !== currentProperty.id && 
+                       (property.bedrooms === currentProperty.bedrooms || 
+                        property.type === currentProperty.type);
+            });
+            
+            if (similarProperties.length === 0) {
+                similarPropertiesContainer.innerHTML = '<p class="text-gray-600">No similar properties found.</p>';
+                return;
+            }
+            
+            // Limit to 3 similar properties
+            const displayedProperties = similarProperties.slice(0, 3);
+            
+            displayedProperties.forEach(property => {
+                const similarProperty = document.createElement('div');
+                similarProperty.className = `similar-property bg-white rounded-lg shadow-md overflow-hidden transition-all hover:shadow-lg ${property.id === currentProperty.id ? 'active-property' : ''}`;
+                similarProperty.innerHTML = `
+                    <img src="${property.images[0]}" alt="${property.title}" class="h-40 w-full object-cover">
+                    <div class="p-4">
+                        <h4 class="font-semibold mb-1">${property.title}</h4>
+                        <p class="text-sm text-gray-600 mb-2">${property.address}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-bold">${property.price}</span>
+                            <button class="view-similar text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded transition-all" data-id="${property.id}">
+                                View
+                            </button>
+                        </div>
+                    </div>
+                `;
+                similarPropertiesContainer.appendChild(similarProperty);
+            });
+            
+            // Add event listeners to similar property buttons and cards
+            document.querySelectorAll('.view-similar').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const propertyId = parseInt(e.target.getAttribute('data-id'));
+                    showPropertyDetails(propertyId);
+                });
+            });
+            
+            document.querySelectorAll('.similar-property').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    // Don't trigger if clicking on the view button (handled above)
+                    if (!e.target.classList.contains('view-similar')) {
+                        const propertyId = parseInt(card.querySelector('.view-similar').getAttribute('data-id'));
+                        showPropertyDetails(propertyId);
+                    }
+                });
+            });
+        }
 
-    renderProperties(properties);
-});
+        // Filter properties based on search and filters
+        function filterProperties() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const typeFilter = filterType.value;
+            const bedroomsFilter = parseInt(filterBedrooms.value);
+            
+            const filtered = properties.filter(property => {
+                // Search term filter
+                const matchesSearch = 
+                    property.title.toLowerCase().includes(searchTerm) || 
+                    property.address.toLowerCase().includes(searchTerm) || 
+                    property.description.toLowerCase().includes(searchTerm);
+                
+                // Type filter
+                const matchesType = typeFilter === 'all' || property.type === typeFilter;
+                
+                // Bedrooms filter
+                const matchesBedrooms = bedroomsFilter === 0 || property.bedrooms >= bedroomsFilter;
+                
+                return matchesSearch && matchesType && matchesBedrooms;
+            });
+            
+            renderPropertyGrid(filtered);
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // View details buttons
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('view-details')) {
+                    const propertyId = parseInt(e.target.getAttribute('data-id'));
+                    showPropertyDetails(propertyId);
+                }
+            });
+            
+            // Close modal buttons
+            modalClose.addEventListener('click', closeModal);
+            propertyModal.addEventListener('click', (e) => {
+                if (e.target === propertyModal) {
+                    closeModal();
+                }
+            });
+            
+            // Escape key to close modal
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && propertyModal.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+            
+            // Search and filter inputs
+            searchInput.addEventListener('input', filterProperties);
+            filterType.addEventListener('change', filterProperties);
+            filterBedrooms.addEventListener('change', filterProperties);
+        }
+
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);

@@ -3,86 +3,927 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects with Map</title>
+  <title>Properties with Land Listings</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Leaflet CSS and JS are still included, but the map div will be hidden on mobile -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     body {
       font-family: 'Inter', sans-serif;
     }
-    #map {
-      height: 100%;
+    .property-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(122, 62, 62, 0.1);
+    }
+    .property-image {
+      height: 200px;
+      object-fit: cover;
+    }
+    .details-image {
+      height: 300px;
+      object-fit: cover;
+    }
+    #detailMap {
+      height: 250px;
+    }
+    .transition-all {
+      transition: all 0.3s ease;
+    }
+    .similar-property:hover {
+      transform: scale(1.02);
+    }
+    
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      z-index: 1000;
+      overflow-y: auto;
+      padding: 20px 0;
     }
-    .highlight-marker {
-      animation: pulse 1.5s infinite;
+    .modal.active {
+      display: block;
     }
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.3); opacity: 0.5; }
-      100% { transform: scale(1); opacity: 1; }
+    .modal-content {
+      background-color: white;
+      margin: 0 auto;
+      width: 95%;
+      max-width: 1200px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+      transform: translateY(-20px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    .modal.active .modal-content {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .modal-close {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .active-property {
+      border: 3px solid #86a5d8;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+    }
+    
+    /* New styles for scrollable right content */
+    .modal-right-content {
+      max-height: calc(100vh - 150px);
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+    
+    /* Scrollbar styling */
+    .modal-right-content::-webkit-scrollbar {
+      width: 4px;
+    }
+    .modal-right-content::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    .modal-right-content::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+    }
+    .modal-right-content::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    /* Mobile specific styles */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      .filter-container {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .filter-container select {
+        width: 100%;
+      }
+      .details-image {
+        height: 200px;
+      }
+      #detailMap {
+        height: 200px;
+      }
+      .modal-content {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+      }
+      .modal-right-content {
+        max-height: none;
+        overflow-y: visible;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .property-grid {
+        grid-template-columns: 1fr;
+      }
+      .similar-properties-grid {
+        grid-template-columns: 1fr;
+      }
+      .modal-content .grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+      }
+      .modal-right-content {
+        padding-right: 0;
+      }
     }
   </style>
-
 </head>
-<body class="bg-black">
+<body class="bg-gray-100">
   <div id="header-placeholder"></div>
-
-  <!-- Main content wrapper: flex-col on small screens, flex-row on medium and larger -->
-  <!-- The height is now applied to the property list to ensure it fills the available space -->
-  <div class="mt-20 flex flex-col md:flex-row h-[calc(100vh-80px)]">
-    <!-- Property List Column: Takes full width on mobile, half width on medium+ -->
-    <div class="w-full md:w-1/2 overflow-y-scroll p-4 bg-gray-50">
-      <h2 class="text-2xl font-semibold mb-4">
-        <span class="lang-text" data-lang="en" style="display: none;">Properties in Vienna</span>
-        <span class="lang-text" data-lang="fr">Propriétés à Vienne</span>
-      </h2>
-      <!-- Responsive grid for properties: 1 column on small, 2 on medium+ -->
-      <div id="property-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+  
+  <!-- Hero Section -->
+  <section class="bg-[url('/assets/images/billy-huynh-W8KTS-mhFUE-unsplash.jpg')] text-white py-12 md:py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="hero-title text-3xl md:text-4xl font-bold mb-4">Find Your Dream Property</h2>
+      <p class="hero-subtitle text-lg md:text-xl mb-6 md:mb-8">Discover luxury homes and prime land in the most desirable locations</p>
+      <div class="max-w-2xl mx-auto">
+        <div class="flex flex-col sm:flex-row bg-white rounded-lg overflow-hidden">
+          <input type="text" id="mainSearch" placeholder="Search by location, property type..." 
+                 class="flex-grow px-4 py-3 text-gray-800 focus:outline-none">
+          <button class="bg-blue-600 text-white px-6 py-3 hover:bg-blue-800 transition-all">Search</button>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- Map Column: Hidden on small screens, block on medium and larger -->
-    <div class="hidden md:block w-full md:w-1/2 relative">
-      <div id="map"></div>
+  <!-- All Properties -->
+  <section id="all-properties" class="container mx-auto px-4 py-8 md:py-12">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 md:mb-8 gap-4">
+      <h3 class="text-xl md:text-2xl font-semibold text-gray-800">Featured Properties</h3>
+      <div class="filter-container flex flex-col sm:flex-row w-full md:w-auto space-y-2 sm:space-y-0 sm:space-x-4">
+        <select id="filterType" class="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="all">All Types</option>
+          <option value="sale">For Sale</option>
+          <option value="rent">For Rent</option>
+          <option value="airbnb">Airbnb</option>
+          <option value="land">Land</option>
+        </select>
+        <select id="filterBedrooms" class="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="0">Any Bedrooms</option>
+          <option value="1">1+ Bedrooms</option>
+          <option value="2">2+ Bedrooms</option>
+          <option value="3">3+ Bedrooms</option>
+          <option value="4">4+ Bedrooms</option>
+        </select>
+      </div>
+    </div>
+    
+    <div id="propertyGrid" class="property-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Property cards will be inserted here by JavaScript -->
+    </div>
+  </section>
+
+  <!-- Property Details Modal -->
+  <div id="propertyModal" class="modal">
+    <button id="modalClose" class="modal-close">&times;</button>
+    <div class="modal-content">
+      <div class="p-4 md:p-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+          <!-- Image Gallery -->
+          <div>
+            <div id="propertyImageGallery" class="mb-4">
+              <!-- Main image will be inserted here -->
+            </div>
+            <div class="grid grid-cols-4 gap-2">
+              <!-- Thumbnails will be inserted here -->
+            </div>
+            
+            <!-- Map -->
+            <div class="mt-6 md:mt-8">
+              <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4">Location</h3>
+              <div id="detailMap" class="rounded-lg overflow-hidden"></div>
+            </div>
+          </div>
+          
+          <!-- Property Info -->
+          <div class="modal-right-content">
+            <h2 id="detailTitle" class="text-2xl md:text-3xl font-bold text-gray-800 mb-2"></h2>
+            <p id="detailAddress" class="text-gray-600 mb-3 md:mb-4"></p>
+            
+            <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-4 mb-4 md:mb-6 gap-2">
+              <span id="detailPrice" class="text-xl md:text-2xl font-bold text-blue-600"></span>
+              <span id="detailType" class="text-sm font-semibold px-3 py-1 rounded-full inline-block"></span>
+            </div>
+            
+            <div class="grid grid-cols-3 gap-3 md:gap-4 mb-4 md:mb-6">
+              <div class="bg-gray-50 p-2 md:p-3 rounded-lg text-center">
+                <span class="block text-gray-500 text-sm" id="detailLabel1">Bedrooms</span>
+                <span id="detailBedrooms" class="text-base md:text-lg font-semibold"></span>
+              </div>
+              <div class="bg-gray-50 p-2 md:p-3 rounded-lg text-center">
+                <span class="block text-gray-500 text-sm" id="detailLabel2">Bathrooms</span>
+                <span id="detailBathrooms" class="text-base md:text-lg font-semibold"></span>
+              </div>
+              <div class="bg-gray-50 p-2 md:p-3 rounded-lg text-center">
+                <span class="block text-gray-500 text-sm" id="detailLabel3">Area</span>
+                <span id="detailArea" class="text-base md:text-lg font-semibold"></span>
+              </div>
+            </div>
+            
+            <h3 class="text-lg md:text-xl font-semibold mb-2">Description</h3>
+            <p id="detailDescription" class="text-gray-700 mb-4 md:mb-6"></p>
+            
+            <div class="border-t border-b border-gray-200 py-3 md:py-4 mb-4 md:mb-6">
+              <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3">Features</h3>
+              <div id="detailFeatures" class="feature-grid grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <!-- Features will be inserted here -->
+              </div>
+            </div>
+            
+            <div>
+              <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-3">Agent</h3>
+              <div class="flex items-center">
+                <img id="agentImage" src="" alt="Agent" class="w-10 h-10 md:w-12 md:h-12 rounded-full mr-3 md:mr-4 object-cover">
+                <div>
+                  <h4 id="agentName" class="font-semibold text-sm md:text-base"></h4>
+                  <p id="agentPhone" class="text-xs md:text-sm text-gray-600"></p>
+                  <p id="agentEmail" class="text-xs md:text-sm text-blue-600"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Similar Properties -->
+        <div class="mt-8 md:mt-12">
+          <h3 class="text-lg md:text-xl font-semibold mb-4 md:mb-6">Similar Properties</h3>
+          <div id="similarProperties" class="similar-properties-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            <!-- Similar properties will be inserted here -->
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div id="virtualTourModal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-[1001] p-4">
-    <div class="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
-        <div class="flex justify-between items-center p-4 border-b border-gray-200">
-            <h3 id="modalPropertyName" class="text-2xl font-bold text-gray-800"></h3>
-            <button id="closeModalBtn" class="text-gray-500 hover:text-gray-800 text-3xl font-semibold leading-none">&times;</button>
-        </div>
-
-        <div class="flex-grow overflow-y-auto p-4 md:flex">
-            <div class="relative w-full md:w-1/2 flex-shrink-0 mb-4 md:mb-0 md:mr-4">
-                <div id="imageSlider" class="relative overflow-hidden rounded-lg h-64 md:h-full">
-                    </div>
-                <button id="prevSlideBtn" class="absolute top-1/2 left-2 -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 z-10">&lt;</button>
-                <button id="nextSlideBtn" class="absolute top-1/2 right-2 -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 z-10">&gt;</button>
-            </div>
-
-            <div id="projectDescription" class="w-full md:w-1/2 text-gray-700 overflow-y-auto">
-                <p class="mb-4">
-                    </p>
-                <h4 class="font-bold mt-4 mb-2">Key Features:</h4>
-                <ul class="list-disc list-inside text-sm">
-                    <li>Spacious living area</li>
-                    <li>Modern kitchen design</li>
-                    <li>Prime location in [District]</li>
-                    <li>High-quality finishes</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+  
   <div id="footer-placeholder"></div>
 
+<script>
+  // Property Data (12 properties with land listings)
+  const properties = [
+    {
+      id: 1,
+      title: "VTO38",
+      address: "123 Coastal Drive, Miami, FL",
+      price: "$1,200,000",
+      type: "land",
+      bedrooms: 0,
+      bathrooms: 0,
+      area: "5 acres",
+      description: "Prime coastal land with 300 feet of ocean frontage. Perfect for luxury estate development or resort construction. Zoned for residential and commercial use with all utilities available at the road.",
+      features: ["Ocean Frontage", "Commercial Zoning", "Utilities Available", "High Elevation", "Road Access", "Survey Completed", "No Wetlands", "Clear Title"],
+      images: [
+        "/assets/images/properties/VT038/WhatsApp Image 2025-07-11 at 19.16.45.jpeg",
+        "/assets/images/properties/VT038/WhatsApp Image 2025-07-11 at 19.16.46.jpeg",
+        "/assets/images/properties/VT038/WhatsApp Image 2025-07-11 at 19.16.47.jpeg",
+        "/assets/images/properties/VT038/WhatsApp Image 2025-07-11 at 19.16.48.jpeg"
+      ],
+      location: [25.7617, -80.1918],
+      agent: {
+        name: "Sarah Johnson",
+        phone: "(555) 123-4567",
+        email: "sarah@luxuryestates.com",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+      }
+    },
+    {
+      id: 2,
+      title: "VT034",
+      address: "456 Urban Street, New York, NY",
+      price: "$3,500,000",
+      type: "land",
+      bedrooms: 0,
+      bathrooms: 0,
+      area: "1.2 acres",
+      description: "Prime development land in the heart of downtown. Zoned for mixed-use development with potential for high-rise residential or commercial projects. Includes approved site plans for 200-unit condo development.",
+      features: ["Downtown Location", "Mixed-Use Zoning", "Approved Site Plans", "Transit Access", "High Density Allowed", "Tax Incentives", "Underground Utilities", "Corner Lot"],
+      images: [
+        "/assets/images/properties/VT034/WhatsApp Image 2025-07-11 at 19.04.50.jpeg",
+        "/assets/images/properties/VT034/WhatsApp Image 2025-07-11 at 19.04.48 (2).jpeg",
+        "/assets/images/properties/VT034/WhatsApp Image 2025-07-11 at 19.04.49 (1).jpeg",
+        "/assets/images/properties/VT034/WhatsApp Image 2025-07-11 at 19.04.50 (2).jpeg"
+      ],
+      location: [40.7128, -74.0060],
+      agent: {
+        name: "Michael Chen",
+        phone: "(555) 987-6543",
+        email: "michael@luxuryestates.com",
+        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+      }
+    },
+    {
+      id: 3,
+      title: "VT033",
+      address: "789 Green Avenue, Austin, TX",
+      price: "$750,000",
+      type: "land",
+      bedrooms: 0,
+      bathrooms: 0,
+      area: "50 acres",
+      description: "Beautiful ranch land with rolling hills and mature trees. Perfect for equestrian use, farming, or residential development. Property includes two ponds and has agricultural tax status.",
+      features: ["Rolling Terrain", "Mature Trees", "Two Ponds", "Agricultural Zoning", "Road Frontage", "Well Available", "Hunting Allowed", "Mineral Rights"],
+      images: [
+        "/assets/images/properties/VT033/WhatsApp Image 2024-12-14 at 22.00.57 (1).jpeg",
+        "/assets/images/properties/VT033/WhatsApp Image 2024-12-14 at 22.00.57 (2).jpeg",
+        "/assets/images/properties/VT033/WhatsApp Image 2024-12-14 at 22.00.57.jpeg",
+        "/assets/images/properties/VT033/WhatsApp Image 2024-12-14 at 22.00.55.jpeg"
+      ],
+      location: [30.2672, -97.7431],
+      agent: {
+        name: "Emily Wilson",
+        phone: "(555) 456-7890",
+        email: "emily@luxuryestates.com",
+        image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+      }
+    },
+    {
+      id: 4,
+      title: "Luxury Beachfront Villa",
+      address: "101 Ocean Boulevard, Malibu, CA",
+      price: "$5,800/month",
+      type: "rent",
+      bedrooms: 5,
+      bathrooms: 4.5,
+      area: "4,500 sq ft",
+      description: "This exquisite beachfront villa offers direct access to a private beach and stunning panoramic ocean views. The property features a gourmet kitchen, home theater, wine cellar, and a stunning infinity pool.",
+      features: ["Beachfront", "Infinity Pool", "Home Theater", "Wine Cellar", "Gourmet Kitchen", "Private Beach", "Smart Home", "Parking"],
+      images: [
+        "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+      ],
+      location: [34.0259, -118.7798],
+      agent: {
+        name: "David Rodriguez",
+        phone: "(555) 789-0123",
+        email: "david@luxuryestates.com",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+      }
+    },
+    {
+      id: 5,
+      title: "VT025",
+      address: "202 Heritage Lane, Napa Valley, CA",
+      price: "$2,950,000",
+      type: "land",
+      bedrooms: 0,
+      bathrooms: 0,
+      area: "15 acres",
+      description: "Premium vineyard land in the heart of Napa Valley. Currently planted with Cabernet Sauvignon grapes. Includes winery building permit and established distribution channels. Perfect for wine entrepreneurs.",
+      features: ["Vineyard Established", "Winery Permit", "Water Rights", "Drip Irrigation", "Equipment Shed", "Tasting Room Site", "Sloped Terrain", "Organic Certification"],
+      images: [
+        "/assets/images/properties/VT025/WhatsApp Image 2025-03-21 at 11.05.10.jpeg",
+        "/assets/images/properties/VT025/WhatsApp Image 2025-03-21 at 11.11.54.jpeg",
+        "/assets/images/properties/VT025/WhatsApp Image 2025-03-21 at 11.11.55.jpeg"
+      ],
+      location: [38.2975, -122.2869],
+      agent: {
+        name: "Jessica Lee",
+        phone: "(555) 234-5678",
+        email: "jessica@luxuryestates.com",
+        image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+      }
+    },
+    {
+      id: 6,
+      title: "VT004",
+      address: "303 Alpine Way, Aspen, CO",
+      price: "$1,200,000",
+      type: "land",
+      bedrooms: 0,
+      bathrooms: 0,
+      area: "40 acres",
+      description: "Stunning mountain land with breathtaking views. Perfect for luxury cabin construction or investment. Property borders national forest and has year-round access. Includes water rights and building envelope.",
+      features: ["Mountain Views", "National Forest Border", "Year-Round Access", "Water Rights", "Building Envelope", "Septic Approval", "Wildlife Habitat", "Snowmobile Access"],
+      images: [
+      "/assets/images/properties/VT004/WhatsApp Image 2025-02-20 at 12.29.47.jpeg",
+        "/assets/images/properties/VT004/WhatsApp Image 2025-02-20 at 12.29.48.jpeg"
+      ],
+      location: [39.1911, -106.8175],
+      agent: {
+        name: "Robert Taylor",
+        phone: "(555) 345-6789",
+        email: "robert@luxuryestates.com",
+        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+      }
+    },
+    {
+      id: 7,
+      title: "VM019",
+      address: "404 Harbor View, Seattle, WA",
+      price: "$1,350,000",
+      type: "sale",
+      bedrooms: 2,
+      bathrooms: 2,
+      area: "1,800 sq ft",
+      description: "Stylish waterfront condo with panoramic views of Puget Sound. Features floor-to-ceiling windows, a gourmet kitchen with quartz countertops, and a spacious balcony perfect for enjoying the sunset.",
+      features: ["Waterfront", "Balcony", "Concierge", "Fitness Center", "Marina Access", "Hardwood Floors", "Underground Parking", "Smart Home"],
+      images: [
+       "/assets/images/properties/VM019/WhatsApp Image 2024-12-09 at 11.21.58.jpeg",
+        "/assets/images/properties/VM019/WhatsApp Image 2024-12-09 at 11.21.57.jpeg",
+        "/assets/images/properties/VM019/WhatsApp Image 2024-12-09 at 11.21.56.jpeg",
+        "/assets/images/properties/VM019/WhatsApp Image 2024-12-09 at 11.21.55.jpeg"
+      ],
+      location: [47.6062, -122.3321],
+      agent: {
+        name: "Lisa Wong",
+        phone: "(555) 456-1234",
+        email: "lisa@luxuryestates.com",
+        image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+      }
+    },
+    {
+      id: 8,
+      title: "LL002",
+      address: "505 Canyon Road, Santa Fe, NM",
+      price: "$3,750,000",
+      type: "sale",
+      bedrooms: 5,
+      bathrooms: 4.5,
+      area: "6,500 sq ft",
+      description: "Spectacular ranch estate on 20 acres with stunning mountain views. The property features a main house with rustic elegance, a guest casita, infinity pool, and horse facilities.",
+      features: ["20 Acres", "Mountain Views", "Infinity Pool", "Guest House", "Horse Facilities", "Gourmet Kitchen", "Home Theater", "Wine Cellar"],
+      images: [
+        "/assets/images/properties/LC002/WhatsApp Image 2025-03-21 at 11.00.26.jpeg",
+        "/assets/images/properties/LC002/WhatsApp Image 2025-03-21 at 11.00.27.jpeg",
+        "/assets/images/properties/LC002/WhatsApp Image 2025-03-21 at 11.00.29.jpeg",
+        "/assets/images/properties/LC002/WhatsApp Image 2025-03-21 at 11.00.32.jpeg"
+      ],
+      location: [35.6870, -105.9378],
+      agent: {
+        name: "Carlos Mendez",
+        phone: "(555) 789-4567",
+        email: "carlos@luxuryestates.com",
+        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+      }
+    },
+    {
+      id: 9,
+      title: "VM001",
+      address: "606 Arts District, Los Angeles, CA",
+      price: "$4,500/month",
+      type: "rent",
+      bedrooms: 2,
+      bathrooms: 2,
+      area: "2,100 sq ft",
+      description: "Sophisticated loft in the heart of the Arts District. Features exposed brick, polished concrete floors, and industrial-chic design. The open floor plan includes a chef's kitchen, spacious living area, and large windows flooding the space with natural light.",
+      features: ["Arts District", "Exposed Brick", "High Ceilings", "Chef's Kitchen", "Concrete Floors", "Walk-in Closet", "Fitness Center", "Rooftop Deck"],
+      images: [
+        "/assets/images/properties/VM001/WhatsApp Image 2025-02-20 at 12.28.44.jpeg",
+        "/assets/images/properties/VM001/WhatsApp Image 2025-02-20 at 12.28.43 (1).jpeg",
+        "/assets/images/properties/VM001/WhatsApp Image 2025-02-20 at 12.28.43.jpeg",
+        "/assets/images/properties/VM001/WhatsApp Image 2025-02-20 at 12.28.43 (2).jpeg"
+      ],
+      location: [34.0395, -118.2342],
+      agent: {
+        name: "Amanda Smith",
+        phone: "(555) 321-6549",
+        email: "amanda@luxuryestates.com",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+      }
+    },
+    {
+      id: 10,
+      title: "VM003",
+      address: "707 Fairway Drive, Scottsdale, AZ",
+      price: "$2,100,000",
+      type: "sale",
+      bedrooms: 4,
+      bathrooms: 3.5,
+      area: "3,400 sq ft",
+      description: "Stunning villa overlooking the 9th fairway of a championship golf course. The property features a resort-style backyard with pool, spa, and outdoor kitchen. Interior includes a great room with vaulted ceilings, gourmet kitchen, and luxurious master suite.",
+      features: ["Golf Course", "Resort Pool", "Outdoor Kitchen", "Vaulted Ceilings", "Gourmet Kitchen", "Home Office", "Smart Home", "3-Car Garage"],
+      images: [
+        "/assets/images/properties/VM003/WhatsApp Image 2025-03-21 at 11.00.25.jpeg",
+        "/assets/images/properties/VM003/WhatsApp Image 2025-03-21 at 11.00.26.jpeg",
+        "/assets/images/properties/VM003/WhatsApp Image 2025-03-21 at 11.00.27.jpeg",
+        "/assets/images/properties/VM003/WhatsApp Image 2025-03-21 at 11.00.29.jpeg"
+      ],
+      location: [33.4942, -111.9261],
+      agent: {
+        name: "James Wilson",
+        phone: "(555) 654-9873",
+        email: "james@luxuryestates.com",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+      }
+    },
+    {
+      id: 11,
+      title: "VM029",
+      address: "808 Vacation Lane, Miami, FL",
+      price: "$350/night",
+      type: "airbnb",
+      bedrooms: 2,
+      bathrooms: 2,
+      area: "1,200 sq ft",
+      description: "Stunning beachfront Airbnb with direct access to the sand. Perfect for vacation rentals with high-end amenities, smart home features, and breathtaking ocean views from the private balcony.",
+      features: ["Beachfront", "Smart Home", "Fully Equipped Kitchen", "Balcony", "Air Conditioning", "Washer/Dryer", "Parking", "WiFi"],
+      images: [
+        "/assets/images/properties/VM029/WhatsApp Image 2025-04-16 at 11.26.58.jpeg",
+        "/assets/images/properties/VM029/WhatsApp Image 2025-04-16 at 11.27.11.jpeg",
+        "/assets/images/properties/VM029/WhatsApp Image 2025-04-16 at 11.27.48.jpeg"
+      ],
+      location: [25.7823, -80.1865],
+      agent: {
+        name: "Vacation Rentals Inc",
+        phone: "(555) 555-1234",
+        email: "rentals@luxuryestates.com",
+        image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+      }
+    },
+    {
+      id: 12,
+      title: "LL031",
+      address: "909 Urban Way, New York, NY",
+      price: "$275/night",
+      type: "airbnb",
+      bedrooms: 1,
+      bathrooms: 1,
+      area: "800 sq ft",
+      description: "Trendy downtown loft perfect for short-term rentals. Features exposed brick, modern furnishings, and all the amenities needed for a comfortable stay in the heart of the city.",
+      features: ["Downtown", "Exposed Brick", "Smart TV", "Coffee Maker", "Air Conditioning", "Washer/Dryer", "Elevator", "WiFi"],
+      images: [
+        "/assets/images/properties/LL031/WhatsApp Image 2025-05-21 at 23.45.01.jpeg",
+        "/assets/images/properties/LL031/WhatsApp Image 2025-05-21 at 23.45.00.jpeg",
+        "/assets/images/properties/LL031/WhatsApp Image 2025-05-21 at 23.44.54.jpeg",
+        "/assets/images/properties/LL031/WhatsApp Image 2025-05-21 at 23.44.58.jpeg"
+      ],
+      location: [40.7196, -74.0018],
+      agent: {
+        name: "City Stay Rentals",
+        phone: "(555) 555-5678",
+        email: "citystay@luxuryestates.com",
+        image: "https://images.unsplash.com/photo-1562788869-4ed32648eb72?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+      }
+    }
+  ];
+
+  // DOM Elements
+  const propertyGrid = document.getElementById('propertyGrid');
+  const propertyModal = document.getElementById('propertyModal');
+  const modalClose = document.getElementById('modalClose');
+  const searchInput = document.getElementById('mainSearch');
+  const filterType = document.getElementById('filterType');
+  const filterBedrooms = document.getElementById('filterBedrooms');
+  let detailMap;
+
+  // Initialize the application
+  function init() {
+    renderPropertyGrid(properties);
+    setupEventListeners();
+  }
+
+  // Render property grid
+  function renderPropertyGrid(propertiesToRender) {
+    propertyGrid.innerHTML = '';
+    
+    propertiesToRender.forEach(property => {
+      let typeClass, typeText;
+      switch(property.type) {
+        case 'sale':
+          typeClass = 'bg-green-100 text-green-800';
+          typeText = 'For Sale';
+          break;
+        case 'rent':
+          typeClass = 'bg-blue-100 text-blue-800';
+          typeText = 'For Rent';
+          break;
+        case 'airbnb':
+          typeClass = 'bg-purple-100 text-purple-800';
+          typeText = 'Airbnb';
+          break;
+        case 'land':
+          typeClass = 'bg-yellow-100 text-yellow-800';
+          typeText = 'Land';
+          break;
+        default:
+          typeClass = 'bg-gray-100 text-gray-800';
+          typeText = property.type;
+      }
+
+      const propertyCard = document.createElement('div');
+      propertyCard.className = 'property-card bg-white rounded-lg shadow-md overflow-hidden transition-all hover:shadow-xl';
+      propertyCard.innerHTML = `
+        <img src="${property.images[0]}" alt="${property.title}" class="property-image w-full">
+        <div class="p-4">
+          <h3 class="text-lg font-semibold mb-1">${property.title}</h3>
+          <p class="text-gray-600 text-sm mb-2">${property.address}</p>
+          <div class="flex justify-between items-center mb-3">
+            <span class="text-blue-600 font-bold">${property.price}</span>
+            <span class="text-xs ${typeClass} px-2 py-1 rounded-full">
+              ${typeText}
+            </span>
+          </div>
+          <div class="flex justify-between text-xs sm:text-sm text-gray-500 mb-4">
+            ${property.type === 'land' ? 
+              `<span>${property.area}</span>
+               <span>Land</span>
+               <span>Development</span>` : 
+              `<span>${property.bedrooms} Beds</span>
+               <span>${property.bathrooms} Baths</span>
+               <span>${property.area}</span>`}
+          </div>
+          <button class="view-details w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-all text-sm sm:text-base" data-id="${property.id}">
+            View Details
+          </button>
+        </div>
+      `;
+      propertyGrid.appendChild(propertyCard);
+    });
+  }
+
+  // Show property details in modal
+  function showPropertyDetails(propertyId) {
+    const property = properties.find(p => p.id === propertyId);
+    if (!property) return;
+    
+    // Remove active class from all similar properties
+    document.querySelectorAll('.similar-property').forEach(el => {
+      el.classList.remove('active-property');
+    });
+    
+    // Set basic property info
+    document.getElementById('detailTitle').textContent = property.title;
+    document.getElementById('detailAddress').textContent = property.address;
+    document.getElementById('detailPrice').textContent = property.price;
+    
+    // Set property type badge
+    const typeBadge = document.getElementById('detailType');
+    typeBadge.textContent = property.type === 'sale' ? 'For Sale' : 
+                           property.type === 'rent' ? 'For Rent' : 
+                           property.type === 'airbnb' ? 'Airbnb' : 'Land';
+    
+    typeBadge.className = `text-sm font-semibold px-3 py-1 rounded-full ${
+      property.type === 'sale' ? 'bg-green-100 text-green-800' : 
+      property.type === 'rent' ? 'bg-blue-100 text-blue-800' : 
+      property.type === 'airbnb' ? 'bg-purple-100 text-purple-800' : 
+      'bg-yellow-100 text-yellow-800'}`;
+    
+    // Update detail labels based on property type
+    if (property.type === 'land') {
+      document.getElementById('detailLabel1').textContent = 'Acreage';
+      document.getElementById('detailLabel2').textContent = 'Zoning';
+      document.getElementById('detailLabel3').textContent = 'Terrain';
+      
+      document.getElementById('detailBedrooms').textContent = property.area;
+      document.getElementById('detailBathrooms').textContent = property.features.find(f => f.includes('Zoning')) || 'Various';
+      document.getElementById('detailArea').textContent = property.features.find(f => f.includes('Terrain') || f.includes('View')) || 'Various';
+    } else {
+      document.getElementById('detailLabel1').textContent = 'Bedrooms';
+      document.getElementById('detailLabel2').textContent = 'Bathrooms';
+      document.getElementById('detailLabel3').textContent = 'Area';
+      
+      document.getElementById('detailBedrooms').textContent = property.bedrooms;
+      document.getElementById('detailBathrooms').textContent = property.bathrooms;
+      document.getElementById('detailArea').textContent = property.area;
+    }
+    
+    document.getElementById('detailDescription').textContent = property.description;
+    
+    // Set agent info
+    document.getElementById('agentName').textContent = property.agent.name;
+    document.getElementById('agentPhone').textContent = property.agent.phone;
+    document.getElementById('agentEmail').textContent = property.agent.email;
+    document.getElementById('agentImage').src = property.agent.image;
+    document.getElementById('agentImage').alt = property.agent.name;
+    
+    // Render features
+    const featuresContainer = document.getElementById('detailFeatures');
+    featuresContainer.innerHTML = '';
+    property.features.forEach(feature => {
+      const featureElement = document.createElement('div');
+      featureElement.className = 'flex items-center';
+      featureElement.innerHTML = `
+        <svg class="h-4 w-4 md:h-5 md:w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <span class="text-sm md:text-base">${feature}</span>
+      `;
+      featuresContainer.appendChild(featureElement);
+    });
+    
+    // Render image gallery
+    const galleryContainer = document.getElementById('propertyImageGallery');
+    galleryContainer.innerHTML = `
+      <img src="${property.images[0]}" alt="${property.title}" class="details-image w-full rounded-lg cursor-pointer">
+    `;
+    
+    const thumbnailsContainer = galleryContainer.nextElementSibling;
+    thumbnailsContainer.innerHTML = '';
+    property.images.forEach((image, index) => {
+      const thumbnail = document.createElement('img');
+      thumbnail.src = image;
+      thumbnail.alt = `${property.title} - Image ${index + 1}`;
+      thumbnail.className = 'h-16 md:h-20 object-cover rounded cursor-pointer hover:opacity-80 transition-all';
+      thumbnail.addEventListener('click', () => {
+        galleryContainer.innerHTML = `<img src="${image}" alt="${property.title}" class="details-image w-full rounded-lg cursor-pointer">`;
+      });
+      thumbnailsContainer.appendChild(thumbnail);
+    });
+    
+    // Initialize detail map
+    initDetailMap(property.location);
+    
+    // Show similar properties
+    showSimilarProperties(property);
+    
+    // Show the modal if it's not already open
+    if (!propertyModal.classList.contains('active')) {
+      propertyModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      
+      // Add slight delay for animation
+      setTimeout(() => {
+        propertyModal.classList.add('active');
+      }, 10);
+    }
+    
+    // Reset scroll positions
+    const modalRightContent = document.querySelector('.modal-right-content');
+    if (modalRightContent) {
+      modalRightContent.scrollTop = 0;
+    }
+    propertyModal.scrollTop = 0;
+  }
+
+  // Close modal
+  function closeModal() {
+    propertyModal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    
+    // Clean up map to prevent memory leaks
+    if (detailMap) {
+      detailMap.remove();
+      detailMap = null;
+    }
+  }
+
+  // Initialize detail map for a single property
+  function initDetailMap(location) {
+    const mapContainer = document.getElementById('detailMap');
+    mapContainer.innerHTML = ''; // Clear previous map
+    
+    detailMap = L.map(mapContainer).setView(location, 15);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(detailMap);
+    
+    L.marker(location).addTo(detailMap)
+      .bindPopup(`<strong>${document.getElementById('detailTitle').textContent}</strong>`)
+      .openPopup();
+  }
+
+  // Show similar properties
+  function showSimilarProperties(currentProperty) {
+    const similarPropertiesContainer = document.getElementById('similarProperties');
+    similarPropertiesContainer.innerHTML = '';
+    
+    // Find similar properties (same type or similar characteristics)
+    const similarProperties = properties.filter(property => {
+      return property.id !== currentProperty.id && 
+             (property.type === currentProperty.type || 
+              (currentProperty.type === 'land' && property.type === 'land') ||
+              (property.bedrooms === currentProperty.bedrooms && currentProperty.type !== 'land'));
+    });
+    
+    if (similarProperties.length === 0) {
+      similarPropertiesContainer.innerHTML = '<p class="text-gray-600">No similar properties found.</p>';
+      return;
+    }
+    
+    // Limit to 3 similar properties
+    const displayedProperties = similarProperties.slice(0, 3);
+    
+    displayedProperties.forEach(property => {
+      const similarProperty = document.createElement('div');
+      similarProperty.className = `similar-property bg-white rounded-lg shadow-md overflow-hidden transition-all hover:shadow-lg ${property.id === currentProperty.id ? 'active-property' : ''}`;
+      similarProperty.innerHTML = `
+        <img src="${property.images[0]}" alt="${property.title}" class="h-32 md:h-40 w-full object-cover">
+        <div class="p-3 md:p-4">
+          <h4 class="font-semibold text-sm md:text-base mb-1">${property.title}</h4>
+          <p class="text-xs md:text-sm text-gray-600 mb-2">${property.address}</p>
+          <div class="flex justify-between items-center">
+            <span class="text-blue-600 font-bold text-sm md:text-base">${property.price}</span>
+            <button class="view-similar text-xs md:text-sm bg-gray-100 hover:bg-gray-200 px-2 md:px-3 py-1 rounded transition-all" data-id="${property.id}">
+              View
+            </button>
+          </div>
+        </div>
+      `;
+      similarPropertiesContainer.appendChild(similarProperty);
+    });
+    
+    // Add event listeners to similar property buttons and cards
+    document.querySelectorAll('.view-similar').forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const propertyId = parseInt(e.target.getAttribute('data-id'));
+        showPropertyDetails(propertyId);
+      });
+    });
+    
+    document.querySelectorAll('.similar-property').forEach(card => {
+      card.addEventListener('click', (e) => {
+        // Don't trigger if clicking on the view button (handled above)
+        if (!e.target.classList.contains('view-similar')) {
+          const propertyId = parseInt(card.querySelector('.view-similar').getAttribute('data-id'));
+          showPropertyDetails(propertyId);
+        }
+      });
+    });
+  }
+
+  // Filter properties based on search and filters
+  function filterProperties() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const typeFilter = filterType.value;
+    const bedroomsFilter = parseInt(filterBedrooms.value);
+    
+    const filtered = properties.filter(property => {
+      // Search term filter
+      const matchesSearch = 
+        property.title.toLowerCase().includes(searchTerm) || 
+        property.address.toLowerCase().includes(searchTerm) || 
+        property.description.toLowerCase().includes(searchTerm);
+      
+      // Type filter
+      const matchesType = typeFilter === 'all' || property.type === typeFilter;
+      
+      // Bedrooms filter (skip for land properties)
+      const matchesBedrooms = bedroomsFilter === 0 || 
+                            (property.type === 'land' && typeFilter === 'land') || 
+                            property.bedrooms >= bedroomsFilter;
+      
+      return matchesSearch && matchesType && matchesBedrooms;
+    });
+    
+    renderPropertyGrid(filtered);
+  }
+
+  // Setup event listeners
+  function setupEventListeners() {
+    // View details buttons
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('view-details')) {
+        const propertyId = parseInt(e.target.getAttribute('data-id'));
+        showPropertyDetails(propertyId);
+      }
+    });
+    
+    // Close modal buttons
+    modalClose.addEventListener('click', closeModal);
+    propertyModal.addEventListener('click', (e) => {
+      if (e.target === propertyModal) {
+        closeModal();
+      }
+    });
+    
+    // Escape key to close modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && propertyModal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+    
+    // Search and filter inputs
+    searchInput.addEventListener('input', filterProperties);
+    filterType.addEventListener('change', filterProperties);
+    filterBedrooms.addEventListener('change', filterProperties);
+  }
+
+  // Initialize the app when DOM is loaded
+  document.addEventListener('DOMContentLoaded', init);
+</script>
 
   <script src="/assets/js/property_search.js"></script>
   <script src="/assets/js/main.js"></script>
