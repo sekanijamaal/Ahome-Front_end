@@ -2,319 +2,290 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À Propos de Nous - Crownd</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>À Propos de Nous - Crownd</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/Ahome-Front_end/assets/css/about.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/css/intlTelInput.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/Ahome-Front_end/assets/css/about.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/css/intlTelInput.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
 
-        .ahome-font {
-            font-family: 'Playfair Display', serif;
-            letter-spacing: 1px;
-        }
+    .ahome-font {
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 1px;
+    }
 
-        #search-bar {
-            transition: opacity 0.3s ease;
-        }
+    #search-bar {
+      transition: opacity 0.3s ease;
+    }
 
-        :root {
-            --african-pattern-color1: #DAA520;
-            --african-pattern-color2: #A0522D;
-            --african-pattern-color3: #5C4033;
-            --african-pattern-bg-light: #F0EDE5;
-        }
+    :root {
+      --african-pattern-color1: #DAA520;
+      --african-pattern-color2: #A0522D;
+      --african-pattern-color3: #5C4033;
+      --african-pattern-bg-light: #F0EDE5;
+    }
 
-        .bg-african-grid-pattern {
-            background-color: var(--african-pattern-bg-light);
-            background-image:
-                repeating-linear-gradient(45deg,
-                    var(--african-pattern-color1) 0, var(--african-pattern-color1) 2px,
-                    transparent 2px, transparent 22px),
-                repeating-linear-gradient(-45deg,
-                    var(--african-pattern-color1) 0, var(--african-pattern-color1) 2px,
-                    transparent 2px, transparent 22px),
-                repeating-linear-gradient(90deg,
-                    transparent 0, transparent 40px,
-                    rgba(0, 0, 0, 0.03) 40px, rgba(0, 0, 0, 0.03) 42px),
-                repeating-linear-gradient(0deg,
-                    transparent 0, transparent 15px,
-                    var(--african-pattern-color2) 15px, var(--african-pattern-color2) 17px);
-            background-size: 44px 44px, 44px 44px, 80px 80px, 30px 30px;
-            background-position: 0 0, 22px 0, 0 0, 0 0;
-            opacity: 0.8;
-        }
+    .bg-african-grid-pattern {
+      background-color: var(--african-pattern-bg-light);
+      background-image:
+        repeating-linear-gradient(45deg,
+          var(--african-pattern-color1) 0, var(--african-pattern-color1) 2px,
+          transparent 2px, transparent 22px),
+        repeating-linear-gradient(-45deg,
+          var(--african-pattern-color1) 0, var(--african-pattern-color1) 2px,
+          transparent 2px, transparent 22px),
+        repeating-linear-gradient(90deg,
+          transparent 0, transparent 40px,
+          rgba(0, 0, 0, 0.03) 40px, rgba(0, 0, 0, 0.03) 42px),
+        repeating-linear-gradient(0deg,
+          transparent 0, transparent 15px,
+          var(--african-pattern-color2) 15px, var(--african-pattern-color2) 17px);
+      background-size: 44px 44px, 44px 44px, 80px 80px, 30px 30px;
+      background-position: 0 0, 22px 0, 0 0, 0 0;
+      opacity: 0.8;
+    }
 
-        /* Enhanced Card Hover Effects */
-        .card {
-            transition: all 0.3s ease;
-        }
+    .card {
+      transition: all 0.3s ease;
+    }
 
-        .card:hover {
-            background-color: #000000 !important;
-            /* Dark gray */
-            transform: scale(1.02);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
+    .card:hover {
+      background-color: #000 !important;
+      transform: scale(1.02);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
 
-        .card:hover h2 {
-            color: white;
-        }
+    .card:hover h2 {
+      color: white;
+    }
 
-        .card:hover p {
-            color: #e5e7eb;
-            /* Light gray */
-        }
+    .card:hover p {
+      color: #e5e7eb;
+    }
 
-        .card:hover .icon-container {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
+    .card:hover .icon-container {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
 
-        .card:hover .decorative-emoji {
-            opacity: 1;
-            filter: invert(1);
-            transform: scale(1.2);
-            transition: all 0.3s ease;
-            font-size: 10rem;
-        }
+    .card:hover .decorative-emoji {
+      opacity: 1;
+      filter: invert(1);
+      transform: scale(1.2);
+      transition: all 0.3s ease;
+      font-size: 15rem;
+    }
 
-        .card:hover .learn-more {
-            color: white;
-            font-weight: 600;
-        }
+    .card:hover .learn-more {
+      color: white;
+      font-weight: 600;
+    }
 
-        /* Animation classes */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-        }
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
 
-        .fade-in-up.appear {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .fade-in-up.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-        .scale-in {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-        }
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
 
-        .scale-in.appear {
-            opacity: 1;
-            transform: scale(1);
-        }
-    </style>
+    .scale-in.appear {
+      opacity: 1;
+      transform: scale(1);
+    }
+  </style>
 </head>
 
 <body class="bg-black">
-    <div id="header-placeholder"></div>
+  <div id="header-placeholder"></div>
 
-    <div class="pt-16">
-
-        <section class="min-h-screen flex flex-col md:flex-row items-stretch">
-            <div class="md:w-1/2 p-10 grid grid-cols-1 sm:grid-cols-2 gap-6 relative overflow-hidden mx-auto">
-                <div class="card relative p-6 rounded-xl bg-white shadow overflow-hidden fade-in-up">
-                    <div class="z-10 relative">
-                        <div class="mb-2 flex items-center space-x-2">
-                            <div class="icon-container w-5 h-5 bg-blue-100 text-blue-600 p-1 rounded transition"><i
-                                    class="fa-solid fa-briefcase"></i></div>
-                            <h2 class="font-semibold text-lg transition">Hire Us Today</h2>
-                        </div>
-                        <p class="text-sm mb-3 text-gray-600 transition">Get top-notch services tailored to your needs.</p>
-                        <a href="#" class="learn-more text-blue-600 font-medium text-sm hover:underline transition">Learn more →</a>
-                    </div>
-                    <div class="decorative-emoji absolute right-2 bottom-2 opacity-10 text-6xl transition"><i
-                            class="fa-solid fa-briefcase"></i></div>
+  <div class="pt-16">
+    <section class="min-h-screen flex flex-col md:flex-row items-stretch">
+<div class="md:w-1/2 px-4 sm:px-6 md:px-10 grid grid-cols-1 sm:grid-cols-2 gap-6 mx-auto">
+    <a href="/pages/hire-me.html" class="card relative p-6 rounded-xl bg-yellow-50 sm:bg-white shadow overflow-hidden fade-in-up text-black sm:text-gray-700">
+        <div class="z-10 relative">
+            <div class="mb-2 flex items-center space-x-2">
+                <div class="icon-container w-5 h-5 bg-yellow-200 text-yellow-800 sm:bg-blue-100 sm:text-blue-600 p-1 rounded transition">
+                    <i class="fa-solid fa-briefcase"></i>
                 </div>
-
-                <div class="card relative p-6 rounded-xl bg-white shadow overflow-hidden fade-in-up" style="transition-delay: 0.1s;">
-                    <div class="z-10 relative">
-                        <div class="mb-2 flex items-center space-x-2">
-                            <div class="icon-container w-5 h-5 bg-green-100 text-green-600 p-1 rounded transition"><i
-                                    class="fa-solid fa-handshake text-5x1"></i></div>
-                            <h2 class="font-semibold text-lg transition">Become a Partner</h2>
-                        </div>
-                        <p class="text-sm mb-3 text-gray-600 transition">Join us for mutual growth and success.</p>
-                        <a href="#" class="learn-more text-green-600 font-medium text-sm hover:underline transition">Learn more
-                            →</a>
-                    </div>
-                    <div class="decorative-emoji absolute right-2 bottom-2 opacity-10 text-6xl transition "><i
-                            class="fa-solid fa-handshake"></i></div>
-                </div>
-
-                <div class="card relative p-6 rounded-xl bg-white shadow overflow-hidden fade-in-up" style="transition-delay: 0.2s;">
-                    <div class="z-10 relative">
-                        <div class="mb-2 flex items-center space-x-2">
-                            <div class="icon-container w-5 h-5 bg-purple-100 text-purple-600 p-1 rounded transition"><i
-                                    class="fa-solid fa-hand"></i></div>
-                            <h2 class="font-semibold text-lg transition">Volunteer at Ahome</h2>
-                        </div>
-                        <p class="text-sm mb-3 text-gray-600 transition">Contribute to our cause and make a difference.</p>
-                        <a href="#" class="learn-more text-purple-600 font-medium text-sm hover:underline transition">Learn more
-                            →</a>
-                    </div>
-                    <div class="decorative-emoji absolute right-2 bottom-2 opacity-10 text-6xl transition"><i
-                            class="fa-solid fa-hand"></i></div>
-                </div>
-
-                <div class="card relative p-6 rounded-xl bg-white shadow overflow-hidden fade-in-up" style="transition-delay: 0.3s;">
-                    <div class="z-10 relative">
-                        <div class="mb-2 flex items-center space-x-2">
-                            <div class="icon-container w-5 h-5 bg-orange-100 text-orange-600 p-1 rounded transition"><i
-                                    class="fa-solid fa-comments"></i></div>
-                            <h2 class="font-semibold text-lg transition">Provide Feedback</h2>
-                        </div>
-                        <p class="text-sm mb-3 text-gray-600 transition">We value your opinions and suggestions.</p>
-                        <a href="#" class="learn-more text-orange-600 font-medium text-sm hover:underline transition">Learn more
-                            →</a>
-                    </div>
-                    <div class="decorative-emoji absolute right-2 bottom-2 opacity-10 text-6xl transition"><i
-                            class="fa-solid fa-comments"></i></div>
-                </div>
+                <h2 class="font-semibold text-lg transition">Hire Us Today</h2>
             </div>
+            <p class="text-sm mb-3">Get top-notch services tailored to your needs.</p>
+            <span class="learn-more text-yellow-700 sm:text-blue-600 font-medium text-sm hover:underline transition">Learn more →</span>
+        </div>
+        <div class="decorative-emoji absolute right-2 bottom-2 text-6xl transition text-yellow-300 sm:text-gray-300">
+            <i class="fa-solid fa-briefcase"></i>
+        </div>
+    </a>
 
-            <div
-                class="md:w-1/2 relative p-8 flex flex-col justify-center items-center bg-[url('/assets/images/billy-huynh-W8KTS-mhFUE-unsplash.jpg')] scale-in">
-                <div class="relative z-10 bg-white/90 backdrop-blur rounded-xl shadow-lg p-8 max-w-md w-full">
-                    <h2 class="text-2xl font-bold mb-6">Talk to Us.</h2>
-                    <div class="space-y-4 text-gray-700 text-sm">
-                        <div class="flex items-start gap-2">
-                            <span>📍</span>
-                            <span>343, Rue des Gemeaux, Tokoin Tame, Lome Togo</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <span>📧</span>
-                            <a href="mailto:agencedeschefsdoeuvre@gmail.com"
-                                class="text-blue-600 hover:underline">agencedeschefsdoeuvre@gmail.com</a>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <span>📞</span>
-                            <a href="tel:+22890033353" class="hover:underline">+228 90 03 33 53</a>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <span>📞</span>
-                            <a href="tel:+22870404030111" class="hover:underline">+228 70 404 030111</a>
-                        </div>
-                    </div>
-
-                    <a href="https://wa.me/22890033353" target="_blank"
-                        class="mt-6 inline-block w-full text-center bg-green-500 hover:bg-green-600 text-white font-semibold py-3 rounded-lg transition">
-                        💬 Chat with us on WhatsApp
-                    </a>
-
-                    <div class="mt-6">
-                        <h3 class="font-semibold text-sm mb-2">Follow Us</h3>
-                        <div class="flex justify-between w-full max-w-[240px] mx-auto">
-                            <a href="#" class="text-gray-600 hover:text-[#0077b5] transition" aria-label="LinkedIn">
-                                <i class="fab fa-linkedin text-xl"></i>
-                            </a>
-                            <a href="#" class="text-gray-600 hover:text-[#1877f2] transition" aria-label="Facebook">
-                                <i class="fab fa-facebook text-xl"></i>
-                            </a>
-                            <a href="#" class="text-gray-600 hover:text-[#1da1f2] transition" aria-label="Twitter">
-                                <i class="fab fa-twitter text-xl"></i>
-                            </a>
-                            <a href="#" class="text-gray-600 hover:text-[#e4405f] transition" aria-label="Instagram">
-                                <i class="fab fa-instagram text-xl"></i>
-                            </a>
-                        </div>
-                    </div>
+    <a href="/pages/partnership.html" class="card relative p-6 rounded-xl bg-yellow-50 sm:bg-white shadow overflow-hidden fade-in-up text-black sm:text-gray-700" style="transition-delay: 0.1s;">
+        <div class="z-10 relative">
+            <div class="mb-2 flex items-center space-x-2">
+                <div class="icon-container w-5 h-5 bg-yellow-200 text-yellow-800 sm:bg-green-100 sm:text-green-600 p-1 rounded transition">
+                    <i class="fa-solid fa-handshake"></i>
                 </div>
+                <h2 class="font-semibold text-lg transition">Become a Partner</h2>
             </div>
-        </section>
+            <p class="text-sm mb-3">Join us for mutual growth and success.</p>
+            <span class="learn-more text-yellow-700 sm:text-green-600 font-medium text-sm hover:underline transition">Learn more →</span>
+        </div>
+        <div class="decorative-emoji absolute right-2 bottom-2 text-6xl transition text-yellow-300 sm:text-gray-300">
+            <i class="fa-solid fa-handshake"></i>
+        </div>
+    </a>
 
-        <section class="px-10 py-16">
-            <div class="w-full">
-                <div id="contact-map" class="w-full h-[400px] rounded-lg shadow-md scale-in" style="transition-delay: 0.4s;">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15849.200192776472!2d1.20624025!3d6.13098675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x102159515f4e040f%3A0xf6a8e6f0b4b2c1d0!2sLom%C3%A9%2C%20Togo!5e0!3m2!1sen!2sgh!4v1700000000000!5m2!1sen!2sgh"
-                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+    <a href="/pages/volunteer.html" class="card relative p-6 rounded-xl bg-yellow-50 sm:bg-white shadow overflow-hidden fade-in-up text-black sm:text-gray-700" style="transition-delay: 0.2s;">
+        <div class="z-10 relative">
+            <div class="mb-2 flex items-center space-x-2">
+                <div class="icon-container w-5 h-5 bg-yellow-200 text-yellow-800 sm:bg-purple-100 sm:text-purple-600 p-1 rounded transition">
+                    <i class="fa-solid fa-hand"></i>
                 </div>
+                <h2 class="font-semibold text-lg transition">Volunteer at Ahome</h2>
             </div>
-        </section>
+            <p class="text-sm mb-3">Contribute to our cause and make a difference.</p>
+            <span class="learn-more text-yellow-700 sm:text-purple-600 font-medium text-sm hover:underline transition">Learn more →</span>
+        </div>
+        <div class="decorative-emoji absolute right-2 bottom-2 text-6xl transition text-yellow-300 sm:text-gray-300">
+            <i class="fa-solid fa-hand"></i>
+        </div>
+    </a>
 
-    </div> <div id="footer-placeholder"></div>
+    <a href="/pages/feedback.html" class="card relative p-6 rounded-xl bg-yellow-50 sm:bg-white shadow overflow-hidden fade-in-up text-black sm:text-gray-700" style="transition-delay: 0.3s;">
+        <div class="z-10 relative">
+            <div class="mb-2 flex items-center space-x-2">
+                <div class="icon-container w-5 h-5 bg-yellow-200 text-yellow-800 sm:bg-orange-100 sm:text-orange-600 p-1 rounded transition">
+                    <i class="fa-solid fa-comments"></i>
+                </div>
+                <h2 class="font-semibold text-lg transition">Provide Feedback</h2>
+            </div>
+            <p class="text-sm mb-3">We value your opinions and suggestions.</p>
+            <span class="learn-more text-yellow-700 sm:text-orange-600 font-medium text-sm hover:underline transition">Learn more →</span>
+        </div>
+        <div class="decorative-emoji absolute right-2 bottom-2 opacity-10 text-6xl transition text-yellow-300 sm:text-gray-300">
+            <i class="fa-solid fa-comments"></i>
+        </div>
+    </a>
+</div>
+      <div class="md:w-1/2 relative p-8 flex flex-col justify-center items-center bg-[url('/assets/images/billy-huynh-W8KTS-mhFUE-unsplash.jpg')] scale-in">
+        <div class="relative z-10 bg-white/90 backdrop-blur rounded-xl shadow-lg p-8 max-w-md w-full">
+          <h2 class="text-2xl font-bold mb-6">Talk to Us.</h2>
+          <div class="space-y-4 text-gray-700 text-sm">
+            <div class="flex items-start gap-2">
+              <span>📍</span>
+              <span>343, Rue des Gemeaux, Tokoin Tame, Lome Togo</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span>📧</span>
+              <a href="mailto:agencedeschefsdoeuvre@gmail.com" class="text-blue-600 hover:underline">agencedeschefsdoeuvre@gmail.com</a>
+            </div>
+            <div class="flex items-center gap-2">
+              <span>📞</span>
+              <a href="tel:+22890033353" class="hover:underline">+228 90 03 33 53</a>
+            </div>
+            <div class="flex items-center gap-2">
+              <span>📞</span>
+              <a href="tel:+22870404030111" class="hover:underline">+228 70 404 030111</a>
+            </div>
+          </div>
 
-    <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/contact.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/js/intlTelInput.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/js/utils.js"></script>
+          <a href="https://wa.me/22890033353" target="_blank" class="mt-6 inline-block w-full text-center bg-green-500 hover:bg-green-600 text-white font-semibold py-3 rounded-lg transition">
+            💬 Chat with us on WhatsApp
+          </a>
 
-    <script>
-        function switchLanguage(lang) {
-            document.documentElement.lang = lang; // Sets the HTML lang attribute
+          <div class="mt-6">
+            <h3 class="font-semibold text-sm mb-2">Follow Us</h3>
+            <div class="flex justify-between w-full max-w-[240px] mx-auto">
+              <a href="#" class="text-gray-600 hover:text-[#0077b5]" aria-label="LinkedIn"><i class="fab fa-linkedin text-xl"></i></a>
+              <a href="#" class="text-gray-600 hover:text-[#1877f2]" aria-label="Facebook"><i class="fab fa-facebook text-xl"></i></a>
+              <a href="#" class="text-gray-600 hover:text-[#1da1f2]" aria-label="Twitter"><i class="fab fa-twitter text-xl"></i></a>
+              <a href="#" class="text-gray-600 hover:text-[#e4405f]" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            // Toggle visibility of language-specific text spans
-            document.querySelectorAll('.lang-text').forEach(el => {
-                el.style.display = el.dataset.lang === lang ? '' : 'none'; // Display 'inline' if match, else 'none'
-            });
+    <section class="px-10 py-16">
+      <div class="w-full">
+        <div id="contact-map" class="w-full h-[400px] rounded-lg shadow-md scale-in" style="transition-delay: 0.4s;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15849.200192776472!2d1.20624025!3d6.13098675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x102159515f4e040f%3A0xf6a8e6f0b4b2c1d0!2sLom%C3%A9%2C%20Togo!5e0!3m2!1sen!2sgh!4v1700000000000!5m2!1sen!2sgh" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+  </div>
 
-            // Update placeholders for inputs
-            document.querySelectorAll('[data-lang-placeholder-en], [data-lang-placeholder-fr]').forEach(el => {
-                const placeholder = el.getAttribute(`data-lang-placeholder-${lang}`);
-                if (placeholder) el.placeholder = placeholder;
-            });
+  <div id="footer-placeholder"></div>
 
-            // Update select options
-            const salutationSelect = document.getElementById('salutation');
-            if (salutationSelect) { // Check if element exists before trying to access its options
-                Array.from(salutationSelect.options).forEach(option => {
-                    const optionLangKey = `data-lang-${lang}`;
-                    if (option.hasAttribute(optionLangKey)) {
-                        option.textContent = option.getAttribute(optionLangKey);
-                    }
-                });
-            }
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/contact.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/js/intlTelInput.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.19/build/js/utils.js"></script>
 
-            // Update document title manually
-            document.title = lang === 'fr' ? 'À Propos de Nous - Crownd' : 'About Us - Crownd';
-        }
+  <script>
+    function switchLanguage(lang) {
+      document.documentElement.lang = lang;
 
-        document.addEventListener("DOMContentLoaded", () => {
-            // Get the initial language from the HTML tag, or default to 'fr' as per your original HTML
-            const initialLang = document.documentElement.lang || 'fr';
-            switchLanguage(initialLang); // Initialize language on page load
+      document.querySelectorAll('.lang-text').forEach(el => {
+        el.style.display = el.dataset.lang === lang ? '' : 'none';
+      });
 
-            // --- Event listeners for language switcher buttons ---
-            const englishButton = document.getElementById('switch-to-en-button');
-            const frenchButton = document.getElementById('switch-to-fr-button');
+      document.querySelectorAll('[data-lang-placeholder-en], [data-lang-placeholder-fr]').forEach(el => {
+        const placeholder = el.getAttribute(`data-lang-placeholder-${lang}`);
+        if (placeholder) el.placeholder = placeholder;
+      });
 
-            if (englishButton) {
-                englishButton.addEventListener('click', () => switchLanguage('en'));
-            }
-            if (frenchButton) {
-                frenchButton.addEventListener('click', () => switchLanguage('fr'));
-            }
-
-            // --- Intersection Observer for animations ---
-            const animateOnScrollElements = document.querySelectorAll('.fade-in-up, .scale-in');
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('appear');
-                        observer.unobserve(entry.target); // Stop observing once animated
-                    }
-                });
-            }, {
-                threshold: 0.2, // Trigger when 20% of the element is visible
-                rootMargin: "0px 0px -50px 0px" // Adjust to trigger a bit sooner (e.g., 50px before it hits the bottom)
-            });
-
-            animateOnScrollElements.forEach(element => {
-                observer.observe(element);
-            });
+      const salutationSelect = document.getElementById('salutation');
+      if (salutationSelect) {
+        Array.from(salutationSelect.options).forEach(option => {
+          const optionLangKey = `data-lang-${lang}`;
+          if (option.hasAttribute(optionLangKey)) {
+            option.textContent = option.getAttribute(optionLangKey);
+          }
         });
-    </script>
+      }
+
+      document.title = lang === 'fr' ? 'À Propos de Nous - Crownd' : 'About Us - Crownd';
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const initialLang = document.documentElement.lang || 'fr';
+      switchLanguage(initialLang);
+
+      const englishButton = document.getElementById('switch-to-en-button');
+      const frenchButton = document.getElementById('switch-to-fr-button');
+
+      if (englishButton) englishButton.addEventListener('click', () => switchLanguage('en'));
+      if (frenchButton) frenchButton.addEventListener('click', () => switchLanguage('fr'));
+
+      const animateOnScrollElements = document.querySelectorAll('.fade-in-up, .scale-in');
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('appear');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.2,
+        rootMargin: "0px 0px -50px 0px"
+      });
+
+      animateOnScrollElements.forEach(element => observer.observe(element));
+    });
+  </script>
 </body>
 
 </html>
