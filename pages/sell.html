@@ -107,8 +107,7 @@
                             id="desktopImages" 
                             accept="image/*" 
                             multiple 
-                            class="w-full p-3 border border-gray-300 rounded-lg file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100 transition-colors" 
-                            required
+                            class="w-full p-3 border border-gray-300 rounded-lg file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100 transition-colors"
                         >
                         <div id="desktop-image-previews" class="image-preview-container mt-4"></div>
                         <p class="text-sm text-gray-500 mt-2">
@@ -129,8 +128,8 @@
                                 <span>Take Photo</span>
                             </button>
                         </div>
-                        <input type="file" id="upload-input" accept="image/*" multiple class="hidden" required>
-                        <input type="file" id="camera-input" accept="image/*" multiple capture="environment" class="hidden" required>
+                        <input type="file" id="upload-input" accept="image/*" multiple class="hidden">
+                        <input type="file" id="camera-input" accept="image/*" multiple capture="environment" class="hidden">
 
                         <div id="image-previews" class="image-preview-container mt-4"></div>
 
@@ -339,7 +338,7 @@
                         if (window.history.length > 1) {
                             window.history.back();
                         } else {
-                            window.location.href = '/';
+                            window.location.href = '/pages/purchase.html';
                         }
                     }, 1800);
                 });
