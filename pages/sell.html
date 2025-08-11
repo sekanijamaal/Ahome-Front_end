@@ -11,38 +11,12 @@
             grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
             gap: 8px;
         }
-        .image-preview-wrapper {
-            position: relative;
-            width: 100%;
-        }
         .image-preview {
             width: 100%;
             height: 80px;
             object-fit: cover;
             border-radius: 8px;
             border: 1px solid #e5e7eb;
-            display: block;
-        }
-        .remove-image-btn {
-            position: absolute;
-            top: 2px;
-            right: 2px;
-            background: rgba(255, 0, 0, 0.8);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 22px;
-            height: 22px;
-            font-size: 16px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
-            transition: background 0.2s;
-        }
-        .remove-image-btn:hover {
-            background: #b91c1c;
         }
     </style>
 </head>
@@ -128,8 +102,8 @@
                                 <span>Take Photo</span>
                             </button>
                         </div>
-                        <input type="file" id="upload-input" accept="image/*" multiple class="hidden">
-                        <input type="file" id="camera-input" accept="image/*" multiple capture="environment" class="hidden">
+                        <input type="file" id="upload-input" accept="image/*" multiple class="hidden" required>
+                        <input type="file" id="camera-input" accept="image/*" multiple capture="environment" class="hidden" required>
 
                         <div id="image-previews" class="image-preview-container mt-4"></div>
 
@@ -150,60 +124,30 @@
         </div>
     </section>
     <div id="footer-placeholder"></div>
-    <!-- Confirmation Modal -->
-    <div id="confirmation-modal" style="display:none;position:fixed;z-index:1000;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.3);">
-      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:2rem 2.5rem;border-radius:1rem;box-shadow:0 4px 32px rgba(0,0,0,0.15);text-align:center;min-width:250px;">
-        <h4 style="font-size:1.3rem;font-weight:700;color:#16a34a;margin-bottom:1rem;">Property submitted</h4>
-        <p style="color:#444;font-size:1rem;">Thank you! Redirecting...</p>
-      </div>
-    </div>
     <script src="/assets/js/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Mobile
             const uploadButton = document.getElementById('upload-button');
             const cameraButton = document.getElementById('camera-button');
             const uploadInput = document.getElementById('upload-input');
             const cameraInput = document.getElementById('camera-input');
+            const desktopImagesInput = document.getElementById('desktopImages');
             const imagePreviews = document.getElementById('image-previews');
             const imageCount = document.getElementById('image-count');
             const imageMessage = document.getElementById('image-message');
-            // Desktop
-            const desktopImagesInput = document.getElementById('desktopImages');
-            const desktopImagePreviews = document.getElementById('desktop-image-previews');
-            const desktopImageCount = document.getElementById('desktop-image-count');
-            const desktopImageMessage = document.getElementById('desktop-image-message');
 
             const MAX_IMAGES = 4;
             let selectedFiles = [];
-            let desktopSelectedFiles = [];
 
-            // Mobile: update preview and count
+            // Function to update the image preview and count
             const updatePreview = () => {
-                imagePreviews.innerHTML = '';
-                selectedFiles.forEach((file, idx) => {
-                    const wrapper = document.createElement('div');
-                    wrapper.classList.add('image-preview-wrapper');
-
+                imagePreviews.innerHTML = ''; // Clear previous previews
+                selectedFiles.forEach(file => {
                     const img = document.createElement('img');
                     img.classList.add('image-preview');
                     img.src = URL.createObjectURL(file);
                     img.onload = () => URL.revokeObjectURL(img.src);
-
-                    // Remove button
-                    const removeBtn = document.createElement('button');
-                    removeBtn.type = 'button';
-                    removeBtn.className = 'remove-image-btn';
-                    removeBtn.title = 'Remove image';
-                    removeBtn.innerHTML = '&times;';
-                    removeBtn.addEventListener('click', () => {
-                        selectedFiles.splice(idx, 1);
-                        updatePreview();
-                    });
-
-                    wrapper.appendChild(img);
-                    wrapper.appendChild(removeBtn);
-                    imagePreviews.appendChild(wrapper);
+                    imagePreviews.appendChild(img);
                 });
 
                 imageCount.textContent = `${selectedFiles.length}/${MAX_IMAGES} images selected.`;
@@ -218,130 +162,34 @@
                 }
             };
 
-            // Desktop: update preview and count
-            const updateDesktopPreview = () => {
-                desktopImagePreviews.innerHTML = '';
-                desktopSelectedFiles.forEach((file, idx) => {
-                    const wrapper = document.createElement('div');
-                    wrapper.classList.add('image-preview-wrapper');
-
-                    const img = document.createElement('img');
-                    img.classList.add('image-preview');
-                    img.src = URL.createObjectURL(file);
-                    img.onload = () => URL.revokeObjectURL(img.src);
-
-                    // Remove button
-                    const removeBtn = document.createElement('button');
-                    removeBtn.type = 'button';
-                    removeBtn.className = 'remove-image-btn';
-                    removeBtn.title = 'Remove image';
-                    removeBtn.innerHTML = '&times;';
-                    removeBtn.addEventListener('click', () => {
-                        desktopSelectedFiles.splice(idx, 1);
-                        updateDesktopPreview();
-                    });
-
-                    wrapper.appendChild(img);
-                    wrapper.appendChild(removeBtn);
-                    desktopImagePreviews.appendChild(wrapper);
-                });
-
-                desktopImageCount.textContent = `${desktopSelectedFiles.length}/${MAX_IMAGES} images selected.`;
-                if (desktopSelectedFiles.length === MAX_IMAGES) {
-                    desktopImageCount.classList.remove('text-red-500');
-                    desktopImageCount.classList.add('text-green-500');
-                    desktopImageMessage.textContent = 'All 4 images have been selected!';
-                } else {
-                    desktopImageCount.classList.remove('text-green-500');
-                    desktopImageCount.classList.add('text-red-500');
-                    desktopImageMessage.textContent = `Please add exactly ${MAX_IMAGES - desktopSelectedFiles.length} more images.`;
-                }
-            };
-
-            // Mobile: handle files
+            // Function to handle files added from any source
             const handleFiles = (files) => {
+                // Combine existing and new files, then slice to enforce the limit
                 const newFiles = Array.from(files).filter(file => file.type.startsWith('image/'));
                 selectedFiles = [...selectedFiles, ...newFiles].slice(0, MAX_IMAGES);
+
                 if (newFiles.length > 0) {
                   updatePreview();
                 }
             };
-
-            // Desktop: handle files
-            const handleDesktopFiles = (files) => {
-                const newFiles = Array.from(files).filter(file => file.type.startsWith('image/'));
-                desktopSelectedFiles = [...desktopSelectedFiles, ...newFiles].slice(0, MAX_IMAGES);
-                if (newFiles.length > 0) {
-                  updateDesktopPreview();
-                }
-            };
-
-            // Mobile triggers
+            
             if (uploadButton) {
                 uploadButton.addEventListener('click', () => uploadInput.click());
             }
+
             if (cameraButton) {
                 cameraButton.addEventListener('click', () => cameraInput.click());
             }
+
+            // Listen for file changes from all inputs
             if (uploadInput) {
                 uploadInput.addEventListener('change', (event) => handleFiles(event.target.files));
             }
             if (cameraInput) {
                 cameraInput.addEventListener('change', (event) => handleFiles(event.target.files));
             }
-
-            // Desktop triggers
             if (desktopImagesInput) {
-                desktopImagesInput.addEventListener('change', (event) => handleDesktopFiles(event.target.files));
-            }
-            // Confirmation and redirect on submit
-            const form = document.getElementById('sell-property-form');
-            const confirmationModal = document.getElementById('confirmation-modal');
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    let valid = true;
-                    // Always check both arrays in case of resizing or switching views
-                    const mobileCount = selectedFiles.length;
-                    const desktopCount = desktopSelectedFiles.length;
-                    if (window.innerWidth < 768) {
-                        if (mobileCount !== MAX_IMAGES) {
-                            imageMessage.textContent = `Please add exactly 4 images.`;
-                            imageCount.classList.remove('text-green-500');
-                            imageCount.classList.add('text-red-500');
-                            valid = false;
-                        }
-                    } else {
-                        if (desktopCount !== MAX_IMAGES) {
-                            desktopImageMessage.textContent = `Please add exactly 4 images.`;
-                            desktopImageCount.classList.remove('text-green-500');
-                            desktopImageCount.classList.add('text-red-500');
-                            valid = false;
-                        }
-                    }
-                    // Fallback: if both are empty, block submit
-                    if (mobileCount === 0 && desktopCount === 0) {
-                        if (window.innerWidth < 768) {
-                            imageMessage.textContent = `Please add exactly 4 images.`;
-                            imageCount.classList.remove('text-green-500');
-                            imageCount.classList.add('text-red-500');
-                        } else {
-                            desktopImageMessage.textContent = `Please add exactly 4 images.`;
-                            desktopImageCount.classList.remove('text-green-500');
-                            desktopImageCount.classList.add('text-red-500');
-                        }
-                        valid = false;
-                    }
-                    if (!valid) return;
-                    confirmationModal.style.display = 'block';
-                    setTimeout(() => {
-                        if (window.history.length > 1) {
-                            window.history.back();
-                        } else {
-                            window.location.href = '/pages/purchase.html';
-                        }
-                    }, 1800);
-                });
+                desktopImagesInput.addEventListener('change', (event) => handleFiles(event.target.files));
             }
         });
     </script>
