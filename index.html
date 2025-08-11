@@ -121,7 +121,7 @@
 
   <!-- BLOCKS -->
   <div class="blocks">
-    <div class="block-1"></div>
+    <div class="absolute w-20 h-screen left-[20] bg-gray-900 z-10"></div>
     <div class="absolute w-80 h-screen left-[35%] bg-gray-900 z-10"></div>
     <div class="block-3"></div>
   </div>
@@ -432,11 +432,13 @@ $(document).ready(function() {
                 </li>
             </ul>
 
-            <button onclick="togglePopup(event)" class="bg-gradient-to-r from-purple-700 to-indigo-800 text-white font-bold text-lg px-10 py-4 rounded-full shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 ease-in-out transform-gpu animate-fade-in-up delay-200">
+           <a href="/pages/contact.html">
+             <button onclick="togglePopup(event)" class="bg-gradient-to-r from-purple-700 to-indigo-800 text-white font-bold text-lg px-10 py-4 rounded-full shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-300 ease-in-out transform-gpu animate-fade-in-up delay-200">
                 <span class="lang-text" data-lang="en">Join the Society</span>
                 <span class="lang-text" data-lang="fr">Rejoignez la Société</span>
                 <svg class="inline-block ml-3 w-6 h-6 -mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM12 15h0M6 15h0"></path></svg>
             </button>
+           </a>
         </div>
     </div>
 </section>
