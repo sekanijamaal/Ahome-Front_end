@@ -4,12 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AHOME Header Component</title>
-  <link rel="icon" type="image/png" href="../favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg" />
-  <link rel="shortcut icon" href="../favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
-  <link rel="manifest" href="../favicon/site.webmanifest" />
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/favicon/site.webmanifest" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2F4D93', // Deep Blue
+            accent: '#E23A35',  // Bright Red
+            dark: '#000000',    // Black
+            light: '#F4F4F4',   // Light Gray
+            white: '#FFFFFF'    // White
+          }
+        }
+      }
+    }
+  </script>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap");
     .ahome-font {
@@ -20,13 +35,15 @@
 </head>
 
 <body class="bg-white">
-  <nav id="navbar" class="fixed top-0 w-full z-50 bg-transparent text-black transition-all duration-300">
+  <nav id="navbar" class="fixed top-0 w-full z-50 bg-primary text-white transition-all duration-300">
     <div class="px-6 py-4 flex justify-between items-center">
       <!-- Brand and Project Dropdown -->
       <div class="flex items-center gap-6 sm:gap-10 relative">
         <a href="/index.html" id="brand"
-          class="text-2xl ahome-font font-semibold transition-colors duration-300 hover:text-blue-600">
-          AHOME
+          class="text-2xl ahome-font font-semibold flex items-center transition-colors duration-300 hover:text-accent">
+          AH
+          <img src="/assets/logo/LOGO ahome - Copie (2) (1).png" alt="AHOME Logo" class="h-8 w-8 mx-1 align-middle">
+          ME
         </a>
       </div>
 
@@ -42,23 +59,23 @@
 
       <!-- Desktop Nav Links -->
       <ul id="nav-links" class="hidden md:flex flex-1 justify-center space-x-6 transition-colors duration-300">
-        <li><a href="/pages/propertysearch.html" class="nav-link px-4 py-2 rounded-full transition font-semibold">
+        <li><a href="/pages/propertysearch.html" class="nav-link px-4 py-2 rounded-full transition font-semibold hover:bg-accent hover:text-white">
             <span class="lang-text" data-lang="en">PROPERTY SEARCH</span>
             <span class="lang-text" data-lang="fr" style="display: none;">RECHERCHE DE PROPRIÉTÉ</span>
           </a></li>
-        <li><a href="/pages/purchase.html" class="nav-link px-4 py-2 rounded-full transition font-semibold">
+        <li><a href="/pages/purchase.html" class="nav-link px-4 py-2 rounded-full transition font-semibold hover:bg-accent hover:text-white">
             <span class="lang-text" data-lang="en">PURCHASE</span>
             <span class="lang-text" data-lang="fr" style="display: none;">ACHETER</span>
           </a></li>
-        <li><a href="/pages/investment.html" class="nav-link px-4 py-2 rounded-full transition font-semibold">
+        <li><a href="/pages/investment.html" class="nav-link px-4 py-2 rounded-full transition font-semibold hover:bg-accent hover:text-white">
             <span class="lang-text" data-lang="en">INVESTMENT</span>
             <span class="lang-text" data-lang="fr" style="display: none;">INVESTISSEMENT</span>
           </a></li>
-        <li><a href="/pages/about.html" class="nav-link px-4 py-2 rounded-full transition font-semibold">
+        <li><a href="/pages/about.html" class="nav-link px-4 py-2 rounded-full transition font-semibold hover:bg-accent hover:text-white">
             <span class="lang-text" data-lang="en">IT'S AHOME</span>
             <span class="lang-text" data-lang="fr" style="display: none;">C'EST AHOME</span>
           </a></li>
-        <li><a href="/pages/contact.html" class="nav-link px-4 py-2 rounded-full transition font-semibold">
+        <li><a href="/pages/contact.html" class="nav-link px-4 py-2 rounded-full transition font-semibold hover:bg-accent hover:text-white">
             <span class="lang-text" data-lang="en">CONTACT</span>
             <span class="lang-text" data-lang="fr" style="display: none;">CONTACT</span>
           </a></li>
@@ -67,15 +84,15 @@
       <!-- Right Icons (Always visible) -->
       <div id="icon-set" class="flex items-center space-x-4 transition-colors duration-300">
         <div class="flex items-center">
-          <span class="text-white text-sm font-semibold mr-2 lang-label" data-lang="fr">FR</span>
+          <span class="text-white text-sm font-semibold mr-2 lang-label" data-lang="en">EN</span>
           <label class="relative inline-flex items-center cursor-pointer">
             <input type="checkbox" id="languageToggle" class="sr-only peer">
-            <div class="w-10 h-6 bg-gray-200 rounded-full peer-focus:ring-2 peer-checked:bg-blue-600 peer-checked:after:translate-x-full after:absolute after:top-[2px] after:start-[2px] after:bg-white after:h-5 after:w-5 after:rounded-full after:transition-all"></div>
+            <div class="w-10 h-6 bg-primary rounded-full peer-focus:ring-2 peer-checked:bg-accent peer-checked:after:translate-x-full after:absolute after:top-[2px] after:start-[2px] after:bg-white after:h-5 after:w-5 after:rounded-full after:transition-all"></div>
           </label>
-          <span class="text-white text-sm font-semibold ml-2 lang-label" data-lang="en">EN</span>
+          <span class="text-white text-sm font-semibold ml-2 lang-label" data-lang="fr">FR</span>
         </div>
 
-        <button onclick="togglePopup(event)" class="hover:text-gray-300">
+        <button onclick="togglePopup(event)" class="hover:text-accent">
           <svg id="heart-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -85,9 +102,11 @@
       </div>
     </div>
 
-    <!-- Mobile Nav (Drawer) -->
-    <div id="mobile-menu" class="md:hidden hidden px-6 pb-4 bg-white text-black shadow-lg">
-      <ul class="space-y-2 text-base font-medium">
+    <!-- Mobile Nav (Drawer) and Overlay -->
+    <div id="mobile-menu-overlay" class="md:hidden fixed inset-0 bg-black bg-opacity-40 z-40 hidden"></div>
+    <div id="mobile-menu" class="md:hidden fixed top-0 left-0 h-full w-72 bg-light text-dark shadow-lg z-50 transform -translate-x-full transition-transform duration-300 px-6 pb-4">
+      <button id="close-mobile-menu" class="absolute top-4 right-4 text-dark text-2xl focus:outline-none">&times;</button>
+      <ul class="mt-16 space-y-2 text-base font-medium">
         <li><a href="/pages/propertysearch.html">PROPERTY SEARCH</a></li>
         <li><a href="/pages/purchase.html">PURCHASE</a></li>
         <li><a href="/pages/investment.html">INVESTMENT</a></li>
@@ -99,18 +118,18 @@
 
   <!-- Popup -->
   <div id="popup"
-    class="hidden fixed top-24 right-5 bg-white shadow-lg border rounded p-4 w-72 z-50 text-black transition-opacity duration-300">
+    class="hidden fixed top-24 right-5 bg-white shadow-lg border rounded p-4 w-72 z-50 text-dark transition-opacity duration-300">
     <p class="mb-2 font-semibold">
       <span class="lang-text" data-lang="en">Become a CROWND member for access to all information.</span>
       <span class="lang-text" data-lang="fr" style="display: none;">Devenez membre CROWND pour accéder à toutes les
         informations.</span>
     </p>
     <div class="space-y-2">
-      <a href="/pages/login.html"><button class="bg-black text-white px-4 py-2 w-full rounded hover:bg-gray-800">
+      <a href="/pages/login.html"><button class="bg-primary text-white px-4 py-2 w-full rounded hover:bg-blue-800">
           <span class="lang-text" data-lang="en">Log in</span>
           <span class="lang-text" data-lang="fr" style="display: none;">Se connecter</span>
         </button></a>
-      <a href="/pages/register.html"><button class="bg-gray-200 text-black px-4 py-2 w-full rounded hover:bg-gray-300">
+      <a href="/pages/register.html"><button class="bg-accent text-white px-4 py-2 w-full rounded hover:bg-red-600">
           <span class="lang-text" data-lang="en">Register</span>
           <span class="lang-text" data-lang="fr" style="display: none;">S'inscrire</span>
         </button></a>
@@ -118,16 +137,34 @@
   </div>
 
   <script>
-    // Language toggle, scroll handling, dropdown, popup → remains unchanged
-    // Add Mobile Menu Toggle
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
+    const closeMobileMenu = document.getElementById('close-mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
 
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
+    function openMobileMenu() {
+      mobileMenu.classList.remove('hidden');
+      mobileMenuOverlay.classList.remove('hidden');
+      setTimeout(() => {
+        mobileMenu.classList.remove('-translate-x-full');
+        mobileMenu.classList.add('translate-x-0');
+        mobileMenuOverlay.classList.add('block');
+      }, 10);
+    }
+
+    function closeMobileMenuDrawer() {
+      mobileMenu.classList.remove('translate-x-0');
+      mobileMenu.classList.add('-translate-x-full');
+      mobileMenuOverlay.classList.remove('block');
+      setTimeout(() => {
+        mobileMenu.classList.add('hidden');
+        mobileMenuOverlay.classList.add('hidden');
+      }, 300);
+    }
+
+    menuToggle.addEventListener('click', openMobileMenu);
+    closeMobileMenu.addEventListener('click', closeMobileMenuDrawer);
+    mobileMenuOverlay.addEventListener('click', closeMobileMenuDrawer);
   </script>
-
-  
 </body>
 </html>

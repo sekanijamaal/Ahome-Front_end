@@ -23,39 +23,16 @@
       transition: opacity 0.3s ease;
     }
 
-    :root {
-      --african-pattern-color1: #DAA520;
-      --african-pattern-color2: #A0522D;
-      --african-pattern-color3: #5C4033;
-      --african-pattern-bg-light: #F0EDE5;
-    }
+ 
 
-    .bg-african-grid-pattern {
-      background-color: var(--african-pattern-bg-light);
-      background-image:
-        repeating-linear-gradient(45deg,
-          var(--african-pattern-color1) 0, var(--african-pattern-color1) 2px,
-          transparent 2px, transparent 22px),
-        repeating-linear-gradient(-45deg,
-          var(--african-pattern-color1) 0, var(--african-pattern-color1) 2px,
-          transparent 2px, transparent 22px),
-        repeating-linear-gradient(90deg,
-          transparent 0, transparent 40px,
-          rgba(0, 0, 0, 0.03) 40px, rgba(0, 0, 0, 0.03) 42px),
-        repeating-linear-gradient(0deg,
-          transparent 0, transparent 15px,
-          var(--african-pattern-color2) 15px, var(--african-pattern-color2) 17px);
-      background-size: 44px 44px, 44px 44px, 80px 80px, 30px 30px;
-      background-position: 0 0, 22px 0, 0 0, 0 0;
-      opacity: 0.8;
-    }
+  
 
     .card {
       transition: all 0.3s ease;
     }
 
     .card:hover {
-      background-color: #000 !important;
+      background-color: #2F4D93!important;
       transform: scale(1.02);
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
@@ -109,7 +86,7 @@
   </style>
 </head>
 
-<body class="bg-black">
+<body class="bg-gray-100 text-gray-800 font-sans antialiased">
   <div id="header-placeholder"></div>
 
   <div class="pt-16">
@@ -174,7 +151,7 @@
             <p class="text-sm mb-3">We value your opinions and suggestions.</p>
             <span class="learn-more text-yellow-700 sm:text-orange-600 font-medium text-sm hover:underline transition">Learn more →</span>
         </div>
-        <div class="decorative-emoji absolute right-2 bottom-2 opacity-10 text-6xl transition text-yellow-300 sm:text-gray-300">
+        <div class="decorative-emoji absolute right-2 bottom-2  text-6xl transition text-yellow-300 sm:text-gray-300">
             <i class="fa-solid fa-comments"></i>
         </div>
     </a>

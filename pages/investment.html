@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,23 +10,27 @@
   </title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/assets/css/investment.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8d7xj1z5l5e5c5e5c5e5c5e5c5e5c5e5c5e" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8d7xj1z5l5e5c5e5c5e5c5e5c5e5c5e5c5e" crossorigin="anonymous" />
   <style>
     @keyframes fadeInUp {
       from {
         opacity: 0;
         transform: translateY(30px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
+
     .fade-in-up {
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
+
     .fade-in-up.show {
       opacity: 1;
       transform: translateY(0);
@@ -47,21 +52,19 @@
     });
   </script>
 </head>
+
 <body class="bg-white text-gray-800">
   <div id="header-placeholder" class="text-black"></div>
 
   <div class="flex flex-col md:flex-row min-h-screen items-end fade-in-up">
     <div class="md:w-1/2 w-full flex flex-col justify-end">
       <div class="h-[60vh] md:h-[80vh] overflow-hidden animate-fade-in px-4 -mt-60">
-        <video
-          src="/assets/images/5057325-hd_1080_1920_25fps.mp4"
+        <video src="/assets/images/5057325-hd_1080_1920_25fps.mp4"
           class="w-full h-full object-cover transition-transform duration-700 ease-in-out hover:scale-105 rounded-xl"
-          autoplay
-          muted
-          loop
-          playsinline>
+          autoplay muted loop playsinline>
           <span class="lang-text" data-lang="en">Your browser does not support the video tag.</span>
-          <span class="lang-text" data-lang="fr" style="display: none;">Votre navigateur ne prend pas en charge la balise vidéo.</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Votre navigateur ne prend pas en charge la
+            balise vidéo.</span>
         </video>
       </div>
     </div>
@@ -69,22 +72,31 @@
 
     <div class="md:w-1/2 w-full relative px-6 md:px-12 py-8 space-y-6 fade-in-up">
       <div class="absolute top-0 right-0 w-full h-[300px] md:h-[400px] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=987&q=80" alt="Arrow railing" class="w-full h-full object-cover transition duration-700 ease-in-out hover:brightness-90 rounded-bl-xl" />
+        <img src="https://images.unsplash.com/photo-1599423300746-b62533397364?auto=format&fit=crop&w=987&q=80"
+          alt="Arrow railing"
+          class="w-full h-full object-cover transition duration-700 ease-in-out hover:brightness-90 rounded-bl-xl" />
       </div>
 
       <div class="pt-[420px] space-y-4 transition-opacity duration-700 ease-in-out opacity-0 animate-fade-in-delay">
         <h1 class="text-3xl md:text-4xl font-light leading-snug">
-          <span class="lang-text" data-lang="en">Welcome <em class="italic font-normal">to the</em><br />Investment<br />boutique</span>
-          <span class="lang-text" data-lang="fr" style="display: none;">Bienvenue <em class="italic font-normal">à la</em><br />boutique<br />d'investissement</span>
+          <span class="lang-text" data-lang="en">Welcome <em class="italic font-normal">to
+              the</em><br />Investment<br />boutique</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Bienvenue <em class="italic font-normal">à
+              la</em><br />boutique<br />d'investissement</span>
         </h1>
 
-<a href="/pages/contact.html" class="bg-[#c8ac79] text-white px-6 py-2 rounded-full transition duration-500 ease-in-out hover:bg-[#b59667]">
-  <span class="lang-text" data-lang="en">contact</span>
-  <span class="lang-text" data-lang="fr" style="display: none;">contact</span>
-</a>
+        <div class="pb-10"></div>
+
+        <a href="/pages/contact.html"
+          class="bg-[#c8ac79] text-white px-6 py-2 rounded-full transition duration-500 ease-in-out hover:bg-[#b59667]">
+          <span class="lang-text" data-lang="en">contact</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">contact</span>
+        </a>
 
         <div class="mt-6">
-          <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=987&q=80" alt="Modern apartment interior" class="w-full h-auto rounded-xl shadow-md transition duration-700 ease-in-out hover:scale-105" />
+          <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=987&q=80"
+            alt="Modern apartment interior"
+            class="w-full h-auto rounded-xl shadow-md transition duration-700 ease-in-out hover:scale-105" />
         </div>
       </div>
     </div>
@@ -98,20 +110,28 @@
       <div class="w-full md:w-1/2 px-4 md:px-12 space-y-6">
         <h2 class="text-4xl md:text-5xl font-light leading-tight">
           <span class="lang-text" data-lang="en">What you see is a solid<br />investment.</span>
-          <span class="lang-text" data-lang="fr" style="display: none;">Ce que vous voyez est un investissement<br />solide.</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Ce que vous voyez est un
+            investissement<br />solide.</span>
         </h2>
         <p class="italic text-xl text-gray-600">
           <span class="lang-text" data-lang="en">What you feel are <br />experience, style and <br />taste.</span>
-          <span class="lang-text" data-lang="fr" style="display: none;">Ce que vous ressentez, ce sont <br />l'expérience, le style et <br />le goût.</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">Ce que vous ressentez, ce sont
+            <br />l'expérience, le style et <br />le goût.</span>
         </p>
         <div>
           <h4 class="font-semibold text-lg mb-2">
             <span class="lang-text" data-lang="en">Investments for an exclusive group.</span>
-            <span class="lang-text" data-lang="fr" style="display: none;">Des investissements pour un groupe exclusif.</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">Des investissements pour un groupe
+              exclusif.</span>
           </h4>
           <p class="text-gray-600">
-            <span class="lang-text" data-lang="en">With us you have the opportunity to invest in highly profitable real estate projects and to join an exclusive group. The investment boutique. An extensive track record and the expertise within the CROWND Estates Group guarantee you an excellent risk-return ratio.</span>
-            <span class="lang-text" data-lang="fr" style="display: none;">Avec nous, vous avez la possibilité d'investir dans des projets immobiliers très rentables et de rejoindre un groupe exclusif. La boutique d'investissement. Un vaste historique et l'expertise au sein du groupe CROWND Estates vous garantissent un excellent rapport risque-rendement.</span>
+            <span class="lang-text" data-lang="en">With us you have the opportunity to invest in highly profitable real
+              estate projects and to join an exclusive group. The investment boutique. An extensive track record and the
+              expertise within the CROWND Estates Group guarantee you an excellent risk-return ratio.</span>
+            <span class="lang-text" data-lang="fr" style="display: none;">Avec nous, vous avez la possibilité d'investir
+              dans des projets immobiliers très rentables et de rejoindre un groupe exclusif. La boutique
+              d'investissement. Un vaste historique et l'expertise au sein du groupe CROWND Estates vous garantissent un
+              excellent rapport risque-rendement.</span>
           </p>
         </div>
       </div>
@@ -137,7 +157,8 @@
         </h3>
         <p class="text-gray-600 mt-2">
           <span class="lang-text" data-lang="en">in highly profitable real estate projects</span>
-          <span class="lang-text" data-lang="fr" style="display: none;">dans des projets immobiliers très rentables</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">dans des projets immobiliers très
+            rentables</span>
         </p>
       </div>
       <div class="border-b pb-4">
@@ -163,59 +184,69 @@
     </div>
   </section>
 
-  <section class="relative w-full h-[80vh] bg-cover bg-center flex items-center justify-center text-center text-white fade-in-up" style="background-image: url('/assets/images/house7.jpg.jpg');">
+  <section
+    class="relative w-full h-[80vh] bg-cover bg-center flex items-center justify-center text-center text-white fade-in-up"
+    style="background-image: url('/assets/images/house7.jpg.jpg');">
     <div class="bg-black/30 w-full h-full absolute top-0 left-0 z-0"></div>
     <div class="relative z-10 px-4">
       <h2 class="text-5xl md:text-6xl font-light leading-tight">
         <span class="lang-text" data-lang="en">Claim in action.<br /><span class="italic">Results.</span></span>
-        <span class="lang-text" data-lang="fr" style="display: none;">La réclamation en action.<br /><span class="italic">Résultats.</span></span>
+        <span class="lang-text" data-lang="fr" style="display: none;">La réclamation en action.<br /><span
+            class="italic">Résultats.</span></span>
       </h2>
     </div>
   </section>
 
-<section class="bg-white py-24 px-6 md:px-20">
+  <section class="bg-white py-24 px-6 md:px-20">
     <h2 class="text-4xl text-center font-bold mb-12">
-        <span class="lang-text" data-lang="en">What Our Clients Say</span>
-        <span class="lang-text" data-lang="fr" style="display: none;">Ce Que Disent Nos Clients</span>
+      <span class="lang-text" data-lang="en">What Our Clients Say</span>
+      <span class="lang-text" data-lang="fr" style="display: none;">Ce Que Disent Nos Clients</span>
     </h2>
     <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-gray-50 p-6 rounded-lg shadow flex flex-col items-center text-center">
-            <img src="/assets/images/napat-saeng-mVGW8j9rrC4-unsplash.jpg" alt="Alice B. Profile" class="w-20 h-20 rounded-full object-cover mb-4 ring-2 ring-gray-300">
-            <p class="italic text-gray-700 mb-4">
-                <span class="lang-text" data-lang="en">"Excellent service and support! Helped us find our dream home in no time."</span>
-                <span class="lang-text" data-lang="fr" style="display: none;">"Excellent service et soutien ! Nous a aidés à trouver la maison de nos rêves en un rien de temps."</span>
-            </p>
-            <p class="font-semibold text-sm text-gray-800">
-                <span class="lang-text" data-lang="en">— Alice B., Lomé</span>
-                <span class="lang-text" data-lang="fr" style="display: none;">— Alice B., Lomé</span>
-            </p>
-        </div>
+      <div class="bg-gray-50 p-6 rounded-lg shadow flex flex-col items-center text-center">
+        <img src="/assets/images/napat-saeng-mVGW8j9rrC4-unsplash.jpg" alt="Alice B. Profile"
+          class="w-20 h-20 rounded-full object-cover mb-4 ring-2 ring-gray-300">
+        <p class="italic text-gray-700 mb-4">
+          <span class="lang-text" data-lang="en">"Excellent service and support! Helped us find our dream home in no
+            time."</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">"Excellent service et soutien ! Nous a aidés à
+            trouver la maison de nos rêves en un rien de temps."</span>
+        </p>
+        <p class="font-semibold text-sm text-gray-800">
+          <span class="lang-text" data-lang="en">— Alice B., Lomé</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">— Alice B., Lomé</span>
+        </p>
+      </div>
 
-        <div class="bg-gray-50 p-6 rounded-lg shadow flex flex-col items-center text-center">
-            <img src="/assets/images/1.jpg" alt="Marc D. Profile" class="w-20 h-20 rounded-full object-cover mb-4 ring-2 ring-gray-300">
-            <p class="italic text-gray-700 mb-4">
-                <span class="lang-text" data-lang="en">"A trustworthy team with unmatched professionalism and insight."</span>
-                <span class="lang-text" data-lang="fr" style="display: none;">"Une équipe digne de confiance avec un professionnalisme et une perspicacité inégalés."</span>
-            </p>
-            <p class="font-semibold text-sm text-gray-800">
-                <span class="lang-text" data-lang="en">— Marc D., Paris</span>
-                <span class="lang-text" data-lang="fr" style="display: none;">— Marc D., Paris</span>
-            </p>
-        </div>
+      <div class="bg-gray-50 p-6 rounded-lg shadow flex flex-col items-center text-center">
+        <img src="/assets/images/1.jpg" alt="Marc D. Profile"
+          class="w-20 h-20 rounded-full object-cover mb-4 ring-2 ring-gray-300">
+        <p class="italic text-gray-700 mb-4">
+          <span class="lang-text" data-lang="en">"A trustworthy team with unmatched professionalism and insight."</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">"Une équipe digne de confiance avec un
+            professionnalisme et une perspicacité inégalés."</span>
+        </p>
+        <p class="font-semibold text-sm text-gray-800">
+          <span class="lang-text" data-lang="en">— Marc D., Paris</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">— Marc D., Paris</span>
+        </p>
+      </div>
 
-        <div class="bg-gray-50 p-6 rounded-lg shadow flex flex-col items-center text-center">
-            <img src="/assets/images/mahdi-chaghari-BGMuQUY91w4-unsplash.jpg" alt="Kojo M. Profile" class="w-20 h-20 rounded-full object-cover mb-4 ring-2 ring-gray-300">
-            <p class="italic text-gray-700 mb-4">
-                <span class="lang-text" data-lang="en">"Ahome made our investment journey seamless and profitable."</span>
-                <span class="lang-text" data-lang="fr" style="display: none;">"Ahome a rendu notre parcours d'investissement fluide et rentable."</span>
-            </p>
-            <p class="font-semibold text-sm text-gray-800">
-                <span class="lang-text" data-lang="en">— Kojo M., Accra</span>
-                <span class="lang-text" data-lang="fr" style="display: none;">— Kojo M., Accra</span>
-            </p>
-        </div>
+      <div class="bg-gray-50 p-6 rounded-lg shadow flex flex-col items-center text-center">
+        <img src="/assets/images/mahdi-chaghari-BGMuQUY91w4-unsplash.jpg" alt="Kojo M. Profile"
+          class="w-20 h-20 rounded-full object-cover mb-4 ring-2 ring-gray-300">
+        <p class="italic text-gray-700 mb-4">
+          <span class="lang-text" data-lang="en">"Ahome made our investment journey seamless and profitable."</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">"Ahome a rendu notre parcours d'investissement
+            fluide et rentable."</span>
+        </p>
+        <p class="font-semibold text-sm text-gray-800">
+          <span class="lang-text" data-lang="en">— Kojo M., Accra</span>
+          <span class="lang-text" data-lang="fr" style="display: none;">— Kojo M., Accra</span>
+        </p>
+      </div>
     </div>
-</section>
+  </section>
 
   <section class="bg-gray-100 py-24 px-6 md:px-20">
     <h2 class="text-4xl text-center font-bold mb-12">
@@ -236,18 +267,21 @@
     </h2>
     <p class="mb-8">
       <span class="lang-text" data-lang="en">Join the Crownd experience and let's build something great together.</span>
-      <span class="lang-text" data-lang="fr" style="display: none;">Rejoignez l'expérience Crownd et bâtissons ensemble quelque chose de grand.</span>
+      <span class="lang-text" data-lang="fr" style="display: none;">Rejoignez l'expérience Crownd et bâtissons ensemble
+        quelque chose de grand.</span>
     </p>
-    <a href="/pages/contact.html" class="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
+    <a href="/pages/contact.html"
+      class="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
       <span class="lang-text" data-lang="en">Contact Us</span>
       <span class="lang-text" data-lang="fr" style="display: none;">Contactez-Nous</span>
     </a>
   </section>
 
 
- 
+
 
   <div id="footer-placeholder"></div>
   <script src="/assets/js/main.js"></script>
 </body>
+
 </html>

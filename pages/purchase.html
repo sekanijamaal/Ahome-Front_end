@@ -45,7 +45,8 @@
   <div id="header-placeholder"></div>
 
   <!-- Hero Section -->
-  <section class="relative h-[100vh] md:h-[150vh] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');">
+  <section id="hero" class="relative h-[100vh] md:h-[150vh] bg-cover bg-center"
+    style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');">
     <div class="sticky top-0 h-screen flex flex-col justify-center items-center text-center px-6">
       <h1 id="firstText" class="text-4xl sm:text-5xl font-bold text-white mb-6 md:mb-8 text-transition">
         <span class="lang-text" data-lang="en">It's Ahome.</span>
@@ -60,13 +61,16 @@
           <span class="lang-text" data-lang="en">Show project.</span>
           <span class="lang-text" data-lang="fr" style="display: none;">Afficher le projet.</span>
         </h3>
-        <a href="/pages/sell.html" class="mt-4 bg-yellow-400 text-black px-5 py-2 rounded-full shadow hover:scale-105 transition-transform text-sm sm:text-base">
-  <span class="lang-text" data-lang="en">Sell Property</span>
-  <span class="lang-text" data-lang="fr" style="display: none;">Vendre Propriété</span>
-</a>
+         <a href="/pages/sell.html"
+     class="mt-4 bg-[#2F4D93] text-white px-6 py-3 rounded-full shadow hover:bg-[#E23A35] hover:scale-105 transition-transform text-base sm:text-lg">
+    <span class="lang-text" data-lang="en">Sell Property</span>
+    <span class="lang-text" data-lang="fr" style="display: none;">Vendre Propriété</span>
+  </a>
       </div>
     </div>
   </section>
+
+  
 
   <!-- "In the best hands" Section -->
   <section class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-10 px-4 sm:px-6 md:px-10 py-16 md:py-20 max-w-6xl mx-auto text-center md:text-left">
@@ -296,6 +300,30 @@
       </div>
     </form>
   </section>
+
+   <!-- Floating PIP Button -->
+<a id="pip-sell-btn" href="/pages/sell.html"
+   class="hidden fixed bottom-6 right-6 bg-[#2F4D93] text-white px-5 py-3 rounded-full shadow-lg hover:bg-[#E23A35] hover:scale-105 transition-all duration-300 text-sm sm:text-base z-50">
+  <span class="lang-text" data-lang="en">Sell Property</span>
+  <span class="lang-text" data-lang="fr" style="display: none;">Vendre Propriété</span>
+</a>
+<script>
+  // Show floating button when user scrolls past hero section
+  document.addEventListener('DOMContentLoaded', function () {
+    const pipBtn = document.getElementById('pip-sell-btn');
+    const hero = document.getElementById('hero');
+    function togglePipBtn() {
+      const heroRect = hero.getBoundingClientRect();
+      if (heroRect.bottom < 0) {
+        pipBtn.classList.remove('hidden');
+      } else {
+        pipBtn.classList.add('hidden');
+      }
+    }
+    window.addEventListener('scroll', togglePipBtn);
+    togglePipBtn();
+  });
+</script>
 
   <div id="footer-placeholder"></div>
 
