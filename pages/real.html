@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cité Vyno Eco State - Nos Propriétés</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Simple pagination logic
+    function showPage(page) {
+      const pages = document.querySelectorAll('.property-page');
+      pages.forEach((p, i) => {
+        p.classList.add('hidden');
+        if (i === page - 1) p.classList.remove('hidden');
+      });
+      document.querySelectorAll('.page-btn').forEach((btn, i) => {
+        btn.classList.remove('bg-yellow-500','text-white');
+        if (i === page - 1) btn.classList.add('bg-yellow-500','text-white');
+      });
+    }
+    document.addEventListener('DOMContentLoaded', () => showPage(1));
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div id="header-placeholder"></div>
+    <div class="py-10"></div>
+
+  <!-- Hero Section -->
+  <section class="relative bg-cover bg-center h-72" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&q=80');">
+    <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white">
+      <h1 class="text-4xl font-bold">Cité Vyno Eco State</h1>
+      <p class="mt-2">Investir dans l’avenir, bâtir une cité éco-consciente et moderne</p>
+      <p class="mt-1 text-sm">Accueil > Nos Propriétés</p>
+    </div>
+  </section>
+
+  <!-- Properties Section -->
+<div class="flex justify-center items-center w-full">
+  <section class="max-w-6xl w-full bg-white rounded-[3rem] shadow-2xl p-8 md:p-16 -mt-10 relative z-10">
+
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-900">Nos Propriétés</h2>
+      <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+        Explorez les différentes typologies de villas, appartements et immeubles mixtes de la Cité Vyno Eco State.
+      </p>
+    </div>
+
+    <!-- PAGE 1 : Villas F3 -->
+    <div class="property-page" id="page1">
+      <!-- Villa F3-LIP (Plain-pied) -->
+      <div class="grid md:grid-cols-2 gap-12 mb-16 items-center">
+        <img src="/assets/images/real/IM.jpg" alt="Villa F3-LIP" class="rounded-2xl shadow-lg">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Villa F3-LIP (Plain-pied)</h3>
+          <ul class="space-y-2 text-gray-700 mb-6">
+            <li>✔ 2 Chambres – 2 Salles de bain</li>
+            <li>✔ Terrasse extérieure</li>
+            <li>✔ Surface : ~179 m²</li>
+          </ul>
+          <div class="flex gap-4">
+            <button class="view-details-btn bg-yellow-500 text-white px-4 py-2 rounded shadow hover:bg-yellow-600 transition" data-images='["/assets/images/real/IMn_5 - Photo.jpg","/assets/images/real/IMn_2 - Photo.jpg"]'>View Details</button>
+            <button class="interested-btn bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600 transition">Interested</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Villa F3-LI (Duplex) -->
+      <div class="grid md:grid-cols-2 gap-12 mb-16 items-center">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Villa F3-LI (Duplex)</h3>
+          <ul class="space-y-2 text-gray-700 mb-6">
+            <li>✔ 2 Chambres – 2 Salles de bain</li>
+            <li>✔ Jardin privatisé + Parking</li>
+            <li>✔ Surface : ~114 m²</li>
+          </ul>
+          <div class="flex gap-4">
+            <button class="view-details-btn bg-yellow-500 text-white px-4 py-2 rounded shadow hover:bg-yellow-600 transition" data-images='["/assets/images/real/3.png","/assets/images/real/2.png"]'>View Details</button>
+            <button class="interested-btn bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600 transition">Interested</button>
+          </div>
+        </div>
+        <img src="/assets/images/real/1.png" alt="Villa F3-LI" class="rounded-2xl shadow-lg">
+      </div>
+    </div>
+
+    <!-- PAGE 2 : Villas F4 -->
+    <div class="property-page hidden" id="page2">
+      <!-- Villa F4-LI (217 m²) -->
+      <div class="grid md:grid-cols-2 gap-12 mb-16 items-center">
+        <img src="/assets/images/real/A.jpg" alt="Villa F4-LI" class="rounded-2xl shadow-lg">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Villa F4-LI</h3>
+          <ul class="space-y-2 text-gray-700 mb-6">
+            <li>✔ 3 Chambres – 2 Salles de bain</li>
+            <li>✔ Garage intégré + Jardin</li>
+            <li>✔ Surface : ~217 m²</li>
+          </ul>
+          <div class="flex gap-4">
+            <button class="view-details-btn bg-yellow-500 text-white px-4 py-2 rounded shadow hover:bg-yellow-600 transition" data-images='["/assets/images/real/B.jpg","/assets/images/real/C.jpg"]'>View Details</button>
+            <button class="interested-btn bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600 transition">Interested</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Villa F4-LI (143 m²) -->
+      <div class="grid md:grid-cols-2 gap-12 mb-16 items-center">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Villa F4-LI (143 m²)</h3>
+          <ul class="space-y-2 text-gray-700 mb-6">
+            <li>✔ 3 Chambres – 3 Salles de bain</li>
+            <li>✔ Jardin + 3 Terrasses</li>
+            <li>✔ Surface : ~143 m²</li>
+          </ul>
+          <div class="flex gap-4">
+            <button class="view-details-btn bg-yellow-500 text-white px-4 py-2 rounded shadow hover:bg-yellow-600 transition" data-images='["/assets/images/real/EF_3 - Photo.jpg","/assets/images/real/Image1.png"]'>View Details</button>
+            <button class="interested-btn bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600 transition">Interested</button>
+          </div>
+        </div>
+        <img src="/assets/images/real/EF_2 - Photo.jpg" alt="Villa F4-LI" class="rounded-2xl shadow-lg">
+      </div>
+    </div>
+
+    <!-- PAGE 3 : Villas F5 -->
+    <div class="property-page hidden" id="page3">
+      <!-- Villa F5-LI (299 m²) -->
+      <div class="grid md:grid-cols-2 gap-12 mb-16 items-center">
+        <img src="/assets/images/real/Image10.png" alt="Villa F5-LI" class="rounded-2xl shadow-lg">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Villa F5-LI (299 m²)</h3>
+          <ul class="space-y-2 text-gray-700 mb-6">
+            <li>✔ 4 Chambres – 4 Salles de bain</li>
+            <li>✔ Boyerie + Jardin + Terrasses</li>
+            <li>✔ Surface : 299 m²</li>
+          </ul>
+          <div class="flex gap-4">
+            <button class="view-details-btn bg-yellow-500 text-white px-4 py-2 rounded shadow hover:bg-yellow-600 transition" data-images='["/assets/images/real/Image11.png","/assets/images/real/Image12.png"]'>View Details</button>
+            <button class="interested-btn bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600 transition">Interested</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Villa F5-LI (204 m²) -->
+      <div class="grid md:grid-cols-2 gap-12 mb-16 items-center">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Villa F5-LI (204 m²)</h3>
+          <ul class="space-y-2 text-gray-700 mb-6">
+            <li>✔ 4 Chambres – 4 Salles de bain</li>
+            <li>✔ Jardin + 4 Terrasses</li>
+            <li>✔ Surface : 204 m²</li>
+          </ul>
+          <div class="flex gap-4">
+            <button class="view-details-btn bg-yellow-500 text-white px-4 py-2 rounded shadow hover:bg-yellow-600 transition" data-images='["/assets/images/real/Image15.png","/assets/images/real/Image14.png"]'>View Details</button>
+            <button class="interested-btn bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600 transition">Interested</button>
+          </div>
+        </div>
+        <img src="/assets/images/real/Image13.png" alt="Villa F5-LI" class="rounded-2xl shadow-lg">
+      </div>
+    </div>
+
+    <!-- PAGE 4 : Villas F5 suite -->
+    <div class="property-page hidden" id="page4">
+      <!-- Villa F5-LI (239 m²) -->
+      <div class="grid md:grid-cols-2 gap-12 mb-16 items-center">
+        <img src="/assets/images/real/Image16.png" alt="Villa F5-LI" class="rounded-2xl shadow-lg">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Villa F5-LI (239 m²)</h3>
+          <ul class="space-y-2 text-gray-700 mb-6">
+            <li>✔ 4 Chambres – 4 Salles de bain</li>
+            <li>✔ Boyerie + Jardin</li>
+            <li>✔ Surface : 239 m²</li>
+          </ul>
+          <div class="flex gap-4">
+            <button class="view-details-btn bg-yellow-500 text-white px-4 py-2 rounded shadow hover:bg-yellow-600 transition" data-images='["/assets/images/real/Image17.png","/assets/images/real/Image2.png"]'>View Details</button>
+            <button class="interested-btn bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600 transition">Interested</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 5 : Immeubles mixtes -->
+    <div class="property-page hidden" id="page5">
+      <!-- Immeuble Mixte 1-a -->
+      <div class="grid md:grid-cols-2 gap-12 mb-16 items-center">
+        <img src="/assets/images/real/Image20.png" alt="Immeuble Mixte 1-a" class="rounded-2xl shadow-lg">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Immeuble Mixte R+3 (1-a)</h3>
+          <ul class="space-y-2 text-gray-700 mb-6">
+            <li>✔ Boutiques RDC + Appartements</li>
+            <li>✔ Studios & F2, F3, F4</li>
+          </ul>
+          <div class="flex gap-4">
+            <button class="view-details-btn bg-yellow-500 text-white px-4 py-2 rounded shadow hover:bg-yellow-600 transition" data-images='["/assets/images/real/Image21.png","/assets/images/real/Image4.png"]'>View Details</button>
+            <button class="interested-btn bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600 transition">Interested</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Immeuble Mixte 1-b -->
+      <div class="grid md:grid-cols-2 gap-12 mb-16 items-center">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Immeuble Mixte R+3 (1-b)</h3>
+          <ul class="space-y-2 text-gray-700 mb-6">
+            <li>✔ Boutiques RDC + Appartements</li>
+            <li>✔ Studios inclus</li>
+          </ul>
+          <div class="flex gap-4">
+            <button class="view-details-btn bg-yellow-500 text-white px-4 py-2 rounded shadow hover:bg-yellow-600 transition" data-images='["/assets/images/real/Image6.png","/assets/images/real/Image7.png"]'>View Details</button>
+            <button class="interested-btn bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600 transition">Interested</button>
+          </div>
+        </div>
+        <img src="/assets/images/real/Image5.png" alt="Immeuble Mixte 1-b" class="rounded-2xl shadow-lg">
+      </div>
+    </div>
+
+    <!-- PAGE 6 : Immeubles de logements -->
+    <div class="property-page hidden" id="page6">
+      <!-- Immeuble 2-a -->
+      <div class="grid md:grid-cols-2 gap-12 mb-16 items-center">
+        <img src="/assets/images/real/Image7.png" alt="Immeuble 2-a" class="rounded-2xl shadow-lg">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Immeuble de logements 2-a</h3>
+          <ul class="space-y-2 text-gray-700 mb-6">
+            <li>✔ 6 Appartements</li>
+            <li>✔ Typologies F3 & F4</li>
+          </ul>
+          <div class="flex gap-4">
+            <button class="view-details-btn bg-yellow-500 text-white px-4 py-2 rounded shadow hover:bg-yellow-600 transition" data-images='["/assets/images/real/VILLA F4 MOHA  - Photo PHT.png","/assets/images/real/IMG-20241219-WA0053.jpg"]'>View Details</button>
+            <button class="interested-btn bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600 transition">Interested</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Immeuble 2-b -->
+      <div class="grid md:grid-cols-2 gap-12 mb-16 items-center">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Immeuble de logements 2-b</h3>
+          <ul class="space-y-2 text-gray-700 mb-6">
+            <li>✔ 6 Appartements</li>
+            <li>✔ Typologies F3 & F4</li>
+          </ul>
+          <div class="flex gap-4">
+            <button class="view-details-btn bg-yellow-500 text-white px-4 py-2 rounded shadow hover:bg-yellow-600 transition" data-images='["/assets/images/real/IMG-20241219-WA0053.jpg","/assets/images/real/IMG-20241219-WA0077.jpg"]'>View Details</button>
+            <button class="interested-btn bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600 transition">Interested</button>
+          </div>
+        </div>
+        <img src="/assets/images/real/Image9.png" alt="Immeuble 2-b" class="rounded-2xl shadow-lg">
+      </div>
+    </div>
+
+    <!-- PAGE 7 : Immeubles de logements suite -->
+    <div class="property-page hidden" id="page7">
+      <!-- Immeuble 3-a -->
+      <div class="grid md:grid-cols-2 gap-12 mb-16 items-center">
+        <img src="https://picsum.photos/611/400/?apartment" alt="Immeuble 3-a" class="rounded-2xl shadow-lg">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Immeuble de logements 3-a</h3>
+          <ul class="space-y-2 text-gray-700 mb-6">
+            <li>✔ 10 Appartements</li>
+            <li>✔ Typologies F2 & F1</li>
+          </ul>
+          <div class="flex gap-4">
+            <button class="view-details-btn bg-yellow-500 text-white px-4 py-2 rounded shadow hover:bg-yellow-600 transition" data-images='["https://picsum.photos/611/400/?apartment","https://picsum.photos/611/400/?apartment2"]'>View Details</button>
+            <button class="interested-btn bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600 transition">Interested</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Immeuble 3-b -->
+      <div class="grid md:grid-cols-2 gap-12 mb-16 items-center">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Immeuble de logements 3-b</h3>
+          <ul class="space-y-2 text-gray-700 mb-6">
+            <li>✔ 10 Appartements</li>
+            <li>✔ Studios inclus</li>
+          </ul>
+          <div class="flex gap-4">
+            <button class="view-details-btn bg-yellow-500 text-white px-4 py-2 rounded shadow hover:bg-yellow-600 transition" data-images='["https://picsum.photos/612/400/?apartment","https://picsum.photos/612/400/?apartment2"]'>View Details</button>
+            <button class="interested-btn bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600 transition">Interested</button>
+          </div>
+        </div>
+        <img src="https://picsum.photos/612/400/?apartment" alt="Immeuble 3-b" class="rounded-2xl shadow-lg">
+      </div>
+
+      <!-- Immeuble 3-c -->
+      <div class="grid md:grid-cols-2 gap-12 mb-16 items-center">
+        <img src="https://picsum.photos/613/400/?apartment" alt="Immeuble 3-c" class="rounded-2xl shadow-lg">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Immeuble de logements 3-c</h3>
+          <ul class="space-y-2 text-gray-700 mb-6">
+            <li>✔ 10 Appartements</li>
+            <li>✔ Typologies F2 & F1</li>
+          </ul>
+          <div class="flex gap-4">
+            <button class="view-details-btn bg-yellow-500 text-white px-4 py-2 rounded shadow hover:bg-yellow-600 transition" data-images='["https://picsum.photos/613/400/?apartment","https://picsum.photos/613/400/?apartment2"]'>View Details</button>
+            <button class="interested-btn bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-600 transition">Interested</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="max-w-6xl mx-auto px-6 py-10 flex justify-center items-center space-x-4">
+      <button onclick="showPage(1)" class="page-btn px-3 py-1 border rounded">01</button>
+      <button onclick="showPage(2)" class="page-btn px-3 py-1 border rounded">02</button>
+      <button onclick="showPage(3)" class="page-btn px-3 py-1 border rounded">03</button>
+      <button onclick="showPage(4)" class="page-btn px-3 py-1 border rounded">04</button>
+      <button onclick="showPage(5)" class="page-btn px-3 py-1 border rounded">05</button>
+      <button onclick="showPage(6)" class="page-btn px-3 py-1 border rounded">06</button>
+      <button onclick="showPage(7)" class="page-btn px-3 py-1 border rounded">07</button>
+    </div>
+
+  </section>
+</div>
+
+<script>
+  function showPage(page) {
+    document.querySelectorAll(".property-page").forEach(p => p.classList.add("hidden"));
+    document.getElementById("page" + page).classList.remove("hidden");
+  }
+</script>
+
+
+  <div id="footer-placeholder"></div>
+<!-- Popup Modal for Property Images -->
+<div id="property-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-3xl shadow-2xl max-w-4xl w-full p-10 relative">
+    <button id="close-modal" class="absolute top-6 right-8 text-gray-700 text-3xl font-bold">&times;</button>
+    <div class="flex flex-col items-center">
+      <div class="w-full flex justify-center items-center mb-6">
+        <button id="prev-img" class="text-gray-700 text-2xl px-4 py-2">&#8592;</button>
+        <img id="modal-img" src="" alt="Property Image" class="rounded-2xl shadow-lg mx-8 max-h-[32rem] max-w-3xl">
+        <button id="next-img" class="text-gray-700 text-2xl px-4 py-2">&#8594;</button>
+      </div>
+      <div id="modal-img-count" class="text-gray-500 text-base"></div>
+    </div>
+  </div>
+</div>
+  <script src="/assets/js/main.js"></script>
+
+<script>
+  // Modal slider logic
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('property-modal');
+    const modalImg = document.getElementById('modal-img');
+    const closeModal = document.getElementById('close-modal');
+    const prevBtn = document.getElementById('prev-img');
+    const nextBtn = document.getElementById('next-img');
+    const imgCount = document.getElementById('modal-img-count');
+    let images = [];
+    let currentIdx = 0;
+
+    function showModal(imgArr, idx=0) {
+      images = imgArr;
+      currentIdx = idx;
+      modal.classList.remove('hidden');
+      updateModalImg();
+    }
+    function updateModalImg() {
+      modalImg.src = images[currentIdx];
+      imgCount.textContent = `Image ${currentIdx+1} of ${images.length}`;
+      prevBtn.disabled = currentIdx === 0;
+      nextBtn.disabled = currentIdx === images.length-1;
+    }
+    prevBtn.onclick = () => { if (currentIdx > 0) { currentIdx--; updateModalImg(); } };
+    nextBtn.onclick = () => { if (currentIdx < images.length-1) { currentIdx++; updateModalImg(); } };
+    closeModal.onclick = () => { modal.classList.add('hidden'); };
+    window.addEventListener('keydown', e => {
+      if (!modal.classList.contains('hidden')) {
+        if (e.key === 'ArrowLeft') prevBtn.click();
+        if (e.key === 'ArrowRight') nextBtn.click();
+        if (e.key === 'Escape') closeModal.click();
+      }
+    });
+    document.querySelectorAll('.view-details-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const imgs = JSON.parse(this.getAttribute('data-images'));
+        showModal(imgs);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
